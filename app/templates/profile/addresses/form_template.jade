@@ -32,16 +32,16 @@ form(
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.nombre')
 
-      label.item.item-input.item-stacked-label(
-        ng-class="{'item-error': pfaVm.messages.ciudad}"
-      )
-        span.input-label {{::("profile.addresses.city"|translate)}}
-        input(
-          type='text'
-          ng-model='::pfaVm.addressFormData.ciudad'
-        )
-      .errors-wrapper
-        show-error(array-messages='pfaVm.messages.ciudad')
+      //- label.item.item-input.item-stacked-label(
+      //-   ng-class="{'item-error': pfaVm.messages.ciudad}"
+      //- )
+      //-   span.input-label {{::("profile.addresses.city"|translate)}}
+      //-   input(
+      //-     type='text'
+      //-     ng-model='::pfaVm.addressFormData.ciudad'
+      //-   )
+      //- .errors-wrapper
+      //-   show-error(array-messages='pfaVm.messages.ciudad')
 
       label.item.item-input.item-stacked-label(
         ng-class="{'item-error': pfaVm.messages.direccion_uno}"
@@ -67,39 +67,39 @@ form(
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.direccion_dos')
       
-      label.item.item-input.item-stacked-label(
-        ng-class="{'item-error': pfaVm.messages.parroquia}"
-      )
-        span.input-label {{::("profile.addresses.parish"|translate)}}
-        input(
-          type='text'
-          ng-model='pfaVm.addressFormData.parroquia'
-        )
-      .errors-wrapper
-        show-error(array-messages='pfaVm.messages.parroquia')
-
-      label.item.item-input.item-stacked-label(
-        ng-class="{'item-error': pfaVm.messages.barrio}"
-      )
-        span.input-label {{::("profile.addresses.neighborhood"|translate)}}
-        input(
-          type='text'
-          ng-model='pfaVm.addressFormData.barrio'
-        )
-      .errors-wrapper
-        show-error(array-messages='pfaVm.messages.barrio')
-
-      label.item.item-input.item-stacked-label(
-        ng-class="{'item-error': pfaVm.messages.codigo_postal}"
-      )
-        span.input-label {{::("profile.addresses.zipCode"|translate)}}
-        input(
-          type='text'
-          ng-model='pfaVm.addressFormData.codigo_postal'
-        )
-      .errors-wrapper
-        show-error(array-messages='pfaVm.messages.codigo_postal')
-
+      //- label.item.item-input.item-stacked-label(
+      //-   ng-class="{'item-error': pfaVm.messages.parroquia}"
+      //- )
+      //-   span.input-label {{::("profile.addresses.parish"|translate)}}
+      //-   input(
+      //-     type='text'
+      //-     ng-model='pfaVm.addressFormData.parroquia'
+      //-   )
+      //- .errors-wrapper
+      //-   show-error(array-messages='pfaVm.messages.parroquia')
+      //- 
+      //- label.item.item-input.item-stacked-label(
+      //-   ng-class="{'item-error': pfaVm.messages.barrio}"
+      //- )
+      //-   span.input-label {{::("profile.addresses.neighborhood"|translate)}}
+      //-   input(
+      //-     type='text'
+      //-     ng-model='pfaVm.addressFormData.barrio'
+      //-   )
+      //- .errors-wrapper
+      //-   show-error(array-messages='pfaVm.messages.barrio')
+      //- 
+      //- label.item.item-input.item-stacked-label(
+      //-   ng-class="{'item-error': pfaVm.messages.codigo_postal}"
+      //- )
+      //-   span.input-label {{::("profile.addresses.zipCode"|translate)}}
+      //-   input(
+      //-     type='text'
+      //-     ng-model='pfaVm.addressFormData.codigo_postal'
+      //-   )
+      //- .errors-wrapper
+      //-   show-error(array-messages='pfaVm.messages.codigo_postal')
+      
       label.item.item-input.item-stacked-label(
         ng-class="{'item-error': pfaVm.messages.numero_convencional}"
       )
