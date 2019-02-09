@@ -1,0 +1,42 @@
+label.item.item-input.item-stacked-label
+  span.input-label {{::("wishlist.listName"|translate)}}
+  input(
+    class="input-wishlist-name"
+    type="text"
+    ng-model="wishlistsVm.wishlist.nombre"
+    required
+  )
+.errors-wrapper
+  show-error(array-messages="wishlistsVm.messages.nombre")
+
+label.item.item-input.item-stacked-label
+  span.input-label {{::("wishlist.items"|translate)}}
+  .row-wishlist-action
+    button(
+      ng-click="wishlistsVm.redirectCategories()"
+      ng-disabled="!wishlistsVm.editing"
+    ).button.button-clear.button-energized
+      | {{::("wishlist.buttonAddItems"|translate)}}
+    ion-list(ng-if="wishlistsVm.wishlist.provider_items.length > 0")
+      ion-item.wishlist-item(ng-repeat="item in ::wishlistsVm.wishlist.provider_items track by $index")
+        i.icon.ion-checkmark
+        .text {{item.titulo}}
+
+label.item.item-input.item-stacked-label
+  span.input-label {{::("globals.dateDelivery"|translate)}}
+  .row-wishlist-action
+    button(
+      ion-datetime-picker
+      date
+      time
+      am-pm
+      only-valid="{'after': 'today', 'inclusive': true}"
+      ng-model='wishlistsVm.wishlist.entregar_en'
+      type='button'
+    ).button.button-clear.button-energized
+      span(ng-if="!wishlistsVm.wishlist.entregar_en")
+        | {{::("wishlist.buttonAddDate"|translate)}}
+      span(ng-if="wishlistsVm.wishlist.entregar_en")
+        | {{wishlistsVm.wishlist.entregar_en | formatDate:'YYYY-MM-DD HH:mm'}}
+.errors-wrapper
+  show-error(array-messages="wishlistsVm.messages.entregar_en")

@@ -1,0 +1,84 @@
+ion-content(
+  scroll="true"
+)
+  .list.list-inset.list--no-borders.text-center.actions-wrapper
+    button.button.button-clear.button-positive(
+      ng-click="providerProfileVm.showEditModal()"
+    ) {{::('globals.edit'|translate)}}
+
+  .list.list-inset.list--no-borders.resource-details-table
+    .row
+      .col.col-label {{::("RUC"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.ruc}}
+    .row
+      .col.col-label {{::("provider.businessName"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.razon_social}}
+    .row
+      .col.col-label {{::("provider.name"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.nombre_establecimiento}}
+    .row
+      .col.col-label {{::("provider.economicActivity"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.actividad_economica}}
+    .row
+      .col.col-label {{::("provider.LegalRepresentative"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.representante_legal}}
+    .row
+      .col.col-label {{::("provider.phone"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.telefono}}
+    .row
+      .col.col-label {{::("provider.email"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.email}}
+    .row
+      .col.col-label {{::("provider.webSite"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.website}}
+    .row
+      .col.col-label {{::("provider.methodPayment"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.formas_de_pago[0]}} {{providerProfileVm.profileProvider.formas_de_pago[1]}}
+    .row
+      .col.col-label {{::("provider.bank.name"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.banco_nombre}}
+    .row
+      .col.col-label {{::("provider.bank.account"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.banco_numero_cuenta}}
+    .row
+      .col.col-label {{::("provider.bank.type"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.banco_tipo_cuenta}}
+    .row
+      .col.col-label {{::("provider.facebook"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.facebook_handle}}
+    .row
+      .col.col-label {{::("provider.twitter"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.twitter_handle}}
+    .row
+      .col.col-label {{::("provider.instagram"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.instagram_handle}}
+    .row
+      .col.col-label {{::("provider.youtube"|translate)}}
+      .col.value {{providerProfileVm.profileProvider.youtube_handle}}
+
+    .address-container(
+      ng-repeat="office in providerProfileVm.profileProvider.provider_offices"
+    )
+      .row
+        .col.col-label {{::("oficina"|translate)}}
+      .row
+        .col.col-label {{::("provider.openTime"|translate)}}
+        .col.value {{office.hora_de_apertura}}
+      .row
+        .col.col-label {{::("provider.closeTime"|translate)}}
+        .col.value {{office.hora_de_cierre}}
+      .row
+        .col.col-label {{::("provider.initialLaborDay"|translate)}}
+        .col.value {{office.inicio_de_labores}}
+      .row
+        .col.col-label {{::("provider.finalLaborDay"|translate)}}
+        .col.value {{office.final_de_labores}}
+      .row
+        .col.col-label {{::("provider.phone"|translate)}}
+        .col.value {{office.telefono}}
+      .row
+        .col.col-label {{::("provider.address"|translate)}}
+        .col.value {{office.direccion}}
+      .row
+        .col.col-label {{::("provider.city"|translate)}}
+        .col.value {{office.cuidad}}

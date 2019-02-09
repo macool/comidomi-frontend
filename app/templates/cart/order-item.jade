@@ -1,0 +1,32 @@
+ion-modal-view.cart-edit-item-modal.slim-modal
+  ion-content.resource-form(scroll="true")
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive.button-small(
+        ng-click="cartVm.closeModal()"
+      )
+        i.ion-close
+
+    .slim-item-title {{cartVm.currentItem.provider_item.titulo}}
+    .item-image
+      img(
+        ng-src="{{cartVm.currentItem.provider_item.imagenes[0].imagen_url}}"
+      )
+    product-counter(options="cartVm.counterOptions")
+    show-error(array-messages="cartVm.updateErrors.cantidad")
+
+    label.item.item-input.item-stacked-label.item-input--extra-margin
+      span.input-label {{::("cart.observations"|translate)}}
+      textarea(
+        msd-elastic
+        ng-model='cartVm.currentItem.observaciones'
+        placeholder='{{ ::("cart.observacionesPlaceholder" | translate)}}'
+      )
+
+  ion-footer-bar.bar-stable.text-center
+    .constraint-width
+      button.button.button-outline.button-assertive.button-small.button-letter-stretched(
+        ng-click="cartVm.removeOrderItem(cartVm.currentItem)"
+      ) {{ ::("globals.delete" | translate) }}
+      button.button.button-outline.button-positive.button-small.button-letter-stretched(
+        ng-click="cartVm.updateOrderItem()"
+      ) {{ ::("globals.save" | translate) }}

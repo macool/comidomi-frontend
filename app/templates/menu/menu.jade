@@ -1,0 +1,140 @@
+ion-side-menus(enable-menu-with-back-views='false')
+  ion-side-menu-content
+    ion-nav-bar.bar-stable
+      ion-nav-back-button
+      ion-nav-buttons(side='left')
+        button.button.button-icon.button-clear.ion-navicon(menu-toggle='left')
+    ion-nav-view(name='menuContent')
+  ion-side-menu(side='left')
+    ion-content.main-sidebar
+      ion-list
+        ion-item.sidebar-header-current-user--wrapper(
+          menu-close=''
+        )
+          sidebar-header-current-user(
+            show-profile-link="true"
+          )
+
+        ion-item.item-complex
+          .item-content
+            i.icon.ion-home
+            | {{ ::( "globals.index" | translate ) }}
+        ion-item.gray-item(
+          menu-close=''
+          ui-sref='app.services.providers'
+        )
+          li
+            .inner-content {{ ::('menu.client.providers' | translate) }}
+        ion-item.gray-item(
+          menu-close=''
+          ui-sref='app.categories.index'
+        )
+          li
+            .inner-content {{ ::("menu.client.category" | translate) }}
+
+        //- hide categories for now
+          ion-item(
+            menu-close=''
+            ui-sref='app.categories.index'
+          ) {{ ::("menu.client.category" | translate) }}
+          sidebar-only-on-categories
+            ion-item.gray-item(
+              ng-repeat='categorie in menuVm.categories'
+              ui-sref='app.categories.show({id: categorie.id})'
+              menu-close=''
+            )
+              li
+                .inner-content {{::categorie.titulo}}
+
+        //- hide cart for now
+          ion-item(menu-close='' ui-sref='app.cart.index')
+            | {{::("menu.client.cart"|translate)}}
+
+        ion-item.item-complex
+          .item-content
+            i.icon.ion-person
+            | {{::("menu.account"|translate)}}
+        ion-item.gray-item(
+          menu-close=''
+          ui-sref='app.customerorders.index'
+        )
+          li
+            .inner-content
+              | {{ ::("menu.client.myOrders" | translate) }}
+
+        //- wishlists hidden for now
+          ion-item.gray-item(
+            menu-close=''
+            ui-sref='app.wishlist.index'
+          )
+            li
+              .inner-content
+                | {{::("menu.client.myLists"|translate)}}
+
+        ion-item.gray-item(
+          menu-close=''
+          ui-sref='app.billing.addresses'
+        )
+          li
+            .inner-content
+              | {{::("menu.client.billingAddresses"|translate)}}
+        //- not built yet
+          ion-item.gray-item
+            li
+              .inner-content
+                | {{::("menu.client.coupon"|translate)}}
+          ion-item.gray-item
+            li
+              .inner-content
+                | {{::("menu.client.payments"|translate)}}
+
+        ion-item(menu-close='' ui-sref='app.places.index')
+          i.icon.ion-location
+          | {{::("menu.locations"|translate)}}
+
+        //- not built yet
+          ion-item
+            | {{::("menu.invite"|translate)}}
+        ion-item.item-complex(
+          menu-close
+          ng-controller='LoginController as loginVm'
+          ng-click='loginVm.logout()'
+        )
+          .item-content
+            i.icon.ion-power
+            | {{::("menu.logout"|translate)}}
+
+        //- HIDDEN FOR THE MVP
+
+        //- ion-item.item-complex.switch-user-role
+        //-   .item-content
+        //-     i.icon.ion-arrow-swap
+        //-     | {{::("menu.changeTo"|translate)}}
+        //- ion-item.user-type(
+        //-   menu-close=''
+        //-   ui-sref='app.provider.welcome'
+        //-   ng-if='!user.provider_profile'
+        //- )
+        //-   i.icon.ion-pricetags
+        //-   | {{::("menu.user.provider"|translate)}}
+        //- ion-item.user-type(
+        //-   menu-close=''
+        //-   ui-sref='provider.items.index'
+        //-   ng-if='user.provider_profile'
+        //- )
+        //-   i.icon.ion-pricetags
+        //-   | {{::("menu.user.provider"|translate)}}
+        //- ion-item.user-type(
+        //-   menu-close=''
+        //-   ui-sref='app.courier.welcome'
+        //-   ng-if='!user.courier_profile'
+        //- )
+        //-   i.icon.ion-model-s
+        //-   | {{::("menu.user.courier"|translate)}}
+        //- ion-item.user-type(
+        //-   menu-close=''
+        //-   ui-sref='courier.orders'
+        //-   ng-if='user.courier_profile'
+        //- )
+        //-   i.icon.ion-model-s
+        //-   | {{::("menu.user.courier"|translate)}}

@@ -1,0 +1,83 @@
+ion-modal-view.slim-modal
+  form(
+    name='cartVm.formDeliveryAddresses'
+    ng-submit='cartVm.submitCustomerOrderDelivery(cartVm.providerProfile)'
+    novalidate
+  )
+    ion-content.resource-form.checkout-form
+      .ion-nav-buttons.buttons(side="primary")
+        .button.button-clear.button-positive.button-small(
+          ng-click="cartVm.closeModal()"
+        )
+          i.ion-close
+          
+      .slim-item-title
+        | {{ ::cartVm.providerProfile.nombre_establecimiento }}
+
+      .list.list-inset
+        label.item.item-input.item-stacked-label.item-input--no-borders
+          span.input-label {{::("globals.dateDelivery"|translate)}}
+        .delivery-time-wrapper
+          .button.button-clear.button-positive.button-small.button--floating(
+            ng-if="cartVm.providerProfile.customer_order_delivery.deliver_at"
+            ng-click="cartVm.clearDeliveryTime()"
+          ) {{ ::('cart.deliverNow' | translate) }}
+          ion-datetime-picker.item.item-icon-left.datetime-picker.datetime-picker--with-button(
+            date
+            time
+            am-pm
+            only-valid="{'after': 'today', 'inclusive': true}"
+            ng-model='cartVm.providerProfile.customer_order_delivery.deliver_at'
+          )
+            i.icon.ion-ios-calendar-outline
+            span.placeholder(ng-if="!cartVm.providerProfile.customer_order_delivery.deliver_at")
+              | {{ ::('cart.deliverNow' | translate) }}
+            span(ng-if="cartVm.providerProfile.customer_order_delivery.deliver_at")
+              | {{ cartVm.providerProfile.customer_order_delivery.deliver_at | formatDate }}
+            .button.button-clear.button-positive.button-small(
+              ng-if="!cartVm.providerProfile.customer_order_delivery.deliver_at"
+            ) {{ ::('globals.edit' | translate) }}
+        .errors-wrapper
+          show-error(array-messages="cartVm.messages.deliver_at")
+
+        label.item.item-input.item-input--no-borders.item-stacked-label.select-list-label(
+          ng-class="{'item-error': cartVm.messages.customer_address_id}"
+        )
+          span.input-label {{::("courier.deliveryAddresses"|translate)}}
+        ion-list
+          ion-item.select-list-item(
+            ng-click="cartVm.customerOrderDeliverySelectPickup()"
+            ng-class="{'selected': cartVm.providerProfile.customer_order_delivery.delivery_method === 'pickup'}"
+          )
+            i.ion-android-checkmark-circle
+            span {{ ::("cart.deliveryMethods.pickup" | translate) }}
+        ion-list
+          .editable-list-item-wrapper(
+            ng-repeat="address in cartVm.addresses track by $index"
+          )
+            ion-item.select-list-item.select-list-item--with-button(
+              ng-click="cartVm.assignAddress(address)"
+              ng-class="{'selected': address.selected}"
+            )
+              i.ion-android-checkmark-circle
+              span {{address.nombre}} ({{ address.direccion_uno }})
+            .button.button-clear.button-positive.button-small.edit-list-item(
+              ng-click="cartVm.editCustomerOrderDeliveryAddress(address)"
+            ) {{ ("globals.edit" | translate) }}
+        show-error(array-messages='cartVm.messages.customer_address_id')
+
+      .text-center.fields-wrapper(
+        ng-if="!cartVm.addresses.length > 0"
+      )
+        .item.item-input.item-input--no-borders
+          p {{ ::("profile.addresses.noAddressesSaved" | translate) }}
+        .item.item-input.item-input--no-borders
+          .button.button-outline.button-small.button-energized(
+            type="button"
+            ng-click="cartVm.customerOrderDeliveryNewAddress()"
+          ) {{ ::("cart.addDeliveryAddress" | translate) }}
+
+    ion-footer-bar.bar-stable.bar-footer--tall
+      button.button.button-outline.button-positive(
+        type="submit"
+      ) {{::('courier.ready'|translate)}}

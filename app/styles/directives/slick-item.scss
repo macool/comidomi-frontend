@@ -1,0 +1,45 @@
+.provider-items-in-cart {
+
+  .slick-track {
+    background-color: $white;
+    display: flex;
+  }
+
+  .slick-container {
+    align-self: flex-end;
+    margin: 5px 0;
+    padding: 0 5px;
+
+    .img-wrapper {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    .customer-item-description {
+      text-align: left;
+      font-family: Montserrat-Light;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: -0.5px;
+
+      .customer-item--title {
+        margin-top: 5px;
+        color: $grey-secondary;
+        text-transform: uppercase;
+        max-height: 40px;
+        overflow: hidden;
+      }
+      .customer-item--value {
+        font-size: 13px;
+        color: $dark;
+      }
+    }
+  }
+}

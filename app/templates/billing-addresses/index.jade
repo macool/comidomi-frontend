@@ -1,0 +1,38 @@
+ion-view(
+  view-title="{{::('billingAddress.legendForm'|translate)}}"
+)
+  ion-nav-title
+    .alt-logo
+  ion-content.resource-collection
+    .row
+      .list.list--centered
+        button.button.button-outline.button-default-action(
+          ng-click="billingAddressesVm.showNewModal()"
+        ) {{::("billingAddress.newBillingAddress"|translate)}}
+      
+    .list.list-inset.list--no-borders.resource-collection-table
+      .row.table-headers
+        .col.col-30
+          strong {{::("client.ruc"|translate)}}
+        .col.col-30
+          strong {{::("provider.businessName"|translate)}}
+        .col.col-30
+          strong {{::("client.direccion"|translate)}}
+        .col
+
+      .item.row(
+        ng-repeat='item in billingAddressesVm.billingAddresses'
+      )
+        .col.col-30 {{ ::item.ruc}}
+        .col.col-30 {{ ::item.razon_social}}
+        .col.col-30 {{ ::item.direccion}}
+        .col.col-10
+          a.action(
+            ng-click='billingAddressesVm.showEditModal(item, $index)'
+          )
+            | {{::("globals.edit"|translate)}}
+
+      .col.without-items(
+        ng-if="billingAddressesVm.billingAddresses.length === 0"
+      )
+        p {{::("billingAddress.anyBillingAddress"|translate)}}

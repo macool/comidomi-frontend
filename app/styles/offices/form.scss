@@ -1,0 +1,49 @@
+.office-form {
+  .list.list-inset {
+    // HACK add some spacing so we correctly see all weekdays
+    padding-bottom: 40px;
+  }
+
+  .each-weekday-wrapper {
+    label.item {
+      margin-top: 10px;
+    }
+  }
+
+  .weekday-checkbox-wrapper {
+    border-bottom: 1px solid $button-light-border;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: Montserrat-Light;
+    color: $base-grey;
+
+    .padded {
+      padding-left: 15px;
+    }
+
+    &, span {
+      font-size: 16px;
+    }
+
+    .datetime-picker {
+      display: inline-block;
+      vertical-align: middle;
+
+      span {
+        vertical-align: middle;
+      }
+
+      .datetime-picker-value,
+      .datetime-picker-placeholder {
+        padding-left: 5px;
+        font-family: Montserrat-Regular;
+      }
+    }
+
+    .toggle {
+      .track, span {
+        vertical-align: middle;
+      }
+    }
+  }
+}

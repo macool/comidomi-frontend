@@ -1,0 +1,143 @@
+ion-view(
+  view-title='{{::("courier.orders"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+  ion-content.shipping-request-show-page.courier-shipping-request-common(
+    ng-class="{'has-footer':coVm.order.status !== 'delivered'}"
+  )
+    .map-view(ng-hide="coVm.mapIsHidden")
+      #order-map(data-tap-disabled="true")
+
+    .list.list-inset.list--no-borders.resource-detail-summary
+      h2 {{::("courier.order"|translate)}}{{ ::coVm.order.id }}
+      .status-text
+        | {{ ("shippingRequest.status." + coVm.order.status | translate) }}
+
+    .list.list-inset.list--no-borders.resource-details-table(
+      ng-if="coVm.order.estimated_time_mins"
+    )
+      | {{ ::("courier.deliveryETA" | translate) }}:
+      div
+        strong
+          humanized-countdown-time(
+            show-past="true"
+            time="coVm.order.estimated_delivery_at"
+          )
+        span  (
+        span {{ coVm.order.estimated_delivery_at | toDate | formatDate }}
+        span )
+
+    .list.list-inset.list--no-borders.resource-details-table
+      p.resource-detail-title
+        | {{::("dispatchers.dispatchersData"|translate)}}
+      .row-wrapper.narrow-row-wrapper(
+        ng-repeat="routeLeg in coVm.routeLegs track by $index"
+      )
+        .row.row--bottom-border
+          .col.col-50.label
+            | {{ ::("shippingRequest.routeLegs." + coVm.order.kind + ".leg" + $index | translate) }}
+          .col.col-50.value
+            strong {{ routeLeg.duration.text }}
+            span  -
+            span  {{ routeLeg.distance.text }}
+      .row-wrapper.narrow-row-wrapper(
+        ng-if="coVm.routeLegs.length === 0"
+      )
+        .row.row--bottom-border
+          .col.col-50.label
+            | {{ ::("shippingRequest.availableRoutes" | translate) }}
+          .col.col-50.value
+            | {{ ::("shippingRequest.routesStatus." + coVm.routesStatus | translate) }}
+      .row(
+        ng-if="::coVm.shouldDisplayShippingPrice"
+      )
+        .col.col-50.label {{ ::("order.summary.shippingCosts" | translate) }}
+        .col.col-50.value
+          price(amount="{{coVm.fareCurrencyCents}}"
+                currency="{{coVm.fareCurrency}}")
+      .row
+        .col.col-50.label {{::("courier.ordersNumber"|translate)}}
+        .col.col-50.value {{coVm.order.id}}
+      .row
+        .col.col-50.label {{ ::("shippingRequest.providerName" | translate) }}
+        .col.col-50.value {{ coVm.provider.nombre_establecimiento }}
+      //- TODO
+        .row
+          .col.col-50.label {{::("courier.dateDispatcher"|translate)}}
+          .col.col-50.value 10:00 AM
+        .row
+          .col.col-50.label {{::("courier.nameDispatcher"|translate)}}
+          .col.col-50.value Manuel López
+
+    .list.list-inset.list--no-borders.resource-details-table(
+      ng-if="coVm.shouldDisplayClientDetails"
+    )
+      p.resource-detail-title
+        | {{ ::("shippingRequest.clientDetails" | translate) }}
+      .row
+        .col.col-50.label {{ ::("order.summary.total" | translate) }}
+        .col.col-50.value
+          span
+            price(amount="{{coVm.orderItemsTotal}}"
+                  currency="{{coVm.fareCurrency}}")
+      .row
+        .col.col-50.label {{ ::("cart.paymentMethod" | translate) }}
+        .col.col-50.value {{ ::coVm.order.customer_order.forma_de_pago }}
+      .row
+        .col.col-50.label {{ ::("client.clientName" | translate) }}
+        .col.col-50.value
+          span(
+            ng-if="coVm.order.customer_order.anon_billing_address"
+          ) {{ ::coVm.clientName }}
+          span(
+            ng-if="!coVm.order.customer_order.anon_billing_address"
+          ) {{ ::coVm.billingAddress.razon_social }}
+      .row
+        .col.col-50.label {{::("shippingRequest.deliverToAddress"|translate)}}
+        .col.col-50.value
+          //- direccion for validate_provider
+          //- direccion_uno for shipping req
+          | {{ ::coVm.address.direccion }}
+          | {{ ::coVm.address.direccion_uno }}
+      .row(
+        ng-if="!coVm.order.customer_order.anon_billing_address"
+      )
+        .col.col-50.label {{ ::("client.telefono" | translate) }}
+        .col.col-50.value
+          | {{ ::coVm.billingAddress.telefono }}}
+
+      .narrow-row-wrapper(
+        ng-repeat="orderItem in coVm.order.customer_order.customer_order_items"
+      )
+        .row
+          .col.col-50.label {{ ::("item.item" | translate) }}
+          .col.col-50.value
+            | {{ orderItem.provider_item.titulo }}
+        .row
+          .col.col-50.label {{ ::("shippingRequest.customerOrderItem.cantidad" | translate) }}
+          .col.col-50.value {{ orderItem.cantidad }}
+        .row(
+          ng-if="orderItem.observaciones"
+        )
+          .col.col-50.label {{ ::("cart.observations" | translate) }}
+          .col.col-50.value {{ orderItem.observaciones }}
+
+  ion-footer-bar.bar-stable.text-center(
+    ng-if="coVm.order.status !== 'delivered'"
+  )
+    button.button.button-outline.button-energized.button-small(
+      ng-if="coVm.order.status === 'new'"
+      ng-click="coVm.showTakeRequestModal()"
+    )
+      | {{ ::("shippingRequest.takeRequest" | translate) }}
+    button.button.button-outline.button-energized.button-small(
+      ng-if="coVm.order.status === 'assigned'"
+      ng-click="coVm.courierIsInStore()"
+    )
+      | {{ ::("shippingRequest.pickingUp" | translate) }}
+    button.button.button-outline.button-energized.button-small(
+      ng-if="coVm.order.status === 'in_progress'"
+      ng-click="coVm.courierHasDelivered()"
+    )
+      | {{ ::("shippingRequest.delivered" | translate) }}

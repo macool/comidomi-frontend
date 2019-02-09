@@ -1,0 +1,42 @@
+ion-side-menus(enable-menu-with-back-views='false')
+  ion-side-menu-content
+    ion-nav-bar.bar-stable
+      ion-nav-back-button
+      ion-nav-buttons(side='left')
+        button.button.button-icon.button-clear.ion-navicon(menu-toggle='left')
+    ion-nav-view(name='menuContent')
+  ion-side-menu(side='left')
+    ion-content.main-sidebar
+      ion-list
+        ion-item.sidebar-header-current-user--wrapper(
+          menu-close=''
+        )
+          sidebar-header-current-user
+
+        ion-item(menu-close='' ui-sref='courier.orders')
+          | {{::("menu.courier.orders"|translate)}}
+        //- TODO
+          ion-item
+            | {{::("menu.courier.account"|translate)}}
+          ion-item  
+            | {{::("menu.courier.payments"|translate)}}
+          ion-item  
+            | {{::("menu.courier.history"|translate)}}
+          ion-item  
+            | {{::("menu.invite"|translate)}}
+
+        ion-item.item-complex(
+          menu-close
+          ng-click='loginVm.logout()'
+          ng-controller='LoginController as loginVm'
+        )
+          .item-content {{::("menu.logout"|translate)}}
+
+        ion-item.item-complex.switch-user-role
+          .item-content   {{::("menu.changeTo"|translate)}}
+        ion-item.user-type(
+          menu-close=''
+          ui-sref='app.categories.index'
+        ) {{::("menu.user.buyer"|translate)}}
+        ion-item.user-type(menu-close='' ui-sref='provider.items.index', ng-if='user.provider_profile')
+          | {{::("menu.user.provider"|translate)}}

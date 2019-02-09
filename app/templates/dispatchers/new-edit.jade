@@ -1,0 +1,53 @@
+ion-modal-view
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+    
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="dispatchersVm.closeDispatcher()"
+      ) {{::('globals.cancel'|translate)}}
+
+  form(
+    name='dispatchersVm.form'
+    ng-submit='dispatchersVm.submitDispatcher()'
+    novalidate
+  )
+    ion-content.resource-form
+      .list.list-inset
+        legend {{::("dispatchers.dispatcher"|translate)}}
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': dispatchersVm.form.email.$touched && dispatchersVm.form.email.$invalid}"
+        )
+          span.input-label {{::("globals.email"|translate|uppercase)}}
+          input(
+            type="email"
+            name="email"
+            ng-class="input-error"
+            ng-model="dispatchersVm.dispatcher.email",
+            required
+          )
+        .errors-wrapper
+          .show-errors(ng-messages="dispatchersVm.form.email.$error" ng-if="dispatchersVm.form.email.$touched")
+            span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+            span.message-error(ng-message="email") {{::("form.wrongEmail"|translate)}}
+          show-error(array-messages="dispatchersVm.messages.email")
+
+        label.item.item-input.item-select(
+          ng-class="{'item-error': dispatchersVm.form.provider_office_id.$touched && dispatchersVm.form.provider_office_id.$invalid}"
+        )
+          span.input-label {{::("dispatchers.dispacherOffice"|translate|uppercase)}}
+          select(ng-model='dispatchersVm.dispatcher.provider_office_id'
+                name="provider_office_id"
+                ng-options="item.id as item.direccion for item in dispatchersVm.offices"
+                required)
+        .errors-wrapper
+          .show-errors(ng-messages="dispatchersVm.form.provider_office_id.$error" ng-if="dispatchersVm.form.provider_office_id.$touched")
+            span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+          show-error(array-messages="dispatchersVm.messages.provider_office_id")
+
+    .bar.bar-footer.bar-stable
+      button.button.button-small.button-outline.button-energized(
+        type="submit"
+        ng-disabled="dispatchersVm.form.$invalid"
+      ) {{::("globals.save"|translate)}}

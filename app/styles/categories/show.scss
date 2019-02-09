@@ -1,0 +1,36 @@
+.category-page {
+  font-family: Montserrat-Regular;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  color: $white;
+
+  .category-title {
+    font-family: Montserrat-Bold;
+    font-size: 50px;
+    line-height: 65px;
+    margin-top: 50px;
+    margin-top: 3.5rem;
+    text-align: left;
+    padding: 0 15%;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @media (max-height: $grid-responsive-md-break) {
+      margin-top: 40px;
+      margin-top: 3rem;
+      padding: 0 12%;
+      font-size: 45px;
+      line-height: 55px;
+    }
+  }
+
+  .category-description {
+    text-align: center;
+    padding: 0 8%;
+    font-size: 18px;
+    line-height: 20px;
+    margin: 30px 0;
+  }
+}

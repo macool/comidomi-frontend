@@ -1,0 +1,180 @@
+.cart-page-footer {
+  display: flex;
+  align-items: center;
+
+  .total {
+    font-family: Montserrat-Regular;
+    margin-right: 15px;
+
+    .value {
+      font-size: 32px;
+      color: $button-blue
+    }
+  }
+
+  .button {
+    margin-left: 15px;
+  }
+}
+
+.customer-order-preview {
+  background-color: $light-grey;
+
+  .scroll {
+    padding-bottom: 30px;
+  }
+
+  .cart-delivery-address {
+    color: $grey-secondary;
+    padding: 15px;
+    font-family: Montserrat-Regular;
+    letter-spacing: -0.5px;
+    position: relative;
+    padding-right: 70px; // room for btn
+    letter-spacing: -0.5px;
+
+    span:not(:last-child) {
+      margin-right: 3px;
+    }
+
+    .placeholder-title {
+      text-transform: uppercase;
+    }
+
+    .button-clear {
+      position: absolute;
+      top: 5px;
+      right: 0;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+  }
+
+  .provider-profile-section {
+    &--clear {
+      clear: both;
+      margin-bottom: 20px;
+    }
+
+    .provider-profile--title-wrapper {
+      padding: 15px;
+      background-color: $white;
+      letter-spacing: -0.5px;
+      line-height: 20px;
+    }
+
+    .provider-profile--title {
+      color: $base-yellow;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-family: Montserrat-Regular;
+    }
+
+    .provider-profile--subtitle {
+      float: right;
+      color: $positive;
+      font-family: Montserrat-Regular;
+      font-size: 13px;
+
+      span:not(:last-child) {
+        margin-right: 3px;
+      }
+    }
+  }
+
+  .provider-items-in-cart {
+    border-top: 2px solid $light-grey;
+    border-bottom: 2px solid $light-grey;
+
+    .slick-container:not(:last-child) {
+      // TODO fix border not reaching top
+      border-right: 1px solid $light-grey;
+    }
+  }
+}
+
+.checkout-form {
+  .delivery-time-wrapper {
+    position: relative;
+    border-bottom: 1px solid $button-light-border;
+    margin-bottom: 30px;
+
+    i, span {
+      cursor: pointer;
+    }
+
+    .button {
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      top: 7px;
+      letter-spacing: -0.5px;
+      line-height: 36px;
+      background-color: $white;
+
+      &--floating {
+        float: right;
+        position: relative;
+      }
+    }
+
+    .datetime-picker {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-right: 0;
+    }
+  }
+
+  label.select-list-label.item-input--no-borders {
+    margin-bottom: 5px;
+  }
+
+  .select-list-item {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 15px 15px 10px 15px;
+    font-family: Montserrat-Light;
+
+    &--with-button {
+      padding-right: 40px;
+    }
+
+    &.selected {
+      color: $base-yellow;
+      font-family: Montserrat-Regular;
+      background-color: $light-grey;
+    }
+
+    &:not(:first-child) {
+      border-top: 1px solid $card-border-color;
+    }
+
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
+.checkout-modal-form {
+  .addresses-wrapper {
+    font-family: Montserrat-Light;
+
+    // we programatically add content inside
+    // the form and don't recalculate height
+    margin-bottom: 44px;
+  }
+}
+
+.editable-list-item-wrapper {
+  position: relative;
+
+  .edit-list-item {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    max-height: 46px;
+    line-height: 46px;
+  }
+}

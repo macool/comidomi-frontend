@@ -1,0 +1,214 @@
+.resource-form {
+  font-family: Montserrat-Light;
+
+  .fields-wrapper {
+    padding-bottom: 25px;
+
+    .map-view {
+      height: 300px;
+      margin: 0 0 5px 0;
+
+      #map {
+        width: 100%;
+      }
+    }
+
+    &--spaced {
+      width: 100%;
+      padding-bottom: 100px; // some padding because of fixed bottom bar
+    }
+  }
+
+  legend {
+    border: 0;
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: uppercase;
+    font-family: Galano-Grotesque-Heavy;
+    color: $base-darkteal;
+  }
+
+  p {
+    margin: auto;
+    font-family: Galano-Grotesque-Medium;
+  }
+
+  .input-label {
+    abbr {
+      margin-left: 5px;
+    }
+  }
+
+  .item-error {
+    border-color: $error-red;
+
+    .input-label {
+      color: $error-red;
+    }
+  }
+
+  label.item-input.item-stacked-label,
+  .label.item-input.item-stacked-label,
+  label.item-input.item-select,
+  label.item-input.item-radio,
+  .item-toggle {
+    // override default
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 0;
+    padding-left: 0;
+
+    .input-label {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-family: Galano-Grotesque-Medium;
+      color: $base-darkteal;
+    }
+
+    input {
+      &[type=tel],
+      &[type=text],
+      &[type=email],
+      &[type=number],
+      &[type=password],
+      select {
+        padding-left: 15px;
+        padding-bottom: 0;
+        padding-top: 0;
+        font-size: 16px;
+        height: 25px;
+      }
+    }
+  }
+
+  label.item-stacked-label.item-input--no-borders {
+    margin-bottom: 0;
+  }
+
+  label.item-input.item-select {
+    padding-bottom: 20px;
+
+    &:after {
+      top: 40px;
+    }
+
+    select {
+      left: 0;
+      top: 34px;
+      width: 100%;
+      max-width: 100%;
+      right: initial;
+      direction: ltr;
+    }
+  }
+
+  label.item-input {
+    select, textarea {
+      font-size: 16px;
+      font-family: Montserrat-Light;
+    }
+
+    textarea {
+      margin-top: 5px;
+      padding-left: 15px;
+      padding-bottom: 20px;
+    }
+  }
+
+  label.item-input.item-radio {
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .item-selectize {
+    .selectize-control {
+      .selectize-input {
+        border-top: 0;
+        border-right: 0;
+        border-left: 0;
+        box-shadow: none;
+        border-radius: 0;
+        font-family: Montserrat-Light;
+        font-size: 14px;
+
+        .item {
+          border: 0;
+          padding: 0 10px 0 0;
+        }
+
+        input {
+          height: 20px;
+          font-size: 14px;
+        }
+
+        &:not(.has-items) {
+          input {
+            width: 100% !important;
+          }
+        }
+      }
+
+      .selectize-dropdown {
+        font-family: Montserrat-Light;
+        box-shadow: none;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .item-toggle {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+  }
+
+  .item-radios {
+    .ion-list {
+      width: 100%;
+    }
+  }
+
+  .datetime-picker {
+    color: $base-darkteal;
+    font-family: Montserrat-Light;
+
+    .icon::before {
+      color: $base-darkteal;
+    }
+
+    .input-label {
+      padding-bottom: 7px;
+    }
+    .datetime-picker-value,
+    .datetime-picker-placeholder {
+      padding-left: 15px;
+    }
+
+    &.item {
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      margin-bottom: 30px;
+    }
+
+    &--with-button {
+      padding-right: 40px;
+    }
+  }
+
+  .bar.bar-footer {
+    position: relative;
+  }
+}
+
+// hacking error messages so they float below inputs
+.resource-form {
+  .errors-wrapper {
+    position: absolute;
+    margin-top: -30px;
+
+    .message-error {
+      margin-right: 5px;
+    }
+  }
+}

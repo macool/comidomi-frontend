@@ -1,0 +1,40 @@
+.resource-form {
+  .picture-uploader {
+    cursor: pointer;
+    padding: 20px 0;
+    margin: 10px 0;
+
+    .img-placeholder--legend {
+      margin-top: 15px;
+      text-align: center;
+      color: $base-orange;
+      font-family: Montserrat-Regular;
+    }
+
+    .icon-placeholder-wrapper {
+      text-align: center;
+
+      .icon {
+        color: $base-orange;
+        font-size: 80px;
+      }
+    }
+  }
+
+  .images-previews {
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    cursor: pointer;
+
+    .img-wrapper {
+      display: flex;
+      padding: 5px;
+    }
+
+    img {
+      margin: auto;
+      max-width: 100%;
+      max-height: 130px;
+    }
+  }
+}

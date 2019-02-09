@@ -1,0 +1,12 @@
+machine:
+  ruby:
+    version: 2.1.4
+  node:
+    version: 4.8.6
+  environment:
+    CODECLIMATE_REPO_TOKEN: a3696efbf6046ec3556990cf7877920712045e01721e321f6d13d5a3c12640c0
+deployment:
+  demo:
+    branch: production
+    commands:
+      - bundle exec cap demo deploy

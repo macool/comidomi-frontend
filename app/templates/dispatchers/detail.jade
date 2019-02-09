@@ -1,0 +1,51 @@
+ion-view(
+  view-title='{{::("dispatchers.dispatchers"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-nav-buttons(side="right")
+    provider-notifications
+
+  ion-content.dispatcher-show-page
+    .list.list-inset.list--no-borders.user-img-wrapper
+      img(
+        ng-src="{{::dispatchersVm.dispatcherDetail.user.image_url}}"
+        ng-if="dispatchersVm.dispatcherDetail.user"
+      )
+      i.icon.ion-paper-airplane(
+        ng-if="!dispatchersVm.dispatcherDetail.user"
+      )
+
+    .list.list-inset.list--no-borders.resource-detail-summary.text-center(
+      ng-if="!dispatchersVm.dispatcherDetail.user"
+    )
+      p {{::("dispatchers.notAccepted"|translate)}}
+
+    .list.list-inset.list--no-borders.resource-detail-summary
+      h2(
+        ng-if="dispatchersVm.dispatcherDetail.user"
+      ) {{dispatchersVm.dispatcherDetail.user.to_s}}
+      h3 {{dispatchersVm.dispatcherDetail.email}}
+
+    .row.details-table-header
+      .col.col-60 {{::("dispatchers.dispatchersData"|translate)}}
+      .col.col-40.text-right
+        .button.button-clear.button-positive.button-xsmall(
+          ng-click="dispatchersVm.showEditDispatcher()"
+        ) {{::("globals.edit"|translate)}}
+        .button.button-clear.button-assertive.button-xsmall(
+          ng-click="dispatchersVm.showDeleteDispatcher()"
+        ) {{::("globals.delete"|translate)}}
+
+    .list.list-inset.list--no-borders.resource-details-table
+      .row
+        .col.col-50.label {{::("globals.email"|translate)}}
+        .col.col-50.value {{dispatchersVm.dispatcherDetail.email}}
+      .row
+        .col.col-50.label {{::("user.name"|translate)}}
+        .col.col-50.value {{dispatchersVm.dispatcherDetail.user.to_s}}
+      .row
+        .col.col-50.label {{::("dispatchers.dispacherOffice"|translate)}}
+        .col.col-50.value
+          | {{dispatchersVm.dispatcherDetail.provider_office.direccion}}

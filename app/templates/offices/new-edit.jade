@@ -1,0 +1,134 @@
+ion-modal-view
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="officesVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  form(
+    name='officesVm.form'
+    ng-submit='officesVm.submitOffice()'
+    novalidate
+  )
+    ion-content.resource-form.office-form
+      .list.list-inset.fields-wrapper
+        legend(ng-if="!officesVm.office.id")
+          | {{::("globals.new"|translate)}} {{::("office.office"|translate)}}
+        legend(ng-if="officesVm.office.id")
+          | {{::("globals.edit"|translate)}} {{::("office.office"|translate)}}
+
+        maps(
+          lat="officesVm.office.lat"
+          lon="officesVm.office.lon"
+          direccion="officesVm.office.direccion"
+          geolocation-message-key="officesVm.geolocationMessageKey"
+          default-in-current-geolocation="officesVm.mapDefaultInCurrentGeolocation"
+        )
+        show-error(array-messages='officesVm.messages.lat || officesVm.messages.lon')
+        .text-stable {{ officesVm.geolocationMessageKey | translate }}
+
+        label.item.item-input.item-select
+          span.input-label {{ ::("office.place"|translate) }}
+          select(
+            ng-model='officesVm.office.place_id'
+            ng-options="place.id as place.full_str for place in officesVm.places"
+          )
+        .errors-wrapper
+          show-error(array-messages="officesVm.messages.place_id")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': officesVm.form.direccion.$touched && officesVm.form.direccion.$invalid}"
+        )
+          span.input-label.required {{::("office.direccion"|translate)}}
+          input(
+            type='text'
+            name='direccion'
+            ng-model='officesVm.office.direccion'
+            ng-class="input-error"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(
+            ng-messages="officesVm.form.direccion.$error"
+            ng-if="officesVm.form.direccion.$touched"
+          )
+            span.message-error(ng-message="required")
+              | {{::("form.requiredField"|translate)}}
+          show-error(array-messages="officesVm.messages.direccion")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': officesVm.form.telefono.$touched && officesVm.form.telefono.$invalid}"
+          )
+          span.input-label.required {{::("office.telefono"|translate)}}
+          input(
+            type='text'
+            name='telefono'
+            ng-model='officesVm.office.telefono'
+            ng-class="input-error"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(
+            ng-messages="officesVm.form.telefono.$error"
+            ng-if="officesVm.form.telefono.$touched"
+          )
+            span.message-error(ng-message="required")
+              | {{::("form.requiredField"|translate)}}
+          show-error(array-messages='officesVm.messages.telefono')
+
+        legend
+          | {{ ::("office.weekdays.collectionTitle" | translate) }}
+
+        .each-weekday-wrapper(
+          ng-repeat="officeWeekday in ::officesVm.office.weekdays_attributes"
+        )
+          label.item.item-input.item-stacked-label.item-input--no-borders
+            span.input-label
+              | {{ ::("globals.dayNames." + officeWeekday.day | translate)}}
+          .weekday-checkbox-wrapper
+            label.toggle
+              input(
+                type="checkbox"
+                ng-model="officeWeekday.abierto"
+              )
+              .track
+                .handle
+              span.padded(
+                ng-if="!officeWeekday.abierto"
+              ) {{ ::("office.weekdays.cerrado" | translate) }}
+
+            ion-datetime-picker.datetime-picker(
+              time
+              ng-model='officeWeekday.hora_de_apertura'
+              ng-if="officeWeekday.abierto"
+            )
+              span.padded
+                | {{ ::("office.weekdays.openFromPlaceholder" | translate) }}
+              span.datetime-picker-placeholder(
+                ng-if="!officeWeekday.hora_de_apertura"
+              ) {{ ::("office.weekdays.selectHourPlaceholder" | translate) }}
+
+              span.datetime-picker-value
+                | {{ officeWeekday.hora_de_apertura | date: 'HH:mm a' }}
+
+            ion-datetime-picker.datetime-picker(
+              time
+              ng-model='officeWeekday.hora_de_cierre'
+              ng-if="officeWeekday.abierto"
+            )
+              span.padded
+                | {{ ::("office.weekdays.openUntilPlaceholder" | translate) }}
+              span.datetime-picker-placeholder(
+                ng-if="!officeWeekday.hora_de_cierre"
+              ) {{ ::("office.weekdays.selectHourPlaceholder" | translate) }}
+
+              span.datetime-picker-value
+                | {{ officeWeekday.hora_de_cierre | date: 'HH:mm a' }}
+
+    .bar.bar-footer.bar-stable
+      button.button.button-small.button-outline.button-energized(
+        type="submit"
+        ng-disabled="officesVm.form.$invalid"
+      ) {{::("globals.save"|translate)}}

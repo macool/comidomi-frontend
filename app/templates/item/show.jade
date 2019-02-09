@@ -1,0 +1,58 @@
+ion-view(
+  view-title='{{::item.titulo}}'
+)
+  ion-nav-title
+    .alt-logo
+  ion-content.item-show-page
+    .row.stretched-row
+      .col.col-70
+        ion-toggle(
+          ng-change="providerItemVm.updateStock()"
+          ng-model="providerItemVm.providerItem.en_stock"
+          toggle-class="toggle-energized"
+        ) {{::("item.stockLabel"|translate)}}
+
+      .col.col-30.text-right
+        button.button.button-clear.button-positive(
+          ng-click="providerItemVm.showEditModal()"
+        ) {{::("globals.edit"|translate)}}
+
+    slick-wrapper(settings="providerItemVm.slickSettings" ng-if="providerItemVm.imagesLoaded")
+      .slick-container(ng-repeat="image in ::providerItemVm.providerItem.imagenes")
+        .slick-content
+          img(data-lazy="{{::image.imagen_url}}")
+
+    .list.list-inset.list--no-borders.resource-detail-summary
+      h2 {{providerItemVm.providerItem.titulo}}
+      p {{providerItemVm.providerItem.descripcion}}
+
+    .list.list-inset.list--no-borders.resource-details-table
+      p {{::("item.productDetails"|translate)}}
+      .row
+        .col.col-50.label {{"item.price"|translate}}
+        .col.col-50.value
+          price(amount="{{providerItemVm.providerItem.precio_cents}}"
+                currency="{{providerItemVm.providerItem.precio_currency}}")
+      .row
+        .col.col-50.label {{::("item.unidadMedida"|translate)}}
+        .col.col-50.value {{providerItemVm.providerItem.unidad_medida}}
+      .row
+        .col.col-50.label {{::("item.cantidad"|translate)}}
+        .col.col-50.value
+          | {{::("item.cantidadPrefix"|translate)}}{{providerItemVm.providerItem.cantidad}}
+      .row
+        .col.col-50.label {{::("item.providerItemCategory"|translate)}}
+        .col.col-50.value {{providerItemVm.providerItemCategoryName}}
+      .row
+        .col.col-50.label {{::("item.observaciones"|translate)}}
+        .col.col-50.value {{providerItemVm.providerItem.observaciones}}
+
+    .list.list-inset.list--no-borders.text-center
+      .button.button-clear.button-assertive(
+        ng-click="providerItemVm.unregisterItem()"
+      ) {{::("item.unregisterItem"|translate)}}
+
+  ion-footer-bar(class="bar-stable")
+    button.button.button-outline.button-energized.button-small(
+      ng-click="providerItemVm.seeAsCustomer()"
+    ) {{::("item.seeAsCustomer"|translate)}}

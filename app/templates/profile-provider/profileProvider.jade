@@ -1,0 +1,33 @@
+ion-view(
+  view-title='{{::profile.title|translate}}'
+)
+  ion-nav-title
+    .alt-logo
+  ion-content.has-header.show-profile-page(
+    scroll="false"
+    overflow-scroll="false"
+  )
+    .row
+      .col.profile-header
+        img.img-profile(
+          ng-src="{{ siteVm.providerImageURL }}"
+        )
+        .user-name {{ siteVm.userName }}
+    .profile-body
+      ion-tabs.tabs-top.tabs-striped
+        ion-tab(
+          title="{{::('profile.tabs.info'|translate)}}"
+          ui-sref="provider.profile-provider.info"
+        )
+          ion-nav-view(name='menuContent@profileProviderInfo')
+        ion-tab(
+          title="{{::('profile.tabs.metrics'|translate)}}"
+          ui-sref="provider.profile-provider.metrics"
+        )
+          ion-nav-view(name='menuContent@profileProviderMetrics')
+        ion-tab(
+          title="{{::('profile.tabs.managements'|translate)}}"
+          ui-sref="provider.profile-provider.managements"
+        )
+          ion-nav-view(name='menuContent@profileProviderManagements')
+

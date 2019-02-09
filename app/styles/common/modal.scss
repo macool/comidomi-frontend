@@ -1,0 +1,50 @@
+.slim-modal {
+  margin: 15px auto;
+  left: 0;
+  right: 0;
+
+  @media (max-width: $grid-responsive-md-break) {
+    min-height: 65%;
+    max-width: 85%;
+  }
+
+  @media (max-width: $grid-responsive-sm-break) {
+    min-height: 80%;
+    max-height: 95%;
+  }
+
+  ion-content {
+    padding: 0 10px 10px 10px;
+  }
+
+  .slim-item-title {
+    font-size: 15px;
+    margin: 25px 0 10px 0;
+    text-align: center;
+    font-family: Montserrat-Light;
+    text-transform: uppercase;
+  }
+
+  .ion-nav-buttons {
+    position: absolute;
+    right: -5px;
+    top: -15px;
+    z-index: 1;
+
+    .button-clear.button-small {
+      min-height: 30px;
+      font-size: 14px;
+      color: $base-yellow;
+
+      i {
+        font-size: 20px
+      }
+    }
+  }
+
+  .list.list-inset {
+    // let's narrow stuff
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

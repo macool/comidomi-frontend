@@ -1,0 +1,82 @@
+.list.list-inset.item-form
+  legend {{::("provider.formLegendSecond"|translate)}}
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': providerVm.providerForm.telefono.$touched && providerVm.providerForm.telefono.$invalid}"
+  )
+    span.input-label {{::("provider.phone"|translate)}}*
+    input(
+      type='tel',
+      name='telefono',
+      ng-model='providerVm.provider.telefono',
+      required
+    )
+  .errors-wrapper
+    span.show-errors(ng-messages="providerVm.providerForm.telefono.$error" ng-if="providerVm.providerForm.telefono.$touched")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+    show-error(array-messages="providerVm.errors.telefono")
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': providerVm.providerForm.email.$touched && providerVm.providerForm.email.$invalid}"
+  )
+    span.input-label {{::("provider.email"|translate)}}*
+    input(
+      type='email',
+      placeholder='user@mydomain.com',
+      name='email',
+      ng-model='providerVm.provider.email',
+      required
+    )
+  .errors-wrapper
+    span.show-errors(ng-messages="providerVm.providerForm.email.$error" ng-if="providerVm.providerForm.email.$touched")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+      span.message-error(ng-message="email") {{::("form.wrongEmail"|translate)}}
+    show-error(array-messages="providerVm.errors.email")
+
+  label.item.item-input.item-stacked-label
+    span.input-label {{::("provider.webSite"|translate)}}
+    input(
+      type='text',
+      name='website',
+      ng-model='providerVm.provider.website'
+    )
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': providerVm.touchedPayments && providerVm.providerForm.paymentMethods.$invalid}"
+  )
+    span.input-label {{::("provider.methodPayment"|translate)}}*
+    payment-methods(methods="providerVm.paymentMethods" profile-form="providerVm.providerForm" touched="providerVm.touchedPayments")
+  .errors-wrapper
+    span.show-errors.ng-active(ng-messages="providerVm.providerForm.paymentMethods.$invalid" ng-if="providerVm.touchedPayments && providerVm.providerForm.paymentMethods.$invalid")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+    show-error(array-messages="providerVm.errors.formas_de_pago")
+
+  label.item.item-input.item-stacked-label
+    span.input-label {{::("provider.logo"|translate)}}
+  .picture-uploader(
+    ng-if="!providerVm.provider.logotipo"
+    type="file"
+    ngf-select
+    ng-model="providerVm.provider.logotipo"
+    ngf-capture="'camera'"
+    accept="image/*"
+  )
+    .icon-placeholder-wrapper
+      i.icon.ion-camera
+    .img-placeholder--legend {{::("item.addImages"|translate)}}
+
+  .images-previews.text-center(ng-if="providerVm.provider.logotipo")
+    .img-wrapper.col-offset-25.col-50
+      img(
+        ngf-src="providerVm.provider.logotipo"
+        type="file"
+        ngf-select
+        ng-model="providerVm.provider.logotipo"
+        ngf-capture="'camera'"
+        accept="image/*"
+      )
+    .button.button-clear.button-positive(
+      ng-click="providerVm.removeImage()"
+    )
+        | Quitar imagen
+  show-error(array-messages='providerVm.errors.imagen')

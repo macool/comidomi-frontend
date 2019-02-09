@@ -1,0 +1,23 @@
+slick-wrapper(
+  settings="sicVm.settings"
+  ng-if="sicVm.slickFlag"
+)
+  .slick-container(
+    ng-repeat="providerItem in sicVm.data.customer_order_items track by $index"
+    ng-if="sicVm.slickFlag"
+  )
+    .slick-content(ng-click="sicVm.onClick()(providerItem)" class="clickeable")
+      .img-wrapper
+        img.img-circle(
+          data-lazy="{{ ::providerItem.provider_item.imagenes[0].imagen_url | defaultImage }}"
+        )
+
+      .customer-item-description
+        .customer-item--title
+          | {{ ::providerItem.provider_item.titulo }}
+        .customer-item--value
+          span
+            | {{::providerItem.cantidad}}
+            | x&nbsp;
+            price(amount="{{providerItem.provider_item_precio_cents * providerItem.cantidad}}"
+                  currency="{{providerItem.provider_item_precio_currency}}")

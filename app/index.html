@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="bower_components/ion-datetime-picker/release/ion-datetime-picker.min.css" />
+    <link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <link href="styles/main.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="styles/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/ionic/release/js/ionic.js"></script>
+    <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
+    <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
+    <script src="bower_components/angular-cookie/angular-cookie.js"></script>
+    <script src="bower_components/ng-token-auth/dist/ng-token-auth.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/airbrake-js-client/dist/client.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="bower_components/angular-slick-carousel/dist/angular-slick.js"></script>
+    <script src="bower_components/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/moment/locale/es.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/ng-file-upload/dist/ng-file-upload.js"></script>
+    <script src="bower_components/angular-elastic/elastic.js"></script>
+    <script src="bower_components/sifter/sifter.js"></script>
+    <script src="bower_components/microplugin/src/microplugin.js"></script>
+    <script src="bower_components/selectize/dist/js/selectize.js"></script>
+    <script src="bower_components/array-find/index.js"></script>
+    <script src="bower_components/mdn-array.prototype.includes/index.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/array-polyfill/array-polyfill.js"></script>
+    <script src="bower_components/angular-input-match/dist/angular-input-match.min.js"></script>
+    <script src="bower_components/number.isinteger/index.js"></script>
+    <script src="bower_components/Geolib/dist/geolib.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <!-- build:js scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/templates.js"></script>
+    <script src="scripts/config/fake-storage.js"></script>
+    <script src="scripts/config/constants-config.js"></script>
+    <script src="scripts/config/login-config.js"></script>
+    <script src="scripts/config/translations-config.js"></script>
+    <script src="scripts/config/app-constants.js"></script>
+    <script src="scripts/config/http-provider.js"></script>
+    <script src="scripts/config/routes/core-routes.js"></script>
+    <script src="scripts/config/routes/app-routes.js"></script>
+    <script src="scripts/config/routes/provider-routes.js"></script>
+    <script src="scripts/config/routes/courier-routes.js"></script>
+    <script src="scripts/config/ionic-config.js"></script>
+    <script src="scripts/config/moment-config.js"></script>
+    <script src="scripts/config/touch-provider.js"></script>
+    <script src="scripts/config/status-bar.js"></script>
+    <script src="scripts/config/push-notifications.js"></script>
+    <script src="scripts/config/notification-handlers.js"></script>
+    <!-- controllers -->
+    <script src="scripts/controllers/site-controller.js"></script>
+    <script src="scripts/controllers/login-controller.js"></script>
+    <script src="scripts/controllers/register-controller.js"></script>
+    <script src="scripts/controllers/reset-controller.js"></script>
+    <script src="scripts/controllers/intro-controller.js"></script>
+    <script src="scripts/controllers/map-controller.js"></script>
+    <script src="scripts/controllers/pre-login-controller.js"></script>
+    <script src="scripts/controllers/categories-controller.js"></script>
+    <script src="scripts/controllers/category-controller.js"></script>
+    <script src="scripts/controllers/provider-controller.js"></script>
+    <script src="scripts/controllers/product/products-controller.js"></script>
+    <script src="scripts/controllers/items-controller.js"></script>
+    <script src="scripts/controllers/provider-detail-controller.js"></script>
+    <script src="scripts/controllers/clients-controller.js"></script>
+    <script src="scripts/controllers/error-controller.js"></script>
+    <script src="scripts/controllers/courier-controller.js"></script>
+    <script src="scripts/controllers/product/product-controller.js"></script>
+    <script src="scripts/controllers/profile/profile-addresses-controller.js"></script>
+    <script src="scripts/controllers/profile/profile-info-controller.js"></script>
+    <script src="scripts/controllers/profile/profile-create-addresses-controller.js"></script>
+    <script src="scripts/controllers/profile/profile-update-addresses-controller.js"></script>
+    <script src="scripts/controllers/profile-provider/profile-provider-update-info-controller.js"></script>
+    <script src="scripts/controllers/cart-controller.js"></script>
+    <script src="scripts/controllers/courier/orders.js"></script>
+    <script src="scripts/controllers/menu-controller.js"></script>
+    <script src="scripts/controllers/wishlists-controller.js"></script>
+    <script src="scripts/controllers/billing-addresses-controller.js"></script>
+    <script src="scripts/controllers/offices-controller.js"></script>
+    <script src="scripts/controllers/office-controller.js"></script>
+    <script src="scripts/controllers/dispatchers-controller.js"></script>
+    <script src="scripts/controllers/dispatcher-controller.js"></script>
+    <script src="scripts/controllers/provider/item-controller.js"></script>
+    <script src="scripts/controllers/terms-and-cond-controller.js"></script>
+    <script src="scripts/controllers/customer/orders/customer-orders-index-controller.js"></script>
+    <script src="scripts/controllers/customer/orders/customer-order-controller.js"></script>
+    <script src="scripts/controllers/provider/orders-controller.js"></script>
+    <script src="scripts/controllers/provider/order-show-controller.js"></script>
+    <script src="scripts/controllers/places-controller.js"></script>
+    <script src="scripts/controllers/provider/provider-main-controller.js"></script>
+    <script src="scripts/controllers/courier/courier-order-show-controller.js"></script>
+    <script src="scripts/controllers/services/providers-controller.js"></script>
+    <!-- services -->
+    <script src="scripts/services/geolocation-service.js"></script>
+    <script src="scripts/services/interceptors-service.js"></script>
+    <script src="scripts/services/session-service.js"></script>
+    <script src="scripts/services/native-session-service.js"></script>
+    <script src="scripts/services/provider-service.js"></script>
+    <script src="scripts/services/providers-service.js"></script>
+    <script src="scripts/services/airbrake-service.js"></script>
+    <script src="scripts/services/products-service.js"></script>
+    <script src="scripts/services/items-service.js"></script>
+    <script src="scripts/services/categories-service.js"></script>
+    <script src="scripts/services/clients-service.js"></script>
+    <script src="scripts/services/modal-service.js"></script>
+    <script src="scripts/services/category-service.js"></script>
+    <script src="scripts/services/common-service.js"></script>
+    <script src="scripts/services/courier-service.js"></script>
+    <script src="scripts/services/profile/profile-service.js"></script>
+    <script src="scripts/services/profile/profile-addresses-service.js"></script>
+    <script src="scripts/services/error-handler-service.js"></script>
+    <script src="scripts/services/maps-service.js"></script>
+    <script src="scripts/services/map-directions-service.js"></script>
+    <script src="scripts/services/cart-service.js"></script>
+    <script src="scripts/services/user-auth-service.js"></script>
+    <script src="scripts/services/wishlists-service.js"></script>
+    <script src="scripts/services/billing-addresses-service.js"></script>
+    <script src="scripts/services/offices-service.js"></script>
+    <script src="scripts/services/dispatchers-service.js"></script>
+    <script src="scripts/services/item-categories-service.js"></script>
+    <script src="scripts/services/customer-orders-service.js"></script>
+    <script src="scripts/services/customer-order-delivery-service.js"></script>
+    <script src="scripts/services/pusher-service.js"></script>
+    <script src="scripts/services/geocoding-service.js"></script>
+    <script src="scripts/services/provider-customer-orders-service.js"></script>
+    <script src="scripts/services/authorization-service.js"></script>
+    <script src="scripts/services/places-service.js"></script>
+    <script src="scripts/services/user-accounts.js"></script>
+    <script src="scripts/services/tos-service.js"></script>
+    <script src="scripts/services/shipping-request-service.js"></script>
+    <script src="scripts/services/user-devices-service.js"></script>
+    <!-- directives -->
+    <script src="scripts/directives/back-button/back-button.js"></script>
+    <script src="scripts/directives/autosize-input/autosize-input.js"></script>
+    <script src="scripts/directives/show-error/show-error.js"></script>
+    <script src="scripts/directives/product-counter/product-counter.js"></script>
+    <script src="scripts/directives/link-button/link-button.js"></script>
+    <script src="scripts/directives/action-button/action-button.js"></script>
+    <script src="scripts/directives/slick-wrapper/slick-wrapper.js"></script>
+    <script src="scripts/directives/providers-carousel/providers-carousel.js"></script>
+    <script src="scripts/directives/slick-item/slick-item.js"></script>
+    <script src="scripts/directives/payment-methods/payment-methods.js"></script>
+    <script src="scripts/directives/account-type/account-type.js"></script>
+    <script src="scripts/directives/toggle-expand/toggle-expand.js"></script>
+    <script src="scripts/directives/cart/order-items-total.js"></script>
+    <script src="scripts/directives/provider-profile-schedule/provider-profile-schedule.js"></script>
+    <script src="scripts/directives/user-image/user-image.js"></script>
+    <script src="scripts/directives/selectize/selectize-provider-item-category.js"></script>
+    <script src="scripts/directives/cart/order-delivery-nombre.js"></script>
+    <script src="scripts/directives/cart/order-delivery-method.js"></script>
+    <script src="scripts/directives/cart/order-delivery-schedule-date.js"></script>
+    <script src="scripts/directives/maps/maps.js"></script>
+    <script src="scripts/directives/places-search-box/places-search-box.js"></script>
+    <script src="scripts/directives/cart-button/cart-button.js"></script>
+    <script src="scripts/directives/sidebar-header-current-user/sidebar-header-current-user.js"></script>
+    <script src="scripts/directives/provider-notifications/provider-notifications.js"></script>
+    <script src="scripts/directives/sidebar-only-on-categories/sidebar-only-on-categories.js"></script>
+    <script src="scripts/directives/price/price.js"></script>
+    <script src="scripts/directives/humanized-countdown-time/humanized-countdown-time.js"></script>
+    <script src="scripts/directives/provider-estimated-time-for-dispatch-selectize/provider-estimated-time-for-dispatch-selectize.js"></script>
+    <script src="scripts/directives/distance-between/distance-between.js"></script>
+    <script src="scripts/directives/shipping-request-dispatch-at/shipping-request-dispatch-at.js"></script>
+    <!-- filters -->
+    <script src="scripts/filters/default-image.js"></script>
+    <script src="scripts/filters/age.js"></script>
+    <script src="scripts/filters/to-date.js"></script>
+    <script src="scripts/filters/format-date.js"></script>
+    <!-- endbuild -->
+  </head>
+
+  <body ng-app="porttare" ng-controller="SiteController as siteVm">
+    <ion-nav-view></ion-nav-view>
+  </body>
+
+</html>

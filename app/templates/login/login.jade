@@ -1,0 +1,42 @@
+ion-view(
+  view-title="Login",
+  hide-nav-bar="true"
+)
+  ion-nav-bar
+    back-button
+  ion-content.login-form
+    .row
+      .moviggo-logo-1
+    .row
+      form(ng-submit='loginVm.login()')
+        .list.list-inset.constraint-width
+          label.item.item-input
+            i.icon.ion-email.placeholder-icon
+            input(
+              type='email',
+              ng-model='loginVm.loginForm.email'
+              required='required'
+              placeholder='{{::("login.email"|translate)}}'
+            )
+          label.item.item-input
+            i.icon.ion.ion-android-lock.placeholder-icon
+            input(
+              type='password',
+              ng-model='loginVm.loginForm.password',
+              required='required',
+              placeholder='{{::("login.password"|translate)}}'
+            )
+        .list.list-inset.button-actions.constraint-width
+          input(
+            type='submit',
+            value='{{::("login.login"|translate)}}'
+          ).button.button-primary.button-block
+          
+    .list.list-inset.list--top-narrow.constraint-width
+      a.button.button-block.button-clear.button-link(ui-sref='send') {{::("login.forgotPassword"|translate)}}
+      
+      .button.button-block.facebook-login(ng-click="loginVm.loginWithFB()")
+        span.fb-left-icon
+        span.fb-copytext {{::("login.continueWithFacebook"|translate)}}
+
+.bar.bar-footer.bar-footer-yellow-stripe

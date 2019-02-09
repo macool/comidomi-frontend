@@ -1,0 +1,39 @@
+ion-view(
+  view-title="{{::('profile.tabs.info'|translate)}}"
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-content
+
+    ng-include(src="'templates/profile/profile.html'")
+
+    .list.list-inset.list--no-borders.text-center.actions-wrapper
+      button.button.button-clear.button-secondary(
+        ng-click="piVm.showNewModal(piVm.user)"
+      ) {{::('globals.edit'|translate)}}
+
+    .list.list-inset.list--no-borders.resource-details-table
+      .row
+        .col.col-50.label
+          span {{::("user.name"|translate)}}
+        .col.col-50.value {{piVm.user.name}}
+      .row
+        .col.col-50.label {{::("user.email"|translate)}}
+        .col.col-50.value {{piVm.user.email}}
+      .row(
+        ng-if="piVm.user.fecha_nacimiento"
+      )
+        .col.col-50.label {{::("user.age"|translate)}}
+        .col.col-50.value {{piVm.user.fecha_nacimiento | age}}
+      .row(
+        ng-if="piVm.user.ciudad"
+      )
+        .col.col-50.label {{::("user.country"|translate)}}
+        .col.col-50.value {{piVm.user.ciudad}}
+
+    // until we update
+    .list.hide
+      .row
+        .col.col-50.label {{::("user.password"|translate)}}
+        .col.col-50.value ********

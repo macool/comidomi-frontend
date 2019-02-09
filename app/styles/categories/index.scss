@@ -1,0 +1,69 @@
+.grid-parent {
+  display: block; // no flex support
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1px;
+
+  .grid-100 {
+    width: 100%;
+  }
+
+  .grid-50 {
+    width: 50%;
+  }
+
+  .grid-content {
+    // no flex support
+    vertical-align: top;
+    display: inline-block;
+
+    display: flex;
+    text-decoration: none;
+    height: 150px;
+    background-origin: content-box;
+    padding: 1px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    background-position: 50%;
+    background-color: $gridShadowColor;
+    border: 1px solid $white;
+
+    &.grid-50 .title {
+      font-size: 20px;
+      line-height: 25px;
+    }
+
+    &.grid-100 .title {
+      font-size: 28px;
+      line-height: 30px;
+    }
+
+    .title {
+      text-transform: uppercase;
+      font-family: Montserrat-SemiBold;
+      color: $white;
+      text-align: center;
+      padding: 0 5px;
+    }
+
+    @media (min-height: $grid-responsive-md-break) {
+      height: 250px;
+
+      .title {
+        padding: 0 10px;
+      }
+
+      &.grid-50 .title {
+        font-size: 25px;
+        line-height: 35px;
+      }
+
+      &.grid-100 .title {
+        font-size: 38px;
+        line-height: 40px;
+      }
+    }
+  }
+}

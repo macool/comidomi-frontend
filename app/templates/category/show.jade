@@ -1,0 +1,15 @@
+ion-view(
+  view-title="{{:: categoryVm.category.titulo}}"
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-nav-buttons(side="right")
+    cart-button
+
+  ion-content.category-page(
+    style="background-image: url('{{categoryVm.category.imagen_url}}')"
+  )
+    .category-title.grid-text-shadow {{categoryVm.category.titulo}}
+    .category-description.grid-text-shadow {{categoryVm.category.descripcion}}
+    providers-carousel(options="categoryVm.options")

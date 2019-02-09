@@ -1,0 +1,12 @@
+.moviggo-logo-1 {
+  @include background-centered('../images/brand/comidomilogo.png');
+  height: 180px;
+  background-size: contain;
+}
+
+.moviggo-logo-2 {
+  background-size: contain;
+  height: 100px;
+  max-width: 280px;
+  @include background-centered('../images/brand/vilcabamba-2.png');
+}

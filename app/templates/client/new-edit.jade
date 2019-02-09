@@ -1,0 +1,132 @@
+ion-modal-view
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="clientsVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  form(
+    name="clientsVm.clientForm"
+    ng-submit="clientsVm.submitProcess(clientsVm.client.id)"
+    novalidate
+  )
+    ion-content.resource-form
+      .list.list-inset
+        legend {{::("client.formLegend"|translate)}}
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': clientsVm.clientForm.ruc.$touched && cliensVm.clientForm.ruc.$invalid}"
+        )
+          span.input-label {{::("client.ruc"|translate)}}
+          input(
+            name="ruc"
+            type="text"
+            ng-class="input-error"
+            ng-model="clientsVm.client.ruc"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(
+            ng-messages="clientsVm.clientForm.ruc.$error"
+            ng-if="clientsVm.clientForm.ruc.$touched"
+          )
+            span.message-error(ng-message="required")
+              | {{::("globals.isRequired"|translate)}}
+          show-error(array-messages="clientsVm.messages.ruc")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': clientsVm.clientForm.nombres.$touched && cliensVm.clientForm.nombres.$invalid}"
+        )
+          span.input-label {{::("client.nombres"|translate)}}
+          input(
+            name="nombres"
+            type="text"
+            ng-class="input-error"
+            ng-model="clientsVm.client.nombres"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(
+            ng-messages="clientsVm.clientForm.nombres.$error"
+            ng-if="clientsVm.clientForm.nombres.$touched"
+          )
+            span.message-error(ng-message="required")
+              | {{::("globals.isRequired"|translate)}}.
+          show-error(array-messages="clientsVm.messages.nombres")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': clientsVm.clientForm.direccion.$touched && cliensVm.clientForm.direccion.$invalid}"
+        )
+          span.input-label {{::("client.direccion"|translate)}}
+          input(
+            name="direccion"
+            type="text"
+            ng-class="input-error"
+            ng-model="clientsVm.client.direccion"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(
+            ng-messages="clientsVm.clientForm.direccion.$error"
+            ng-if="clientsVm.clientForm.direccion.$touched"
+          )
+            span.message-error(ng-message="required")
+              | {{::("globals.isRequired"|translate)}}.
+          show-error(array-messages="clientsVm.messages.direccion")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': clientsVm.clientForm.telefono.$touched && cliensVm.clientForm.telefono.$invalid}"
+        )
+          span.input-label {{::("client.telefono"|translate)}}
+          input(
+            name="telefono"
+            type="tel"
+            ng-class="input-error"
+            ng-model="clientsVm.client.telefono"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(
+            ng-messages="clientsVm.clientForm.telefono.$error"
+            ng-if="clientsVm.clientForm.telefono.$touched"
+          )
+            span.message-error(ng-message="required")
+              | {{::("globals.isRequired"|translate)}}.
+          show-error(array-messages="clientsVm.messages.telefono")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': clientsVm.clientForm.email.$touched && cliensVm.clientForm.email.$invalid}"
+        )
+          span.input-label {{::("client.email"|translate)}}
+          input(
+            name="email"
+            type="email"
+            ng-class="input-error"
+            ng-model="clientsVm.client.email"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(
+            ng-messages="clientsVm.clientForm.email.$error"
+            ng-if="clientsVm.clientForm.email.$touched"
+          )
+            span.message-error(ng-message="required")
+              | {{::("globals.isRequired"|translate)}}.
+          show-error(array-messages="clientsVm.messages.email")
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("client.notas"|translate)}}
+          input(
+            type="text"
+            ng-model="clientsVm.client.notas"
+          )
+        .errors-wrapper
+          show-error(array-messages="clientsVm.messages.notas")
+
+    .bar.bar-footer.bar-stable
+      button.button.button-small.button-outline.button-energized(
+        type="submit"
+        ng-disabled="clientsVm.clientForm.$invalid"
+      ) {{::("globals.save"|translate)}}

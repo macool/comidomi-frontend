@@ -1,0 +1,28 @@
+@mixin image-centered($url, $width, $height) {
+  margin: 0 auto;
+  border: none;
+  background-color: transparent;
+  img {
+    max-width: $width;
+    max-height: $height;
+    content: url($url);
+  }
+}
+
+@mixin background-centered($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: 50%;
+}
+
+@mixin action-button-color ($custom-color) {
+  border: 3px solid $custom-color;
+  color: $custom-color;
+}
+
+.clickeable {
+  cursor: pointer;
+}

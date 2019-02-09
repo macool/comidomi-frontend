@@ -1,0 +1,19 @@
+.or-option {
+  margin-bottom: 15px;
+  border-bottom: 1px solid $item-light-border;
+  position: relative;
+  height: 20px;
+
+  span {
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    padding: 0 5px;
+    left: 0;
+    right: 0;
+    width: 25px;
+    bottom: -10px;
+    background-color: white;
+    color: $base-grey;
+  }
+}

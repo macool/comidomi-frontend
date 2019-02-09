@@ -1,0 +1,31 @@
+ion-view(
+  view-title="{{ ::('menu.client.myOrders' | translate) }}"
+)
+  ion-nav-title
+    .alt-logo
+  ion-content.resource-collection
+    .list.list-inset.list--no-borders.resource-collection-table
+      .row.table-headers
+        .col.col-55 {{ ::("orders.collectionTitle"|translate) }}
+        .col.col-30.text-right
+          | {{ ::("orders.total"|translate) }}
+        .col.col-15
+
+      .col.without-items(ng-if="!customerOrdersVm.customerOrders.length")
+        p {{::("orders.ordersEmpty"|translate)}}
+
+      .item.row(
+        ng-repeat='customerOrder in ::customerOrdersVm.customerOrders track by $index'
+      )
+        .col.col-55
+          div
+            | {{ ::("orders.collectionTitle" | translate) }}{{ ::customerOrder.id }}
+          div
+            | {{ ::(customerOrder.submitted_at | formatDate:'DD MMMYYYY hh:mmA') }}
+        .col.col-30.text-right.col--wrap
+          price(amount="{{customerOrder.subtotal_items_cents}}"
+                currency="{{customerOrder.subtotal_items_currency}}")
+        .col.col-15.text-right
+          a.button.button-clear.button-positive.button-small(
+            ui-sref='app.customerorders.show({ id: customerOrder.id , customerOrder: customerOrder })'
+          ) {{::("globals.see"|translate)}}

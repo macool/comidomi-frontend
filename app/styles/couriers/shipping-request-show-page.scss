@@ -1,0 +1,26 @@
+.shipping-request-show-page {
+  #order-map {
+    height: 100%;
+  }
+
+  .resource-detail-summary {
+    margin-bottom: 10px;
+
+    h2,
+    .status-text {
+      display: inline-block;
+    }
+
+    h2 {
+      margin-right: 8px;
+      margin-bottom: 0;
+    }
+
+    .status-text {
+      font-family: Montserrat-Regular;
+      color: $base-yellow;
+      font-size: 24px;
+      letter-spacing: -0.5px
+    }
+  }
+}

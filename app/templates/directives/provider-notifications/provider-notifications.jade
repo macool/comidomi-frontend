@@ -1,0 +1,7 @@
+.button.cart-main-button(
+  ui-sref='provider.orders.index'
+)
+  span.badge.badge-light.number-of-items(
+    ng-if="pnVm.orders > 0"
+  ) {{ pnVm.orders }}
+  i.ion-ios-bell-outline

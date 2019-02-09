@@ -1,0 +1,16 @@
+ion-view(
+  view-title="{{::('menu.products'|translate)}}"
+)
+  ion-nav-title
+    .alt-logo
+  ion-content
+    h1 {{::("menu.products"|translate)}}
+    .list.list-inset
+      label.item.item-input
+        i.icon.ion-search.placeholder-icon
+        input(ng-model="productsVm.query" type="text" placeholder="Search")
+      .list-item(ng-repeat="product in productsVm.products | filter: productsVm.query")
+        .item.item-thumbnail-left
+          img(src="{{product.imagen}}")
+          h4 {{product.titulo}}
+          p {{product.descripcion}}

@@ -1,0 +1,15 @@
+.map-view
+  //- not necessary in here
+    places-search-box(
+      ng-if="mapVm.map"
+      map="mapVm.map"
+      markers="mapVm.markers"
+      data-tap-disabled="true"
+    )
+  div.map-directive(
+    data-tap-disabled="true"
+  )
+
+.message-error(
+  ng-if="mapVm.mapError"
+) {{ mapVm.mapError }}

@@ -1,0 +1,18 @@
+.tabs-top.tabs-striped {
+  .tab-nav {
+    top: 0;
+    position: relative;
+    background: none;
+    border-top: none;
+    border-color: $base-orange;
+  }
+  .tab-item {
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    text-transform: uppercase;
+    &.tab-item-active {
+      border-color: $base-orange;
+      border-width: 0 0 4px 0 !important;
+    }
+  }
+}

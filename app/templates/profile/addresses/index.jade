@@ -1,0 +1,51 @@
+ion-view(
+  view-title="{{::('profile.tabs.addresses'|translate)}}"
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-content
+
+    ng-include(src="'templates/profile/profile.html'")
+
+    .addresses-wrapper.addresses-wrapper--fix-scroll
+      .list.list-inset.list--no-borders.text-center.actions-wrapper
+        button.button.button-outline.button-energized(
+          ng-click="pfaVm.redirectToNewAddressView()"
+        ) {{::("profile.addresses.addAddressBtnText"|translate)}}
+
+      .address-wrapper(
+        ng-repeat="address in ::pfaVm.addresses"
+      )    
+        .list.list-inset.list--no-borders.resource-details-table
+          button.button.button-clear.button-secondary.edit-address-btn(
+            ng-click="pfaVm.redirectToUpdateAddressView(address.id)"
+          ) {{::('globals.edit'|translate)}}
+          p.resource-detail-title {{ address.nombre || address.direccion_uno }}
+          img.static-map-preview(
+            ng-src="{{address.static_map_image}}"
+          )
+          .row
+            .col.col-50.label {{::('profile.addresses.city'|translate)}}
+            .col.col-50.value {{address.ciudad}}
+          .row(ng-if="address.parroquia")
+            .col.col-50.label {{::('profile.addresses.parish'|translate)}}
+            .col.col-50.value {{ ::address.parroquia }}
+          .row(ng-if="address.barrio")
+            .col.col-50.label {{::('profile.addresses.neighborhood'|translate)}}
+            .col.col-50.value {{ ::address.barrio }}
+          .row
+            .col.col-50.label {{::('profile.addresses.addressOne'|translate)}}
+            .col.col-50.value {{address.direccion_uno}}
+          .row
+            .col.col-50.label {{::('profile.addresses.addressTwo'|translate)}}
+            .col.col-50.value {{address.direccion_dos}}
+          .row(ng-if="address.codigo_postal")
+            .col.col-50.label {{::('profile.addresses.zipCode'|translate)}}
+            .col.col-50.value {{ ::address.codigo_postal }}
+          .row
+            .col.col-50.label {{::('profile.addresses.reference'|translate)}}
+            .col.col-50.value {{address.referencia}}
+          .row(ng-if="address.numero_convencional")
+            .col.col-50.label {{::('profile.addresses.telephoneNumber'|translate)}}
+            .col.col-50.value {{ ::address.numero_convencional }}

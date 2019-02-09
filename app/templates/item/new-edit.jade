@@ -1,0 +1,161 @@
+ion-modal-view.item-form
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="modalVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  form(
+    name='modalVm.itemForm'
+    ng-submit='modalVm.submitProcess()'
+    novalidate
+  )
+    ion-content.resource-form
+      .list.list-inset
+        legend {{::("item.formLegend"|translate)}}
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': modalVm.itemForm.titulo.$touched && modalVm.itemForm.titulo.$invalid}"
+        )
+          span.input-label
+            | {{::("item.titulo"|translate)}}
+            abbr *
+          input(
+            name='titulo'
+            type='text'
+            ng-model='modalVm.item.titulo'
+            ng-class='input-error'
+            required
+          )
+        .errors-wrapper
+          .show-errors(ng-messages="modalVm.itemForm.titulo.$error" ng-if="modalVm.itemForm.titulo.$touched")
+            span.message-error(ng-message="required")
+              | {{::("globals.isRequired"|translate)}}
+          show-error(array-messages='modalVm.messages.titulo')
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("item.descripcion"|translate)}}
+          input(
+            type='text'
+            ng-model='modalVm.item.descripcion'
+          )
+        .errors-wrapper
+          show-error(array-messages='modalVm.messages.descripcion')
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("item.observaciones"|translate)}}
+          textarea(
+            msd-elastic
+            ng-model="modalVm.item.observaciones"
+          )
+        .errors-wrapper
+          show-error(array-messages='modalVm.messages.observaciones')
+
+        label.item.item-input.item-select(
+          ng-class="{'item-error': modalVm.itemForm.unidad_medida.$touched && modalVm.itemForm.unidad_medida.$invalid}"
+        )
+          span.input-label
+            | {{::("item.unidadMedida"|translate)}}
+            abbr *
+          select(ng-model='modalVm.item.unidad_medida' name='unidad_medida' required)
+            option(value='unidades') Unidades
+        .errors-wrapper
+          span.show-errors(ng-messages="modalVm.itemForm.unidad_medida.$error" ng-if="modalVm.itemForm.unidad_medida.$touched")
+            span(ng-message="required" class="message-error") {{::("globals.isRequired"|translate)}}
+          show-error(array-messages='modalVm.messages.unidad_medida')
+
+        .label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': modalVm.itemForm.precio.$touched && modalVm.itemForm.precio.$invalid}"
+        )
+          span.input-label
+            | {{::("item.precio"|translate)}}
+            abbr *
+          .price-wrapper
+            .item-select
+              select(
+                ng-model='modalVm.item.precio_currency'
+                ng-options="'item.currency.'+currency|translate for currency in modalVm.availableCurrencies"
+                name='precio_currency'
+                required
+              )
+            .input-wrapper
+              input(
+                min='0'
+                name='precio'
+                step='any'
+                type='number'
+                ng-model='modalVm.item.precio'
+                required
+              )
+        .errors-wrapper
+          span.show-errors(ng-messages="modalVm.itemForm.precio.$error" ng-if="modalVm.itemForm.precio.$touched")
+            span.message-error(ng-message="required")
+              | {{::("globals.isRequired"|translate)}}
+          show-error(array-messages='modalVm.messages.precio')
+          show-error(array-messages='modalVm.messages.precio_currency')
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("item.cantidad"|translate)}}
+          input(
+            min='0'
+            type='number'
+            ng-model='modalVm.item.cantidad'
+          )
+        .errors-wrapper
+          show-error(array-messages='modalVm.messages.cantidad')
+
+        label.item.item-input.item-input--no-borders.item-stacked-label
+          span.input-label {{::("item.providerItemCategory"|translate|uppercase)}}
+        .item-selectize
+          input(selectizeprovideritemcategory
+            config ="modalVm.selectize"
+            options="modalVm.categorias",
+            item = "modalVm.item",
+            bind-to = "provider_item_category_id"
+            nested-param = "provider_item_category_attributes"
+            placeholder='Seleccione una categoría')
+
+        ion-toggle(
+          ng-model='modalVm.item.en_stock'
+          toggle-class='toggle-energized'
+        )
+          span.input-label {{::("item.stock"|translate)}}
+        .errors-wrapper
+          show-error(array-messages='modalVm.messages.stock')
+
+        label.item.item-input.item-input--no-borders.item-stacked-label
+          span.input-label {{::("item.imagen"|translate)}}
+        .picture-uploader(
+          ng-if="modalVm.item.imagenes.length === 0"
+          ngf-select="modalVm.concatImages($files)"
+          ngf-capture="'camera'"
+          accept="image/*"
+          multiple
+        )
+          .icon-placeholder-wrapper
+            i.icon.ion-camera
+          .img-placeholder--legend {{::("item.addImages"|translate)}}
+
+        .row.images-previews
+          .img-wrapper.col-33(
+            ng-repeat="image in modalVm.imagesUrls"
+          )
+            img(ngf-src="image")
+
+          .img-wrapper.col-33(ng-if="modalVm.item.imagenes.length > 0")
+            .add-image-placeholder(
+              ngf-select="modalVm.concatImages($files)"
+              ngf-capture="'camera'"
+              accept="image/*"
+              multiple
+            )
+              i.ion-plus
+        show-error(array-messages='modalVm.messages.imagen')
+
+    .bar.bar-footer.bar-stable
+      button.button.button-small.button-outline.button-energized(
+        type="submit"
+        ng-disabled="modalVm.itemForm.$invalid"
+      ) {{::("item.publishItem"|translate)}}

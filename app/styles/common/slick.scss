@@ -1,0 +1,28 @@
+.slick-dots {
+  text-align: center;
+
+  li {
+    display: inline-block;
+
+    &.slick-active {
+      button {
+        background-color: white;
+        border: 1px solid $base-grey;
+      }
+    }
+
+    button {
+      font-size: 0;
+      line-height: 0;
+      width: 8px;
+      height: 8px;
+      cursor: pointer;
+      background-color: transparentize($base-grey,.3);
+      border-radius: 50%;
+      border: 0;
+      outline: 0;
+      padding: 0;
+      margin: 5px;
+    }
+  }
+}

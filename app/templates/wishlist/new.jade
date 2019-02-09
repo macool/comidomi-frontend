@@ -1,0 +1,24 @@
+ion-modal-view
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="wishlistsVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  form(
+    name='wishlistsVm.form'
+    ng-submit='wishlistsVm.runAction(wishlistsVm.actions.new)'
+    novalidate)
+
+    ion-content.resource-form.wishlist-page
+      .list.list-inset
+        legend.title {{::("wishlist.titleNew"|translate|uppercase)}}
+
+        div(ng-include="'templates/wishlist/form.html'")
+
+    .bar.bar-footer
+      button.button.button-small.button-outline.button-energized(
+        type="submit"
+        ng-disabled="wishlistsVm.form.$invalid"
+        ) {{::('wishlist.save'|translate)}}

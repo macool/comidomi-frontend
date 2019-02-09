@@ -1,0 +1,17 @@
+ion-view(
+  view-title='{{::("globals.error"|translate)}}'
+)
+
+  .bar.bar-stable.bar-header.bar-header-error-page
+    .alt-logo
+  ion-content(class="error-page")
+    .row.row-image
+      .error-image
+    .row
+      .error-main-text Ups!
+    .row.error-text-content
+      .list.list-inset.error-text-content
+        .error-text {{::errVm.message}}
+    .row
+      .list.list-inset.list--centered
+        button.button-error-redirect(ng-click="errVm.redirectToHome()") {{::("globals.index"|translate)}}

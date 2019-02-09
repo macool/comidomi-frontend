@@ -1,0 +1,82 @@
+.list.list-inset
+  legend {{::("provider.formLegendFirst"|translate)}}
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': providerVm.providerForm.ruc.$touched && providerVm.providerForm.ruc.$invalid}"
+  )
+    span.input-label {{::("provider.ruc"|translate)}} *
+    input(
+      type='text',
+      name='ruc',
+      ng-model='providerVm.provider.ruc',
+      ng-class='input-error',
+      required
+    )
+  .errors-wrapper
+    span.show-errors(ng-messages="providerVm.providerForm.ruc.$error" ng-if="providerVm.providerForm.ruc.$touched")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+    show-error(array-messages="providerVm.errors.ruc")
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': providerVm.providerForm.razonsocial.$touched && providerVm.providerForm.razonsocial.$invalid}"
+  )
+    span.input-label {{::("provider.businessName"|translate)}} *
+    input(
+      type='text',
+      name='razonsocial',
+      ng-model='providerVm.provider.razon_social',
+      required
+    )
+  .errors-wrapper
+    span.show-errors(ng-messages="providerVm.providerForm.razonsocial.$error" ng-if="providerVm.providerForm.razonsocial.$touched")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+    show-error(array-messages="providerVm.errors.razon_social")
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': providerVm.providerForm.establecimiento.$touched && providerVm.providerForm.establecimiento.$invalid}"
+  )
+    span.input-label {{::("provider.name"|translate)}} *
+    input(
+      type='text',
+      name='establecimiento',
+      ng-model='providerVm.provider.nombre_establecimiento',
+      required
+    )
+  .errors-wrapper
+    span.show-errors(ng-messages="providerVm.providerForm.establecimiento.$error" ng-if="providerVm.providerForm.establecimiento.$touched")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+    show-error(array-messages="providerVm.errors.nombre_establecimiento")
+
+  label.item.item-input.item-stacked-label
+    span.input-label {{::("provider.economicActivity"|translate)}}
+    input(
+      type='text',
+      name='actividad_economica',
+      ng-model='providerVm.provider.actividad_economica'
+    )
+  .errors-wrapper
+    show-error(array-messages="providerVm.errors.actividad_economica")
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': providerVm.providerForm.representante.$touched && providerVm.providerForm.representante.$invalid}"
+  )
+    span.input-label {{::("provider.LegalRepresentative"|translate)}} *
+    input(
+      type='text',
+      name='representante',
+      ng-model='providerVm.provider.representante_legal',
+      required
+    )
+  .errors-wrapper
+    span.show-errors(ng-messages="providerVm.providerForm.representante_legal.$error" ng-if="providerVm.providerForm.representante_legal.$touched")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+    show-error(array-messages="providerVm.errors.representante_legal")
+
+  label.item.item-input.item-select
+    span.input-label {{::("provider.category"|translate)}} *
+    select(
+      required
+      ng-model='providerVm.provider.provider_category_id'
+      ng-options="providerCategory.id as providerCategory.titulo for providerCategory in providerVm.providerCategories")
+  .errors-wrapper
+    show-error(array-messages='providerVm.errors.provider_category_id')

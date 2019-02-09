@@ -1,0 +1,139 @@
+$gridBgColor: #F2F2F2;
+$providerCoverBlur: 4px;
+$providerShowPageCoverHeight: 160px;
+
+.provider-show-page {
+  .provider-header--background {
+    background-size: cover;
+    position: fixed;
+    height: $providerShowPageCoverHeight;
+    z-index: -1;
+    width: 100%;
+    background-position: 50%;
+
+    -webkit-filter: blur($providerCoverBlur);
+    -moz-filter: blur($providerCoverBlur);
+    -o-filter: blur($providerCoverBlur);
+    -ms-filter: blur($providerCoverBlur);
+    filter: blur($providerCoverBlur);
+  }
+
+  .provider-header {
+    max-height: $providerShowPageCoverHeight;
+    position: relative;
+
+    .provider-logo {
+      height: 100%;
+      min-height: 150px;
+      width: 150px;
+      text-align: end;
+      display: block;
+      align-items: center;
+
+      // vertically align
+      position: relative;
+
+      img {
+        max-width: 100%;
+        max-height: $providerShowPageCoverHeight;
+
+        // vertically align
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    .provider-info {
+      left: 150px;
+      position: absolute;
+      display: inline-block;
+      vertical-align: top;
+      top: 0;
+      color: $white;
+      font-family: Montserrat-SemiBold;
+      margin: 15px;
+
+      .wrapper {
+        margin: 8px 0;
+        font-size: 14px;
+      }
+
+      .title {
+        font-size: 16px;
+      }
+
+      .office-schedule,
+      .office-status-text {
+        .i {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  .provider-categories {
+    background-color: $gridBgColor;
+
+    .provider-category--title {
+      color: $base-grey;
+      padding: 15px 15px 15px 20px;
+      text-transform: uppercase;
+      font-family: Montserrat-Regular;
+      font-size: 15px;
+    }
+
+    .provider-item {
+      background-color: $white;
+      font-family: Montserrat-Light;
+      border-right: 3px solid $gridBgColor;
+      border-bottom: 3px solid $gridBgColor;
+      display: flex;
+      flex-wrap: wrap;
+
+      &:nth-child(3n+0) {
+        border-right: 0;
+      }
+
+      .img-wrapper {
+        height: 180px;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+
+      .info-wrapper {
+        align-self: flex-start;
+      }
+
+      .provider-item--title {
+        text-transform: uppercase;
+        color: $grey-secondary;
+        max-height: 40px;
+        overflow: hidden;
+      }
+
+      .provider-item--subtitle {
+        color: $dark;
+      }
+    }
+  }
+
+  .provider-category--no-more-items {
+    color: $grey-secondary;
+    background-color: $gridBgColor;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 25px 15px;
+    font-family: Montserrat-Regular;
+  }
+}

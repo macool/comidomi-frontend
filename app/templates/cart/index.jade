@@ -1,0 +1,26 @@
+ion-view(
+  view-title='{{::("menu.client.cart"|translate)}}'
+)
+  ion-nav-title {{ ::('cart.title' | translate) }}
+  ion-content.customer-order-preview
+    ng-include(
+      src="'templates/cart/customer-order.html'"
+    )
+
+    .resource-collection
+      .without-items(
+        ng-if="!cartVm.cart.provider_profiles.length"
+      )
+        p {{::("cart.titleWithoutItems"|translate)}}
+        p {{::("cart.subtitleWithoutItems"|translate)}}
+
+  ion-footer-bar.bar-light.cart-page-footer.bar-footer--tall
+    button.button.button-small.button-outline.button-energized.button-letter-stretched.button--narrow-padded(
+      ng-click="cartVm.showCheckoutModal()"
+      ng-disabled="!cartVm.cart.provider_profiles"
+    ) {{ ::('cart.buyItems'|translate) }}
+
+    .total
+      span.value
+        price(amount="{{cartVm.total}}"
+              currency="{{cartVm.currentCurrency}}")

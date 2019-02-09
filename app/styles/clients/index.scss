@@ -1,0 +1,15 @@
+.clients-index-page {
+  .resource-collection-table {
+    .item.row {
+      @media (max-width: $grid-responsive-sm-break) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.clients-footer-constraint-width {
+  width: 280px;
+  display: inherit;
+  margin: auto;
+}

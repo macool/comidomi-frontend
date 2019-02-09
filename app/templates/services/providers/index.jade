@@ -1,0 +1,29 @@
+ion-view
+  ion-nav-title
+    .alt-logo
+
+  ion-content.service-provider-index.resource-collection
+    .row
+      label.item.search-input
+        i.icon.ion-search.placeholder-icon
+        input(
+          type="text"
+          placeholder="Buscar"
+          ng-model="servicesProvidersVM.query"
+        )
+
+    .service-provider-list
+      .service-provider-item.col(
+        ng-repeat="provider in servicesProvidersVM.providers"
+        ui-sref="app.categories.provider({ categoryId: provider.provider_category_id, providerId: provider.id })"
+      )
+        .provider-info-wrapper
+          .provider-logo-wrapper
+            .provider-logo-img(
+              style="background-image: url('{{ ::provider.logotipo_url }}')"
+            )
+
+          .provider-title {{ ::provider.nombre_establecimiento }}
+          .provider-activity {{ ::provider.actividad_economica }}
+          .provider-schedule
+            provider-profile-schedule(provider-profile="provider")

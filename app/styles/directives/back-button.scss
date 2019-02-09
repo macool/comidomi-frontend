@@ -1,0 +1,8 @@
+.back-button-wrapper {
+  left: 5px;
+  z-index: 100;
+  position: absolute;
+  .button {
+    color: $base-grey;
+  }
+}

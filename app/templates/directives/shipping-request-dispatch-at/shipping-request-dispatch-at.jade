@@ -1,0 +1,11 @@
+span(
+  ng-if="!dispatchAtVM.timeInFuture"
+) {{::("courier.labels.dispatchReady"| translate)}}
+humanized-countdown-time(
+  show-past="true"
+  hide-prefix="dispatchAtVM.timeInFuture"
+  time="dispatchAtVM.dispatchAt"
+)
+span(
+  ng-if="dispatchAtVM.timeInFuture"
+) {{::("courier.labels.timeForDispatchSuffix"| translate)}}

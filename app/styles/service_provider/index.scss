@@ -1,0 +1,111 @@
+.service-provider-index {
+  .item.search-input {
+    margin-bottom: 0;
+  }
+
+  .service-provider-item {
+    display: inline-block;
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid $gridShadowColor;
+
+    @media (max-width: $grid-responsive-sm-break) {
+      // col-100
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 100%;
+      -moz-box-flex: 0;
+      -moz-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    @media (min-width: $grid-responsive-sm-break) {
+      // col-50
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 50%;
+      -moz-box-flex: 0;
+      -moz-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .provider-logo-wrapper,
+    .provider-info-wrapper {
+      vertical-align: middle;
+    }
+
+    .provider-logo-wrapper {
+      text-align: center;
+      display: inline-block;
+      float: left;
+
+      @media (max-width: $grid-responsive-sm-break) {
+        height: 100px;
+        width: 120px;
+      }
+
+      @media (min-width: $grid-responsive-sm-break) {
+        height: 120px;
+        width: 140px;
+      }
+
+      .provider-logo-img {
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-position: 50%;
+        background-repeat: no-repeat;
+      }
+    }
+
+    .provider-info-wrapper {
+      padding-left: 5px;
+
+      .provider-title,
+      .provider-activity,
+      .provider-schedule {
+        margin-left: 130px;
+      }
+    }
+
+    .provider-title {
+      font-family: Montserrat-Regular;
+      font-size: 16px;
+      line-height: 20px;
+      color: $base-grey;
+      margin-bottom: 5px;
+    }
+
+    .provider-activity {
+      font-family: Montserrat-Regular;
+      color: $grey-secondary;
+      font-size: 13px;
+      line-height: 20px;
+      margin-bottom: 3px;
+    }
+
+    .provider-schedule {
+      font-family: Montserrat-Regular;
+      color: $grey-secondary;
+      font-size: 13px;
+
+      .icon {
+        margin-left: 2px;
+        margin-right: 3px;
+      }
+
+      .office-schedule,
+      .office-status-text {
+        margin-bottom: 2px;
+      }
+
+      .office-status-text {
+        color: $button-blue;
+      }
+    }
+  }
+}

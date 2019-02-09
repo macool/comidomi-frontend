@@ -1,0 +1,39 @@
+.provider-profile-section(
+  ng-repeat="providerProfile in cartVm.cart.provider_profiles track by $index"
+)
+  .provider-profile--title-wrapper
+    .provider-profile--subtitle
+      span
+        order-items-total(
+          order-items="providerProfile.customer_order_items"
+          currency="{{cartVm.cart.subtotal_items_currency}}"
+        )
+      span(
+        ng-if="providerProfile.customer_order_delivery.delivery_method === 'shipping'"
+      )
+        span
+          | +
+        price(amount="{{providerProfile.customer_order_delivery.shipping_fare_price_cents}}"
+              currency="{{cartVm.cart.subtotal_items_currency}}")
+        span {{ ::('cart.shippingCosts' | translate) }}
+
+    .provider-profile--title
+      | {{ ::providerProfile.nombre_establecimiento }}
+
+  .cart-delivery-address
+    order-delivery-nombre(
+      delivery="providerProfile.customer_order_delivery"
+      addresses="cartVm.addresses"
+    )
+    button(
+      ng-click='cartVm.showCustomerOrderDelivery(providerProfile)'
+    ).button.button-clear.button-energized.button-small
+      | {{ ::("globals.edit" | translate) }}
+
+  .provider-items-in-cart
+    slick-item(settings="cartVm.slickSettings"
+               data="providerProfile"
+               on-click="cartVm.openEditModal"
+               slick-flag="cartVm.slickFlag")
+
+  .provider-profile-section--clear

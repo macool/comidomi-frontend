@@ -1,0 +1,37 @@
+ion-view(
+  view-title='{{::("wishlist.wishlists"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-content.resource-collection
+    .row
+      label.search-input
+        i.icon.ion-search.placeholder-icon
+        input(
+          ng-model="wishlistsVm.query"
+          type="text"
+          placeholder='{{::("wishlist.searchBox"|translate)}}'
+        )
+
+    .row
+      .list.list--centered
+        button.button.button-outline.button-energized(
+          ng-click="wishlistsVm.showModal(wishlistsVm.modalSettings.newWishlist)"
+          ) {{::('wishlist.new'|translate)}}
+
+    .list.list-inset.list--no-borders.resource-collection-table
+      .row.table-headers
+        .col.col-10 {{::("wishlist.id"|translate)}}
+        .col.col-75 {{::("wishlist.name"|translate)}}
+        .col
+
+      .item.row(
+        ng-repeat="wlist in wishlistsVm.wishlists | filter:wishlistsVm.query"
+      )
+        .col.col-10 {{ wlist.id }}
+        .col.col-75 {{ wlist.nombre }}
+        .col
+          a.button.button-clear.button-positive.button-small(
+            ng-click="wishlistsVm.showEditModal(wlist, $index)"
+          ) {{::('wishlist.edit'|translate)}}

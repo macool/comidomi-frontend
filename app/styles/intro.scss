@@ -1,0 +1,172 @@
+.slider {
+  height: 100%;
+  background-color: $base-darkteal;
+  position: relative;
+
+  .slider-slide {
+    padding-top: 3%;
+    text-align: center;
+  }
+}
+
+.slider::before {
+  content: "";
+  background-image: url('../images/bg.png');
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  opacity: 0.5;
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+
+.intro-slides {
+  .list-logo {
+    background-size: contain;
+    margin-bottom: 30px;
+
+    &.above {
+      height: 180px;
+    }
+
+    &.below {
+      height: 60px;
+      position: absolute;
+      top: 140px;
+      right: -73px;
+    }
+  }
+
+  .logo-compra {
+    // @include background-centered('../images/logo_compra.png');
+    @include background-centered('../images/brand/comidomilogo-white.png');
+  }
+  .logo-bolsa {
+    @include background-centered('../images/bag.png');
+  }
+  .logo-envia {
+    // @include background-centered('../images/logo_envia.png');
+    @include background-centered('../images/brand/comidomilogo-white.png');
+  }
+  .logo-cohete {
+    @include background-centered('../images/rocket.png');
+  }
+  .logo-vende {
+    // @include background-centered('../images/logo_vende.png');
+    @include background-centered('../images/brand/comidomilogo-white.png');
+  }
+  .logo-precio {
+    @include background-centered('../images/price_tag.png');
+  }
+
+  .intro-title-copytext {
+    width: 100%;
+    color: $white;
+    font-size: 5em;
+
+    // var 1
+    // font-family: "Galano-Grotesque-Heavy";
+
+    // var 2
+    font-family: "Galano-Grotesque-Medium";
+    letter-spacing: -2px;
+  }
+
+  .intro-copytext {
+    font-family: GochiHand-Regular;
+    font-size: 1.4em;
+    width: 100%;
+    color: $white;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 2em;
+    border: none;
+    background-color: transparent;
+
+    @media (max-height: 550px) {
+      display: none;
+    }
+  }
+}
+
+.slider-pager {
+  bottom: 15%;
+
+  .slider-pager-page {
+    color: $base-teal;
+  }
+
+  @media (max-height: 550px) {
+    display: none;
+  }
+}
+
+.bar-intro-button {
+  background-color: transparent;
+  background-image: none;
+  margin-bottom: 5%;
+  margin-top: 5%;
+
+  .common-button {
+    width: 70%;
+    margin: auto;
+    font-size: 12pt;
+
+    &:hover {
+      color: white;
+    }
+
+    &.button.activated {
+      color: $base-yellow;
+      border-color: transparent;
+      background-color: $base-orange;
+    }
+  }
+}
+
+// HACKS for small devices
+@media (max-height: 400px) {
+  .bar-intro-button {
+    margin-bottom: 15px;
+    margin-top: 30px;
+  }
+  .intro-copytext-wrapper {
+    position: absolute;
+    bottom: 80px;
+  }
+  .slider-pager {
+    bottom: 70px;
+  }
+}
+@media (orientation: portrait) and
+       (max-height: 400px) {
+  .intro-copytext-wrapper {
+    top: 180px;
+    bottom: initial;
+  }
+  .list-logo.below {
+    display: none;
+  }
+}
+@media (orientation: landscape) and
+       (max-height: 300px) {
+  .intro-copytext-wrapper {
+    top: 120px;
+    bottom: initial;
+  }
+  .slider-pager {
+    display: none;
+  }
+  .list-logo.above {
+    height: 90px;
+    margin-top: 20px;
+  }
+  .list-logo.below {
+    display: none;
+  }
+}

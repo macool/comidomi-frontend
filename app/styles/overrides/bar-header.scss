@@ -1,0 +1,53 @@
+.bar-header {
+  .back-button {
+    margin-left: 0;
+
+    .back-text {
+      display: none;
+    }
+  }
+
+  .cart-main-button {
+    font-size: 28px;
+    color: $white;
+    border: 0;
+    background: 0;
+    position: relative;
+
+    i {
+      font-size: 32px;
+    }
+
+    .number-of-items {
+      color: $dark;
+      position: absolute;
+      margin: auto;
+      right: 0;
+      font-size: 12px;
+      line-height: 12px;
+      font-family: Montserrat-Regular;
+    }
+  }
+}
+
+.bar-stable.bar.bar-header {
+  background: $base-darkteal;
+
+  .alt-logo {
+    height: 35px;
+    margin-top: 5px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/brand/comidomi-horizontal-simple-white.png');
+  }
+
+  .ion-navicon, .button {
+    color: $white;
+  }
+
+  .title {
+    font-family: Montserrat-Regular;
+    color: $white;
+  }
+}

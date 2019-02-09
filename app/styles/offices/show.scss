@@ -1,0 +1,16 @@
+.office-show-page {
+  font-family: Montserrat-Light;
+
+  .item-toggle {
+    border-bottom: 0;
+  }
+
+  .office-map {
+    margin: 0 0 15px 0;
+
+    #office-map {
+      width: 100%;
+      box-shadow: 0 1px 5px transparentize($base-grey, .5);
+    }
+  }
+}

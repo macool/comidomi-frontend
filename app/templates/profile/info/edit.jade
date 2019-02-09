@@ -1,0 +1,132 @@
+ion-modal-view
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear(
+        ng-click="piVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  form(
+    name="piVm.updateProfileForm"
+    ng-submit="piVm.submitProcess(piVm.userEdit)"
+    novalidate
+  )
+    ion-content.resource-form.customer-profile-form
+      .list.list-inset
+        legend {{::("client.formLegend"|translate)}}
+
+        label.item.item-input.item-input--no-borders.item-stacked-label
+          span.input-label {{::("user.image"|translate)}}
+        .row.image-preview
+          .img-wrapper
+            img( ng-if="piVm.hasImageFile(piVm.userEdit)"
+                  ngf-src="piVm.userEdit.custom_image"
+                  style="max-width: 70px; max-height: 70px;border-radius: 50%;"
+            )
+            user-image( user="piVm.userEdit" ng-if="!piVm.hasImageFile(piVm.userEdit)"
+                  style="max-width: 70px; max-height: 70px;border-radius: 50%;"
+            )
+        .uploader(
+          type="file"
+          ngf-select
+          ng-model="piVm.userEdit.custom_image"
+          ngf-capture = "'camera'"
+          accept="image/*"
+        )
+          .img-placeholder
+          .text-center
+            .button.button-clear.button-secondary.button-small
+              | {{::("user.changeImagen"|translate)}}
+
+        show-error(array-messages='piVm.messages.custom_image')
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': piVm.updateProfileForm.email.$touched && piVm.updateProfileForm.email.$invalid}"
+        )
+          span.input-label {{::("user.email"|translate)}}
+          input(
+            type="email"
+            name="email"
+            ng-model="piVm.userEdit.email"
+            ng-class="input-error"
+          )
+        .errors-wrapper
+          span.show-errors.ng-active(ng-messages="piVm.updateProfileForm.email.$error" ng-if="piVm.updateProfileForm.email.$touched")
+            span.message-error(ng-message="email") {{::("form.wrongEmail"|translate)}}
+          show-error(array-messages="piVm.messages.email")
+
+        label.item.item-input.item-input--no-borders.item-stacked-label(
+          ng-class="{'item-error': piVm.messages.fecha_de_nacimiento}"
+        )
+          span.input-label {{::("user.birthdate"|translate)}}
+        ion-datetime-picker.item.item-icon-left.datetime-picker(
+          date
+          ng-model='piVm.userEdit.fecha_nacimiento'
+        )
+          i.icon.ion-ios-calendar-outline
+          span(
+            ng-if="piVm.userEdit.fecha_nacimiento"
+          ) {{ piVm.userEdit.fecha_nacimiento| date: "yyyy-MM-dd" }}
+          span(
+            ng-if="!piVm.userEdit.fecha_nacimiento"
+          ) {{ "user.selectDatePlaceholder"|translate }}
+        show-error(array-messages="piVm.messages.fecha_nacimiento")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': piVm.messages.name}"
+        )
+          span.input-label {{::("user.name"|translate)}}
+          input(
+            type="text"
+            ng-model="piVm.userEdit.name"
+          )
+        .errors-wrapper
+          show-error(array-messages="piVm.messages.name")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': piVm.messages.ciudad}"
+        )
+          span.input-label {{::("user.country"|translate)}}
+          input(
+            type="text"
+            ng-model="piVm.userEdit.ciudad"
+          )
+        .errors-wrapper
+          show-error(array-messages="piVm.messages.ciudad")
+
+        span(ng-if="::piVm.canChangePassword")
+          label.item.item-input.item-stacked-label(
+            ng-class="{'item-error': piVm.messages.password}"
+          )
+            span.input-label {{::("user.password"|translate)}}
+            input(
+              type="password"
+              ng-model="piVm.userEdit.password"
+              placeholder="{{::('form.leaveBlank'|translate)}}"
+            )
+          .errors-wrapper
+            show-error(array-messages="piVm.messages.password")
+
+        span(ng-if="::piVm.canChangePassword")
+          label.item.item-input.item-stacked-label(
+            ng-class="{'item-error': piVm.updateProfileForm.passwordMatch.$invalid && piVm.updateProfileForm.passwordMatch.$touched}"
+          )
+            span.input-label {{::("user.repeatPassword"|translate)}}
+            input(
+              type="password"
+              match="piVm.userEdit.password"
+              ng-model="piVm.userEdit.passwordMatch"
+              name="passwordMatch"
+              placeholder="{{::('form.leaveBlank'|translate)}}"
+            )
+          .errors-wrapper
+            span.show-errors.ng-active(ng-messages="piVm.updateProfileForm.passwordMatch.$error")
+              span.message-error(ng-message="match") {{::("form.dontMatch"|translate)}}
+
+    ion-footer-bar.bar.bar-footer.bar-stable
+        button.button.button-outline.button-energized.button-small(
+            type="submit"
+            ng-disabled='piVm.updateProfileForm.$invalid'
+        )
+         | {{::('globals.save'|translate)}}

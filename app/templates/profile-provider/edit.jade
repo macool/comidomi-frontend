@@ -1,0 +1,212 @@
+ion-modal-view
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="providerProfileVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  form(
+    name="providerProfileVm.providerProfileForm"
+    ng-submit="providerProfileVm.edit(providerProfileVm.profileEdit)"
+    novalidate
+  )
+    ion-content.resource-form
+      .list.list-inset
+        legend {{::("provider.updateInfoProvider"|translate)}}
+
+        label.item.item-input.item-input--no-borders.item-stacked-label
+          span.input-label {{::("provider.logo"|translate)}}
+        .picture-uploader(
+          ng-if="!providerProfileVm.profileEdit.logotipo_url && !providerProfileVm.profileEdit.logotipo"
+          type="file"
+          ngf-select
+          ng-model="providerProfileVm.profileEdit.logotipo"
+          ngf-capture="'camera'"
+          accept="image/*"
+        )
+          .icon-placeholder-wrapper
+            i.icon.ion-camera
+          .img-placeholder--legend {{::("client.addImage"|translate)}}
+
+        .images-previews(
+          ng-if="providerProfileVm.profileEdit.logotipo || providerProfileVm.profileEdit.logotipo_url"
+        )
+          .img-wrapper
+            img(
+              ngf-src="providerProfileVm.profileEdit.logotipo || providerProfileVm.profileEdit.logotipo_url"
+              type="file"
+              ngf-select
+              ng-model="providerProfileVm.profileEdit.logotipo"
+              ngf-capture="'camera'"
+              accept="image/*"
+            )
+        show-error(array-messages='providerProfileVm.errors.imagen')
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': providerProfileVm.providerProfileForm.ruc.$touched && providerProfileVm.providerProfileForm.ruc.$invalid}"
+        )
+          span.input-label {{::("RUC"|translate)}}
+          input(
+            name="ruc"
+            type="text"
+            ng-model="providerProfileVm.profileEdit.ruc"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(ng-messages="providerProfileVm.providerProfileForm.ruc.$error" ng-if="providerProfileVm.providerProfileForm.ruc.$touched")
+            span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+          show-error(array-messages="providerProfileVm.errors.ruc")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': providerProfileVm.profileEdit.razon_social.$touched && providerProfileVm.profileEdit.razon_social.$invalid}"
+        )
+          span.input-label {{::("provider.businessName"|translate)}}
+          input(
+            name="razon_social"
+            type="text"
+            ng-model="providerProfileVm.profileEdit.razon_social"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(ng-messages="providerProfileVm.providerProfileForm.razon_social.$error" ng-if="providerProfileVm.providerProfileForm.razon_social.$touched")
+            span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+          show-error(array-messages="providerProfileVm.errors.razon_social")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': providerProfileVm.profileEdit.nombre_establecimiento.$touched && providerProfileVm.profileEdit.nombre_establecimiento.$invalid}"
+        )
+          span.input-label {{::("provider.name"|translate)}}
+          input(
+            name="nombre_establecimiento"
+            type="text"
+            ng-model="providerProfileVm.profileEdit.nombre_establecimiento"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(ng-messages="providerProfileVm.providerProfileForm.nombre_establecimiento.$error" ng-if="providerProfileVm.providerProfileForm.nombre_establecimiento.$touched")
+            span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+          show-error(array-messages="providerProfileVm.errors.nombre_establecimiento")
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("provider.economicActivity"|translate)}}
+          input(
+            name="actividad_economica"
+            type="text"
+            ng-model="providerProfileVm.profileEdit.actividad_economica"
+          )
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': providerProfileVm.profileEdit.representante_legal.$touched && providerProfileVm.profileEdit.representante_legal.$invalid}"
+        )
+          span.input-label {{::("provider.LegalRepresentative"|translate)}}
+          input(
+            name="representante_legal"
+            type="text"
+            ng-model="providerProfileVm.profileEdit.representante_legal"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(ng-messages="providerProfileVm.providerProfileForm.representante_legal.$error" ng-if="providerProfileVm.providerProfileForm.representante_legal.$touched")
+            span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+          show-error(array-messages="providerProfileVm.errors.representante_legal")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': providerProfileVm.profileEdit.telefono.$touched && providerProfileVm.profileEdit.telefono.$invalid}"
+        )
+          span.input-label {{::("provider.phone"|translate)}}
+          input(
+            name="telefono"
+            type="text"
+            ng-model="providerProfileVm.profileEdit.telefono"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(ng-messages="providerProfileVm.providerProfileForm.telefono.$error" ng-if="providerProfileVm.providerProfileForm.telefono.$touched")
+            span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+          show-error(array-messages="providerProfileVm.errors.telefono")
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': providerProfileVm.profileEdit.email.$touched && providerProfileVm.profileEdit.email.$invalid}"
+        )
+          span.input-label {{::("provider.email"|translate)}}
+          input(
+            name="email"
+            type="text"
+            ng-model="providerProfileVm.profileEdit.email"
+            required
+          )
+        .errors-wrapper
+          span.show-errors(ng-messages="providerProfileVm.providerProfileForm.email.$error" ng-if="providerProfileVm.providerProfileForm.email.$touched")
+            span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+          show-error(array-messages="providerProfileVm.errors.email")
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("provider.webSite"|translate)}}
+          input(
+            name="website"
+            type="text"
+            ng-model="providerProfileVm.profileEdit.website"
+          )
+
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': providerProfileVm.touchedPayments && providerProfileVm.providerProfileForm.paymentMethods.$invalid}"
+        )
+          span.input-label {{::("provider.methodPayment"|translate)}}
+          payment-methods(methods="providerProfileVm.paymentMethods" profile-form="providerProfileVm.providerProfileForm" touched="providerProfileVm.touchedPayments")
+        .errors-wrapper
+          span.show-errors(ng-messages="providerProfileVm.touchedPayments && providerProfileVm.providerProfileForm.paymentMethods.$invalid")
+            span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+          show-error(array-messages="providerProfileVm.errors.formas_de_pago")
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("provider.bank.name"|translate)}}
+          input(
+            type="text"
+            ng-model="providerProfileVm.profileEdit.banco_nombre"
+          )
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("provider.bank.account"|translate)}}
+          input(
+            type="text"
+            ng-model="providerProfileVm.profileEdit.banco_numero_cuenta"
+          )
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("provider.bank.type"|translate)}}
+          account-type(type="providerProfileVm.profileEdit.banco_tipo_cuenta")
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("provider.facebook"|translate)}}
+          input(
+            type="text"
+            ng-model="providerProfileVm.profileEdit.facebook_handle"
+          )
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("provider.twitter"|translate)}}
+          input(
+            type="text"
+            ng-model="providerProfileVm.profileEdit.twitter_handle"
+          )
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("provider.instagram"|translate)}}
+          input(
+            type="text"
+            ng-model="providerProfileVm.profileEdit.instagram_handle"
+          )
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("provider.youtube"|translate)}}
+          input(
+            type="text"
+            ng-model="providerProfileVm.profileEdit.youtube_handle"
+          )
+    ion-footer-bar.bar.bar-footer.bar-stable
+      button.button.button-outline.button-energized.button-small(
+        type="submit"
+        ng-disabled="providerProfileVm.providerProfileForm.$invalid"
+      ) {{::("globals.save"|translate)}}

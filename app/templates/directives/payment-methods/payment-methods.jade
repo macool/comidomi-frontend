@@ -1,0 +1,9 @@
+ion-list
+  ion-checkbox(
+    ng-repeat="method in checkedVm.paymentMethods track by $index",
+    ng-model="method.checked"
+    name="paymentMethods"
+    ng-checked="method.checked"
+    ng-change="checkedVm.checked(method)"
+  ) {{ ::method.label }}
+

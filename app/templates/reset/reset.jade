@@ -1,0 +1,37 @@
+ion-view(
+  view-title='{{::("password.updatePassword"|translate)}}'
+  hide-nav-bar="true"
+)
+  ion-content.login-form
+    .row
+      .col.header-text {{::("password.updatePassword"|translate)}}
+    .row
+      form(ng-submit='resetVm.updatePassword()')
+        .list.list-inset.constraint-width
+          label.item.item-input
+            i.icon.ion.ion-android-lock.placeholder-icon
+            input(
+              type='password',
+              ng-model='resetVm.updatePasswordForm.password',
+              required='required',
+              placeholder='{{::("password.current"|translate)}}'
+            )
+          show-error(array-messages='resetVm.messages.password')
+
+          label.item.item-input
+            i.icon.ion.ion-android-lock.placeholder-icon
+            input(
+              type='password',
+              ng-model='resetVm.updatePasswordForm.password_confirmation',
+              required='required',
+              placeholder='{{::("password.confirm"|translate)}}'
+            )
+          show-error(array-messages='resetVm.messages.password_confirmation')
+
+        .list.list-inset.constraint-width.button-actions
+          button(
+            type='submit'
+          ).button.button-full.button-primary.spaced
+            | {{::("password.update"|translate)}}
+
+.bar.bar-footer.bar-footer-yellow-stripe

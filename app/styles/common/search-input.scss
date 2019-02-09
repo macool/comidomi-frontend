@@ -1,0 +1,28 @@
+@import "compass/css3/user-interface";
+
+.search-input {
+  border: 3px solid $search-label-grey;
+  border-radius: 30px;
+  display: block;
+  padding: 0 25px 0 25px;
+  position: relative;
+  width: 100%;
+
+  .placeholder-icon {
+    color: $search-input-grey;
+    font-size: 25px;
+    z-index: 2;
+    position: absolute;
+    left: 10px;
+  }
+
+  input {
+    width: 100%;
+    padding: 0 10px;
+    @include input-placeholder {
+      text-align: center;
+      color: $search-input-grey;
+      text-transform: uppercase;
+    }
+  }
+}

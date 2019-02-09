@@ -1,0 +1,23 @@
+.list {
+  &--top-narrow {
+    margin-top: 0;
+  }
+
+  &--bottom-narrow {
+    margin-bottom: 0;
+  }
+
+  &--centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &--no-borders {
+    .item {
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+    }
+  }
+}

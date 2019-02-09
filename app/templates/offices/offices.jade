@@ -1,0 +1,33 @@
+ion-view(
+  view-title="{{::('office.office'|translate)}}"
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-nav-buttons(side="right")
+    provider-notifications
+
+  ion-content.offices-index-page.resource-collection
+    .list.list-inset.list--no-borders.text-center
+      button.button.button-outline.button-energized(
+        ng-click="officesVm.showNewOffice()"
+      ) {{::("globals.new"|translate)}} {{::("office.office"|translate)}}
+
+    .list.list-inset.list--no-borders.resource-collection-table
+      .row.table-headers
+        .col.col-60 {{::("office.officeAddress"|translate)}}
+        .col
+
+      .row.without-items(
+        ng-if="officesVm.offices.length === 0"
+      )
+        p {{::("office.officesAny"|translate)}}
+
+      .item.row(
+        ng-repeat='item in officesVm.offices track by $index'
+      )
+        .col.col-60 {{item.direccion}}
+        .col.text-right
+          a.button.button-clear.button-positive.button-small(
+            ui-sref='provider.office({ id: item.id, office: item})'
+          ) {{::("globals.seeMore"|translate)}}

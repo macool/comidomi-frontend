@@ -1,0 +1,23 @@
+.more-label {
+  text-transform: uppercase;
+  font-family: Montserrat-Light;
+  font-size: 13px;
+}
+
+.item-show-footer {
+  .left-panel {
+    text-align: center;
+    min-width: 135px;
+    display: flex;
+
+    .button {
+      padding: 0 3px;
+    }
+  }
+
+  .center-panel {
+    width: 100%;
+    background-color: $stable;
+    z-index: 1;
+  }
+}

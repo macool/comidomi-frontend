@@ -1,0 +1,27 @@
+.provider-orders-index-page{
+  font-family: Montserrat-Light;
+  color: $base-grey;
+
+  .page-title {
+    font-family: Montserrat-Regular;
+
+    h2 {
+      color: $base-grey;
+      font-size: 22px;
+      line-height: 24px;
+      font-family: Montserrat-Regular;
+      text-transform: capitalize;
+    }
+  }
+
+  .order-container{
+    margin-top: 15px;
+    cursor: pointer;
+    i {
+      color: $base-orange;
+      span {
+         padding: 5px
+      }
+    }
+  }
+}

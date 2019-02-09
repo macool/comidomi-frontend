@@ -1,0 +1,15 @@
+.input-left-icon {
+  position: absolute;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 20px;
+  margin: auto;
+  top: 50%;
+  bottom: 50%;
+}
+
+.fb-left-icon {
+  @extend .input-left-icon;
+  background-image: url('../images/FB-f-Logo__white_29.png');
+  background-size: contain;
+}

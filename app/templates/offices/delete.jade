@@ -1,0 +1,60 @@
+ion-modal-view
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="officesVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+      
+  form(
+    name='officesVm.cancelationForm'
+    ng-submit='officesVm.submitOfficeDelete()'
+    novalidate
+  )
+    ion-content.resource-form
+      .list.list-inset
+        legend.title {{::("office.officeDeleteReasons"|translate)}}
+
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("office.officeDeleteMotive"|translate)}}
+          input(
+            type="text"
+            ng-class="input-error"
+            ng-model="officesVm.cancelationForm.motivo"
+          )
+        .errors-wrapper
+          show-error(array-messages="officesVm.messages.motivo")
+
+        label.item.item-input.item-radio
+          span.input-label {{::("office.officeDeleteDefinitive"|translate)}}
+        .row.item-radios
+          ion-list.ion-list
+            ion-radio(
+              ng-value="true"
+              ng-model="officesVm.cancelationForm.definitivo"
+            ) Sí
+            ion-radio(
+              ng-value="false"
+              ng-model="officesVm.cancelationForm.definitivo"
+            ) No
+
+        .errors-wrapper
+          show-error(array-messages="officesVm.messages.definitivo")
+          
+        label.item.item-input.item-stacked-label(
+          ng-if="!officesVm.cancelationForm.definitivo"
+        )
+          span.input-label {{::("office.officeDeleteTime"|translate)}}
+          input(
+            type='text'
+            ng-model='officesVm.cancelationForm.tiempo'
+            ng-class="input-error"
+          )
+        .errors-wrapper
+          show-error(array-messages="officesVm.messages.tiempo")
+
+    .bar.bar-footer.bar-stable
+      button.button.button-small.button-outline.button-assertive(
+        type="submit"
+      ) {{::("office.disableOffice"|translate)}}

@@ -1,0 +1,52 @@
+.list.list-inset
+  legend {{::("courier.secondFormLegend"|translate)}}
+
+  label.item.item-input.item-stacked-label.item-input--no-borders(
+    ng-class="{'item-error': courierVm.messages.fecha_nacimiento}"
+  )
+    span.input-label {{::("courier.birthdate"|translate)}}
+  ion-datetime-picker.item.item-icon-left.datetime-picker(
+    date
+    ng-model='courierVm.courier.fecha_nacimiento'
+  )
+    i.icon.ion-ios-calendar-outline
+    span(
+      ng-if="courierVm.courier.fecha_nacimiento"
+    ) {{ courierVm.courier.fecha_nacimiento| date: "yyyy-MM-dd" }}
+    span(
+      ng-if="!courierVm.courier.fecha_nacimiento"
+    ) {{ "user.selectDatePlaceholder"|translate }}
+  .errors-wrapper
+    show-error(array-messages="courierVm.messages.fecha_nacimiento")
+
+  label.item.item-input.item-select
+    span.input-label {{ ::("office.place"|translate) }}
+    select(
+      ng-model='courierVm.courier.place_id'
+      ng-options="place.id as place.full_str for place in courierVm.places"
+    )
+  .errors-wrapper
+    show-error(array-messages="courierVm.messages.place_id")
+
+  label.item.item-input.item-select(
+    ng-class="{'item-error': courierVm.messages.tipo_licencia}"
+  )
+    span.input-label {{::("courier.license"|translate)}}
+    select(
+      ng-model='courierVm.courier.tipo_licencia'
+      ng-options="license as license for license in courierVm.licenses"
+    )
+  .errors-wrapper
+    show-error(array-messages="courierVm.messages.tipo_licencia")
+
+
+  label.item.item-input.item-select(
+    ng-class="{'item-error': courierVm.messages.tipo_medio_movilizacion}"
+  )
+    span.input-label {{::("courier.mobilization"|translate)}}
+    select(
+      ng-model='courierVm.courier.tipo_medio_movilizacion'
+      ng-options="mobil as mobil for mobil in courierVm.mobilization"
+    )
+  .errors-wrapper
+    show-error(array-messages="courierVm.messages.tipo_medio_movilizacion")

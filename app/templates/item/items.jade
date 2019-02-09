@@ -1,0 +1,52 @@
+ion-view(
+  view-title='{{::("item.items"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-nav-buttons(side="right")
+    provider-notifications
+
+  ion-content.item-index-page.resource-collection
+    .row
+      label.item.search-input
+        i.icon.ion-search.placeholder-icon
+        input(
+          ng-model="itemsVm.query"
+          type="text"
+          placeholder='{{::("item.itemSearch"|translate)}}'
+        )
+
+    .row
+      .list.list--centered
+        button.button.button-outline.button-energized(
+          ng-click="itemsVm.newItemModal()"
+        ) {{::("globals.new"|translate)}} {{::("item.item"|translate)}}
+
+    .list.list-inset.list--no-borders.resource-collection-table
+      .row.table-headers
+        .col.col-50 {{::("item.productName"|translate)}}
+        .col.col-25.text-right
+          | {{::("item.price"|translate)}}
+        .col.col-25
+          .item.item-input.item-select.filter-select
+            select(
+              ng-model="sortingOption"
+              ng-options="option.tkey|translate for option in itemsVm.sortingOptions"
+            )
+              option(value="") Ordenar por
+
+      .col.without-items(ng-if="!itemsVm.items.length")
+        p {{::("item.titleWithoutItems"|translate)}}
+        p {{::("item.subtitleWithoutItems"|translate)}}
+
+      .item.row(
+        ng-repeat="item in itemsVm.items | filter:itemsVm.query | orderBy:sortingOption.filterField"
+      )
+        .col.col-50.provider-item-title {{ ::item.titulo }}
+        .col.col-25.text-right
+          price(amount="{{item.precio_cents}}" currency="{{item.precio_currency}}")
+        .col.col-25.text-right
+          a.button.button-clear.button-positive.button-small(
+            ui-sref="provider.items.show({id: item.id})"
+          ) {{ ::("globals.seeMore" | translate) }}

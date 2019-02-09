@@ -1,0 +1,17 @@
+ion-view(
+  view-title='{{::("actions.newProvider"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+
+  form(name="providerVm.providerForm" ng-submit='providerVm.submit()' novalidate)
+    ion-content.resource-form(locking="false")
+      .row
+        .fields-wrapper--spaced(ng-if="providerVm.step === 1" ng-include="'templates/provider/partials/new_first_part.html'")
+        .fields-wrapper--spaced(ng-if="providerVm.step === 2" ng-include="'templates/provider/partials/new_second_part.html'")
+    ion-footer-bar.bar.bar-footer.bar-stable
+      button.button.button-outline.button-energized.button-small(
+        type='submit'
+        ng-disabled="providerVm.providerForm.$invalid"
+      )
+        | {{providerVm.step === 1 ? ("provider.nextStep"|translate) : ("provider.createProvider"|translate)}}

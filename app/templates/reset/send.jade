@@ -1,0 +1,31 @@
+ion-view(
+  view-title="Login",
+  hide-nav-bar="true"
+)
+  ion-nav-bar
+    back-button
+  ion-content.login-form
+    .row
+      .col.header-text Recuperar contraseña
+    .row.constraint-width
+      .col.intro-description
+        p Escribe tu dirección de correo electrónico y te enviaremos instrucciones para recuperar tu contraseña
+
+    .row
+      form(ng-submit='resetVm.resetPassword()')
+        .list.list-inset.constraint-width
+          label.item.item-input
+            i.icon.ion-email.placeholder-icon
+            input(
+              type='email',
+              ng-model='resetVm.resetPasswordForm.email'
+              required='required'
+              placeholder='Correo electrónico'
+            )
+        .list.list-inset.constraint-width.button-actions
+          button(
+            type='submit'
+          ).button.button-full.button-primary.spaced
+            | Restablecer contraseña
+
+.bar.bar-footer.bar-footer-yellow-stripe

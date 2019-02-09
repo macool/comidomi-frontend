@@ -1,0 +1,46 @@
+slick-wrapper(settings="productVm.slickConfig")
+  .slick-container(
+    ng-repeat="image in ::productVm.product.imagenes track by $index"
+  )
+    .slick-content
+      img.img-circle(data-lazy="{{ ::image.imagen_url }}")
+
+.list.list-inset.resource-detail-summary
+  h2 {{productVm.product.titulo}}
+  p {{productVm.product.descripcion}}
+
+.list.list-inset.action-buttons-wrapper
+  .buttons-width-constraint
+    button.button.button-outline.button-energized.button-stretched(
+      ng-click="productVm.runAction(productVm.actions.cart)"
+      ng-disabled="!productVm.item.cantidad || productVm.disableInputs || !productVm.canAdd"
+    ) {{::('product.addCar' | translate)}}
+    button.button.button-outline.button-positive.button-stretched.button-letter-stretched(
+      ng-click="productVm.runAction(productVm.actions.wishlist)"
+      ng-disabled="productVm.disableInputs"
+    ) {{::('product.addWishlist' | translate)}}
+
+.list.list-inset.resource-detail-long-summary(
+  ng-if="::productVm.product.observaciones"
+  ng-class="{'toggable':productVm.product.observaciones.length>200}"
+)
+  p(
+    ng-class="{'expanded': productVm.more}"
+  ) {{ ::productVm.product.observaciones }}
+
+  .text-center.toggable-btn-wrapper(
+    toggle-expand="productVm.more"
+  )
+    button.button.button-clear.button-positive.button-letter-stretched.more-label
+      | {{ (productVm.more) ? ("product.less"|translate) : ("product.more"|translate) }}
+
+.list.list-inset
+  label.item.item-input.item-stacked-label.observaciones-wrapper
+    span.input-label {{ ::('cart.observations' | translate) }}
+    textarea(
+      msd-elastic
+      ng-model='productVm.item.observaciones'
+      ng-disabled='productVm.disableInputs'
+      placeholder='{{ ::("cart.observacionesPlaceholder" | translate)}}'
+    )
+  show-error(array-messages="productVm.messages")

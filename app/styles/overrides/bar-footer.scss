@@ -1,0 +1,30 @@
+.bar.bar-footer.bar-stable {
+  border: 0;
+  background-image: none;
+}
+
+.bar .button.button-small {
+  padding: 0 30px;
+  line-height: 28px;
+}
+
+.bar {
+  .button.button-xsmall,
+    .button-positive.button-xsmall,
+    .button-energized.button-xsmall {
+    font-family: Montserrat-Light;
+    padding: 0 20px;
+    line-height: 25px;
+  }
+}
+
+.bar-footer {
+  .side-by-side {
+    display: inline-block;
+    margin: auto;
+  }
+
+  &--tall {
+    height: 60px;
+  }
+}

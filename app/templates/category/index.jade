@@ -1,0 +1,16 @@
+ion-view(
+  view-title='{{::("menu.category"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-nav-buttons(side="right")
+    cart-button
+
+  ion-content
+    .grid-parent
+      a.grid-content(ng-repeat="category in categoryVm.categories()"
+                    ng-class="categoryVm.categoryGridClassFor($index, $last)"
+                    ui-sref="app.categories.show({id: category.id})"
+                    style="background-image: url('{{category.imagen_url|defaultImage}}')")
+        .title.grid-text-shadow {{category.titulo}}

@@ -1,0 +1,25 @@
+span.placeholder-title
+  order-delivery-method(
+    delivery-method="orderDeliveryNombreVM.delivery.delivery_method"
+  )
+
+span(
+  ng-if="!orderDeliveryNombreVM.delivery.deliver_at"
+) {{ ::("cart.pickupNow" | translate) }}
+span(
+  ng-if="orderDeliveryNombreVM.delivery.deliver_at"
+)
+  order-delivery-schedule-date(
+    deliver-at="orderDeliveryNombreVM.delivery.deliver_at"
+  )
+
+span(
+  ng-if="orderDeliveryNombreVM.delivery.delivery_method !== 'pickup'"
+) -
+
+span.text-assertive(
+  ng-if="orderDeliveryNombreVM.delivery.delivery_method !== 'pickup' && !orderDeliveryNombreVM.delivery.customer_address_id"
+) {{ ::("cart.withoutDeliveryAddress" | translate) }}
+span(
+  ng-if="orderDeliveryNombreVM.delivery.customer_address_id"
+) {{ orderDeliveryNombreVM.deliveryNombre }}

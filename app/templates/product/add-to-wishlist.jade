@@ -1,0 +1,42 @@
+ion-modal-view.add-to-wishlist
+  ion-header-bar.bar.bar-header.bar-light.bar-modal-header(align-title="center")
+    .title {{::("product.modalTitle"|translate)}}
+    .buttons
+      button.button.ion-close.button-clear(
+        ng-click="productVm.closeModal()"
+      )
+  ion-content
+
+    .modal-container
+      ion-list.modal-list
+        ion-item.modal-item(
+            ng-repeat="wishlist in productVm.wishlists track by $index"
+            ng-click="productVm.onWishlistSelect(wishlist)"
+        )
+          i.ion-android-checkmark-circle
+          span {{wishlist.nombre}}
+
+  ion-footer-bar.modal-footer
+    .action-container(ng-if="!productVm.showNewWishlistInput")
+      action-button(
+        on-click="productVm.showNewWishlist()"
+        text="{{::('product.modalButtonNew'|translate)}}"
+      )
+    .actions-container(ng-if="productVm.showNewWishlistInput")
+      label.item.item-input.input-wishlist-name
+        input(
+          type="text"
+          ng-model="productVm.wishlistName"
+          placeholder="{{::('product.modalInputNew'|translate)}}"
+        )
+      show-error(array-messages="wishlistsVm.messages.nombre")
+      .buttons
+        action-button(
+          on-click="productVm.createNewWishlist()"
+          text="{{::('product.modalButtonSave'|translate)}}"
+        )
+        action-button(
+          on-click="productVm.clearData()"
+          text="{{::('globals.cancel'|translate)}}"
+          color="blue"
+        )

@@ -1,0 +1,17 @@
+slick-wrapper.providers-carousel(
+  settings="spcVm.options.slickSettings"
+)
+  .slick-container(ng-repeat="provider in ::spcVm.providers")
+    .slick-content(ng-click="spcVm.cardClick(provider)")
+      .provider-card
+        .img-container
+          img(
+            data-lazy="{{::(provider.logotipo_url | defaultImage)}}"
+          )
+
+        .provider-card-footer
+          .nombre {{ ::provider.nombre_establecimiento }}
+          .horario
+            provider-profile-schedule(
+              provider-profile='provider'
+            )

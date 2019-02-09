@@ -1,0 +1,24 @@
+.row {
+  .common-text {
+    width: 100%;
+    color: $base-darkteal;
+    text-align: center;
+    font-family: Montserrat-Regular;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: inherit;
+    }
+  }
+
+  .header-text {
+    @extend .common-text;
+    margin-top: 40px;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
+  .intro-description {
+    @extend .common-text;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+  }
+}

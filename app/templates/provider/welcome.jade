@@ -1,0 +1,17 @@
+ion-view(
+  view-title='{{::("provider.profileName"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+  ion-content.pre-application-form
+    .row
+      .moviggo-logo-2.branding-logo
+    .row
+      .list.list-inset.common-text
+        h1.title Conviértete en Vendedor
+        p vende tus productos de manera rápida y sencilla
+    .row
+      .list.list-inset.list--centered
+        a.button.button-outline.button-default-action(
+          ui-sref='app.provider.new'
+        ) Empezar

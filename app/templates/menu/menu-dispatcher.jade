@@ -1,0 +1,27 @@
+ion-side-menus(enable-menu-with-back-views='false')
+  ion-side-menu-content
+    ion-nav-bar.bar-stable
+      ion-nav-back-button
+      ion-nav-buttons(side='left')
+        button.button.button-icon.button-clear.ion-navicon(menu-toggle='left')
+    ion-nav-view(name='menuContent')
+  ion-side-menu(side='left')
+    ion-header-bar.bar-stable
+    ion-content
+      ion-list
+        ion-item
+          | {{::("menu.dispatcher.orders"|translate)}}
+        ion-item  
+          | {{::("menu.dispatcher.account"|translate)}}
+        ion-item  
+          | {{::("menu.dispatcher.payments"|translate)}}
+        ion-item  
+          | {{::("menu.dispatcher.history"|translate)}}
+        ion-item  
+          | {{::("menu.dispatcher.invite"|translate)}}
+        ion-item(ng-controller='LoginController as loginVm', ng-click='loginVm.logout()')
+          | {{::("menu.logout"|translate)}}
+        ion-item.gray-item 
+          | {{::("menu.changeTo"|translate)}}
+        ion-item.user-type(menu-close='' ui-sref='app.categories.index')
+          | {{::("menu.user.buyer"|translate)}}

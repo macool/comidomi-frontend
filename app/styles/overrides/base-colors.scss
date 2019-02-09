@@ -1,0 +1,21 @@
+// at the moment we're using compiled version of
+// ionic stylesheets, so we're overriding manually
+// building ionic stylesheets for ourselves should
+// let us override
+
+// override default font color
+.item,
+.bar.bar-light .title
+  {
+  color: $base-grey;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $dark; // original dark
+}
+
+// overriding forms
+legend,
+.input-label {
+  color: $base-grey;
+}

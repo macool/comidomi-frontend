@@ -1,0 +1,13 @@
+ion-view(
+  view-title='{{::("globals.error"|translate)}}'
+)
+
+  .bar.bar-stable.bar-header.bar-header-error-page
+    .alt-logo
+  ion-content(class="error-page")
+    .row.error-text-content
+      .list.list-inset.error-text-content
+        .error-text {{::("globals.disabledUser"|translate)}}
+    .row
+      .list.list-inset.list--centered
+        button.button-error-redirect(ui-sref="app.categories.index") {{::("globals.index"|translate)}}

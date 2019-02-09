@@ -1,0 +1,17 @@
+ion-view(
+  view-title='{{::("courier.newCourierTitle"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+
+  form(name="courierVm.courierForm" ng-submit='courierVm.submit()' novalidate)
+    ion-content.resource-form(locking="false")
+      .row
+        .fields-wrapper--spaced(ng-if="courierVm.step === 1" ng-include="'templates/courier/partials/new_first_part.html'")
+        .fields-wrapper--spaced(ng-if="courierVm.step === 2" ng-include="'templates/courier/partials/new_second_part.html'")
+    ion-footer-bar.bar.bar-footer.bar-stable
+      button.button.button-outline.button-energized.button-small(
+        type='submit'
+        ng-disabled="courierVm.courierForm.$invalid"
+      )
+        | {{courierVm.step === 1 ? ("courier.nextStep"|translate) : ("courier.createCourier"|translate)}}

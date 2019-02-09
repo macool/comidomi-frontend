@@ -1,0 +1,21 @@
+.wishlist-page {
+  .input-wishlist-name {
+    text-align: center;
+  }
+  .row-wishlist-action {
+    display: block;
+    text-align: center;
+  }
+  .wishlist-item {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    .ion-checkmark {
+      padding: 0 0.2rem;
+    }
+  }
+}
+
+.footer-wishlist-container {
+  margin-bottom: 5px;
+}

@@ -1,0 +1,6 @@
+ion-list
+  ion-radio(
+    ng-repeat="type in radioButtonVm.accountType track by $index",
+    ng-value="type.value",
+    ng-model="radioButtonVm.type"
+  ) {{ ::type.label }}

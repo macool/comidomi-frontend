@@ -1,0 +1,82 @@
+ion-view(
+  view-title="{{::('office.office'|translate)}}"
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-nav-buttons(side="right")
+    provider-notifications
+
+  ion-content.office-show-page(
+    ng-class="{'content-office-disabled': !officesVm.officeDetail.enabled}"
+  )
+    ion-toggle(
+      ng-change="officesVm.updateOfficeState()"
+      ng-model="officesVm.officeDetail.enabled"
+      toggle-class="toggle-energized"
+
+    ) {{('office.officeEnabled.'+ officesVm.officeDetail.enabled |translate )}}
+    .office-map
+      img#office-map(
+        ng-src="{{ officesVm.officeDetail.static_map_image }}"
+      )
+
+    .list.list-inset.list--no-borders.resource-detail-summary
+      h2 {{officesVm.officeDetail.direccion}}
+
+    .row.details-table-header
+      .col.col-60 {{::("office.officeLegend"|translate)}}
+      .col.col-40.text-right
+        .button.button-clear.button-positive.button-xsmall(
+          ng-click="officesVm.showEditOffice()"
+        ) {{::("globals.edit"|translate)}}
+        //.button.button-clear.button-assertive.button-xsmall(
+          ng-click="officesVm.showDeleteOffice()"
+       //) {{::("globals.delete"|translate)}}
+
+
+    .list.list-inset.list--no-borders.resource-details-table
+      .row
+        .col.col-50.label {{::("office.officeNumber"|translate)}}
+        .col.col-50.value {{::officesVm.officeDetail.id}}
+      .row
+        .col.col-50.label {{::("office.place"|translate)}}
+        .col.col-50.value
+          | {{ officesVm.officeDetail.place.full_str }}
+      .row
+        .col.col-50.label {{::("office.telefono"|translate)}}
+        .col.col-50.value {{officesVm.officeDetail.telefono}}
+
+    .row.details-table-header
+      .col {{::("office.weekdays.collectionTitle"|translate)}}
+
+    .list.list-inset.list--no-borders.resource-details-table
+      .row(
+        ng-repeat="weekday in officesVm.officeDetail.weekdays"
+      )
+        .col.col-50.label
+          | {{ ::("globals.dayNames." + weekday.day | translate) }}
+        .col.col-50.value
+          span(
+            ng-if="!weekday.abierto"
+          ) {{ ::("office.weekdays.cerrado" | translate) }}
+          span(
+            ng-if="weekday.abierto"
+          )
+            span(
+              ng-if="weekday.hora_de_apertura"
+            )
+              | {{ weekday.hora_de_apertura | toDate:'timeSchedule' | formatDate:'HH:mm' }}
+            span(
+              ng-if="!weekday.hora_de_apertura"
+            )
+              | {{ ::("office.weekdays.selectHourPlaceholder" | translate) }}
+            | -
+            span(
+              ng-if="weekday.hora_de_cierre"
+            )
+              | {{ weekday.hora_de_cierre | toDate:'timeSchedule' | formatDate:'HH:mm' }}
+            span(
+              ng-if="!weekday.hora_de_cierre"
+            )
+              | {{ ::("office.weekdays.selectHourPlaceholder" | translate) }}

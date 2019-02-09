@@ -1,0 +1,68 @@
+.list.list-inset
+  .message-error(
+    ng-if="courierVm.courierForm.submissionErrorCode"
+  )
+    p.bottom-spaced {{ ::("courier.form.error." + courierVm.courierForm.submissionErrorCode | translate) }}
+
+  legend {{::("courier.firstFormLegend"|translate)}}
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': courierVm.courierForm.nombres.$touched && courierVm.courierForm.nombres.$invalid}"
+  )
+    span.input-label.required {{::("courier.names"|translate)}}
+    input(
+      type='text'
+      name='nombres'
+      ng-model='courierVm.courier.nombres'
+      required
+    )
+  .errors-wrapper
+    span.show-errors(ng-messages="courierVm.courierForm.nombres.$error" ng-if="courierVm.courierForm.nombres.$touched")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+    show-error(array-messages="courierVm.messages.nombres")
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': courierVm.courierForm.ruc.$touched && courierVm.courierForm.ruc.$invalid}"
+  )
+    span.input-label.required {{::("courier.ruc"|translate)}}
+    input(
+      type='text'
+      name='ruc'
+      ng-model='courierVm.courier.ruc'
+      required
+    )
+  .errors-wrapper
+    span.show-errors(ng-messages="courierVm.courierForm.ruc.$error" ng-if="courierVm.courierForm.ruc.$touched")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+    show-error(array-messages="courierVm.messages.ruc")
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': courierVm.courierForm.telefono.$touched && courierVm.courierForm.telefono.$invalid}"
+  )
+    span.input-label.required {{::("courier.phone"|translate)}}
+    input(
+      type='text'
+      name='telefono'
+      ng-model='courierVm.courier.telefono'
+      required
+    )
+  .errors-wrapper
+    span.show-errors(ng-messages="courierVm.courierForm.telefono.$error" ng-if="courierVm.courierForm.telefono.$touched")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+    show-error(array-messages="courierVm.messages.telefono")
+
+  label.item.item-input.item-stacked-label(
+    ng-class="{'item-error': courierVm.courierForm.email.$touched && courierVm.courierForm.email.$invalid}"
+  )
+    span.input-label.required {{::("courier.email"|translate)}}
+    input(
+      type='email'
+      name='email'
+      placeholder='user@mydomain.com'
+      ng-model='courierVm.courier.email'
+      required
+    )
+  .errors-wrapper
+    span.show-errors(ng-messages="courierVm.courierForm.email.$error" ng-if="courierVm.courierForm.email.$touched")
+      span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
+    show-error(array-messages="courierVm.messages.email")

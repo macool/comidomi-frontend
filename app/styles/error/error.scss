@@ -1,0 +1,46 @@
+.bar-header-error-page {
+  .alt-logo {
+    width: 100%;
+  }
+}
+
+.error-page {
+  .error-text-content {
+    width: 100%;
+  }
+
+  .row-image {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+  .error-text {
+    line-height: 1em;
+    display: flex;
+    height: 5em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $base-grey;
+  }
+  .error-main-text {
+    color: $base-yellow;
+    margin: auto;
+    font-size: 5em;
+    line-height: 1em;
+  }
+  .error-image {
+    background-image: url("../images/404.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 250px;
+    background-position: center;
+    min-width: 270px;
+    margin: auto;
+  }
+  .button-error-redirect {
+    color: $light-blue;
+    background: none;
+    border: none;
+    font-weight: bold;
+  }
+}

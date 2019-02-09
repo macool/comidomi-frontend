@@ -1,0 +1,84 @@
+.provider-show-customer-order {
+  font-family: Montserrat-Light;
+
+  h1, h2, h3, h4 {
+    font-family: Montserrat-Regular;
+  }
+
+  .button-block {
+    max-width: 90%;
+    min-width: 180px;
+  }
+
+  .resource-form {
+    .button-block {
+      margin-top: 0;
+    }
+
+    label.item-input.item-stacked-label.label--downcase .input-label {
+      text-transform: initial;
+    }
+  }
+
+  .inline-selectize-wrapper {
+    margin-bottom: 25px;
+
+    label {
+      overflow: visible;
+      z-index: 3;
+
+      &.item-input--no-borders {
+        margin-bottom: 10px;
+      }
+    }
+
+    .input-label {
+      display: inline;
+      white-space: normal;
+    }
+
+    .item-input.item-stacked-label .input-label {
+      font-size: 16px;
+    }
+
+    .selectize-wrapper {
+      float: right;
+      min-width: 100px;
+      text-align: right;
+
+      .selectize-input {
+        border: 0;
+        box-shadow: none;
+        padding-top: 0;
+        padding-right: 15px;
+        padding-left: 0;
+
+        .item {
+          border: 0;
+          text-transform: uppercase;
+          line-height: 28px;
+          padding-top: 0;
+          padding-bottom: 0;
+          padding-right: 5px;
+          padding-left: 10px;
+          vertical-align: top;
+        }
+
+        input {
+          text-transform: uppercase;
+          display: block;
+        }
+
+        &::after {
+          right: 0;
+          top: 14px;
+        }
+      }
+    }
+
+    .selectize-dropdown {
+      border: 0;
+      text-transform: uppercase;
+    }
+  }
+}

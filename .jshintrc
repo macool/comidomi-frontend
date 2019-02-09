@@ -1,0 +1,33 @@
+{
+  "node": true,
+  "browser": true,
+  "esnext": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 2,
+  "latedef": "nofunc",
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "globals": {
+    "angular": false,
+    "cordova": false,
+    "StatusBar": false,
+    "google": false,
+    "airbrakeJs": false,
+    "moment": false,
+    "File": false,
+    "Pusher": false,
+    "geolib": false,
+    "PushNotification": false
+  }
+}

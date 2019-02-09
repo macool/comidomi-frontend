@@ -1,0 +1,10 @@
+ion-modal-view.checkout-modal-form
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+
+    .ion-nav-buttons.buttons(side="primary")
+      .button.button-clear.button-positive(
+        ng-click="pfaVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  ng-include(src="'templates/profile/addresses/form_template.html'")

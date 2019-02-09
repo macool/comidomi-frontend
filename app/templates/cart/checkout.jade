@@ -1,0 +1,98 @@
+ion-modal-view.cart-page
+  ion-header-bar.bar-stable.bar.bar-header
+    .title {{::("cart.modalTitle"|translate)}}
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="cartVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  form(
+    name="courierVm.courierForm"
+    ng-submit='cartVm.runCheckout()'
+    novalidate
+  )
+    ion-content.resource-form.checkout-form
+      .list.list-inset
+        label.item.item-input.item-stacked-label
+          span.input-label {{::("cart.observations"|translate)}}
+          textarea(
+            msd-elastic
+            ng-model="cartVm.checkoutForm.observaciones"
+            placeholder="{{::('cart.observations'|translate)}}"
+          )
+        .errors-wrapper
+          show-error(array-messages="cartVm.messages.observaciones")
+
+        label.item.item-input.item-select(
+          ng-class="{'item-error': cartVm.messages.forma_de_pago}"
+        )
+          span.input-label {{::("cart.paymentMethod"|translate)}}
+          select(
+            ng-model='cartVm.checkoutForm.forma_de_pago'
+            ng-options="paymentMethod as paymentMethod for paymentMethod in cartVm.paymentMethods")
+        .errors-wrapper
+          show-error(array-messages='cartVm.messages.forma_de_pago')
+
+        //- not here anymore
+          label.item.item-input.item-select
+            span.input-label {{::("cart.deliveryMethod"|translate)}}
+            select(
+              ng-model='cartVm.checkoutForm.delivery_method'
+              ng-options="method.value as method.label for method in cartVm.formattedDeliveryMethods track by method.value")
+          .errors-wrapper
+            show-error(array-messages='cartVm.messages.delivery_method')
+
+          .wrapper(
+            ng-if="cartVm.checkoutForm.delivery_method === 'shipping'"
+          )
+            label.item.item-input.item-input--no-borders.item-stacked-label.select-list-label(
+              ng-class="{'item-error': cartVm.messages.customer_address_id}"
+            )
+              span.input-label {{::("cart.deliveryAddress"|translate)}}
+            ion-list
+              ion-item.select-list-item(
+                  ng-repeat="address in cartVm.addresses track by $index"
+                  ng-click="cartVm.assignAddress(address)"
+                  ng-class="{'selected': address.selected}"
+              )
+                i.ion-android-checkmark-circle
+                span {{ address.nombre }} ({{ address.direccion_uno }})
+            show-error(array-messages='cartVm.messages.customer_address_id')
+
+        label.item.item-input.item-input--no-borders.item-stacked-label.select-list-label(
+          ng-class="{'item-error': cartVm.messages.customer_billing_address_id}"
+        )
+          span.input-label {{::("billingAddress.legendForm"|translate)}}
+        ion-list
+          ion-item.select-list-item(
+            ng-click="cartVm.chooseAnonBillingAddress()"
+            ng-class="{'selected': cartVm.checkoutForm.anon_billing_address}"
+          )
+            i.ion-android-checkmark-circle
+            span {{ ::("cart.anonBillingAddress" | translate) }}
+        ion-list
+          ion-item.select-list-item(
+            ng-repeat="billingAddress in cartVm.billingAddresses track by $index"
+            ng-click="cartVm.assignBillingAddress(billingAddress)"
+            ng-class="{'selected': billingAddress.selected}"
+          )
+            i.ion-android-checkmark-circle
+            span {{billingAddress.razon_social}} ({{billingAddress.direccion}})
+        show-error(array-messages='cartVm.messages.customer_billing_address_id')
+
+      .text-center.fields-wrapper(
+        ng-if="!cartVm.billingAddresses.length > 0"
+      )
+        .item.item-input.item-input--no-borders
+          p {{ ::("billingAddress.noAddressesSaved" | translate) }}
+        .item.item-input.item-input--no-borders
+          .button.button-outline.button-small.button-energized(
+            type="button"
+            ng-click="cartVm.checkoutFormAddBillingAddress()"
+          ) {{ ::("billingAddress.newBillingAddress" | translate) }}
+
+    ion-footer-bar.bar-stable.bar-footer--tall
+      button.button.button-outline.button-energized(
+        type="submit"
+      ) {{::('cart.placeOrder'|translate)}}

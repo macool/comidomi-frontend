@@ -1,0 +1,18 @@
+.tos-show-page {
+  .tos-contents {
+    &, p {
+      font-size: 16px;
+      line-height: 20px;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 25px;
+    }
+  }
+
+  .primary-button {
+    margin-bottom: 30px;
+  }
+}

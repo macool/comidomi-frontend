@@ -1,0 +1,60 @@
+ion-view(
+  view-title='{{::("client.clients"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-nav-buttons(side="right")
+    provider-notifications
+
+  ion-content.clients-index-page.resource-collection
+    .row
+      label.item.search-input
+        i.icon.ion-search.placeholder-icon
+        input(
+          ng-model="clientsVm.query"
+          type="text"
+          placeholder='{{::("client.clientSearch"|translate)}}'
+        )
+
+    .row
+      .list.list--centered
+        button.button.button-outline.button-energized(
+          ng-click="clientsVm.showNewModal()"
+        ) {{::("globals.new"|translate)}} {{::("client.client"|translate)}}
+
+    .list.list-inset.list--no-borders.resource-collection-table
+      .row.table-headers
+        .col.col-60 {{::("client.clientName"|translate)}}
+        .col
+          .item.item-input.item-select.filter-select
+            select(
+              ng-model="selectedOption"
+              ng-options="option.name for option in clientsVm.listOptions"
+            )
+              option(value="") Ordenar por
+
+      .col.without-items(ng-if="clientsVm.clients.length === 0")
+        p {{::("client.noClients"|translate)}}
+
+      .item.row(
+        ng-repeat="client in clientsVm.clients | filter:clientsVm.query | orderBy:selectedOption.filterField"
+      )
+        .col.col-60 {{ client.nombres }}
+        .col.text-right
+          .button.button-clear.button-positive.button-small(
+            ng-click="clientsVm.showEditModal($index)"
+          ) {{::("globals.edit"|translate)}}
+          .button.button-clear.button-assertive.button-small(
+            ng-click="clientsVm.askToDeleteClient(client.id)"
+          ) {{::("client.disable"|translate)}}
+
+  ion-footer-bar(class="bar-stable")
+    .clients-footer-constraint-width
+      .side-by-side
+        button.button.button-outline.button-energized.button-xsmall
+          | {{::("client.import"|translate)}}
+
+      .side-by-side
+        button.button.button-outline.button-energized.button-xsmall
+          | {{::("client.export"|translate)}}

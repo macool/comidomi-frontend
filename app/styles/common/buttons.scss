@@ -1,0 +1,135 @@
+.button {
+  margin: auto;
+  min-height: 40px;
+
+  &.button-link {
+    color: $base-darkteal;
+    text-decoration: underline;
+  }
+}
+
+.button-clear.button-secondary {
+  color: $base-orange;
+}
+
+.common-button {
+  border-radius: 8px;
+  font-family: Montserrat-Regular;
+  color: $white;
+  width: 100%;
+  background-color: $base-orange;
+  -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+  font-family: Montserrat-Regular;
+}
+
+.button-default-action.button-outline {
+  border-color: $base-orange;
+  color: $base-orange;
+
+  &.activated {
+    background-color: $base-orange;
+  }
+}
+
+.button-primary,
+.button-primary.button-full,
+.button-primary.activated {
+  @extend .common-button;
+
+  &.spaced {
+    margin-top: 30px;
+  }
+}
+
+.button-outline {
+  border-radius: 0;
+  border-width: 3px;
+  text-transform: uppercase;
+}
+
+.button.button-energized,
+.button.button-energized.button-outline {
+  border-color: $base-orange;
+  color: $base-orange;
+
+  &.activated {
+    background-color: $base-orange;
+  }
+}
+
+.button-energized,
+.button-positive:not(.button-small):not(.button-xsmall) {
+  padding: 3px 18px;
+  line-height: 30px;
+  font-family: Montserrat-Regular;
+}
+
+.button-stretched {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 26px;
+}
+
+.button-letter-stretched {
+  letter-spacing: -0.5px;
+}
+
+.button--narrow-padded,
+.bar .button.button-small.button--narrow-padded {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.facebook-login
+ {
+  @extend .common-button;
+  background-color: $facebook-blue;
+
+  .fb-copytext {
+    padding-left: 30px;
+  }
+}
+
+.button-primary,
+.facebook-login {
+  &.activated {
+    color: $white;
+  }
+
+  &:hover {
+    color: $white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.button[disabled] {
+  pointer-events: auto;
+
+  &:active {
+    color: $button-stable-text;
+    border-color: $button-stable-active-border;
+    background-color: $button-stable-active-bg;
+  }
+}
+
+.button--xsmall {
+  font-size: 12px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 22px;
+  min-height: initial;
+}
+
+// for bar-header
+.bar-stable .button.activated,
+.bar-stable .button.active {
+  border-color: transparent;
+  background-color: initial;
+}

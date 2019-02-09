@@ -1,0 +1,13 @@
+.errors-wrapper {
+  font-size: 13px;
+}
+
+.errors-wrapper,
+.message-error {
+  color: $error-red;
+  font-family: Montserrat-Light;
+
+  .bottom-spaced {
+    margin-bottom: 10px;
+  }
+}

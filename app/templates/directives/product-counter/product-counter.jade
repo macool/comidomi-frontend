@@ -1,0 +1,20 @@
+.product-counter
+  .actions-panel
+    .button-minus-container
+      button.button-icon.icon.ion-ios-minus-outline.button-minus(
+        ng-disabled="pcVm.disabledMinus()"
+        ng-click="pcVm.handleClickMinus()"
+      )
+    .counter-container
+      | {{ ::('item.cantidadPrefix' | translate) }}{{pcVm.itemsCount}}
+    .button-plus-container
+      button.button-icon.icon.ion-ios-plus-outline.button-plus(
+        ng-disabled="!pcVm.canIncrement || pcVm.itemsCount === pcVm.options.providerItem.cantidad"
+        ng-click="pcVm.handleClickPlus()"
+      )
+
+  .price-panel
+    .price
+      span
+        price(amount="{{pcVm.priceTotalCents}}"
+              currency="{{pcVm.currencyCode}}")

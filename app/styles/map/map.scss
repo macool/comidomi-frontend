@@ -1,0 +1,24 @@
+.map-view {
+  height: 100%;
+
+  #map, .map-directive {
+    height: 100%;
+    width: 100%;
+  }
+
+  #input-places {
+    background-color: $white;
+    font-family: Montserrat-Light;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  #input-places:focus {
+    outline: none;
+    border-color: $base-blue;
+    box-shadow: 0 0 10px $base-blue;
+  }
+}

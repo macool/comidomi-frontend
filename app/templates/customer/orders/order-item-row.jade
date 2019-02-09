@@ -1,0 +1,11 @@
+.item.row
+  .col.col-50 {{ ::item.provider_item.titulo}}
+  .col.col-25 {{ ::( ("order.providerProfile.item.cantidadPrefix" |translate) + item.cantidad) }}
+  .col.col-25
+      price(amount="{{item.provider_item_precio_cents}}"
+            currency="{{item.provider_item.precio_currency}}")
+.item.row(ng-if="item.observaciones")
+  .col.col-100.customer-order-item-observations
+    span.strong
+      | {{ ::("order.providerProfile.item.observations" |translate) }}
+    | {{ ::item.observaciones }}

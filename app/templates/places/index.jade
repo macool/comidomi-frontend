@@ -1,0 +1,19 @@
+ion-view(
+  view-title='{{ ::("places.places" | translate) }}'
+)
+  ion-nav-title
+    .alt-logo
+  ion-content
+    ion-list.places-collection
+      .item.item-divider {{ ::("places.places" | translate) }}
+
+      ion-item.place-item.item-icon-left.item-icon-right(
+        ng-repeat="place in ::placesVm.places track by $index"
+        ng-click="placesVm.selectPlace(place.id)"
+      )
+        .icon
+          img(ng-src="{{ ::place.flag_image_url }}")
+        .text {{ ::place.nombre }} - {{ ::place.country }}
+        i(
+          ng-if="place.id === placesVm.currentPlaceId"
+        ).icon.ion-ios-checkmark-outline

@@ -1,0 +1,15 @@
+ion-view(
+  view-title='{{::("courier.welcomeTitle"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+  ion-content.pre-application-form
+    .row
+      .moviggo-logo-2.branding-logo
+    .row
+      .list.list-inset.common-text
+        h1.title {{::("courier.welcomeTitle"|translate)}}
+        p {{::("courier.welcomeDescription"|translate)}}
+    .row
+      .list.list-inset.list--centered
+        a.button.button-outline.button-energized(ui-sref='app.courier.new') {{::("globals.start"|translate)}}

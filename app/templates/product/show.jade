@@ -1,0 +1,27 @@
+ion-view(
+  view-title='{{::("menu.product"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-nav-buttons(side="right")
+    cart-button
+
+  ion-content.item-show-page
+    form(
+      name="selectProductForm"
+      ng-submit='productVm.selectProduct()'
+    )
+      div(
+        ng-include="'templates/product/product.html'"
+      )
+
+  ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall
+    .left-panel
+      button.button.button-small.button-outline.button-energized.button-letter-stretched(
+        ng-disabled="!productVm.item.cantidad || !productVm.canAdd"
+        ng-click="productVm.runAction(productVm.actions.buyNow)"
+      )
+        | {{::("product.buyNow"|translate)}}
+    .center-panel
+      product-counter(options="productVm.counterOptions")

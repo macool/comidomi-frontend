@@ -1,0 +1,50 @@
+ion-view(
+  view-title='{{::("provider.profileName"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+
+  ion-nav-buttons(side="right")
+    cart-button
+
+  ion-content.provider-show-page
+    .provider-header--background(
+      style="background-image:url('{{ ::providerDetVm.provider.cover_url }}')"
+    )
+    .provider-header
+      .provider-logo
+        img(
+          ng-src='{{ ::providerDetVm.provider.logotipo_url | defaultImage }}'
+        )
+      .provider-info
+        .title.wrapper {{ ::providerDetVm.provider.nombre_establecimiento }}
+        .subtitle.wrapper {{ ::providerDetVm.provider.actividad_economica }}
+        .wrapper(
+          ng-if="::providerDetVm.provider.provider_offices.length"
+        )
+          provider-profile-schedule(
+            provider-profile='providerDetVm.provider'
+          )
+
+    .provider-categories(
+      ng-repeat="providerItemCategory in ::providerDetVm.provider.provider_item_categories"
+    )
+      .provider-category--title {{ ::providerItemCategory.nombre }}
+      .grid-parent
+        .provider-item.col.col-33(
+          ng-repeat="providerItem in ::providerItemCategory.provider_items"
+          ui-sref='app.categories.provider.product({id:providerItem.id, product:providerItem})'
+        )
+          .img-wrapper
+            img.img-circle(
+              ng-src='{{ ::(providerItem.imagenes[0].imagen_url | defaultImage)}}'
+            )
+          .info-wrapper
+            .provider-item--title {{ ::providerItem.titulo }}
+            .provider-item--subtitle
+              span
+                price(amount="{{providerItem.precio_cents}}"
+                      currency="{{providerItem.precio_currency}}")
+
+    .provider-category--no-more-items
+      | {{ ::("provider.noMoreItems" | translate)}}

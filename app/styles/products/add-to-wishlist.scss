@@ -1,0 +1,53 @@
+.add-to-wishlist {
+  .scroll-content {
+    height: 50%;
+  }
+  .bar-modal-header {
+    border-bottom: none;
+    .title {
+      text-transform: uppercase;
+    }
+  }
+  .modal-container {
+    padding: 0 1rem;
+    .modal-item {
+      border: none;
+      cursor: pointer;
+      border-bottom: 0.2rem solid $light-grey;
+      &:last-child {
+        border-bottom: none;
+      }
+      &:hover {
+        background-color: $light-grey;
+      }
+    }
+    .ion-android-checkmark-circle {
+      margin-right: 0.5rem;
+    }
+  }
+  .modal-footer {
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    .modal-item-input {
+      border: none;
+    }
+    .input-wishlist-name {
+      margin-bottom: 30px;
+    }
+    .actions-container {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 80%;
+    }
+    .action-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
