@@ -7,8 +7,12 @@
 
   function ProductController(providerItem, CartService, $ionicPopup, $state,
                             $scope, WishlistsService, ModalService,
-                            ErrorHandlerService, $ionicLoading, $auth) {
-    var productVm = this;
+                            ErrorHandlerService, $ionicLoading, $auth, APP) {
+    var productVm = this,
+        defaultImage = {
+          imagen_url: APP.defaultImage //jshint ignore:line
+        };
+
     productVm.more = false;
     productVm.product = providerItem;
     productVm.runAction = runAction;
@@ -25,6 +29,7 @@
     productVm.showNewWishlist = showNewWishlist;
     productVm.wishlistName = '';
     productVm.clearData = clearData;
+    productVm.imagenes = productVm.product.imagenes.length > 0 ? productVm.product.imagenes : [defaultImage];
     // jshint ignore:start
     productVm.counterOptions = {
       cantidad: productVm.item.cantidad,

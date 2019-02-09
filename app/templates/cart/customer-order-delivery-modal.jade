@@ -44,13 +44,13 @@ ion-modal-view.slim-modal
           ng-class="{'item-error': cartVm.messages.customer_address_id}"
         )
           span.input-label {{::("courier.deliveryAddresses"|translate)}}
-        ion-list
-          ion-item.select-list-item(
-            ng-click="cartVm.customerOrderDeliverySelectPickup()"
-            ng-class="{'selected': cartVm.providerProfile.customer_order_delivery.delivery_method === 'pickup'}"
-          )
-            i.ion-android-checkmark-circle
-            span {{ ::("cart.deliveryMethods.pickup" | translate) }}
+        //- ion-list
+        //-   ion-item.select-list-item(
+        //-     ng-click="cartVm.customerOrderDeliverySelectPickup()"
+        //-     ng-class="{'selected': cartVm.providerProfile.customer_order_delivery.delivery_method === 'pickup'}"
+        //-   )
+        //-     i.ion-android-checkmark-circle
+        //-     span {{ ::("cart.deliveryMethods.pickup" | translate) }}
         ion-list
           .editable-list-item-wrapper(
             ng-repeat="address in cartVm.addresses track by $index"
