@@ -44,6 +44,7 @@
           cart: 'Mi carro',
           billingAddresses: 'Facturación',
           providers: 'Proveedores',
+          addresses: 'Direcciones'
         },
         provider: {
           orders: 'Pedidos',
