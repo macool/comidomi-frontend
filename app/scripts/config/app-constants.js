@@ -5,7 +5,7 @@
   .module('porttare.config')
   .constant('APP', {
     placesState: 'app.places.index',
-    successState: 'app.categories.index',
+    successState: 'app.services.providers',
     preloginState: 'prelogin',
     defaultImage: 'images/404.png',
     defaultProfileImage: 'images/mysteryman.png',

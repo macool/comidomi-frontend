@@ -88,9 +88,9 @@ ion-side-menus(enable-menu-with-back-views='false')
               .inner-content
                 | {{::("menu.client.payments"|translate)}}
 
-        ion-item(menu-close='' ui-sref='app.places.index')
-          i.icon.ion-location
-          | {{::("menu.locations"|translate)}}
+        //- ion-item(menu-close='' ui-sref='app.places.index')
+        //-   i.icon.ion-location
+        //-   | {{::("menu.locations"|translate)}}
 
         //- not built yet
           ion-item
@@ -104,37 +104,36 @@ ion-side-menus(enable-menu-with-back-views='false')
             i.icon.ion-power
             | {{::("menu.logout"|translate)}}
 
-        //- HIDDEN FOR THE MVP
 
-        //- ion-item.item-complex.switch-user-role
-        //-   .item-content
-        //-     i.icon.ion-arrow-swap
-        //-     | {{::("menu.changeTo"|translate)}}
-        //- ion-item.user-type(
-        //-   menu-close=''
-        //-   ui-sref='app.provider.welcome'
-        //-   ng-if='!user.provider_profile'
-        //- )
-        //-   i.icon.ion-pricetags
-        //-   | {{::("menu.user.provider"|translate)}}
-        //- ion-item.user-type(
-        //-   menu-close=''
-        //-   ui-sref='provider.items.index'
-        //-   ng-if='user.provider_profile'
-        //- )
-        //-   i.icon.ion-pricetags
-        //-   | {{::("menu.user.provider"|translate)}}
-        //- ion-item.user-type(
-        //-   menu-close=''
-        //-   ui-sref='app.courier.welcome'
-        //-   ng-if='!user.courier_profile'
-        //- )
-        //-   i.icon.ion-model-s
-        //-   | {{::("menu.user.courier"|translate)}}
-        //- ion-item.user-type(
-        //-   menu-close=''
-        //-   ui-sref='courier.orders'
-        //-   ng-if='user.courier_profile'
-        //- )
-        //-   i.icon.ion-model-s
-        //-   | {{::("menu.user.courier"|translate)}}
+        ion-item.item-complex.switch-user-role
+          .item-content
+            i.icon.ion-arrow-swap
+            | {{::("menu.changeTo"|translate)}}
+        ion-item.user-type(
+          menu-close=''
+          ui-sref='app.provider.welcome'
+          ng-if='!user.provider_profile'
+        )
+          i.icon.ion-pricetags
+          | {{::("menu.user.provider"|translate)}}
+        ion-item.user-type(
+          menu-close=''
+          ui-sref='provider.items.index'
+          ng-if='user.provider_profile'
+        )
+          i.icon.ion-pricetags
+          | {{::("menu.user.provider"|translate)}}
+        ion-item.user-type(
+          menu-close=''
+          ui-sref='app.courier.welcome'
+          ng-if='!user.courier_profile'
+        )
+          i.icon.ion-model-s
+          | {{::("menu.user.courier"|translate)}}
+        ion-item.user-type(
+          menu-close=''
+          ui-sref='courier.orders'
+          ng-if='user.courier_profile'
+        )
+          i.icon.ion-model-s
+          | {{::("menu.user.courier"|translate)}}
