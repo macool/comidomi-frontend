@@ -30,21 +30,21 @@ ion-view(
       ng-repeat="providerItemCategory in ::providerDetVm.provider.provider_item_categories"
     )
       .provider-category--title {{ ::providerItemCategory.nombre }}
-      .grid-parent
-        .provider-item.col.col-33(
+      .grid-items
+        .provider-item.col(
           ng-repeat="providerItem in ::providerItemCategory.provider_items"
           ui-sref='app.categories.provider.product({id:providerItem.id, product:providerItem})'
         )
-          .img-wrapper
-            img.img-circle(
-              ng-src='{{ ::(providerItem.imagenes[0].imagen_url | defaultImage)}}'
-            )
-          .info-wrapper
-            .provider-item--title {{ ::providerItem.titulo }}
-            .provider-item--subtitle
-              span
-                price(amount="{{providerItem.precio_cents}}"
-                      currency="{{providerItem.precio_currency}}")
+          .item-container
+            .info-wrapper
+              .provider-item--title {{ ::providerItem.titulo }}
+              .provider-item--description {{ ::providerItem.descripcion }}
+              .provider-item--subtitle
+                span
+                  price(amount="{{providerItem.precio_cents}}"
+                        currency="{{providerItem.precio_currency}}")
+            .img-wrapper
+              .img(ng-style="{'background-image':'url({{::(providerItem.imagenes[0].imagen_url | defaultImage)}})'}")
 
     .provider-category--no-more-items
       | {{ ::("provider.noMoreItems" | translate)}}
