@@ -9,3 +9,9 @@
 .text-pre-line {
   white-space: pre-line;
 }
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

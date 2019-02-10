@@ -12,21 +12,18 @@ ion-view(
       
     .list.list-inset.list--no-borders.resource-collection-table
       .row.table-headers
-        .col.col-30
+        .col.col-40
           strong {{::("client.ruc"|translate)}}
-        .col.col-30
+        .col.col-40
           strong {{::("provider.businessName"|translate)}}
-        .col.col-30
-          strong {{::("client.direccion"|translate)}}
-        .col
-
+        .col.col-20
+        
       .item.row(
         ng-repeat='item in billingAddressesVm.billingAddresses'
       )
-        .col.col-30 {{ ::item.ruc}}
-        .col.col-30 {{ ::item.razon_social}}
-        .col.col-30 {{ ::item.direccion}}
-        .col.col-10
+        .col.col-40.text-ellipsis {{ ::item.ruc}}
+        .col.col-40.text-ellipsis {{ ::item.razon_social}}
+        .col.col-20
           a.action(
             ng-click='billingAddressesVm.showEditModal(item, $index)'
           )

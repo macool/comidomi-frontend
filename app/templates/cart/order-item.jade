@@ -9,7 +9,7 @@ ion-modal-view.cart-edit-item-modal.slim-modal
     .slim-item-title {{cartVm.currentItem.provider_item.titulo}}
     .item-image
       img(
-        ng-src="{{cartVm.currentItem.provider_item.imagenes[0].imagen_url}}"
+        ng-src="{{cartVm.currentItem.provider_item.imagenes[0].imagen_url | defaultImage}}"
       )
     product-counter(options="cartVm.counterOptions")
     show-error(array-messages="cartVm.updateErrors.cantidad")

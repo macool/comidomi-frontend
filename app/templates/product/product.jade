@@ -1,6 +1,6 @@
 slick-wrapper(settings="productVm.slickConfig")
   .slick-container(
-    ng-repeat="image in ::productVm.product.imagenes track by $index"
+    ng-repeat="image in ::productVm.imagenes track by $index"
   )
     .slick-content
       img.img-circle(data-lazy="{{ ::image.imagen_url }}")
@@ -15,10 +15,10 @@ slick-wrapper(settings="productVm.slickConfig")
       ng-click="productVm.runAction(productVm.actions.cart)"
       ng-disabled="!productVm.item.cantidad || productVm.disableInputs || !productVm.canAdd"
     ) {{::('product.addCar' | translate)}}
-    button.button.button-outline.button-positive.button-stretched.button-letter-stretched(
-      ng-click="productVm.runAction(productVm.actions.wishlist)"
-      ng-disabled="productVm.disableInputs"
-    ) {{::('product.addWishlist' | translate)}}
+    //- button.button.button-outline.button-positive.button-stretched.button-letter-stretched(
+    //-   ng-click="productVm.runAction(productVm.actions.wishlist)"
+    //-   ng-disabled="productVm.disableInputs"
+    //- ) {{::('product.addWishlist' | translate)}}
 
 .list.list-inset.resource-detail-long-summary(
   ng-if="::productVm.product.observaciones"
