@@ -13,7 +13,7 @@ set :slackistrano, {
   webhook: 'https://hooks.slack.com/services/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'
 }
 
-set :rbenv_ruby, '2.3.0'
+set :rbenv_ruby, '2.6.1'
 
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :branch, ENV['BRANCH'] || 'production'
