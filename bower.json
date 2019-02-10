@@ -18,7 +18,7 @@
     "ng-file-upload": "noggalito/ng-file-upload#12.2.13.1-noggalito",
     "angular-elastic": "^2.5.1",
     "selectize": "^0.12.4",
-    "array-find": "^1.0.1",
+    "array-find": "1.0.1",
     "mdn-array.prototype.includes": "^1.0.0",
     "angular-touch": "1.6.1",
     "array-polyfill": "macool/array-polyfill#^0.2.1",
