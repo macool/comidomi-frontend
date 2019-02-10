@@ -33,7 +33,9 @@ ion-side-menus(enable-menu-with-back-views='false')
           .item-content {{::("menu.logout"|translate)}}
 
         ion-item.item-complex.switch-user-role
-          .item-content   {{::("menu.changeTo"|translate)}}
+          .item-content
+            i.icon.ion-arrow-swap
+            | {{::("menu.changeTo"|translate)}}
         ion-item.user-type(
           menu-close=''
           ui-sref='app.services.providers'
