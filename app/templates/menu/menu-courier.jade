@@ -36,7 +36,7 @@ ion-side-menus(enable-menu-with-back-views='false')
           .item-content   {{::("menu.changeTo"|translate)}}
         ion-item.user-type(
           menu-close=''
-          ui-sref='app.categories.index'
+          ui-sref='app.services.providers'
         ) {{::("menu.user.buyer"|translate)}}
         ion-item.user-type(menu-close='' ui-sref='provider.items.index', ng-if='user.provider_profile')
           | {{::("menu.user.provider"|translate)}}
