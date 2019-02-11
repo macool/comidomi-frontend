@@ -2,21 +2,6 @@
   ng-repeat="providerProfile in cartVm.cart.provider_profiles track by $index"
 )
   .provider-profile--title-wrapper
-    .provider-profile--subtitle
-      span
-        order-items-total(
-          order-items="providerProfile.customer_order_items"
-          currency="{{cartVm.cart.subtotal_items_currency}}"
-        )
-      span(
-        ng-if="providerProfile.customer_order_delivery.delivery_method === 'shipping'"
-      )
-        span
-          | +
-        price(amount="{{providerProfile.customer_order_delivery.shipping_fare_price_cents}}"
-              currency="{{cartVm.cart.subtotal_items_currency}}")
-        span {{ ::('cart.shippingCosts' | translate) }}
-
     .provider-profile--title
       | {{ ::providerProfile.nombre_establecimiento }}
 
@@ -31,9 +16,27 @@
       | {{ ::("globals.edit" | translate) }}
 
   .provider-items-in-cart
-    slick-item(settings="cartVm.slickSettings"
-               data="providerProfile"
-               on-click="cartVm.openEditModal"
-               slick-flag="cartVm.slickFlag")
+    list-items(data="providerProfile"
+               on-click="cartVm.openEditModal")
+
+  .order-total-summary
+    .order-subtotal.order-row
+      .label-order {{ ::('cart.order.subtotal' | translate) }}
+      order-items-total(
+        order-items="providerProfile.customer_order_items"
+        currency="{{cartVm.cart.subtotal_items_currency}}"
+      )
+    .order-devlivery-cost.order-row(
+      ng-if="providerProfile.customer_order_delivery.delivery_method === 'shipping'"
+    )
+      .label-order {{ ::('cart.order.delivery' | translate) }}
+      price(amount="{{providerProfile.customer_order_delivery.shipping_fare_price_cents}}"
+            currency="{{cartVm.cart.subtotal_items_currency}}")
+    .order-total.order-row
+      .label-order {{ ::('cart.order.total' | translate) }}
+      price(
+        amount="{{providerProfile.customer_order_delivery.shipping_fare_price_cents}}"
+        currency="{{cartVm.cart.subtotal_items_currency}}"
+      )
 
   .provider-profile-section--clear

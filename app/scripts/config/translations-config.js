@@ -420,6 +420,11 @@
         deliveryMethods: {
           pickup: 'Recoger en local',
           shipping: 'Enviar a domicilio',
+        },
+        order: {
+          subtotal: 'Subtotal',
+          delivery: 'Envio',
+          total: 'Total'
         }
       },
       orders: {

@@ -20,29 +20,33 @@
   }
 
   .slick-wrapper {
-    margin-top: 15px;
-    margin-bottom: 5px;
-
     .slick-track {
       display: flex;
       align-items: center;
     }
 
-    .slick-content {
-      margin-bottom: 10px;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-
-    img {
-      max-height: 400px;
-      max-width: 100%;
-      margin: auto;
+    .slick-container{
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: local;
+      background-size: cover;
+      height: 200px;
+      width: 100%;
     }
   }
 
   .resource-detail-summary {
-    text-transform: uppercase;
+    margin: 20px;
+
+    h3 {
+      text-transform: uppercase;
+      color: $base-black;
+      font-weight: bold;
+    }
+
+    p {
+      color: $grey-secondary;
+    }
   }
 
   .resource-detail-long-summary {

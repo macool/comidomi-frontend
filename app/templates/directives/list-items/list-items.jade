@@ -1,0 +1,13 @@
+.item-container(
+  ng-repeat="providerItem in liVm.data.customer_order_items track by $index"
+)
+  .item-content(ng-click="liVm.onClick()(providerItem)" class="clickeable")
+    .customer-item-description
+      .customer-item--quantity
+        | {{ ::providerItem.cantidad }}
+      .customer-item--title
+        | {{ ::providerItem.provider_item.titulo }}
+      .customer-item--value
+        span
+          price(amount="{{providerItem.provider_item_precio_cents * providerItem.cantidad}}"
+                currency="{{providerItem.provider_item_precio_currency}}")

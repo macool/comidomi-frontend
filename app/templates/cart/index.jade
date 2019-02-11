@@ -14,13 +14,11 @@ ion-view(
         p {{::("cart.titleWithoutItems"|translate)}}
         p {{::("cart.subtitleWithoutItems"|translate)}}
 
-  ion-footer-bar.bar-light.cart-page-footer.bar-footer--tall
-    button.button.button-small.button-outline.button-energized.button-letter-stretched.button--narrow-padded(
+  ion-footer-bar.bar-light.cart-page-footer.button-full
+    button.button-full.button-main(
       ng-click="cartVm.showCheckoutModal()"
       ng-disabled="!cartVm.cart.provider_profiles || !cartVm.cart.provider_profiles.length"
-    ) {{ ::('cart.buyItems'|translate) }}
-
-    .total
-      span.value
-        price(amount="{{cartVm.total}}"
-              currency="{{cartVm.currentCurrency}}")
+    ) 
+      span{{ ::('cart.buyItems'|translate) }}
+      price(amount="{{cartVm.total}}"
+            currency="{{cartVm.currentCurrency}}")

@@ -1,0 +1,38 @@
+$gray-border: #C8C8C8;
+
+.provider-items-in-cart {
+
+  .item-container {
+    padding: 0 20px;
+
+    .customer-item-description {
+      display: flex;
+      align-items: baseline;
+      padding: 15px;
+      border-bottom: 1px solid $gray-border;
+      font-family: Montserrat-Light;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: -0.5px;
+
+      .customer-item--quantity {
+        color: $base-teal;
+        flex-basis: 5%;
+        min-width: 25px;
+        font-family: Montserrat-Regular;
+        text-align: start;
+      }
+
+      .customer-item--title {
+        color: $base-black;
+        flex-basis: 80%;
+      }
+      .customer-item--value {
+        font-size: 13px;
+        color: $base-black;
+        flex-basis: 20%;
+        text-align: end;
+      }
+    }
+  }
+}
