@@ -16,7 +16,7 @@ ion-view(
 
       .address-wrapper(
         ng-repeat="address in ::pfaVm.addresses"
-      )    
+      )
         .list.list-inset.list--no-borders.resource-details-table
           button.button.button-clear.button-secondary.edit-address-btn(
             ng-click="pfaVm.redirectToUpdateAddressView(address.id)"
@@ -25,7 +25,7 @@ ion-view(
           img.static-map-preview(
             ng-src="{{address.static_map_image}}"
           )
-          .row
+          .row(ng-if="address.ciudad")
             .col.col-50.label {{::('profile.addresses.city'|translate)}}
             .col.col-50.value {{address.ciudad}}
           .row(ng-if="address.parroquia")

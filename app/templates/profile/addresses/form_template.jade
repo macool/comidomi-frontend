@@ -28,6 +28,7 @@ form(
         input(
           type='text'
           ng-model='pfaVm.addressFormData.nombre'
+          placeholder='{{ ::("profile.addresses.namePlaceholder" | translate) }}'
         )
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.nombre')
@@ -51,6 +52,7 @@ form(
         input(
           type='text'
           ng-model='::pfaVm.addressFormData.direccion_uno'
+          placeholder='{{ ::("profile.addresses.addressOnePlaceholder" | translate) }}'
           required
         )
       .errors-wrapper
@@ -63,10 +65,11 @@ form(
         input(
           type='text'
           ng-model='pfaVm.addressFormData.direccion_dos'
+          placeholder='{{ ::("profile.addresses.addressTwoPlaceholder" | translate) }}'
         )
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.direccion_dos')
-      
+
       //- label.item.item-input.item-stacked-label(
       //-   ng-class="{'item-error': pfaVm.messages.parroquia}"
       //- )
@@ -77,7 +80,7 @@ form(
       //-   )
       //- .errors-wrapper
       //-   show-error(array-messages='pfaVm.messages.parroquia')
-      //- 
+      //-
       //- label.item.item-input.item-stacked-label(
       //-   ng-class="{'item-error': pfaVm.messages.barrio}"
       //- )
@@ -88,7 +91,7 @@ form(
       //-   )
       //- .errors-wrapper
       //-   show-error(array-messages='pfaVm.messages.barrio')
-      //- 
+      //-
       //- label.item.item-input.item-stacked-label(
       //-   ng-class="{'item-error': pfaVm.messages.codigo_postal}"
       //- )
@@ -99,7 +102,7 @@ form(
       //-   )
       //- .errors-wrapper
       //-   show-error(array-messages='pfaVm.messages.codigo_postal')
-      
+
       label.item.item-input.item-stacked-label(
         ng-class="{'item-error': pfaVm.messages.numero_convencional}"
       )
@@ -107,6 +110,7 @@ form(
         input(
           type='tel'
           ng-model='pfaVm.addressFormData.numero_convencional'
+          placeholder='072369727'
         )
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.numero_convencional')
@@ -118,6 +122,7 @@ form(
         input(
           type='text'
           ng-model='pfaVm.addressFormData.referencia'
+          placeholder='Ej: casa amarilla, segundo piso'
         )
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.referencia')
