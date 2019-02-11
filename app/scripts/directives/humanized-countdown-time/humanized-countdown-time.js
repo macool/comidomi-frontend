@@ -18,7 +18,8 @@
       scope: {
         time: '=',
         showPast: '=?',
-        hidePrefix: '=?'
+        hidePrefix: '=?',
+        suffix: '@?'
       },
       templateUrl: 'templates/directives/humanized-countdown-time/humanized-countdown-time.html'
     };

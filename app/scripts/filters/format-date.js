@@ -14,6 +14,8 @@
         formatStr = defaultFormat;
       } else if (formatStr === 'timeSchedule') {
         formatStr = timeScheduleFormat;
+      } else if (formatStr === 'hourAndDate') {
+        formatStr = 'hh:mma DD MMM YYYY';
       }
 
       return moment(currentValue).format(formatStr);
