@@ -49,5 +49,21 @@ function courierRoutes($stateProvider) {
         }
       }
     }
+  })
+  .state('courier.shippings', {
+    url: '/shippings',
+    cache: false,
+    views: {
+      'menuContent@courier': {
+        templateUrl: 'templates/courier/shippings.html',
+        controller: 'ShippingController',
+        controllerAs: 'shVm',
+        resolve: {
+          shippingMyRequests: function (ShippingRequestService) {
+            return ShippingRequestService.getMyShippingRequests();
+          }
+        }
+      }
+    }
   });
 }

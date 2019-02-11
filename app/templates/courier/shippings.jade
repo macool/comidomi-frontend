@@ -1,0 +1,56 @@
+ion-view(
+  view-title='{{::("courier.orders"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+  ion-content.courier-shipping-request-index-list.courier-shipping-request-common
+    .list.list-inset.list--bottom-narrow
+      p
+        | {{ ::("courier.labels.found" | translate) }}
+        |  {{ shVm.totalOrders }}
+        |  {{ ::("courier.labels.closeToYou" | translate) }}
+
+    .list.list-inset.list--top-narrow
+      .shipping-request-container.row(
+        ng-repeat="order in shVm.orders"
+        ui-sref='courier.order({ id: order.id, order: order})'
+      )
+        .shipping-request.resource-rounded-container
+          .row
+            .col
+              .icon-location
+                i.ion-navigate
+              .container-title
+                | {{ order.provider_profile.nombre_establecimiento }}
+          .row
+            .col.status
+              span
+                | {{::("shippingRequest.statusShipping"| translate)}}
+              span
+                | &nbsp;
+                | {{ ("shippingRequest.status." + order.status | translate) }}
+          .row
+            .col
+              span
+                | {{ ::("order.summary.subtotal" | translate) }}
+              span.strong
+                | &nbsp;
+                price(amount="{{order.customer_order.subtotal_items_cents}}"
+                      currency="{{order.customer_order.subtotal_items_currency}}")
+                | .
+              span
+                | &nbsp;
+                | {{ ::("order.summary.shipping" | translate) }}
+              span.strong
+                | &nbsp;
+                price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
+                      currency="{{order.customer_order.subtotal_items_currency}}")
+          .row
+            .col.time
+              shipping-request-dispatch-at(
+                dispatch-at="order.estimated_dispatch_at"
+              )
+
+    .list.list-inset.list--top-narrow
+      p.text-center
+        | {{ ::("shippingRequest.noMoreItems" | translate) }}

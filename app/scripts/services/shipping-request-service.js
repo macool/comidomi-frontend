@@ -14,7 +14,8 @@
           getShippingRequest: getShippingRequest,
           courierHasDelivered: courierHasDelivered,
           takeShippingRequest: takeShippingRequest,
-          getShippingRequestsWithStatus: getShippingRequestsWithStatus
+          getShippingRequestsWithStatus: getShippingRequestsWithStatus,
+          getMyShippingRequests: getMyShippingRequests
         };
     return service;
 
@@ -54,6 +55,14 @@
         method: 'POST',
         url: ENV.apiHost + url
       }).then(successApiResponse);
+    }
+
+    function getMyShippingRequests(){
+      return CommonService
+               .getObjects(
+                 baseURL + 'myself',
+                 'shipping_requests'
+               );
     }
 
     function successApiResponse(response){

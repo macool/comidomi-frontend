@@ -13,8 +13,11 @@ ion-side-menus(enable-menu-with-back-views='false')
         )
           sidebar-header-current-user
 
-        ion-item(menu-close='' ui-sref='courier.orders')
+        ion-item.lenin(menu-close='' ui-sref='courier.orders')
           | {{::("menu.courier.orders"|translate)}}
+
+        ion-item.lenin(menu-close='' ui-sref='courier.shippings')
+          | {{::("menu.courier.myShipping"|translate)}}
         //- TODO
           ion-item
             | {{::("menu.courier.account"|translate)}}
