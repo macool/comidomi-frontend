@@ -143,12 +143,7 @@
       }
 
       $state.go(route, params)
-        .then(function () {
-          $ionicPopup.alert({
-            title: 'Alerta',
-            template: '{{::("cart.successfullyAdded"|translate)}}'
-          }).then(closeModal);
-        });
+        .then(closeModal);
     }
 
     function onError(response) {
