@@ -1,33 +1,39 @@
+$gray-border: #C8C8C8;
+
 .product-counter {
-  display: flex;
-  font-family: Montserrat-Light;
-  font-size: 32px;
-  line-height: 34px;
-  justify-content: center;
-
-  .actions-panel {
+  border-top: 1px solid #C8C8C8;
+  border-bottom: 1px solid #C8C8C8;
+  margin: 10px 20px;
+  
+  .product-counter-container {
     display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-
-    .button-minus-container {
-      .button-minus {
-        color: $base-yellow;
+    font-family: Montserrat-Light;
+    font-size: 26px;
+    line-height: 34px;
+    justify-content: space-between;
+    padding: 25px 0;
+  
+    .actions-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      .button-minus-container {
+        .button-minus {
+          color: $white;
+          background-color: $base-teal;
+        }
+      }
+      .button-plus-container {
+        .button-plus {
+          color: $white;
+          background-color: $base-teal;
+        }
+      }
+      .counter-container {
+        width: 60px;
+        text-align: center;
       }
     }
-    .button-plus-container {
-      .button-plus {
-        color: $light-green;
-      }
-    }
-  }
-
-  .price-panel {
-    display: flex;
-    width: 100%;
-    padding-right: 15px;
-    align-items: center;
-    justify-content: flex-end;
   }
 }

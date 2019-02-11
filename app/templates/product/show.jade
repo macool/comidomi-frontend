@@ -17,11 +17,7 @@ ion-view(
       )
 
   ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall
-    .left-panel
-      button.button.button-small.button-outline.button-energized.button-letter-stretched(
-        ng-disabled="!productVm.item.cantidad || !productVm.canAdd"
-        ng-click="productVm.runAction(productVm.actions.buyNow)"
-      )
-        | {{::("product.buyNow"|translate)}}
-    .center-panel
-      product-counter(options="productVm.counterOptions")
+    button.button-full.button-main(
+      ng-click="productVm.runAction(productVm.actions.cart)"
+      ng-disabled="!productVm.item.cantidad || productVm.disableInputs || !productVm.canAdd"
+    ) {{::('product.addCar' | translate)}}
