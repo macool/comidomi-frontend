@@ -5,7 +5,10 @@
     .module('porttare.controllers')
     .controller('OrdersController', OrdersController);
 
-  function OrdersController(shippingRequests, $state) {
+  function OrdersController(APP,
+                            shippingRequests,
+                            $state,
+                            $filter) {
     var orVm = this,
         currentMap, currentInfoWindow;
     orVm.totalOrders = 0;
@@ -54,13 +57,35 @@
 
     function infoWindowFor(shippingRequest){
       // TODO translate me?
-      var wrapper, etaNode, btnWrapper, btnNode, dispatchAtStr;
+      var wrapper,
+          etaNode,
+          btnNode,
+          priceNode,
+          btnWrapper,
+          providerNode,
+          dispatchAtStr,
+          textWrapperNode;
       dispatchAtStr = moment(
         shippingRequest.estimated_dispatch_at
       ).fromNow();
       wrapper = angular.element('<div />');
-      etaNode = angular.element('<p />', {
-        text: 'Despacho listo ' + dispatchAtStr
+      textWrapperNode = angular.element('<p />');
+      etaNode = angular.element('<div />', {
+        text: 'Pedido enviado ' + dispatchAtStr
+      });
+      providerNode = angular.element('<div />', {
+        class: 'strong',
+        text: shippingRequest.provider_profile.nombre_establecimiento // jshint ignore:line
+      });
+      priceNode = angular.element('<div />', {
+        // TODO currency should be taken from the model
+        // $translate('item.currency.' + shippingRequest.customer_order.subtotal_items_currency).then(function(currency){
+        //   currency = $
+        // });
+        text: 'Subtotal: ' +
+              $filter('currency')(shippingRequest.customer_order.subtotal_items_cents / APP.centsInDollar, '$') +
+              '. Envío: ' +
+              $filter('currency')(shippingRequest.customer_order_delivery.shipping_fare_price_cents / APP.centsInDollar, '$')
       });
       btnWrapper = angular.element('<div />', {
         class: 'text-center'
@@ -75,7 +100,10 @@
           order: shippingRequest
         });
       });
-      wrapper.append(etaNode);
+      textWrapperNode.append(etaNode);
+      textWrapperNode.append(providerNode);
+      textWrapperNode.append(priceNode);
+      wrapper.append(textWrapperNode);
       btnWrapper.append(btnNode);
       wrapper.append(btnWrapper);
       return new google.maps.InfoWindow({

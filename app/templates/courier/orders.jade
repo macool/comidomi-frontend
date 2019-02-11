@@ -16,7 +16,7 @@ ion-view(
         | {{ ::("courier.labels.found" | translate) }}
         |  {{ orVm.totalOrders }}
         |  {{ ::("courier.labels.closeToYou" | translate) }}
-    
+
     .list.list-inset.list--top-narrow
       .shipping-request-container(
         ng-repeat="order in orVm.orders"
@@ -49,11 +49,27 @@ ion-view(
               )
               | km {{::("courier.labels.currentLocation"| translate)}}
           .row
+            .col
+              span
+                | {{ ::("order.summary.subtotal" | translate) }}
+              span.strong
+                | &nbsp;
+                price(amount="{{order.customer_order.subtotal_items_cents}}"
+                      currency="{{order.customer_order.subtotal_items_currency}}")
+                | .
+              span
+                | &nbsp;
+                | {{ ::("order.summary.shipping" | translate) }}
+              span.strong
+                | &nbsp;
+                price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
+                      currency="{{order.customer_order.subtotal_items_currency}}")
+          .row
             .col.time
               shipping-request-dispatch-at(
                 dispatch-at="order.estimated_dispatch_at"
               )
-              
+
     .list.list-inset.list--top-narrow
       p.text-center
         | {{ ::("shippingRequest.noMoreItems" | translate) }}

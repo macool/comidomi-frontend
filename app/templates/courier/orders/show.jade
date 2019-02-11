@@ -57,8 +57,10 @@ ion-view(
           price(amount="{{coVm.fareCurrencyCents}}"
                 currency="{{coVm.fareCurrency}}")
       .row
-        .col.col-50.label {{::("courier.ordersNumber"|translate)}}
-        .col.col-50.value {{coVm.order.id}}
+        .col.col-50.label {{ ::("order.summary.subtotal"|translate) }}
+        .col.col-50.value
+          price(amount="{{coVm.order.customer_order.subtotal_items_cents}}"
+                currency="{{coVm.order.customer_order.subtotal_items_currency}}")
       .row
         .col.col-50.label {{ ::("shippingRequest.providerName" | translate) }}
         .col.col-50.value {{ coVm.provider.nombre_establecimiento }}
