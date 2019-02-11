@@ -1,1 +1,2 @@
-span {{ countdownTimeVM.timeStr }}
+span(ng-if="countdownTimeVM.timeStr") {{ countdownTimeVM.timeStr }}
+span(ng-if="countdownTimeVM.timeStr") {{ ::countdownTimeVM.suffix }}

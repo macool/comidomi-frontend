@@ -153,7 +153,7 @@
           found: 'Encontramos',
           closeToYou: 'pedidos cerca de ti',
           currentLocation: 'de tu ubicación actual (apróx)',
-          dispatchReady: 'despacho listo ',
+          dispatchRequested: 'Pedido enviado ',
           timeForDispatchSuffix: ' para el despacho'
         },
         form: {
@@ -451,6 +451,7 @@
         summary: {
           subtotal: 'Subtotal',
           shippingCosts: 'Costos de envío',
+          shipping: 'Envío',
           VAT: '%',
           total: 'Total de Compra',
         },

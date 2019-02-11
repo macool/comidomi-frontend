@@ -19,7 +19,7 @@ ion-view(
 
         .item.row.customer-order-delivery
           .col
-            span
+            span.strong
               order-delivery-method(
                 delivery-method="providerProfile.customer_order_delivery.delivery_method"
               )
@@ -37,8 +37,9 @@ ion-view(
         span
         //- some spacing
 
-        .item.row.strong
-          .col {{ ("order.delivery.status." + providerProfile.customer_order_delivery.status | translate) }}
+        // hide this status for now
+          .item.row.strong
+            .col {{ ("order.delivery.status." + providerProfile.customer_order_delivery.status | translate) }}
         .item.row.strong(
           ng-if="providerProfile.customer_order_delivery.reason"
         )
@@ -69,8 +70,15 @@ ion-view(
             )
               humanized-countdown-time(
                 time="providerProfile.customer_order_delivery.courier_delivery_at"
+                suffix=" - "
               )
-              span {{ ::(providerProfile.customer_order_delivery.courier_delivery_at | toDate | formatDate) }}
+              span {{ ::(providerProfile.customer_order_delivery.courier_delivery_at | toDate | formatDate:'hourAndDate') }}
+
+        // TODO display status for shipping request
+          .item.row
+            .col
+              span.strong
+                | {{ "shippingRequest.status." + providerProfile.customer_order_delivery.status | translate }}
 
       .list.list-inset.list--no-borders.resource-collection-table.text-right
         .row.item
