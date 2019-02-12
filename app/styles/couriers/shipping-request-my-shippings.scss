@@ -1,10 +1,10 @@
 $gray-border: #C8C8C8;
 
-.courier-shipping-request-index-list {
+.courier-shipping-request-my-shippings {
   font-family: Montserrat-Light;
   color: $base-grey;
   background-color: $light-grey;
-  
+
   .list--bottom-narrow, 
   .list--top-narrow {
     text-align: center;
@@ -29,27 +29,16 @@ $gray-border: #C8C8C8;
           align-items: center;
           flex-basis: 100%;
           padding: 5px 0;
-
-          .label {
-            font-size: 12px;
+  
+          .status {
+            color: $base-teal;
+            font-family: Montserrat-Regular;
           }
   
           shipping-request-dispatch-at {
             display: flex;
             justify-content: space-between;
             width: 100%;
-          }
-        }
-
-        &.location {
-          .distance-from-location {
-            min-width: 65px;
-            text-align: end;
-            
-            .distance {
-              color: $base-orange;
-              font-family: Montserrat-Regular;
-            }
           }
         }
 
@@ -72,6 +61,7 @@ $gray-border: #C8C8C8;
               font-family: Montserrat-Light;
               font-size: 12px;
             }
+            
           }
 
           .img-provider {
@@ -80,7 +70,6 @@ $gray-border: #C8C8C8;
           }
         }
       }
-
     }
   }
 }

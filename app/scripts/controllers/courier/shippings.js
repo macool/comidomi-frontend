@@ -5,10 +5,7 @@
     .module('porttare.controllers')
     .controller('ShippingController', ShippingController);
 
-  function ShippingController(APP,
-                            shippingMyRequests,
-                            $state,
-                            $filter) {
+  function ShippingController(shippingMyRequests) {
 
     var shVm = this;
     

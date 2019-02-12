@@ -11,65 +11,56 @@ ion-view(
       current-location="orVm.currentLocation"
     )
 
-    .list.list-inset.list--bottom-narrow
+    .list--bottom-narrow
       p
         | {{ ::("courier.labels.found" | translate) }}
         |  {{ orVm.totalOrders }}
         |  {{ ::("courier.labels.closeToYou" | translate) }}
 
-    .list.list-inset.list--top-narrow
+    .card-order
       .shipping-request-container(
         ng-repeat="order in orVm.orders"
         ui-sref='courier.order({ id: order.id, order: order})'
       )
-        .distance-circle
-          .fake-vertical-line.top
-          .range
-            span(
-              distance-between
-              to-lat="order.ref_lat"
-              to-lon="order.ref_lon"
-              from-coordinates="orVm.currentLocation"
-            )
-          .fake-vertical-line.bottom
-        .shipping-request.resource-rounded-container
-          .row
-            .col
-              .icon-location
-                i.ion-navigate
-              .container-title
-                | {{ order.provider_profile.nombre_establecimiento }}
-          .row
-            .col.location
-              span(
+        .shipping-request
+          .row.location
+            .order-info
+              .label 
+                | {{::("courier.labels.currentLocation"| translate)}}
+              .distance-from-location(
                 distance-between
                 to-lat="order.ref_lat"
                 to-lon="order.ref_lon"
                 from-coordinates="orVm.currentLocation"
               )
-              | km {{::("courier.labels.currentLocation"| translate)}}
+          .row.provider
+            .order-info
+              .details
+                .name {{ order.provider_profile.nombre_establecimiento }}
+                .cost
+                  span
+                    | {{ ::("order.summary.subtotal" | translate) }}
+                  span.strong
+                    | &nbsp;
+                    price(amount="{{order.customer_order.subtotal_items_cents}}"
+                          currency="{{order.customer_order.subtotal_items_currency}}")
+                    | .
+                  span
+                    | &nbsp;
+                    | {{ ::("order.summary.shipping" | translate) }}
+                  span.strong
+                    | &nbsp;
+                    price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
+                          currency="{{order.customer_order.subtotal_items_currency}}")
+              img.img-provider(
+                ng-src="{{ order.provider_profile.logotipo_url }}"
+              )
           .row
-            .col
-              span
-                | {{ ::("order.summary.subtotal" | translate) }}
-              span.strong
-                | &nbsp;
-                price(amount="{{order.customer_order.subtotal_items_cents}}"
-                      currency="{{order.customer_order.subtotal_items_currency}}")
-                | .
-              span
-                | &nbsp;
-                | {{ ::("order.summary.shipping" | translate) }}
-              span.strong
-                | &nbsp;
-                price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
-                      currency="{{order.customer_order.subtotal_items_currency}}")
-          .row
-            .col.time
+            .order-info
               shipping-request-dispatch-at(
                 dispatch-at="order.estimated_dispatch_at"
               )
 
-    .list.list-inset.list--top-narrow
+    .list--top-narrow
       p.text-center
         | {{ ::("shippingRequest.noMoreItems" | translate) }}

@@ -153,7 +153,7 @@
         labels: {
           found: 'Encontramos',
           closeToYou: 'pedidos cerca de ti',
-          currentLocation: 'de tu ubicación actual (apróx)',
+          currentLocation: 'Distancia (aprox) desde tu ubicación',
           dispatchRequested: 'Pedido enviado ',
           timeForDispatchSuffix: ' para el despacho'
         },
