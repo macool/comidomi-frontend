@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.mandanggo.moviggo" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Porttare</name>
+<widget id="com.comidomi.porttare" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>comidomi</name>
     <description>
-        Marketplace capaz de ofrecer y gestionar la logística necesaria
+      ¡Pide lo que quieras a domicilio!
     </description>
-    <author email="hola@noggalito.com" href="http://noggalito.com">
-        Noggalito
+    <author email="hola@comidomi.ec" href="http://comidomi.ec">
+      comidomi
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -37,7 +37,6 @@
     </platform>
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
-    <!-- Ionic supports Android Jellybean and up -->
     <preference name="android-minSdkVersion" value="16" />
     <plugin name="cordova-plugin-camera" spec="~2.3.0">
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
@@ -47,8 +46,7 @@
         <variable name="APP_ID" value="422650018122547" />
         <variable name="APP_NAME" value="demo-moviggo" />
     </plugin>
-    <plugin name="phonegap-plugin-push" spec="1.8.0">
-        <param name="SENDER_ID" value="1057338916791" />
-    </plugin>
-    <engine name="android" spec="~4.1.1" />
+    <allow-navigation href="http://192.168.1.6:8100" />
+    <engine name="android" spec="^6.4.0" />
+    <engine name="ios" spec="^4.4.0" />
 </widget>
