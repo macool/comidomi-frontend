@@ -15,6 +15,9 @@ ion-side-menus(enable-menu-with-back-views='false')
 
         ion-item(menu-close='' ui-sref='courier.orders')
           | {{::("menu.courier.orders"|translate)}}
+
+        ion-item(menu-close='' ui-sref='courier.shippings')
+          | {{::("menu.courier.myShipping"|translate)}}
         //- TODO
           ion-item
             | {{::("menu.courier.account"|translate)}}

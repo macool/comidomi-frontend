@@ -3,36 +3,20 @@ ion-view(
 )
   ion-nav-title
     .alt-logo
-  ion-content.courier-shipping-request-index-list.courier-shipping-request-common
-    maps(
-      disable-edit="true"
-      on-render="orVm.mapRendered(map)"
-      default-in-current-geolocation="true"
-      current-location="orVm.currentLocation"
-    )
-
-    .list--bottom-narrow
-      p
-        | {{ ::("courier.labels.found" | translate) }}
-        |  {{ orVm.totalOrders }}
-        |  {{ ::("courier.labels.closeToYou" | translate) }}
-
+  ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common
     .card-order
       .shipping-request-container(
-        ng-repeat="order in orVm.orders"
+        ng-repeat="order in shVm.orders"
         ui-sref='courier.order({ id: order.id, order: order})'
       )
         .shipping-request
-          .row.location
+          .row
             .order-info
-              .label 
-                | {{::("courier.labels.currentLocation"| translate)}}
-              .distance-from-location(
-                distance-between
-                to-lat="order.ref_lat"
-                to-lon="order.ref_lon"
-                from-coordinates="orVm.currentLocation"
-              )
+              span
+                | {{::("shippingRequest.statusShipping"| translate)}}
+              span.status
+                | &nbsp;
+                | {{ ("shippingRequest.status." + order.status | translate) }}
           .row.provider
             .order-info
               .details

@@ -57,10 +57,11 @@
           moviggoAdvertising: 'publicidad moviggo'
         },
         courier: {
-          orders: 'Pedidos',
+          orders: 'Nuevos Pedidos',
           account: 'Cuenta',
           payments: 'Pagos',
-          history: 'Historial'
+          history: 'Historial',
+          myShipping: 'Mis Pedidos'
         },
         dispatcher: {
           dispatch: 'Despachos'
@@ -152,7 +153,7 @@
         labels: {
           found: 'Encontramos',
           closeToYou: 'pedidos cerca de ti',
-          currentLocation: 'de tu ubicación actual (apróx)',
+          currentLocation: 'Distancia (aprox) desde tu ubicación',
           dispatchRequested: 'Pedido enviado ',
           timeForDispatchSuffix: ' para el despacho'
         },
@@ -529,6 +530,7 @@
         providerName: 'Proveedor',
         delivered: 'Entregado',
         availableRoutes: 'Rutas',
+        statusShipping: 'Estado',
         routesStatus: {
           searching: 'Buscando rutas..',
           noRoutes: 'No hay rutas disponibles'
