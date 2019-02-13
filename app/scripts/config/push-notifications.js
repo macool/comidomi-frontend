@@ -18,33 +18,15 @@
     );
 
     function registerPushNotifications(){
-      notificationHandler = PushNotification.init({
-        'android': {
-          'forceShow': true,
-          'senderID': ENV.gcmSenderID, // TODO use ENV
-          'clearNotifications': false
-        },
-        'ios': {
-          'sound': true,
-          'vibration': true,
-          'badge': true
-        },
-        'windows': {}
+      $rootScope.$on('auth:login-success', registerDevice);
+      $rootScope.$on('auth:validation-success', registerDevice);
+
+      FCMPlugin.onTokenRefresh(function(token){
+        deviceRegistrationId = token;
       });
 
-      notificationHandler.on('registration', function(data){
-        deviceRegistrationId = data.registrationId;
-        $rootScope.$on('auth:login-success', registerDevice);
-        $rootScope.$on('auth:validation-success', registerDevice);
-      });
-
-      notificationHandler.on('error', function(e){
-        console.log('push error = ' + e.message);
-      });
-
-      notificationHandler.on('notification', function(data){
+      FCMPlugin.onNotification(function(data){
         $rootScope.$emit('porttare:notification', data);
-        return notificationHandler.finish();
       });
     }
 
