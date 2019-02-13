@@ -13,16 +13,15 @@
 
     function registerDevice(uid){
       var url = '/api/users/devices',
-          platform = device().platform.toLowerCase(),
           data = {
             uuid: uid,
-            platform: platform
+            platform: getPlatform()
           };
       return CommonService.newObject(data, url);
     }
 
-    function device(){
-      return window.ionic.Platform.device();
+    function getPlatform(){
+      return window.ionic.Platform.isAndroid() ? 'android' : 'ios';
     }
   }
 })();
