@@ -51,7 +51,12 @@
       constants: {
         ENV: {
           name: 'production',
-          apiHost: 'http://api.yoursite.com'
+          apiHost: 'https://api.comidomi.ec',
+          airbrakeHost: 'https://pangi.shiriculapo.com',
+          pusherKey: 'c8b36aea2085b259327b',
+          airbrakeProjectId: '5c6468150a1e1a7a9d01abdd',
+          airbrakeProjectKey: '44efb53b680822cba2a41aa454f5ab1c',
+          gMapsKey: process.env.GOOGLE_MAPS_API_KEY
         }
       }
     },
