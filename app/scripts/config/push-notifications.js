@@ -25,12 +25,17 @@
         deviceRegistrationId = token;
       });
 
+      FCMPlugin.getToken(function(token){
+        deviceRegistrationId = token;
+      });
+
       FCMPlugin.onNotification(function(data){
         $rootScope.$emit('porttare:notification', data);
       });
     }
 
     function registerDevice(){
+      if (deviceRegistrationId === null) { return; }
       UserDevicesService.registerDevice(
         deviceRegistrationId
       );
