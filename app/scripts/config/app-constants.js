@@ -6,8 +6,9 @@
   .constant('APP', {
     placesState: 'app.places.index',
     successState: 'app.services.providers',
+    successStateCourier: 'courier.orders',
     preloginState: 'prelogin',
-    defaultImage: 'images/404.png',
+    defaultImage: 'images/background.png',
     defaultProfileImage: 'images/mysteryman.png',
     centsInDollar: '100',
     fbAuthScope: ['public_profile', 'email', 'user_birthday'],
