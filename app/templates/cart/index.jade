@@ -14,7 +14,9 @@ ion-view(
         p {{::("cart.titleWithoutItems"|translate)}}
         p {{::("cart.subtitleWithoutItems"|translate)}}
 
-  ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall.cart-page-footer
+  ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall.cart-page-footer(
+    ng-if="cartVm.cart.provider_profiles.length"
+  )
     button.button-full.button-main(
       ng-click="cartVm.showCheckoutModal()"
       ng-disabled="!cartVm.cart.provider_profiles || !cartVm.cart.provider_profiles.length"
