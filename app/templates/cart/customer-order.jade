@@ -32,11 +32,5 @@
       .label-order {{ ::('cart.order.delivery' | translate) }}
       price(amount="{{providerProfile.customer_order_delivery.shipping_fare_price_cents}}"
             currency="{{cartVm.cart.subtotal_items_currency}}")
-    .order-total.order-row
-      .label-order {{ ::('cart.order.total' | translate) }}
-      price(
-        amount="{{providerProfile.customer_order_delivery.shipping_fare_price_cents}}"
-        currency="{{cartVm.cart.subtotal_items_currency}}"
-      )
 
   .provider-profile-section--clear

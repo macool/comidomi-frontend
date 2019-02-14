@@ -265,6 +265,7 @@
       if (cartVm.cart && cartVm.cart.provider_profiles) {
         angular.forEach(cartVm.cart.provider_profiles, function (provider) {
           totalCents = totalCents + getTotalValueItems(provider);
+          totalCents = totalCents + provider.customer_order_delivery.shipping_fare_price_cents;
         });
       }
       return totalCents;

@@ -1,20 +1,8 @@
 .cart-page-footer {
-  display: flex;
-  align-items: center;
-
+  
   price {
     position: absolute;
     right: 20px;
-  }
-
-  .total {
-    font-family: Montserrat-Regular;
-    margin-right: 15px;
-
-    .value {
-      font-size: 32px;
-      color: $button-blue
-    }
   }
 
   .button {
