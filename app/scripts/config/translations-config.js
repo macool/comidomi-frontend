@@ -427,7 +427,7 @@
         },
         order: {
           subtotal: 'Subtotal',
-          delivery: 'Envio',
+          delivery: 'Envío',
           total: 'Total'
         }
       },
