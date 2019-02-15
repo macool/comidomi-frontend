@@ -21,7 +21,8 @@
     loginVm.loginForm = {};
     var successState = APP.successState,
         preloginState = APP.preloginState,
-        placesState = APP.placesState;
+        placesState = APP.placesState,
+        courierState = APP.successStateCourier;
 
     $rootScope.$on('auth:login-error', cantLogin);
 
@@ -35,7 +36,9 @@
     }
 
     function loggedIn() {
-      if ($auth.user.current_place) { //jshint ignore:line
+      if ($auth.user.courier_profile) { //jshint ignore:line
+        redirectTo(courierState);
+      }else if ($auth.user.current_place) { //jshint ignore:line
         redirectTo(successState);
       } else {
         redirectTo(placesState);

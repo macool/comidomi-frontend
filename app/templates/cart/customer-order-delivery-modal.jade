@@ -15,35 +15,35 @@ ion-modal-view.slim-modal
         | {{ ::cartVm.providerProfile.nombre_establecimiento }}
 
       .list.list-inset
-        label.item.item-input.item-stacked-label.item-input--no-borders
-          span.input-label {{::("globals.dateDelivery"|translate)}}
-        .delivery-time-wrapper
-          .button.button-clear.button-positive.button-small.button--floating(
-            ng-if="cartVm.providerProfile.customer_order_delivery.deliver_at"
-            ng-click="cartVm.clearDeliveryTime()"
-          ) {{ ::('cart.deliverNow' | translate) }}
-          ion-datetime-picker.item.item-icon-left.datetime-picker.datetime-picker--with-button(
-            date
-            time
-            am-pm
-            only-valid="{'after': 'today', 'inclusive': true}"
-            ng-model='cartVm.providerProfile.customer_order_delivery.deliver_at'
-          )
-            i.icon.ion-ios-calendar-outline
-            span.placeholder(ng-if="!cartVm.providerProfile.customer_order_delivery.deliver_at")
-              | {{ ::('cart.deliverNow' | translate) }}
-            span(ng-if="cartVm.providerProfile.customer_order_delivery.deliver_at")
-              | {{ cartVm.providerProfile.customer_order_delivery.deliver_at | formatDate }}
-            .button.button-clear.button-positive.button-small(
-              ng-if="!cartVm.providerProfile.customer_order_delivery.deliver_at"
-            ) {{ ::('globals.edit' | translate) }}
+        //- label.item.item-input.item-stacked-label.item-input--no-borders
+        //-   span.input-label {{::("globals.dateDelivery"|translate)}}
+        //- .delivery-time-wrapper
+        //-   .button.button-clear.button-positive.button-small.button--floating(
+        //-     ng-if="cartVm.providerProfile.customer_order_delivery.deliver_at"
+        //-     ng-click="cartVm.clearDeliveryTime()"
+        //-   ) {{ ::('cart.deliverNow' | translate) }}
+        //-   ion-datetime-picker.item.item-icon-left.datetime-picker.datetime-picker--with-button(
+        //-     date
+        //-     time
+        //-     am-pm
+        //-     only-valid="{'after': 'today', 'inclusive': true}"
+        //-     ng-model='cartVm.providerProfile.customer_order_delivery.deliver_at'
+        //-   )
+        //-     i.icon.ion-ios-calendar-outline
+        //-     span.placeholder(ng-if="!cartVm.providerProfile.customer_order_delivery.deliver_at")
+        //-       | {{ ::('cart.deliverNow' | translate) }}
+        //-     span(ng-if="cartVm.providerProfile.customer_order_delivery.deliver_at")
+        //-       | {{ cartVm.providerProfile.customer_order_delivery.deliver_at | formatDate }}
+        //-     .button.button-clear.button-positive.button-small(
+        //-       ng-if="!cartVm.providerProfile.customer_order_delivery.deliver_at"
+        //-     ) {{ ::('globals.edit' | translate) }}
         .errors-wrapper
           show-error(array-messages="cartVm.messages.deliver_at")
 
         label.item.item-input.item-input--no-borders.item-stacked-label.select-list-label(
           ng-class="{'item-error': cartVm.messages.customer_address_id}"
         )
-          span.input-label {{::("courier.deliveryAddresses"|translate)}}
+          span {{::("courier.deliveryAddresses"|translate)}}
         //- ion-list
         //-   ion-item.select-list-item(
         //-     ng-click="cartVm.customerOrderDeliverySelectPickup()"
@@ -77,7 +77,7 @@ ion-modal-view.slim-modal
             ng-click="cartVm.customerOrderDeliveryNewAddress()"
           ) {{ ::("cart.addDeliveryAddress" | translate) }}
 
-    ion-footer-bar.bar-stable.bar-footer--tall
-      button.button.button-outline.button-positive(
+    ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall
+      button.button-full.button-secondary(
         type="submit"
       ) {{::('courier.ready'|translate)}}

@@ -1,54 +1,74 @@
-.submitted-customer-order-preview {
-  .resource-collection-table.narrow {
-    .col {
-      // get rid of vertical spacing
-      padding-top: 0;
-      padding-bottom: 0;
+.customer-my-orders {
+  font-family: Montserrat-Light;
+  color: $base-grey;
+  background-color: $light-grey;
 
-      &, &:first-child {
-        max-height: 40px;
+  .list--bottom-narrow, 
+  .list--top-narrow {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .shipping-request-container {
+    background-color: $white;
+    margin:  20px 20px 0 20px;
+    padding: 10px 0;
+
+    .shipping-request {
+      width: 100%;
+      display: block;
+
+      .row {
+        padding: 5px 20px;
+
+        .order-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-basis: 100%;
+          padding: 5px 0;
+  
+          .status {
+            color: $base-teal;
+            font-family: Montserrat-Regular;
+          }
+  
+          shipping-request-dispatch-at {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+          }
+        }
+
+        &.provider {
+          display: flex;
+          flex-direction: column;
+
+          .order-info {
+            border-top: 1px solid $gray-border;
+            border-bottom: 1px solid $gray-border;
+            padding: 15px 0;
+          }
+
+          .details {
+            .name {
+              color: $base-black;
+              font-family: Montserrat-Regular;
+            }
+
+            .cost {
+              font-family: Montserrat-Light;
+              font-size: 12px;
+            }
+            
+          }
+
+          .img-provider {
+            width: 35px;
+            height: 35px;
+          }
+        }
       }
-    }
-  }
-
-  .item.narrow {
-    padding-top: 0;
-
-    .col {
-      padding-top: 0;
-    }
-  }
-
-  .strong {
-    font-family: Montserrat-Regular;
-  }
-
-  .customer-order-item-observations {
-    text-align: left;
-    max-height: initial !important;
-    white-space: normal !important;
-    font-size: 14px;
-    line-height: 18px;
-
-    span {
-      margin-right: 4px;
-    }
-  }
-
-  .customer-order-delivery {
-    span {
-      margin-right: 4px;
-    }
-
-    .future-delivery-time {
-      white-space: normal;
-      font-family: Montserrat-Regular;
-    }
-  }
-
-  .delivery-at-wrapper {
-    span {
-      margin-right: 5px;
     }
   }
 }
