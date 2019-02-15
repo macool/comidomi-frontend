@@ -19,7 +19,7 @@
 
   .cart-delivery-address {
     color: $grey-secondary;
-    padding: 15px;
+    padding: 20px;
     font-family: Montserrat-Regular;
     letter-spacing: -0.5px;
     position: relative;
@@ -31,7 +31,7 @@
     }
 
     .placeholder-title {
-      text-transform: uppercase;
+      font-family: Montserrat-Light;
     }
 
     .button-clear {
@@ -135,7 +135,9 @@
   }
 
   label.select-list-label.item-input--no-borders {
-    margin-bottom: 5px;
+    margin: 0 0 10px 20px;
+    font-family: Montserrat-Regular;
+    text-transform: uppercase;
   }
 
   .select-list-item {
@@ -144,6 +146,7 @@
     border-right: 0;
     padding: 15px 15px 10px 15px;
     font-family: Montserrat-Light;
+    font-size: 14px;
 
     &--with-button {
       padding-right: 40px;
@@ -177,7 +180,9 @@
 
 .editable-list-item-wrapper {
   position: relative;
-
+  font-family: Montserrat-Light;
+  font-size: 14px;
+  
   .edit-list-item {
     position: absolute;
     right: 0;

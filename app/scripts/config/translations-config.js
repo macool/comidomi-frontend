@@ -415,7 +415,7 @@
         deliverNow: 'Entregar inmediatamente',
         pickupNow: 'Inmediatamente',
         shippingCosts: '(costos de envío)',
-        deliveryPlaceholder: 'Entrega:',
+        deliveryPlaceholder: 'Entregar en:',
         pickupPlaceholder: 'Recoger',
         withoutDeliveryAddress: 'Definir dirección de envío',
         anonBillingAddress: 'Consumidor final',

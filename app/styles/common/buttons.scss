@@ -134,12 +134,18 @@
   background-color: initial;
 }
 
-.buton-full {
+.button-full {
   width: 100%;
 }
 
 .button-main {
   background-color: $base-orange;
+  color: $white;
+  font-family: Montserrat-Regular;
+}
+
+.button-secondary {
+  background-color: $base-teal;
   color: $white;
   font-family: Montserrat-Regular;
 }

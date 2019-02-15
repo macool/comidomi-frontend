@@ -43,7 +43,7 @@ ion-modal-view.slim-modal
         label.item.item-input.item-input--no-borders.item-stacked-label.select-list-label(
           ng-class="{'item-error': cartVm.messages.customer_address_id}"
         )
-          span.input-label {{::("courier.deliveryAddresses"|translate)}}
+          span {{::("courier.deliveryAddresses"|translate)}}
         //- ion-list
         //-   ion-item.select-list-item(
         //-     ng-click="cartVm.customerOrderDeliverySelectPickup()"
@@ -77,7 +77,7 @@ ion-modal-view.slim-modal
             ng-click="cartVm.customerOrderDeliveryNewAddress()"
           ) {{ ::("cart.addDeliveryAddress" | translate) }}
 
-    ion-footer-bar.bar-stable.bar-footer--tall
-      button.button.button-outline.button-positive(
+    ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall
+      button.button-full.button-secondary(
         type="submit"
       ) {{::('courier.ready'|translate)}}
