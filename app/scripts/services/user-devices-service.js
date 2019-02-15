@@ -7,12 +7,22 @@
 
   function UserDevicesService(CommonService){
     var service = {
-      registerDevice: registerDevice
+      registerDevice: registerDevice,
+      unregisterDevice: unregisterDevice
     };
     return service;
 
     function registerDevice(uid){
       var url = '/api/users/devices',
+          data = {
+            uuid: uid,
+            platform: getPlatform()
+          };
+      return CommonService.newObject(data, url);
+    }
+
+    function unregisterDevice(uid){
+      var url = '/api/users/devices/unregister',
           data = {
             uuid: uid,
             platform: getPlatform()
