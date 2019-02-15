@@ -19,7 +19,7 @@
     function styleDefaultStatusBar() {
       if (!window.cordova) { return; }
       if (cordova.platformId === 'android') {
-        window.StatusBar.backgroundColorByHexString('#fbaf3f');
+        window.StatusBar.backgroundColorByHexString('#00324E');
       } else {
         window.StatusBar.styleDefault();
         window.StatusBar.styleLightContent();
