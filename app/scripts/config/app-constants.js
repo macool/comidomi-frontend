@@ -8,7 +8,7 @@
     successState: 'app.services.providers',
     successStateCourier: 'courier.orders',
     preloginState: 'prelogin',
-    defaultImage: 'images/background.png',
+    defaultImage: 'images/placeholder-menu.png',
     defaultProfileImage: 'images/mysteryman.png',
     centsInDollar: '100',
     fbAuthScope: ['public_profile', 'email', 'user_birthday'],

@@ -102,6 +102,17 @@
     text-transform: uppercase;
   }
 
+  .item-image {
+    .img {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: local;
+      background-size: cover;
+      height: 200px;
+      width: 100%;
+    }
+  }
+
   .observaciones-wrapper {
     border-bottom: 0;
 

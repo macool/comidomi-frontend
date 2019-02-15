@@ -1,9 +1,17 @@
-slick-wrapper(settings="productVm.slickConfig")
+slick-wrapper(
+  settings="productVm.slickConfig"
+  ng-if="productVm.product.imagenes.length"
+)
   .slick-container(
     ng-repeat="image in ::productVm.product.imagenes track by $index"
-    ng-style="{'background-image':'url({{::image.imagen_url}})'}"
+    ng-style="{'background-image':'url({{::image.imagen_url | defaultImage}})'}"
   )
-
+.item-image(
+  ng-if="!productVm.product.imagenes.length"
+)
+  .img(
+    ng-style="{'background-image':'url({{::productVm.product.imagenes[0].imagen_url | defaultImage}})'}"
+  )
 .resource-detail-summary
   h3 {{productVm.product.titulo}}
   p {{productVm.product.descripcion}}
