@@ -76,7 +76,7 @@
       font-family: Montserrat-Regular;
       font-size: 16px;
       line-height: 20px;
-      color: $base-grey;
+      color: $base-black;
       margin-bottom: 5px;
     }
 
@@ -98,7 +98,10 @@
         margin-right: 3px;
       }
 
-      .office-schedule,
+      .office-schedule {
+        color: $base-teal;
+      }
+
       .office-status-text {
         margin-bottom: 2px;
       }
