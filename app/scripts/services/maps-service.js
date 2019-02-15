@@ -75,8 +75,13 @@
       };
     }
 
+    // TODO:
+    // either w8 for $auth.user to be ready
+    // or query backend for default position
     function mapPositionDefault(){
-      var currentPlace = $auth.user.current_place; // jshint ignore:line
+      console.log('asd');
+      // var currentPlace = $auth.user.current_place; // jshint ignore:line
+      var currentPlace = { lat: -4.0075945, long: -79.2434842 };
       return new google.maps.LatLng(currentPlace.lat, currentPlace.lon);
     }
 
