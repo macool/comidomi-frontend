@@ -81,7 +81,7 @@
     function mapPositionDefault(){
       console.log('asd');
       // var currentPlace = $auth.user.current_place; // jshint ignore:line
-      var currentPlace = { lat: -4.0075945, long: -79.2434842 };
+      var currentPlace = { lat: -79.2434842, lon: -4.0075945 };
       return new google.maps.LatLng(currentPlace.lat, currentPlace.lon);
     }
 
