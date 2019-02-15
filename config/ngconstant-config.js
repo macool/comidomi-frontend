@@ -13,9 +13,9 @@
       constants: {
         ENV: {
           name: 'development',
-          apiHost: 'http://localhost:3785',
+          apiHost: 'https://api.comidomi.ec',
           pusherKey: '287c19315060ae3bd2ec',
-          gMapsKey: 'AIzaSyDbY9wkWTMUHeT_J2Uehq0-i0S1PCaybFE'
+          gMapsKey: 'AIzaSyDoegRilS_knevV2csbxd4K-_Df1SsN0oo'
         }
       }
     },
@@ -56,7 +56,7 @@
           pusherKey: 'c8b36aea2085b259327b',
           airbrakeProjectId: '5c6468150a1e1a7a9d01abdd',
           airbrakeProjectKey: '44efb53b680822cba2a41aa454f5ab1c',
-          gMapsKey: process.env.GOOGLE_MAPS_API_KEY
+          gMapsKey: 'AIzaSyDoegRilS_knevV2csbxd4K-_Df1SsN0oo'
         }
       }
     },
