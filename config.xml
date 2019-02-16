@@ -43,11 +43,11 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
     </plugin>
-    <plugin name="cordova-plugin-facebook4" spec="https://github.com/jeduan/cordova-plugin-facebook4.git#6911f2d1b43a82254c78706bf03e314f3275a94f">
-        <variable name="APP_ID" value="422650018122547" />
-        <variable name="APP_NAME" value="demo-moviggo" />
-    </plugin>
     <allow-navigation href="http://192.168.1.6:8100" />
     <engine name="android" spec="^6.4.0" />
     <engine name="ios" spec="^4.4.0" />
+    <plugin name="cordova-plugin-facebook4" spec="git+https://github.com/jeduan/cordova-plugin-facebook4.git#0f2b695b3b8e7692c749a11cc85b09be5d14ffab">
+        <variable name="APP_ID" value="239339217017827" />
+        <variable name="APP_NAME" value="comidomi" />
+    </plugin>
 </widget>
