@@ -21,7 +21,7 @@
 
     function providerNewOrder(data){
       $state.go('provider.orders.show', {
-        id: data.additionalData.order_id
+        id: data.additionalData.order_id // jshint ignore:line
       });
     }
 
