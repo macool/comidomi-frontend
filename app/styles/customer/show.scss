@@ -13,10 +13,10 @@
 
     .user-name {
       text-align: center;
-      font-size: 26px;
+      font-size: 16px;
       line-height: 30px;
       margin: 0 0 15px 0;
-      font-family: GochiHand-Regular;
+      font-family: Montserrat-Light;
     }
   }
 
@@ -25,34 +25,84 @@
   }
 }
 
-.addresses-wrapper {
-  top: 0;
+.profile-page {
+  .information {
+    margin: 0 20px;
+    font-family: Montserrat-Light;
+    color: $base-grey;
+    
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid $medium-grey;;
+      padding: 10px 0;
+      margin: 10px 0;
+      font-size: 12px;
+      
+      .label {
+        font-family: Montserrat-Regular;
+        color: $base-black;
+      }
 
-  &--fix-scroll {
-    height: auto;
-    bottom: initial;
-    padding-bottom: 15px;
+      .value {
+        color: $base-black;
+      }
+    }
+  }
+}
+
+.addresses-page {
+  background: $light-grey;
+
+  .empty-addressess {
+    text-align: center;
+    margin: 20px 0;
+    font-family: Montserrat-Light;
+    color: $base-grey;
   }
 
-  .address-wrapper {
-    margin-bottom: 2em;
+  .addresses-wrapper {
+    top: 0;
+  
+    &--fix-scroll {
+      height: auto;
+      bottom: initial;
+      padding-bottom: 15px;
+    }
+  
+    .address-wrapper {
+      margin-bottom: 2em;
+  
+      .address-card {
+        margin: 20px;
+        background: $white;
 
-    .resource-detail-title {
-      font-size: 18px;
+        .label, .value {
+          font-family: Montserrat-Light;
+          font-size: 12px;
+        }
+  
+        .resource-detail-title {
+          font-family: Montserrat-Regular;
+          font-size: 14px;
+          margin-bottom: 5px;
+          color: $base-darkteal;
+        }
+    
+        .static-map-preview {
+          max-width: 100%;
+          padding: 0 10px 10px 10px;
+        }
+      }
+    }
+  
+    .edit-address-btn {
+      float: right;
+      min-height: initial;
+      line-height: 18px;
       margin-bottom: 5px;
-      color: $base-darkteal;
+      margin-left: 5px;
+      font-size: 12px;
     }
-
-    .static-map-preview {
-      max-width: 100%;
-    }
-  }
-
-  .edit-address-btn {
-    float: right;
-    min-height: initial;
-    line-height: 18px;
-    margin-bottom: 5px;
-    margin-left: 5px;
   }
 }

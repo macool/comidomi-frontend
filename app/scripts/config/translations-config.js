@@ -203,7 +203,8 @@
         },
         accept:'Aceptar',
         geolocation: 'Geolocalizando...',
-        somethingWentWrong: 'Algo salió mal'
+        somethingWentWrong: 'Algo salió mal',
+        noInformation: 'No has registrado este campo'
       },
       item: {
         item: 'Producto',
@@ -375,27 +376,27 @@
           addresses: 'Direcciones',
           metrics:'Métricas',
           managements:'Gestiones'
-        },
-        addresses: {
-          city: 'Ciudad',
-          parish: 'Parroquia',
-          neighborhood: 'Barrio',
-          addressOne: 'Dirección 1',
-          addressOnePlaceholder: 'Calle principal',
-          addressTwo: 'Dirección 2 (Opcional)',
-          addressTwoPlaceholder: 'Calle secundaria',
-          zipCode: 'Código postal',
-          reference: 'Referencia',
-          telephoneNumber: 'Número convencional',
-          formLegendUpdate: 'Actualizar Dirección',
-          formLegendNew: 'Nueva Dirección',
-          name: 'Nombre',
-          namePlaceholder: 'Ej: Casa de mamá',
-          addAddressBtnText: 'Agregar Dirección',
-          saveBtnText: 'Guardar Dirección',
-          updateBtnText: 'Actualizar Dirección',
-          noAddressesSaved: 'No has guardado ninguna dirección de envío'
         }
+      },
+      addresses: {
+        city: 'Ciudad',
+        parish: 'Parroquia',
+        neighborhood: 'Barrio',
+        addressOne: 'Dirección 1',
+        addressOnePlaceholder: 'Calle principal',
+        addressTwo: 'Dirección 2 (Opcional)',
+        addressTwoPlaceholder: 'Calle secundaria',
+        zipCode: 'Código postal',
+        reference: 'Referencia',
+        telephoneNumber: 'Número convencional',
+        formLegendUpdate: 'Actualizar Dirección',
+        formLegendNew: 'Nueva Dirección',
+        name: 'Nombre',
+        namePlaceholder: 'Ej: Casa de mamá',
+        addAddressBtnText: 'Agregar Dirección',
+        saveBtnText: 'Guardar Dirección',
+        updateBtnText: 'Actualizar Dirección',
+        noAddressesSaved: 'No has guardado ninguna dirección de envío'
       },
       cart: {
         successfullyAdded: 'Ítem agregado exitosamente',

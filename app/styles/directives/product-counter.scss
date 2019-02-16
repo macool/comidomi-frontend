@@ -1,8 +1,6 @@
-$gray-border: #C8C8C8;
-
 .product-counter {
-  border-top: 1px solid #C8C8C8;
-  border-bottom: 1px solid #C8C8C8;
+  border-top: 1px solid $medium-grey;
+  border-bottom: 1px solid $medium-grey;
   margin: 10px 20px;
   
   .product-counter-container {

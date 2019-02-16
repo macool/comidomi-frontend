@@ -1,5 +1,3 @@
-$gray-border: #C8C8C8;
-
 .courier-shipping-request-index-list {
   font-family: Montserrat-Light;
   color: $base-grey;
@@ -57,8 +55,8 @@ $gray-border: #C8C8C8;
           align-items: center;
 
           .order-info {
-            border-top: 1px solid $gray-border;
-            border-bottom: 1px solid $gray-border;
+            border-top: 1px solid $medium-grey;
+            border-bottom: 1px solid $medium-grey;
             padding: 15px 0;
           }
 

@@ -7,7 +7,7 @@ form(
     locking="false"
   )
     .list.list-inset.fields-wrapper
-      legend {{::pfaVm.inUpdateMode ? ("profile.addresses.formLegendUpdate"|translate) : ("profile.addresses.formLegendNew"|translate)}}
+      legend {{::pfaVm.inUpdateMode ? ("addresses.formLegendUpdate"|translate) : ("addresses.formLegendNew"|translate)}}
 
       maps(
         lat="pfaVm.addressFormData.lat"
@@ -24,11 +24,11 @@ form(
       label.item.item-input.item-stacked-label(
         ng-class="{'item-error': pfaVm.messages.nombre}"
       )
-        span.input-label {{::("profile.addresses.name"|translate)}}
+        span.input-label {{::("addresses.name"|translate)}}
         input(
           type='text'
           ng-model='pfaVm.addressFormData.nombre'
-          placeholder='{{ ::("profile.addresses.namePlaceholder" | translate) }}'
+          placeholder='{{ ::("addresses.namePlaceholder" | translate) }}'
         )
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.nombre')
@@ -36,7 +36,7 @@ form(
       //- label.item.item-input.item-stacked-label(
       //-   ng-class="{'item-error': pfaVm.messages.ciudad}"
       //- )
-      //-   span.input-label {{::("profile.addresses.city"|translate)}}
+      //-   span.input-label {{::("addresses.city"|translate)}}
       //-   input(
       //-     type='text'
       //-     ng-model='::pfaVm.addressFormData.ciudad'
@@ -48,11 +48,11 @@ form(
         ng-class="{'item-error': pfaVm.messages.direccion_uno}"
       )
         span.input-label
-          | {{::("profile.addresses.addressOne"|translate)}} *
+          | {{::("addresses.addressOne"|translate)}} *
         input(
           type='text'
           ng-model='::pfaVm.addressFormData.direccion_uno'
-          placeholder='{{ ::("profile.addresses.addressOnePlaceholder" | translate) }}'
+          placeholder='{{ ::("addresses.addressOnePlaceholder" | translate) }}'
           required
         )
       .errors-wrapper
@@ -61,11 +61,11 @@ form(
       label.item.item-input.item-stacked-label(
         ng-class="{'item-error': pfaVm.messages.direccion_dos}"
       )
-        span.input-label {{::("profile.addresses.addressTwo"|translate)}}
+        span.input-label {{::("addresses.addressTwo"|translate)}}
         input(
           type='text'
           ng-model='pfaVm.addressFormData.direccion_dos'
-          placeholder='{{ ::("profile.addresses.addressTwoPlaceholder" | translate) }}'
+          placeholder='{{ ::("addresses.addressTwoPlaceholder" | translate) }}'
         )
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.direccion_dos')
@@ -73,7 +73,7 @@ form(
       //- label.item.item-input.item-stacked-label(
       //-   ng-class="{'item-error': pfaVm.messages.parroquia}"
       //- )
-      //-   span.input-label {{::("profile.addresses.parish"|translate)}}
+      //-   span.input-label {{::("addresses.parish"|translate)}}
       //-   input(
       //-     type='text'
       //-     ng-model='pfaVm.addressFormData.parroquia'
@@ -84,7 +84,7 @@ form(
       //- label.item.item-input.item-stacked-label(
       //-   ng-class="{'item-error': pfaVm.messages.barrio}"
       //- )
-      //-   span.input-label {{::("profile.addresses.neighborhood"|translate)}}
+      //-   span.input-label {{::("addresses.neighborhood"|translate)}}
       //-   input(
       //-     type='text'
       //-     ng-model='pfaVm.addressFormData.barrio'
@@ -95,7 +95,7 @@ form(
       //- label.item.item-input.item-stacked-label(
       //-   ng-class="{'item-error': pfaVm.messages.codigo_postal}"
       //- )
-      //-   span.input-label {{::("profile.addresses.zipCode"|translate)}}
+      //-   span.input-label {{::("addresses.zipCode"|translate)}}
       //-   input(
       //-     type='text'
       //-     ng-model='pfaVm.addressFormData.codigo_postal'
@@ -106,7 +106,7 @@ form(
       label.item.item-input.item-stacked-label(
         ng-class="{'item-error': pfaVm.messages.numero_convencional}"
       )
-        span.input-label {{::("profile.addresses.telephoneNumber"|translate)}}
+        span.input-label {{::("addresses.telephoneNumber"|translate)}}
         input(
           type='tel'
           ng-model='pfaVm.addressFormData.numero_convencional'
@@ -118,7 +118,7 @@ form(
       label.item.item-input.item-stacked-label(
         ng-class="{'item-error': pfaVm.messages.referencia}"
       )
-        span.input-label {{::("profile.addresses.reference"|translate)}}
+        span.input-label {{::("addresses.reference"|translate)}}
         input(
           type='text'
           ng-model='pfaVm.addressFormData.referencia'
@@ -127,8 +127,8 @@ form(
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.referencia')
 
-  .bar.bar-footer.bar-stable
-    button.button.button-small.button-outline.button-energized(
+  ion-footer-bar.bar-stable.bar-footer--tall
+    button.button-full.button-main(
       type="submit"
       ng-disabled="pfaVm.addressFormData.$invalid"
-    ) {{ ::pfaVm.inUpdateMode ? ("profile.addresses.updateBtnText"|translate) : ("profile.addresses.saveBtnText"|translate) }}
+    ) {{ ::pfaVm.inUpdateMode ? ("addresses.updateBtnText"|translate) : ("addresses.saveBtnText"|translate) }}
