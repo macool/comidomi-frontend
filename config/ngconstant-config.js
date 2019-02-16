@@ -14,7 +14,8 @@
         ENV: {
           name: 'development',
           apiHost: 'https://api.comidomi.ec',
-          pusherKey: '287c19315060ae3bd2ec',
+          pusherKey: 'c8b36aea2085b259327b',
+          pusherCluster: 'us2',
           gMapsKey: 'AIzaSyDoegRilS_knevV2csbxd4K-_Df1SsN0oo'
         }
       }
