@@ -53,7 +53,8 @@
           name: 'production',
           apiHost: 'https://api.comidomi.ec',
           airbrakeHost: 'https://pangi.shiriculapo.com',
-          pusherKey: 'c8b36aea2085b259327b',
+          pusherKey: '5045d019acd66d1cc534',
+          pusherCluster: 'us2',
           airbrakeProjectId: '5c6468150a1e1a7a9d01abdd',
           airbrakeProjectKey: '44efb53b680822cba2a41aa454f5ab1c',
           gMapsKey: 'AIzaSyDoegRilS_knevV2csbxd4K-_Df1SsN0oo'
