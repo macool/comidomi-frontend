@@ -39,7 +39,7 @@
     }
 
     function appendPusherScript() {
-      var pusherURI = 'https://js.pusher.com/3.2/pusher.min.js';
+      var pusherURI = 'https://js.pusher.com/4.4/pusher.min.js';
       var script = document.createElement('script');
       script.src = pusherURI;
       script.type = 'text/javascript';
@@ -61,6 +61,8 @@
     function newPusherClient() {
       getAuthHeaders().then(function (headers) {
         pusherClient = new Pusher(ENV.pusherKey, {
+          cluster: ENV.pusherCluster,
+          forceTLS: true,
           encrypted: true,
           auth: headers,
           authEndpoint: ENV.apiHost + '/api/pusher_auth', // jshint ignore:line
