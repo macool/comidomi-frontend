@@ -23,7 +23,7 @@
         });
         $auth.submitRegistration(registerVm.user)
           .then(function() {
-            $state.go(APP.placesState).then(function(){
+            $state.go(APP.successState).then(function(){
               registerVm.user = {};
               registerVm.registerForm.$setPristine();
               registerVm.registerForm.$setUntouched();
