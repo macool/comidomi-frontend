@@ -206,10 +206,7 @@
             customerOrder: response.customer_order
           }).then(function () {
               $auth.user.customer_order = null;
-              $ionicPopup.alert({
-                title: 'Alerta',
-                template: '{{::("cart.successfullyOrder"|translate)}}'
-              }).then(closeModal);
+              closeModal();
             });
         }, function error(res) {
           $ionicLoading.hide();

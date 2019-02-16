@@ -408,7 +408,6 @@
         deliveryAddress: 'Dirección de entrega',
         deliveryMethod: 'Método de entrega',
         paymentMethod: 'Método de pago',
-        successfullyOrder: 'Pedido generado exitosamente',
         cantidadPlural: 'unidades',
         cantidadSingular: 'unidad',
         title: 'Carrito',
