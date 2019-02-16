@@ -1,7 +1,6 @@
 $gridBgColor: $white;
 $providerCoverBlur: 4px;
 $providerShowPageCoverHeight: 160px;
-$gray-border: #C8C8C8;
 
 .provider-show-page {
   .provider-header--background {
@@ -140,7 +139,7 @@ $gray-border: #C8C8C8;
         background-color: $white;
         margin: 0 20px;
         padding: 10px 0;
-        border-bottom: 1px solid $gray-border;
+        border-bottom: 1px solid $medium-grey;
 
         .info-wrapper {
           padding: 0px 15px 0 0;

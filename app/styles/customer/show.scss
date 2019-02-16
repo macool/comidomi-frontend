@@ -32,6 +32,10 @@
     color: $base-grey;
     
     .wrapper {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid $medium-grey;;
+      padding: 10px 0;
       margin: 10px 0;
       font-size: 12px;
       
