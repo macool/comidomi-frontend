@@ -25,34 +25,58 @@
   }
 }
 
-.addresses-wrapper {
-  top: 0;
+.addresses-page {
+  background: $light-grey;
 
-  &--fix-scroll {
-    height: auto;
-    bottom: initial;
-    padding-bottom: 15px;
+  .empty-addressess {
+    text-align: center;
+    margin: 20px 0;
+    font-family: Montserrat-Light;
+    color: $base-grey;
   }
 
-  .address-wrapper {
-    margin-bottom: 2em;
+  .addresses-wrapper {
+    top: 0;
+  
+    &--fix-scroll {
+      height: auto;
+      bottom: initial;
+      padding-bottom: 15px;
+    }
+  
+    .address-wrapper {
+      margin-bottom: 2em;
+  
+      .address-card {
+        margin: 20px;
+        background: $white;
 
-    .resource-detail-title {
-      font-size: 18px;
+        .label, .value {
+          font-family: Montserrat-Light;
+          font-size: 12px;
+        }
+  
+        .resource-detail-title {
+          font-family: Montserrat-Regular;
+          font-size: 14px;
+          margin-bottom: 5px;
+          color: $base-darkteal;
+        }
+    
+        .static-map-preview {
+          max-width: 100%;
+          padding: 0 10px 10px 10px;
+        }
+      }
+    }
+  
+    .edit-address-btn {
+      float: right;
+      min-height: initial;
+      line-height: 18px;
       margin-bottom: 5px;
-      color: $base-darkteal;
+      margin-left: 5px;
+      font-size: 12px;
     }
-
-    .static-map-preview {
-      max-width: 100%;
-    }
-  }
-
-  .edit-address-btn {
-    float: right;
-    min-height: initial;
-    line-height: 18px;
-    margin-bottom: 5px;
-    margin-left: 5px;
   }
 }
