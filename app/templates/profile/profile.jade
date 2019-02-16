@@ -5,15 +5,3 @@
         ng-src="{{ siteVm.userImageURL }}"
       )
       .user-name {{ siteVm.userName }}
-
-  .tab-container
-    .tab-item(
-      menu-close
-      ng-class="{'tab-item-active': piVm.tab==='info'}"
-      ui-sref="app.profile.info"
-    ) {{::('profile.tabs.info'|translate)}}
-    //- .tab-item(
-    //-   menu-close
-    //-   ng-class="{'tab-item-active': pfaVm.tab==='addresses'}"
-    //-   ui-sref="app.profile.addresses.index"
-    //- ) {{::('profile.tabs.addresses'|translate)}}

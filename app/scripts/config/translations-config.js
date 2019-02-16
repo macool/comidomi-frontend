@@ -203,7 +203,8 @@
         },
         accept:'Aceptar',
         geolocation: 'Geolocalizando...',
-        somethingWentWrong: 'Algo salió mal'
+        somethingWentWrong: 'Algo salió mal',
+        noInformation: 'No has registrado este campo'
       },
       item: {
         item: 'Producto',

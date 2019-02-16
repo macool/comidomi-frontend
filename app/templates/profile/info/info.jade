@@ -4,36 +4,32 @@ ion-view(
   ion-nav-title
     .alt-logo
 
-  ion-content
+  ion-content.profile-page
 
     ng-include(src="'templates/profile/profile.html'")
 
-    .list.list-inset.list--no-borders.text-center.actions-wrapper
-      button.button.button-clear.button-secondary(
-        ng-click="piVm.showNewModal(piVm.user)"
-      ) {{::('globals.edit'|translate)}}
-
-    .list.list-inset.list--no-borders.resource-details-table
-      .row
-        .col.col-50.label
+    .information
+      .wrapper
+        .label
           span {{::("user.name"|translate)}}
-        .col.col-50.value {{piVm.user.name}}
-      .row
-        .col.col-50.label {{::("user.email"|translate)}}
-        .col.col-50.value {{piVm.user.email}}
-      .row(
-        ng-if="piVm.user.fecha_nacimiento"
-      )
-        .col.col-50.label {{::("user.age"|translate)}}
-        .col.col-50.value {{piVm.user.fecha_nacimiento | age}}
-      .row(
-        ng-if="piVm.user.ciudad"
-      )
-        .col.col-50.label {{::("user.country"|translate)}}
-        .col.col-50.value {{piVm.user.ciudad}}
+        .value {{piVm.user.name || ("globals.noInformation"|translate) }}
+      .wrapper
+        .label {{::("user.email"|translate)}}
+        .value {{piVm.user.email}}
+      .wrapper
+        .label {{::("user.age"|translate)}}
+        .value {{(piVm.user.fecha_nacimiento | age) || ("globals.noInformation"|translate) }}
+      .wrapper
+        .label {{::("user.country"|translate)}}
+        .value {{piVm.user.ciudad || ("globals.noInformation"|translate) }}
 
     // until we update
     .list.hide
       .row
         .col.col-50.label {{::("user.password"|translate)}}
         .col.col-50.value ********
+
+  ion-footer-bar.bar-stable.bar-footer--tall
+    button.button-full.button-main(
+      ng-click="piVm.showNewModal(piVm.user)"
+    ) {{::('globals.edit'|translate)}}
