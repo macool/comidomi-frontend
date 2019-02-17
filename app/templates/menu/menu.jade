@@ -104,15 +104,6 @@ ion-side-menus(enable-menu-with-back-views='false')
         //- not built yet
           ion-item
             | {{::("menu.invite"|translate)}}
-        ion-item.item-complex(
-          menu-close
-          ng-controller='LoginController as loginVm'
-          ng-click='loginVm.logout()'
-        )
-          .item-content
-            i.icon.ion-power
-            | {{::("menu.logout"|translate)}}
-
 
         ion-item.item-complex.switch-user-role(
           ng-if='user.courier_profile'
@@ -148,3 +139,11 @@ ion-side-menus(enable-menu-with-back-views='false')
         )
           i.icon.ion-model-s
           | {{::("menu.user.courier"|translate)}}
+        ion-item.item-complex(
+          menu-close
+          ng-controller='LoginController as loginVm'
+          ng-click='loginVm.logout()'
+        )
+          .item-content
+            i.icon.ion-power
+            | {{::("menu.logout"|translate)}}

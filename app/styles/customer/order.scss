@@ -72,3 +72,64 @@
     }
   }
 }
+
+.submitted-customer-order-preview {
+  background: $light-grey;
+
+  .order-item {
+    font-family: Montserrat-Light;
+    margin: 0;
+    border-bottom: 1px solid $medium-grey;
+    
+    .customer-order-item-observations {
+      font-size: 12px;
+      color: $base-grey;
+    }
+  }
+
+  .order-costs {
+
+    .label {
+      font-family: Montserrat-Light;
+      font-size: 12px;
+
+      &.total {
+        font-family: Montserrat-Regular;
+      }
+    }
+
+    .value {
+      font-family: Montserrat-Regular;
+      font-size: 12px;
+    }
+  }
+
+  .status {
+
+    .delivery-at-wrapper {
+      display: flex;
+      justify-content: space-between;
+      font-family: Montserrat-Light;
+      font-size: 12px;
+      width: 100%;
+  
+      .value {
+        font-family: Montserrat-Regular;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .observations {
+    .content {
+      font-family: Montserrat-Light;
+    }
+  }
+
+  .user-information {
+
+    .narrow {
+      font-family: Montserrat-Light;
+    }
+  }
+}

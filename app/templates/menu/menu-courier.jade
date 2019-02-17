@@ -28,13 +28,6 @@ ion-side-menus(enable-menu-with-back-views='false')
           ion-item  
             | {{::("menu.invite"|translate)}}
 
-        ion-item.item-complex(
-          menu-close
-          ng-click='loginVm.logout()'
-          ng-controller='LoginController as loginVm'
-        )
-          .item-content {{::("menu.logout"|translate)}}
-
         ion-item.item-complex.switch-user-role
           .item-content
             i.icon.ion-arrow-swap
@@ -45,3 +38,11 @@ ion-side-menus(enable-menu-with-back-views='false')
         ) {{::("menu.user.buyer"|translate)}}
         ion-item.user-type(menu-close='' ui-sref='provider.items.index', ng-if='user.provider_profile')
           | {{::("menu.user.provider"|translate)}}
+        ion-item.item-complex(
+          menu-close
+          ng-click='loginVm.logout()'
+          ng-controller='LoginController as loginVm'
+        )
+          .item-content
+            i.icon.ion-power
+            | {{::("menu.logout"|translate)}}
