@@ -16,56 +16,32 @@ ion-view(
           span(
             ng-include="'templates/customer/orders/order-item-row.html'"
           )
-
-        .item.row.customer-order-delivery
-          .col
-            span.strong
-              order-delivery-method(
-                delivery-method="providerProfile.customer_order_delivery.delivery_method"
-              )
-            span(
-              ng-if="providerProfile.customer_order_delivery.delivery_method !== 'pickup'"
-            )
-              | {{ ::providerProfile.customer_order_delivery.customer_address_attributes.direccion_uno }}
-            .future-delivery-time(
-              ng-if="providerProfile.customer_order_delivery.deliver_at"
-            )
-              order-delivery-schedule-date(
-                deliver-at="providerProfile.customer_order_delivery.deliver_at"
-              )
-
-        span
-        //- some spacing
-
-        // hide this status for now
-          .item.row.strong
-            .col {{ ("order.delivery.status." + providerProfile.customer_order_delivery.status | translate) }}
-        .item.row.strong(
-          ng-if="providerProfile.customer_order_delivery.reason"
-        )
-          .col {{ providerProfile.customer_order_delivery.reason }}
-        .item.row(
-          ng-if="providerProfile.customer_order_delivery.preparation_time_mins"
-        )
-          .col
-            span
-              | {{ ::("provider.estimatedTimeForPreparation" | translate) }}
-            span :
-            span.strong
-              |  {{ ::(providerProfile.customer_order_delivery.preparation_time_mins) }}
-            span.strong
-              |  {{ ::("provider.estimatedTimeForPreparationUnit" | translate) }}
-
-        span
-        //- some spacing
-
-        .item.row
+        .resource-collection-table.text-right.order-costs
+          .row
+            .col.col-75.label
+              | {{ ::("order.summary.subtotal" |translate) }}
+            .col.col-25.value
+              price(amount="{{ ::providerProfile.subTotalCentsOrderProvider }}"
+                      currency="{{customerOrderVm.customerOrder.subtotal_items_currency}}")
+          .row
+            .col.col-75.label
+              | {{ ::("order.summary.shippingCosts" |translate) }}
+            .col.col-25.value
+              price(amount="{{ ::providerProfile.customer_order_delivery.shipping_fare_price_cents }}"
+                    currency="{{customerOrderVm.customerOrder.subtotal_items_currency}}")
+          .row
+            .col.col-75.label.total
+              | {{ ::("order.summary.total" |translate) }}
+            .col.col-25.value
+              price(amount="{{ ::providerProfile.totalCentsOrderProvider }}"
+                    currency="{{customerOrderVm.customerOrder.subtotal_items_currency}}")
+        .status.row
           .col.delivery-at-wrapper
-            span {{ ::("order.delivery.deliveryETA" | translate) }}:
-            span(
+            span.label {{ ::("order.delivery.deliveryETA" | translate) }}:
+            span.label(
               ng-if="!providerProfile.customer_order_delivery.courier_delivery_at"
             ) {{ ::("order.delivery.deliveryETAUnknown" | translate) }}
-            strong(
+            strong.value(
               ng-if="providerProfile.customer_order_delivery.courier_delivery_at"
             )
               humanized-countdown-time(
@@ -73,32 +49,54 @@ ion-view(
                 suffix=" - "
               )
               span {{ ::(providerProfile.customer_order_delivery.courier_delivery_at | toDate | formatDate:'hourAndDate') }}
+        //- .item.row.customer-order-delivery
+        //-   .col
+        //-     span.strong
+        //-       order-delivery-method(
+        //-         delivery-method="providerProfile.customer_order_delivery.delivery_method"
+        //-       )
+        //-     span(
+        //-       ng-if="providerProfile.customer_order_delivery.delivery_method !== 'pickup'"
+        //-     )
+        //-       | {{ ::providerProfile.customer_order_delivery.customer_address_attributes.direccion_uno }}
+        //-     .future-delivery-time(
+        //-       ng-if="providerProfile.customer_order_delivery.deliver_at"
+        //-     )
+        //-       order-delivery-schedule-date(
+        //-         deliver-at="providerProfile.customer_order_delivery.deliver_at"
+        //-       )
+
+        span
+        //- some spacing
+
+        // hide this status for now
+          .item.row.strong
+            .col {{ ("order.delivery.status." + providerProfile.customer_order_delivery.status | translate) }}
+        .status.row
+          .row.strong(
+            ng-if="providerProfile.customer_order_delivery.reason"
+          )
+            .col {{ providerProfile.customer_order_delivery.reason }}
+          .row(
+            ng-if="providerProfile.customer_order_delivery.preparation_time_mins"
+          )
+            .delivery-at-wrapper
+              .label
+                | {{ ::("provider.estimatedTimeForPreparation" | translate) }} :
+              .value
+                span.strong
+                  |  {{ ::(providerProfile.customer_order_delivery.preparation_time_mins) }}
+                span.strong
+                  |  {{ ::("provider.estimatedTimeForPreparationUnit" | translate) }}
+
+        span
+        //- some spacing
 
         // TODO display status for shipping request
           .item.row
             .col
               span.strong
                 | {{ "shippingRequest.status." + providerProfile.customer_order_delivery.status | translate }}
-
-      .list.list-inset.list--no-borders.resource-collection-table.text-right
-        .row.item
-          .col.col-75
-            | {{ ::("order.summary.subtotal" |translate) }}
-          .col.col-25.strong
-            price(amount="{{ ::providerProfile.subTotalCentsOrderProvider }}"
-                    currency="{{customerOrderVm.customerOrder.subtotal_items_currency}}")
-        .row.item
-          .col.col-75
-            | {{ ::("order.summary.shippingCosts" |translate) }}
-          .col.col-25.strong
-            price(amount="{{ ::providerProfile.customer_order_delivery.shipping_fare_price_cents }}"
-                  currency="{{customerOrderVm.customerOrder.subtotal_items_currency}}")
-        .row.item
-          .col.col-75.strong
-            | {{ ::("order.summary.total" |translate) }}
-          .col.col-25.strong
-            price(amount="{{ ::providerProfile.totalCentsOrderProvider }}"
-                  currency="{{customerOrderVm.customerOrder.subtotal_items_currency}}")
 
     //- not implemented yet
       .resource-collection
@@ -118,34 +116,34 @@ ion-view(
           .col.col-100.col--elastic {{ ::customerOrderVm.customerOrder.observaciones }}
           .list.list-inset.list--no-borders.resource-collection-table
 
-    .resource-collection
+    .resource-collection.user-information
       .list.list-inset.list--no-borders.resource-collection-table
         .row.table-headers
           .col {{ ::("order.customerInfo"|translate) }}
         span(
           ng-if="!customerOrderVm.customerOrder.anon_billing_address"
         )
-          .row.item.narrow
+          .row.narrow
             .col {{ ::(customerOrderVm.customerBillingAddress.razon_social) }}
-          .row.item.narrow
+          .row.narrow
             .col {{ ::(customerOrderVm.customerBillingAddress.ruc) }}
-          .row.item.narrow
+          .row.narrow
             .col {{ ::(customerOrderVm.customerBillingAddress.direccion) }}
-          .row.item.narrow(
+          .row.narrow(
             ng-if="customerOrderVm.customerBillingAddress.ciudad"
           )
             .col {{ ::( customerOrderVm.customerBillingAddress.ciudad ) }}
-          .row.item.narrow
+          .row.narrow
             .col {{ ::(customerOrderVm.customerBillingAddress.telefono) }}
-          .row.item.narrow
+          .row.narrow
             .col {{ ::(customerOrderVm.customerBillingAddress.email) }}
         span(
           ng-if="customerOrderVm.customerOrder.anon_billing_address"
         )
-          .row.item.narrow
+          .row.narrow
             .col {{ ::("cart.anonBillingAddress"| translate) }}
 
-        .row.item(
+        .row(
           ng-if="customerOrderVm.customerOrder.forma_de_pago"
         )
           .col
