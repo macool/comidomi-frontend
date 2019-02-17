@@ -108,11 +108,11 @@ ion-view(
               button.button.button-outline.button-energized
                 | {{ ::("order.discount.applyCode" |translate) }}
 
-    .resource-collection(ng-if="customerOrderVm.customerOrder.observaciones")
+    .resource-collection.observations(ng-if="customerOrderVm.customerOrder.observaciones")
       .list.list-inset.list--no-borders.resource-collection-table
         .row.table-headers
           .col.col-100 {{ ::("order.observations"|translate) }}
-        .row.item
+        .row.content
           .col.col-100.col--elastic {{ ::customerOrderVm.customerOrder.observaciones }}
           .list.list-inset.list--no-borders.resource-collection-table
 
