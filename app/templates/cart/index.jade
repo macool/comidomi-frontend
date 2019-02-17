@@ -2,17 +2,18 @@ ion-view(
   view-title='{{::("menu.client.cart"|translate)}}'
 )
   ion-nav-title {{ ::('cart.title' | translate) }}
-  ion-content.customer-order-preview
-    ng-include(
-      src="'templates/cart/customer-order.html'"
-    )
-
-    .resource-collection
-      .without-items(
-        ng-if="!cartVm.cart.provider_profiles.length"
+  ion-content
+    .customer-order-preview.customer-order-preview--fix-scroll
+      ng-include(
+        src="'templates/cart/customer-order.html'"
       )
-        p {{::("cart.titleWithoutItems"|translate)}}
-        p {{::("cart.subtitleWithoutItems"|translate)}}
+
+      .resource-collection
+        .without-items(
+          ng-if="!cartVm.cart.provider_profiles.length"
+        )
+          p {{::("cart.titleWithoutItems"|translate)}}
+          p {{::("cart.subtitleWithoutItems"|translate)}}
 
   ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall.cart-page-footer(
     ng-if="cartVm.cart.provider_profiles.length"
