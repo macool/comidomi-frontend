@@ -14,6 +14,7 @@
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-facebook4": "git+https://github.com/jeduan/cordova-plugin-facebook4.git#0f2b695b3b8e7692c749a11cc85b09be5d14ffab",
     "cordova-plugin-geolocation": "^2.4.3",
+    "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "~2.2.0",
     "cordova-plugin-whitelist": "^1.3.3",
     "dotenv": "~4.0.0",
@@ -88,7 +89,8 @@
     "cordova-plugin-camera@~2.3.0",
     "cordova-plugin-facebook4@https://github.com/jeduan/cordova-plugin-facebook4.git#0f2b695b3b8e7692c749a11cc85b09be5d14ffab",
     "https://github.com/apache/cordova-plugin-statusbar.git#rel/2.2.0",
-    "cordova-plugin-facebook4"
+    "cordova-plugin-facebook4",
+    "cordova-plugin-splashscreen"
   ],
   "cordovaPlatforms": [
     "android",
@@ -111,7 +113,8 @@
       "cordova-plugin-geolocation": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-whitelist": {},
-      "ionic-plugin-keyboard": {}
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-splashscreen": {}
     }
   }
 }
