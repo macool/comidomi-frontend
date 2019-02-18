@@ -51,4 +51,5 @@
         <variable name="APP_ID" value="239339217017827" />
         <variable name="APP_NAME" value="comidomi" />
     </plugin>
+    <preference name="SplashShowOnlyFirstTime" value="false" />
 </widget>
