@@ -54,8 +54,11 @@
       console.log('tearDownNotifications');
       // unsubscribe from topics
       window.FCMPlugin.unsubscribeFromTopic('all_couriers');
+      // TODO FIXME
+      // must unregister BEFORE logging out; whilst
+      // auth token is still active
       // unregisterDevice
-      unregisterDevice(deviceRegistrationId);
+      // unregisterDevice(deviceRegistrationId);
     }
 
     function registerDevice(){
