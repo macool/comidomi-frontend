@@ -11,7 +11,7 @@
     defaultImage: 'images/placeholder-menu.png',
     defaultProfileImage: 'images/mysteryman.png',
     centsInDollar: '100',
-    fbAuthScope: ['public_profile', 'email', 'user_birthday'],
+    fbAuthScope: ['public_profile', 'email'],
     paymentMethods: ['efectivo'],
     deliveryMethods: ['shipping', 'pickup'],
     weekdays: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
