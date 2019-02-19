@@ -13,10 +13,10 @@
       constants: {
         ENV: {
           name: 'development',
-          apiHost: 'https://api.comidomi.ec',
+          apiHost: 'http://localhost:3785',
           pusherKey: 'c8b36aea2085b259327b',
           pusherCluster: 'us2',
-          gMapsKey: 'AIzaSyDoegRilS_knevV2csbxd4K-_Df1SsN0oo'
+          gMapsKey: 'AIzaSyDbY9wkWTMUHeT_J2Uehq0-i0S1PCaybFE'
         }
       }
     },
