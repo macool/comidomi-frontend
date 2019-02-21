@@ -90,6 +90,7 @@
         respondToCustomerRequestLegend: 'Responder petición',
         estimatedTimeForPreparation: 'Tiempo de preparación estimado',
         estimatedTimeForPreparationUnit: 'minutos',
+        isTestProvider: 'Proveedor de prueba',
         methods: {
           cash: 'Efectivo',
           creditCard: 'Tarjeta de crédito'

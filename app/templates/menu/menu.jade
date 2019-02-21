@@ -25,12 +25,14 @@ ion-side-menus(enable-menu-with-back-views='false')
         )
           li
             .inner-content {{ ::('menu.client.providers' | translate) }}
-        ion-item.gray-item(
-          menu-close=''
-          ui-sref='app.categories.index'
-        )
-          li
-            .inner-content {{ ::("menu.client.category" | translate) }}
+
+        //- hide categories link for now
+          ion-item.gray-item(
+            menu-close=''
+            ui-sref='app.categories.index'
+          )
+            li
+              .inner-content {{ ::("menu.client.category" | translate) }}
 
         //- hide categories for now
           ion-item(
@@ -54,7 +56,7 @@ ion-side-menus(enable-menu-with-back-views='false')
           .item-content
             i.icon.ion-person
             | {{::("menu.account"|translate)}}
-            
+
         ion-item.gray-item(
           menu-close=''
           ui-sref='app.profile.addresses.index'
@@ -62,7 +64,7 @@ ion-side-menus(enable-menu-with-back-views='false')
           li
             .inner-content
               | {{::("menu.client.addresses"|translate)}}
-              
+
         ion-item.gray-item(
           menu-close=''
           ui-sref='app.customerorders.index'
@@ -79,7 +81,7 @@ ion-side-menus(enable-menu-with-back-views='false')
             li
               .inner-content
                 | {{::("menu.client.myLists"|translate)}}
-                
+
         ion-item.gray-item(
           menu-close=''
           ui-sref='app.billing.addresses'
