@@ -25,5 +25,9 @@ ion-view
 
           .provider-title {{ ::provider.nombre_establecimiento }}
           //- .provider-activity {{ ::provider.actividad_economica }}
+          .provider-test-provider-wrapper(
+            ng-if="provider.test_provider"
+            class="assertive"
+          ) {{ ::("provider.isTestProvider" | translate)}}
           .provider-schedule
             provider-profile-schedule(provider-profile="provider")
