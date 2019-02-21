@@ -9,7 +9,7 @@ ion-view(
 
   ion-content
     .grid-parent
-      a.grid-content(ng-repeat="category in categoryVm.categories()"
+      a.grid-content(ng-repeat="category in categoryVm.categories"
                     ng-class="categoryVm.categoryGridClassFor($index, $last)"
                     ui-sref="app.categories.show({id: category.id})"
                     style="background-image: url('{{category.imagen_url|defaultImage}}')")

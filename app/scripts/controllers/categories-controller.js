@@ -1,33 +1,30 @@
 (function () {
   'use strict';
 
+  /*jshint camelcase:false */
+
   angular
     .module('porttare.controllers')
     .controller('CategoriesController', CategoriesController);
 
-  function CategoriesController($scope) {
+  function CategoriesController($scope,
+                                categories,
+                                CategoriesService,
+                                ErrorHandlerService) {
     var categoryVm = this;
     var cacheInit = moment();
 
-    categoryVm.categories = parentScopeCategories;
+    categoryVm.categories = categories.provider_categories;
     categoryVm.categoryGridClassFor = categoryGridClassFor;
 
     $scope.$on('$ionicView.enter', function() {
       if (moment().diff(cacheInit, 'minutes') > 10) {
-        $scope.$emit('update-categories');
+        updateCategories();
       }
     });
 
-    $scope.$watch('$parent.menuVm.categories', function(){
-      categoryVm.categories();
-    });
-
-    function parentScopeCategories() {
-      return $scope.$parent.menuVm.categories;
-    }
-
     function unevenCategories() {
-      var categoriesLength = parentScopeCategories().length + 1;
+      var categoriesLength = categoryVm.categories.length + 1;
       return ((categoriesLength % 3) !== 0);
     }
 
@@ -39,6 +36,13 @@
       } else {
         return 'grid-50';
       }
+    }
+
+    function updateCategories(){
+      CategoriesService.getCategories()
+        .then(function success(res) {
+          categoryVm.categories = res.data.provider_categories;
+        }, ErrorHandlerService.handleCommonErrorGET);
     }
   }
 })();

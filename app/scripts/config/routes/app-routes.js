@@ -14,17 +14,7 @@ function appRoutes($stateProvider) {
     controllerAs: 'menuVm',
     //only logged users will allow to go to /app/*
     resolve: {
-      currentUser: accessIfUserAuth,
-      categories: function (CategoriesService, $ionicLoading, ErrorHandlerService) {
-        $ionicLoading.show({
-          template: '{{::("globals.loading"|translate)}}'
-        });
-        return CategoriesService.getCategories()
-          .then(function success(res) {
-            $ionicLoading.hide();
-            return res.data;
-          }, ErrorHandlerService.handleCommonErrorGET);
-      }
+      currentUser: accessIfUserAuth
     }
   })
   .state('app.places', {
@@ -119,6 +109,18 @@ function appRoutes($stateProvider) {
         controller: 'CategoriesController',
         controllerAs: 'categoryVm',
         cache: false
+      }
+    },
+    resolve: {
+      categories: function (CategoriesService, $ionicLoading, ErrorHandlerService) {
+        $ionicLoading.show({
+          template: '{{::("globals.loading"|translate)}}'
+        });
+        return CategoriesService.getCategories()
+          .then(function success(res) {
+            $ionicLoading.hide();
+            return res.data;
+          }, ErrorHandlerService.handleCommonErrorGET);
       }
     }
   })
