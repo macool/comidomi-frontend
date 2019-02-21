@@ -17,7 +17,8 @@
 
   .provider-items-in-cart
     list-items(data="providerProfile"
-               on-click="cartVm.openEditModal")
+               on-click="cartVm.openEditModal"
+               slick-flag="cartVm.slickFlag")
 
   .order-total-summary
     .order-subtotal.order-row

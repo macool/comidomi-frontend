@@ -11,7 +11,8 @@
       templateUrl: 'templates/directives/list-items/list-items.html',
       scope: {
         data: '=',
-        onClick: '&'
+        onClick: '&',
+        slickFlag: '='
       },
       controller: listItemsController,
       controllerAs: 'liVm',

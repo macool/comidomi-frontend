@@ -1,5 +1,6 @@
 .item-container(
   ng-repeat="providerItem in liVm.data.customer_order_items track by $index"
+  ng-if="liVm.slickFlag"
 )
   .item-content(ng-click="liVm.onClick()(providerItem)" class="clickeable")
     .customer-item-description
