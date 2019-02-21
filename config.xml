@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.comidomi.porttare" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.comidomi.porttare" version="0.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>comidomi</name>
     <description>
       ¡Pide lo que quieras a domicilio!
@@ -39,17 +39,19 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="android-minSdkVersion" value="16" />
     <plugin name="cordova-plugin-camera" spec="~2.3.0">
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <allow-navigation href="http://192.168.1.6:8100" />
-    <engine name="android" spec="^6.4.0" />
-    <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-facebook4" spec="git+https://github.com/jeduan/cordova-plugin-facebook4.git#0f2b695b3b8e7692c749a11cc85b09be5d14ffab">
         <variable name="APP_ID" value="239339217017827" />
         <variable name="APP_NAME" value="comidomi" />
     </plugin>
-    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
+    <engine name="android" spec="^6.4.0" />
+    <engine name="ios" spec="^4.4.0" />
 </widget>
