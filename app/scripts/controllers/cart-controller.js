@@ -19,9 +19,11 @@
                           BillingAddressesService,
                           ProfileAddressesService,
                           CartService,
-                          CustomerOrderDeliveryService) {
+                          CustomerOrderDeliveryService,
+                          ProfileService) {
     var cartVm = this,
         performingPost = false;
+    cartVm.user = $auth.user;
     cartVm.total = 0;
     cartVm.showCheckoutModal = showCheckoutModal;
     cartVm.closeModal = closeModal;
@@ -83,6 +85,22 @@
       cartVm.addresses = deliveryAddresses;
       cartVm.slickFlag = true; // https://github.com/devmark/angular-slick-carousel#slide-data
       getDeliveryMethods();
+    }
+
+    function addPhoneNumber(user) {
+      $ionicLoading.show({
+        template: '{{::("globals.updating"|translate)}}'
+      });
+
+      ProfileService.editProfile(user)
+        .then()
+        .finally(function () {
+          $ionicLoading.hide().then(function(){
+            closeModal().then(function(){
+              validateDataForDelivery();
+            });
+          });
+        });
     }
 
     function saveNewBillingAddress(){
@@ -158,6 +176,25 @@
     }
 
     function showCheckoutModal() {
+      if (needsToAddPhoneNumber()){
+        closeModal().then(function(){
+          $scope.userAddPhone = {
+            closeModal: closeModal,
+            submitModal: addPhoneNumber,
+            updateProfileForm: {},
+            userEdit: angular.copy(cartVm.user)
+          };
+          ModalService.showModal({
+            parentScope: $scope,
+            fromTemplateUrl: 'templates/cart/add-phone-number.html',
+          });
+        });
+      }else {
+        validateDataForDelivery();
+      }
+    }
+
+    function validateDataForDelivery() {
       if (needsToAddDeliveryAddress()) {
         customerOrderDeliveryNewAddress();
       } else {
@@ -434,6 +471,10 @@
 
     function needsToAddDeliveryAddress(){
       return cartVm.addresses.length === 0 && anyDeliveryIsShipping();
+    }
+
+    function needsToAddPhoneNumber(){
+      return !cartVm.user.phone_number;
     }
 
     function chooseAnonBillingAddress(){

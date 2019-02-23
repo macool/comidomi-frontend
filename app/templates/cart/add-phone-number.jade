@@ -1,0 +1,42 @@
+ion-modal-view
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear(
+        ng-click="userAddPhone.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  form(
+    name="userAddPhone.updateProfileForm"
+    ng-submit="userAddPhone.submitModal(userAddPhone.userEdit)"
+    novalidate
+  )
+    ion-content
+      .resource-form.customer-profile-form
+        .list.list-inset
+          .ui-icon-wrapper
+            i.icon.ion-iphone
+
+          .phone-number-intro {{ ::("client.pleaseProvidePhoneNumber" | translate) }}
+
+          label.item.item-input.item-stacked-label(
+            ng-class="{'item-error': userAddPhone.messages.phone_number}"
+          )
+            span.input-label {{::("user.phoneNumber"|translate)}}
+            input(
+              type="tel"
+              ng-model="userAddPhone.userEdit.phone_number"
+              required
+            )
+          .errors-wrapper
+            show-error(array-messages="userAddPhone.messages.phone_number")
+
+          .tip
+            | {{::("client.tipPhoneNumber"|translate)}}
+
+    ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall
+      button.button-full.button-main(
+        type="submit"
+        ng-disabled='userAddPhone.updateProfileForm.$invalid'
+      ) {{::('globals.save'|translate)}}

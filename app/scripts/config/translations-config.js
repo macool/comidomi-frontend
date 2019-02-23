@@ -280,7 +280,9 @@
         email: 'E-mail',
         noClients: 'No tienes ningún cliente todavía.',
         addImage: 'Agregar fotografía',
-        razonSocial: 'Razón social'
+        razonSocial: 'Razón social',
+        tipPhoneNumber: 'El mensajero llamará a este número para entregar tus pedidos',
+        pleaseProvidePhoneNumber: 'Por favor bríndanos tu número de teléfono celular'
       },
       wishlist: {
         wishlists: 'Listas de deseos',
@@ -352,6 +354,7 @@
         age:  'Edad',
         country:  'Ciudad',
         image:  'Imagen',
+        phoneNumber:  'Teléfono',
         changeImagen: 'Cambiar Imagen',
         successUpdateProfile: 'Perfil actualizado éxitosamente',
         password: 'Contraseña',

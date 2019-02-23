@@ -24,15 +24,15 @@ ion-modal-view.cart-page
         .errors-wrapper
           show-error(array-messages="cartVm.messages.observaciones")
 
-        label.item.item-input.item-select(
-          ng-class="{'item-error': cartVm.messages.forma_de_pago}"
-        )
-          span.input-label {{::("cart.paymentMethod"|translate)}}
-          select(
-            ng-model='cartVm.checkoutForm.forma_de_pago'
-            ng-options="paymentMethod as paymentMethod for paymentMethod in cartVm.paymentMethods")
-        .errors-wrapper
-          show-error(array-messages='cartVm.messages.forma_de_pago')
+        //- label.item.item-input.item-select(
+        //-   ng-class="{'item-error': cartVm.messages.forma_de_pago}"
+        //- )
+        //-   span.input-label {{::("cart.paymentMethod"|translate)}}
+        //-   select(
+        //-     ng-model='cartVm.checkoutForm.forma_de_pago'
+        //-     ng-options="paymentMethod as paymentMethod for paymentMethod in cartVm.paymentMethods")
+        //- .errors-wrapper
+        //-   show-error(array-messages='cartVm.messages.forma_de_pago')
 
         //- not here anymore
           label.item.item-input.item-select
