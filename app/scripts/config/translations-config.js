@@ -280,7 +280,8 @@
         email: 'E-mail',
         noClients: 'No tienes ningún cliente todavía.',
         addImage: 'Agregar fotografía',
-        razonSocial: 'Razón social'
+        razonSocial: 'Razón social',
+        tipPhoneNumber: 'Te llamaremos a este número para confirmar tus pedidos'
       },
       wishlist: {
         wishlists: 'Listas de deseos',
