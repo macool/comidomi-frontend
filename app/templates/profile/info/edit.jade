@@ -85,6 +85,17 @@ ion-modal-view
           show-error(array-messages="piVm.messages.name")
 
         label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': piVm.messages.phone_number}"
+        )
+          span.input-label {{::("user.phoneNumber"|translate)}}
+          input(
+            type="text"
+            ng-model="piVm.userEdit.phone_number"
+          )
+        .errors-wrapper
+          show-error(array-messages="piVm.messages.phone_number")
+
+        label.item.item-input.item-stacked-label(
           ng-class="{'item-error': piVm.messages.ciudad}"
         )
           span.input-label {{::("user.country"|translate)}}

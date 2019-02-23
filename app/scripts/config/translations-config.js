@@ -352,6 +352,7 @@
         age:  'Edad',
         country:  'Ciudad',
         image:  'Imagen',
+        phoneNumber:  'Teléfono',
         changeImagen: 'Cambiar Imagen',
         successUpdateProfile: 'Perfil actualizado éxitosamente',
         password: 'Contraseña',

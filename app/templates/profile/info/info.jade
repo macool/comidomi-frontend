@@ -17,6 +17,9 @@ ion-view(
         .label {{::("user.email"|translate)}}
         .value {{piVm.user.email}}
       .wrapper
+        .label {{::("user.phoneNumber"|translate)}}
+        .value {{(piVm.user.phone_number) || ("globals.noInformation"|translate) }}
+      .wrapper
         .label {{::("user.age"|translate)}}
         .value {{(piVm.user.fecha_nacimiento | age) || ("globals.noInformation"|translate) }}
       .wrapper
