@@ -21,7 +21,7 @@ ion-view(
     button.button-full.button-main(
       ng-click="cartVm.showCheckoutModal()"
       ng-disabled="!cartVm.cart.provider_profiles || !cartVm.cart.provider_profiles.length"
-    ) 
-      span.text{{ ::('cart.buyItems'|translate) }}
+    )
+      span.text {{ ::('cart.buyItems'|translate) }}
       price(amount="{{cartVm.total}}"
             currency="{{cartVm.currentCurrency}}")

@@ -281,7 +281,8 @@
         noClients: 'No tienes ningún cliente todavía.',
         addImage: 'Agregar fotografía',
         razonSocial: 'Razón social',
-        tipPhoneNumber: 'Te llamaremos a este número para confirmar tus pedidos'
+        tipPhoneNumber: 'El mensajero llamará a este número para entregar tus pedidos',
+        pleaseProvidePhoneNumber: 'Por favor bríndanos tu número de teléfono celular'
       },
       wishlist: {
         wishlists: 'Listas de deseos',

@@ -474,7 +474,7 @@
     }
 
     function needsToAddPhoneNumber(){
-      return cartVm.user.phone_number === null || cartVm.user.phone_number.length === 0;
+      return !cartVm.user.phone_number;
     }
 
     function chooseAnonBillingAddress(){
