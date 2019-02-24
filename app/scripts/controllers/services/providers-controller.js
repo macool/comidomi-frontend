@@ -5,15 +5,20 @@
     .module('porttare.controllers')
     .controller('ServicesProvidersController', ServicesProvidersController);
 
-  function ServicesProvidersController(ProvidersService){
+  function ServicesProvidersController(providers){
     var servicesProvidersVM = this;
-
-    init();
-
-    function init(){
-      ProvidersService.getProviders().then(function(providers){
-        servicesProvidersVM.providers = providers;
+     
+    servicesProvidersVM.providers = addGetIsOpenProvider(providers) || [];
+    
+    function addGetIsOpenProvider(providers){
+      angular.forEach(providers, function(provider){
+        provider.getIsOpenOffice = getIsOpenOffice;
       });
+      return providers;
     }
+
+    function getIsOpenOffice(isOpen){
+      return isOpen;
+    };
   }
 })();

@@ -27,6 +27,10 @@
 
       ppSVm.isOpen = false;
 
+      if(ppSVm.providerProfile.getIsOpenOffice) {
+        ppSVm.providerProfile.getIsOpenOffice = showScheduleFor;
+      }
+
       if (mainOffice) {
         showScheduleFor(mainOffice);
       }
@@ -47,6 +51,8 @@
           );
           ppSVm.isOpen = getIsOpen(officeWeekday);
         }
+
+        return ppSVm.isOpen;
       }
 
       function getIsOpen(officeWeekday) {

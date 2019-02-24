@@ -1,8 +1,24 @@
 $gridBgColor: $white;
 $providerCoverBlur: 4px;
-$providerShowPageCoverHeight: 160px;
+$providerShowPageCoverHeight: 150px;
 
 .provider-show-page {
+
+  &.closed {
+    .grid-items {
+      pointer-events: none;
+    }
+  }
+
+  .message-provider-close {
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+    color: $white;
+    background: $base-teal;
+    text-align: center;
+    padding: 10px 0;
+  }
+
   .provider-header--background {
     background-size: cover;
     position: fixed;

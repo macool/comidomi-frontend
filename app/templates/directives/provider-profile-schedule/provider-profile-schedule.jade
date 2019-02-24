@@ -4,7 +4,7 @@
   | -
   | {{ ::ppSVm.closingTime | formatDate:'HH:mm' }}
 
-.office-status-text(
+.office-status-text.open(
   ng-if="::ppSVm.isOpen"
 )
   i.i.icon.ion-record

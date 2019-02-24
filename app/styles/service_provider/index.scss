@@ -11,6 +11,12 @@
     vertical-align: top;
     border-bottom: 1px solid $gridShadowColor;
 
+    &.closed {
+      .provider-logo-img {
+        filter: grayscale(100%);
+      }
+    }
+
     @media (max-width: $grid-responsive-sm-break) {
       // col-100
       -webkit-box-flex: 0;
@@ -83,16 +89,14 @@
 
     .provider-activity {
       font-family: Montserrat-Regular;
-      color: $grey-secondary;
+      color: $base-black;
       font-size: 13px;
       line-height: 20px;
       margin-bottom: 3px;
+      font-weight: bold;
     }
 
     .provider-schedule {
-      font-family: Montserrat-Regular;
-      color: $grey-secondary;
-      font-size: 13px;
 
       .icon {
         margin-left: 2px;
@@ -100,7 +104,9 @@
       }
 
       .office-schedule {
+        font-family: Montserrat-Regular;
         color: $base-teal;
+        font-size: 13px;
       }
 
       .office-status-text {
@@ -108,7 +114,14 @@
       }
 
       .office-status-text {
-        color: $button-blue;
+
+        &.open {
+          color: $base-darkteal;
+        }
+
+        &.closed {
+          color: $error-red;
+        }
       }
     }
   }
