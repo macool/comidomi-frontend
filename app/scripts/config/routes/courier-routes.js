@@ -9,6 +9,7 @@ function courierRoutes($stateProvider) {
   .state('courier', {
     url: '/courier',
     abstract: true,
+    controller: 'MenuController',
     templateUrl: 'templates/menu/menu-courier.html'
   })
   .state('courier.orders', {

@@ -30,8 +30,8 @@
         history: 'Historial',
         locations: 'Localidades',
         user:{
-          courier: 'Entregar',
-          buyer: 'Comprar',
+          courier: 'Cambiar a mensajero',
+          buyer: 'Cambiar a comprador',
           provider: 'Vender'
         },
         client: {

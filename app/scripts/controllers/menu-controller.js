@@ -5,5 +5,7 @@
     .module('porttare.controllers')
     .controller('MenuController', MenuController);
 
-  function MenuController() {}
+  function MenuController($state, $scope) {
+    $scope.state = $state;
+  }
 })();
