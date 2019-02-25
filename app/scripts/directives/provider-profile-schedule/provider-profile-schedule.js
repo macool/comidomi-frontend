@@ -8,7 +8,7 @@
   function providerProfileSchedule() {
     var directive = {
       restrict: 'EA',
-      controller: ['$filter', providerProfileScheduleController],
+      controller: ['CommonService', providerProfileScheduleController],
       controllerAs: 'ppSVm',
       bindToController: true,
       scope: {
@@ -19,7 +19,7 @@
 
     return directive;
 
-    function providerProfileScheduleController($filter) {
+    function providerProfileScheduleController(CommonService) {
       // jshint validthis:true
       var ppSVm = this,
           providerOffices = ppSVm.providerProfile.provider_offices, // jshint ignore:line
@@ -27,62 +27,11 @@
 
       ppSVm.isOpen = false;
 
-      if(ppSVm.providerProfile.getIsOpenOffice) {
-        ppSVm.providerProfile.getIsOpenOffice = showScheduleFor;
-      }
-
       if (mainOffice) {
-        showScheduleFor(mainOffice);
-      }
-
-      function showScheduleFor(office){
-        var dia = getTodayStr();
-
-        var officeWeekday = office.weekdays.find(function(wday){
-          return wday.day === dia;
-        });
-
-        if (officeWeekday) {
-          ppSVm.openingTime = convertToDate(
-            officeWeekday.hora_de_apertura // jshint ignore:line
-          );
-          ppSVm.closingTime = convertToDate(
-            officeWeekday.hora_de_cierre // jshint ignore:line
-          );
-          ppSVm.isOpen = getIsOpen(officeWeekday);
-        }
-
-        return ppSVm.isOpen;
-      }
-
-      function getIsOpen(officeWeekday) {
-        if (angular.element.isEmptyObject(ppSVm.openingTime)) {
-          return;
-        }
-        if (angular.element.isEmptyObject(ppSVm.closingTime)) {
-          return;
-        }
-
-        var horaActual = moment(),
-            isInRange = horaActual.isBetween(
-          ppSVm.openingTime,
-          ppSVm.closingTime
-        );
-
-        if (officeWeekday.abierto && isInRange) {
-          return true;
-        }
-        return false;
-      }
-
-      function getTodayStr(){
-        return moment().locale('en').format('ddd').toLowerCase();
-      }
-
-      function convertToDate(horaStr){
-        if (!angular.element.isEmptyObject(horaStr)) {
-          return $filter('toDate')(horaStr, 'timeSchedule');
-        }
+        var officeSchedule = CommonService.officeScheduleDay(mainOffice);
+        ppSVm.openingTime = officeSchedule.openingTime;
+        ppSVm.closingTime = officeSchedule.closingTime;
+        ppSVm.isOpen = officeSchedule.isOpen;
       }
     }
   }

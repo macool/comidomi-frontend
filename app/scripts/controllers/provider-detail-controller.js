@@ -5,14 +5,10 @@
     .module('porttare.controllers')
     .controller('ProviderDetailController', ProviderDetailController);
 
-  function ProviderDetailController(data) {
+  function ProviderDetailController(data, CommonService) {
     var providerDetVm = this;
-    providerDetVm.isOpen = true;
     providerDetVm.provider = data.provider_profile; //jshint ignore:line
-    providerDetVm.provider.getIsOpenOffice = getIsOpenOffice;
-
-    function getIsOpenOffice(isOpen){
-      providerDetVm.isOpen =  isOpen;
-    };
+    var office = providerDetVm.provider.provider_offices[0]; //jshint ignore:line
+    providerDetVm.isOpen = CommonService.officeScheduleDay(office).isOpen;
   }
 })();

@@ -9,7 +9,7 @@ ion-view(
 
   ion-content
     .provider-show-page(
-      class="{{ ::providerDetVm.provider.getIsOpenOffice(providerDetVm.provider.provider_offices[0]) ? 'open' : 'closed'}}"
+      class="{{ ::providerDetVm.isOpen ? 'open' : 'closed'}}"
     )
       .provider-cover
         .provider-header--background(
@@ -30,7 +30,7 @@ ion-view(
                 provider-profile='providerDetVm.provider'
               )
       .message-provider-close(
-        ng-if="::!providerDetVm.provider.getIsOpenOffice(providerDetVm.provider.provider_offices[0])"
+        ng-if="::!providerDetVm.isOpen"
       )
         | {{ ::("globals.providerClose" | translate)}}
 
