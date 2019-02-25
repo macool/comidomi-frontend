@@ -170,10 +170,15 @@ function appRoutes($stateProvider) {
         controller: 'ProviderDetailController',
         controllerAs: 'providerDetVm',
         resolve: {
-          data: function(ProductsService, $stateParams) {
-            return ProductsService.getProviderProducts($stateParams).then(function(res){
-              return res;
+          data: function($ionicLoading, $stateParams, ProductsService, ErrorHandlerService) {
+            $ionicLoading.show({
+              template: '{{::("globals.loading"|translate)}}'
             });
+            return ProductsService.getProviderProducts($stateParams)
+              .then(function success(res) {
+                $ionicLoading.hide();
+                return res;
+              }, ErrorHandlerService.handleCommonErrorGET);
           }
         }
       }
@@ -190,11 +195,19 @@ function appRoutes($stateProvider) {
         controller: 'ProductController',
         controllerAs: 'productVm',
         resolve: {
-          providerItem: function (ProductsService, $stateParams) {
+          providerItem: function ($ionicLoading, ProductsService, $stateParams, ErrorHandlerService) {
             if ($stateParams.product) {
+              $ionicLoading.hide();
               return $stateParams.product;
             } else {
-              return ProductsService.getProduct($stateParams);
+              $ionicLoading.show({
+                template: '{{::("globals.loading"|translate)}}'
+              });
+              return ProductsService.getProduct($stateParams)
+                .then(function success(res) {
+                  $ionicLoading.hide();
+                  return res;
+                }, ErrorHandlerService.handleCommonErrorGET);
             }
           }
         }
