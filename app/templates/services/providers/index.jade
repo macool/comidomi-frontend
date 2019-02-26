@@ -12,13 +12,14 @@ ion-view
         input(
           type="text"
           placeholder="Buscar"
-          ng-model="servicesProvidersVM.query"
+          ng-model="searchName"
         )
 
     .service-provider-list
       .service-provider-item.col(
-        ng-repeat="provider in servicesProvidersVM.providers"
+        ng-repeat="provider in servicesProvidersVM.providers | filter:searchName"
         ui-sref="app.categories.provider({ categoryId: provider.provider_category_id, providerId: provider.id })"
+        class="{{ ::provider.officeIsOpen.isOpen ? 'open' : 'closed'}}"
       )
         .provider-info-wrapper
           .provider-logo-wrapper

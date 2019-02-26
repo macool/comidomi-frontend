@@ -5,14 +5,15 @@
     .module('porttare.services')
     .factory('CommonService', CommonService);
 
-  function CommonService($http, ENV) {
+  function CommonService($http, ENV, $filter) {
 
     var service = {
       editObject: editObject,
       newObject: newObject,
       getObjects: getObjects,
       getObject: getObject,
-      deleteObject:deleteObject
+      deleteObject:deleteObject,
+      officeScheduleDay: officeScheduleDay
     };
 
     return service;
@@ -71,6 +72,64 @@
         .then(function success(resp){
           return resp.data;
         });
+    }
+
+
+    function officeScheduleDay(office){
+      var dia = getTodayStr(),
+          openingTime = '',
+          closingTime = '',
+          isOpen = false;
+
+      var officeWeekday = office.weekdays.find(function(wday){
+        return wday.day === dia;
+      });
+
+      if (officeWeekday) {
+        openingTime = convertToDate(
+          officeWeekday.hora_de_apertura // jshint ignore:line
+        );
+        closingTime = convertToDate(
+          officeWeekday.hora_de_cierre // jshint ignore:line
+        );
+        isOpen = getIsOpen(officeWeekday, openingTime, closingTime);
+      }
+
+      return {
+        isOpen: isOpen,
+        openingTime: openingTime,
+        closingTime: closingTime
+      };
+    }
+
+    function getIsOpen(officeWeekday, openingTime, closingTime) {
+      if (angular.element.isEmptyObject(openingTime)) {
+        return;
+      }
+      if (angular.element.isEmptyObject(closingTime)) {
+        return;
+      }
+
+      var horaActual = moment(),
+          isInRange = horaActual.isBetween(
+                        openingTime,
+                        closingTime
+                      );
+
+      if (officeWeekday.abierto && isInRange) {
+        return true;
+      }
+      return false;
+    }
+
+    function getTodayStr(){
+      return moment().locale('en').format('ddd').toLowerCase();
+    }
+
+    function convertToDate(horaStr){
+      if (!angular.element.isEmptyObject(horaStr)) {
+        return $filter('toDate')(horaStr, 'timeSchedule');
+      }
     }
 
   }

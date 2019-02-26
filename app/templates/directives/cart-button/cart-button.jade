@@ -4,4 +4,7 @@
   span.badge.badge-light.number-of-items(
     ng-if="cartButtonVM.numberItems > 0"
   ) {{ cartButtonVM.numberItems }}
-  i.ion-ios-cart-outline
+  ng-md-icon.icon(
+    icon="shopping_cart"
+    size="30"
+  )

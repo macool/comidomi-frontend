@@ -13,11 +13,25 @@ ion-side-menus(enable-menu-with-back-views='false')
         )
           sidebar-header-current-user
 
-        ion-item(menu-close='' ui-sref='courier.orders')
-          | {{::("menu.courier.orders"|translate)}}
+        ion-item(
+          menu-close=''
+          ui-sref='courier.orders'
+          ng-class='{"selected": state.current.name === "courier.orders"}'
+        )
+          ng-md-icon.icon(
+            icon="shopping_cart"
+          )
+          span {{::("menu.courier.orders"|translate)}}
 
-        ion-item(menu-close='' ui-sref='courier.shippings')
-          | {{::("menu.courier.myShipping"|translate)}}
+        ion-item(
+          menu-close=''
+          ui-sref='courier.shippings'
+          ng-class='{"selected": state.current.name === "courier.shippings"}'
+        )
+          ng-md-icon.icon(
+            icon="shopping_basket"
+          )
+          span {{::("menu.courier.myShipping"|translate)}}
         //- TODO
           ion-item
             | {{::("menu.courier.account"|translate)}}
@@ -28,21 +42,23 @@ ion-side-menus(enable-menu-with-back-views='false')
           ion-item  
             | {{::("menu.invite"|translate)}}
 
-        ion-item.item-complex.switch-user-role
-          .item-content
-            i.icon.ion-arrow-swap
-            | {{::("menu.changeTo"|translate)}}
-        ion-item.user-type(
+        ion-item(
           menu-close=''
           ui-sref='app.services.providers'
-        ) {{::("menu.user.buyer"|translate)}}
-        ion-item.user-type(menu-close='' ui-sref='provider.items.index', ng-if='user.provider_profile')
-          | {{::("menu.user.provider"|translate)}}
-        ion-item.item-complex(
+          ng-class='{"selected": state.current.name === "app.services.providers"}'
+        )
+          ng-md-icon.icon(
+            icon="restaurant"
+          )
+          span {{::("menu.user.buyer"|translate)}}
+
+        //- ion-item.user-type(menu-close='' ui-sref='provider.items.index', ng-if='user.provider_profile')
+        //-   | {{::("menu.user.provider"|translate)}}
+
+
+        ion-item.main-action(
           menu-close
           ng-click='loginVm.logout()'
           ng-controller='LoginController as loginVm'
         )
-          .item-content
-            i.icon.ion-power
-            | {{::("menu.logout"|translate)}}
+          .close {{::("menu.logout"|translate)}}

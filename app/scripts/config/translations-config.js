@@ -30,8 +30,8 @@
         history: 'Historial',
         locations: 'Localidades',
         user:{
-          courier: 'Entregar',
-          buyer: 'Comprar',
+          courier: 'Cambiar a mensajero',
+          buyer: 'Cambiar a comprador',
           provider: 'Vender'
         },
         client: {
@@ -205,7 +205,8 @@
         accept:'Aceptar',
         geolocation: 'Geolocalizando...',
         somethingWentWrong: 'Algo salió mal',
-        noInformation: 'No has registrado este campo'
+        noInformation: 'No has registrado este campo',
+        providerClose: 'Podras ordenar una vez este proveedor este disponible'
       },
       item: {
         item: 'Producto',

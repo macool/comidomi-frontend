@@ -18,7 +18,8 @@
     'ion-datetime-picker',
     'monospaced.elastic',
     'validation.match',
-    'porttare.templates'
+    'porttare.templates',
+    'ngMdIcons'
   ])
 
   .run(function($ionicPlatform) {

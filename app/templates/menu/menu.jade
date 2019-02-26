@@ -15,16 +15,20 @@ ion-side-menus(enable-menu-with-back-views='false')
             show-profile-link="true"
           )
 
-        ion-item.item-complex
-          .item-content
-            i.icon.ion-home
-            | {{ ::( "globals.index" | translate ) }}
-        ion-item.gray-item(
+        //- ion-item.item-complex
+        //-   .item-content
+        //-     i.icon.ion-home
+        //-     | {{ ::( "globals.index" | translate ) }}
+
+        ion-item(
           menu-close=''
           ui-sref='app.services.providers'
+          ng-class='{"selected": state.current.name === "app.services.providers"}'
         )
-          li
-            .inner-content {{ ::('menu.client.providers' | translate) }}
+          ng-md-icon.icon(
+            icon="restaurant"
+          )
+          span {{ ::('menu.client.providers' | translate) }}
 
         //- hide categories link for now
           ion-item.gray-item(
@@ -52,26 +56,30 @@ ion-side-menus(enable-menu-with-back-views='false')
           ion-item(menu-close='' ui-sref='app.cart.index')
             | {{::("menu.client.cart"|translate)}}
 
-        ion-item.item-complex
-          .item-content
-            i.icon.ion-person
-            | {{::("menu.account"|translate)}}
+        //- ion-item.item-complex
+        //-   .item-content
+        //-     i.icon.ion-person
+        //-     | {{::("menu.account"|translate)}}
 
-        ion-item.gray-item(
+        ion-item(
           menu-close=''
           ui-sref='app.profile.addresses.index'
+          ng-class='{"selected": state.current.name === "app.profile.addresses.index"}'
         )
-          li
-            .inner-content
-              | {{::("menu.client.addresses"|translate)}}
+          ng-md-icon.icon(
+            icon="person_pin_circle"
+          )
+          span {{::("menu.client.addresses"|translate)}}
 
-        ion-item.gray-item(
+        ion-item(
           menu-close=''
           ui-sref='app.customerorders.index'
+          ng-class='{"selected": state.current.name === "app.customerorders.index"}'
         )
-          li
-            .inner-content
-              | {{ ::("menu.client.myOrders" | translate) }}
+          ng-md-icon.icon(
+            icon="shopping_basket"
+          )
+          span {{ ::("menu.client.myOrders" | translate) }}
 
         //- wishlists hidden for now
           ion-item.gray-item(
@@ -82,13 +90,15 @@ ion-side-menus(enable-menu-with-back-views='false')
               .inner-content
                 | {{::("menu.client.myLists"|translate)}}
 
-        ion-item.gray-item(
+        ion-item(
           menu-close=''
           ui-sref='app.billing.addresses'
+          ng-class='{"selected": state.current.name === "app.billing.addresses"}'
         )
-          li
-            .inner-content
-              | {{::("menu.client.billingAddresses"|translate)}}
+          ng-md-icon.icon(
+            icon="insert_drive_file"
+          )
+          span {{::("menu.client.billingAddresses"|translate)}}
         //- not built yet
           ion-item.gray-item
             li
@@ -107,12 +117,6 @@ ion-side-menus(enable-menu-with-back-views='false')
           ion-item
             | {{::("menu.invite"|translate)}}
 
-        ion-item.item-complex.switch-user-role(
-          ng-if='user.courier_profile'
-        )
-          .item-content
-            i.icon.ion-arrow-swap
-            | {{::("menu.changeTo"|translate)}}
         //- ion-item.user-type(
         //-   menu-close=''
         //-   ui-sref='app.provider.welcome'
@@ -134,18 +138,19 @@ ion-side-menus(enable-menu-with-back-views='false')
         //- )
         //-   i.icon.ion-model-s
         //-   | {{::("menu.user.courier"|translate)}}
-        ion-item.user-type(
+        ion-item(
           menu-close=''
           ui-sref='courier.orders'
           ng-if='user.courier_profile'
         )
-          i.icon.ion-model-s
-          | {{::("menu.user.courier"|translate)}}
-        ion-item.item-complex(
+          ng-md-icon.icon(
+            icon="directions_bike"
+          )
+          span {{::("menu.user.courier"|translate)}}
+
+        ion-item.main-action(
           menu-close
           ng-controller='LoginController as loginVm'
           ng-click='loginVm.logout()'
         )
-          .item-content
-            i.icon.ion-power
-            | {{::("menu.logout"|translate)}}
+          .close {{::("menu.logout"|translate)}}
