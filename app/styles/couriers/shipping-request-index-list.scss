@@ -10,7 +10,10 @@
   }
 
   .shipping-request-container {
-    background-color: $white;
+    background-color: #00b89d;
+    color: $white;
+    // background-color: $white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     margin:  20px 20px 0 20px;
     padding: 10px 0;
 
@@ -27,58 +30,66 @@
           align-items: center;
           flex-basis: 100%;
           padding: 5px 0;
+        }
+
+        .icon {
+          color: $base-darkteal;
+        }
+
+        &.order-row {
 
           .label {
-            font-size: 12px;
+            font-family: Montserrat-Regular;
+            color: $base-darkteal;
+            text-transform: uppercase;
+            font-size: 10px;
           }
-  
-          shipping-request-dispatch-at {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-          }
-        }
 
-        &.location {
-          .distance-from-location {
-            min-width: 65px;
-            text-align: end;
+          .information {
+            font-family: Montserrat-Regular;
+            color: $white;    
+            font-size: 16px;
+            line-height: 18px;
+            letter-spacing: -0.5px;
             
-            .distance {
-              color: $base-orange;
-              font-family: Montserrat-Regular;
-            }
-          }
-        }
+            &.logo-image {
+              display: flex;    
+              justify-content: center;
+              align-items: center;
 
-        &.provider {
-          align-items: center;
+              .image {
+                width: 25px;
+                height: 25px;
+              }
 
-          .order-info {
-            border-top: 1px solid $medium-grey;
-            border-bottom: 1px solid $medium-grey;
-            padding: 15px 0;
-          }
-
-          .details {
-            .name {
-              color: $base-black;
-              font-family: Montserrat-Regular;
-            }
-
-            .cost {
-              font-family: Montserrat-Light;
-              font-size: 12px;
+              .name {
+                margin-left: 10px;
+              }
             }
           }
 
-          .img-provider {
+          .image {
             width: 35px;
             height: 35px;
           }
         }
-      }
 
+        .actions {
+          border-top: 1px solid $base-darkteal;
+          width: 100%;
+          padding-top: 10px;
+          margin-top: 10px;
+
+          .button {
+            background-color: $base-darkteal;
+            color:$white;
+            padding: 0 10px;
+            font-family: Montserrat-Regular;
+            text-transform: uppercase;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 }
