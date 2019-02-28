@@ -17,6 +17,10 @@
     var coVm = this,
         currentLocation;
     coVm.order = courierOrder;
+    coVm.provider = courierOrder.provider_profile;
+    coVm.customerOrder = courierOrder.customer_order;
+    coVm.customerOrderDelivery = courierOrder.customer_order_delivery;
+    coVm.items = courierOrder.customer_order.customer_order_items;
     coVm.showTakeRequestModal = showTakeRequestModal;
     coVm.courierIsInStore = courierIsInStore;
     coVm.courierHasDelivered = courierHasDelivered;

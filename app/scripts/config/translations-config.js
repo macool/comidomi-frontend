@@ -452,6 +452,7 @@
         submittedAt: 'Enviada',
         observations: 'Observaciones',
         customerInfo: 'Información de Cliente',
+        invoiceInfo: 'Datos de Facturación',
         dispatchAt: 'Hora de despacho',
         timeForDispatch: 'Tiempo para el despacho',
         providerProfile: {
@@ -484,7 +485,8 @@
             pending: 'Esperando confirmación del proveedor',
             accepted: 'Aceptada por el proveedor',
             rejected: 'Rechazada'
-          }
+          },
+          place: 'Lugar de entrega'
         }
       },
       form: {
