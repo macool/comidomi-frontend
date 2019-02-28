@@ -4,7 +4,7 @@ ion-view
 
   ion-nav-buttons(side="right")
     cart-button
-    
+
   ion-content.service-provider-index.resource-collection
     .row
       label.item.search-input
@@ -24,7 +24,7 @@ ion-view
         .provider-info-wrapper
           .provider-logo-wrapper
             .provider-logo-img(
-              style="background-image: url('{{ ::provider.logotipo_url }}')"
+              style="background-image: url('{{ ::provider.logotipo_thumbnail_url }}')"
             )
 
           .provider-title {{ ::provider.nombre_establecimiento }}
