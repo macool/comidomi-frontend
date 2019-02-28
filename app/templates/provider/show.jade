@@ -32,7 +32,7 @@ ion-view(
       .message-provider-close(
         ng-if="::!providerDetVm.isOpen"
       )
-        | {{ ::("globals.providerClose" | translate)}}
+        | {{ ::("globals.providerClose" | translate:providerDetVm.closedMsgTranslation)}}
 
       .provider-categories(
         ng-repeat="providerItemCategory in ::providerDetVm.provider.provider_item_categories"
