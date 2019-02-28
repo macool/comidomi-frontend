@@ -2,17 +2,22 @@
   font-family: Montserrat-Light;
   color: $base-grey;
   background-color: $light-grey;
-  
-  .list--bottom-narrow, 
+
   .list--top-narrow {
+    text-align: center;
+    background: $base-teal;
+    color: $white;
+    padding: 5px 0;
+  }
+  
+  .list--bottom-narrow{
     text-align: center;
     margin: 10px 0;
   }
 
   .shipping-request-container {
-    background-color: #00b89d;
+    background-color: $base-darkteal;
     color: $white;
-    // background-color: $white;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     margin:  20px 20px 0 20px;
     padding: 10px 0;
@@ -29,18 +34,23 @@
           justify-content: space-between;
           align-items: center;
           flex-basis: 100%;
-          padding: 5px 0;
         }
 
         .icon {
-          color: $base-darkteal;
+          color: $white;
+          background: $base-orange;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         &.order-row {
 
           .label {
             font-family: Montserrat-Regular;
-            color: $base-darkteal;
+            color: $base-teal;
             text-transform: uppercase;
             font-size: 10px;
           }
@@ -48,7 +58,7 @@
           .information {
             font-family: Montserrat-Regular;
             color: $white;    
-            font-size: 16px;
+            font-size: 12px;
             line-height: 18px;
             letter-spacing: -0.5px;
             
@@ -74,14 +84,14 @@
           }
         }
 
-        .actions {
-          border-top: 1px solid $base-darkteal;
+        .separator {
+          border-top: 1px solid $base-teal;
           width: 100%;
           padding-top: 10px;
           margin-top: 10px;
 
           .button {
-            background-color: $base-darkteal;
+            background-color: $base-orange;
             color:$white;
             padding: 0 10px;
             font-family: Montserrat-Regular;
