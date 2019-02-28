@@ -2,20 +2,20 @@
   border-top: 1px solid $medium-grey;
   border-bottom: 1px solid $medium-grey;
   margin: 10px 20px;
-  
+
   .product-counter-container {
     display: flex;
     font-family: Montserrat-Light;
     font-size: 26px;
     line-height: 34px;
     justify-content: space-between;
-    padding: 25px 0;
-  
+    padding: 15px 0;
+
     .actions-panel {
       display: flex;
       align-items: center;
       justify-content: center;
-  
+
       .button-minus-container {
         .button-minus {
           color: $white;

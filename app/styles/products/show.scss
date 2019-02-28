@@ -15,9 +15,12 @@
     }
   }
 
-  .center-panel {
+  product-counter {
     width: 100%;
     background-color: $stable;
     z-index: 1;
+    position: absolute;
+    bottom: 55px;
+    left: 0;
   }
 }

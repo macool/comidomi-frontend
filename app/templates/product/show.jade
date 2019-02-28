@@ -8,7 +8,7 @@ ion-view(
     cart-button
 
   ion-content.item-show-page
-    form(
+    form.product-wrapper(
       name="selectProductForm"
       ng-submit='productVm.selectProduct()'
     )
@@ -17,6 +17,8 @@ ion-view(
       )
 
   ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall
+    product-counter(options="productVm.counterOptions")
+
     button.button-full.button-main(
       ng-click="productVm.runAction(productVm.actions.cart)"
       ng-disabled="!productVm.item.cantidad || productVm.disableInputs || !productVm.canAdd"
