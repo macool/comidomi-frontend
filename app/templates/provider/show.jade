@@ -18,7 +18,7 @@ ion-view(
         .provider-header
           .provider-logo
             img(
-              ng-src='{{ ::providerDetVm.provider.logotipo_url | defaultImage }}'
+              ng-src='{{ ::providerDetVm.provider.logotipo_thumbnail_url | defaultImage }}'
             )
           .provider-info
             .title.wrapper {{ ::providerDetVm.provider.nombre_establecimiento }}
@@ -52,7 +52,7 @@ ion-view(
                     price(amount="{{providerItem.precio_cents}}"
                           currency="{{providerItem.precio_currency}}")
               .img-wrapper
-                .img(ng-style="{'background-image':'url({{::(providerItem.imagenes[0].imagen_url | defaultImage)}})'}")
+                .img(ng-style="{'background-image':'url({{::(providerItem.imagenes[0].thumbnail_url | defaultImage)}})'}")
 
       .provider-category--no-more-items
         | {{ ::("provider.noMoreItems" | translate)}}
