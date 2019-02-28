@@ -13,6 +13,7 @@ ion-view(
     .card-order
       .shipping-request-container(
         ng-repeat="order in orVm.orders"
+        ui-sref='courier.order({ id: order.id, order: order})'
       )
         .shipping-request
           .row.order-row
@@ -69,7 +70,7 @@ ion-view(
           .row
             .separator
               button.button.button-small(
-                ng-click="coVm.showTakeRequestModal()"
+                ng-click="orVm.showTakeRequestModal(order)"
               )
                 | {{ ::("shippingRequest.takeRequest" | translate) }}
 

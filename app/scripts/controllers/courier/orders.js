@@ -7,12 +7,17 @@
 
   function OrdersController(APP,
                             shippingRequests,
+                            ShippingRequestService,
                             $state,
-                            $filter) {
+                            $filter,
+                            $scope,
+                            $ionicPopup,
+                            $ionicLoading) {
     var orVm = this,
         currentMap, currentInfoWindow;
     orVm.totalOrders = 0;
     orVm.mapRendered = mapRendered;
+    orVm.showTakeRequestModal = showTakeRequestModal;
 
     init();
 
@@ -108,6 +113,59 @@
       wrapper.append(btnWrapper);
       return new google.maps.InfoWindow({
         content: wrapper[0] // first node
+      });
+    }
+
+    function performTakeRequest(order){
+      $ionicLoading.show({
+        template: '{{::("globals.loading"|translate)}}'
+      });
+      ShippingRequestService.takeShippingRequest(
+        order,
+        orVm.takeRequestTime
+      ).then(successFromShippingRequestService)
+      .finally(function(){
+        $ionicLoading.hide();
+      });
+    }
+
+    function successFromShippingRequestService(respShippingReq){
+      $state.go('courier.order', {
+        id: respShippingReq.id,
+        order: respShippingReq
+      });
+    }
+
+    function showTakeRequestModal(order){
+      // TODO translate me?
+      var subTitle;
+      if (order.customer_order.customer_profile) { //jshint ignore:line
+        // if it's a customer order delivery
+        subTitle = 'incluye el tiempo que tomará recoger el pedido';
+      }
+      $ionicPopup.show({
+        scope: $scope,
+        template: '<input type="number" ng-model="orVm.takeRequestTime" min="0" placeholder="Tiempo en minutos">',
+        title: 'Tiempo estimado para la entrega',
+        subTitle: subTitle,
+        buttons: [
+          { text: 'Cancelar',
+            onTap: function(){
+              orVm.takeRequestTime = null;
+            }
+          },
+          {
+            text: 'Confirmar',
+            type: 'button-positive',
+            onTap: function(e) {
+              if (!orVm.takeRequestTime) {
+                e.preventDefault();
+              } else {
+                performTakeRequest(order);
+              }
+            }
+          }
+        ]
       });
     }
   }
