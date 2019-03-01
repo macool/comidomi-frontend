@@ -29,7 +29,7 @@
       align-self: center;
 
       &:first-child {
-        max-height: 48px;
+        max-height: 120px;
         white-space: pre-line;
         overflow: hidden;
       }
@@ -65,6 +65,7 @@
       text-transform: uppercase;
       font-family: Montserrat-Regular;
       margin-bottom: 5px;
+      font-weight: bold;
 
       .col {
         padding-bottom: 10px;

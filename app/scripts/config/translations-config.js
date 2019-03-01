@@ -163,7 +163,7 @@
             wrongSubmission: 'No pudimos registrarte, por favor revisa los errores en el formulario'
           }
         },
-        call: "Llamar"
+        call: 'Llamar'
       },
       globals: {
         new: 'Nuevo',

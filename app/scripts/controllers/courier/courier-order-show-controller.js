@@ -6,7 +6,6 @@
 
   function CourierOrderController(courierOrder,
                                   $q,
-                                  $scope,
                                   $ionicLoading,
                                   $ionicPopup,
                                   $translate,
@@ -17,19 +16,25 @@
     var coVm = this,
         currentLocation;
     coVm.order = courierOrder;
-    coVm.provider = courierOrder.provider_profile;
-    coVm.customerOrder = courierOrder.customer_order;
-    coVm.customerOrderDelivery = courierOrder.customer_order_delivery;
-    coVm.items = courierOrder.customer_order.customer_order_items;
-    coVm.showTakeRequestModal = showTakeRequestModal;
+    coVm.provider = courierOrder.provider_profile; //jshint ignore:line
+    coVm.customerOrder = courierOrder.customer_order;  //jshint ignore:line
+    coVm.customerOrderDelivery = courierOrder.customer_order_delivery; //jshint ignore:line
+    coVm.items = courierOrder.customer_order.customer_order_items; //jshint ignore:line
     coVm.courierIsInStore = courierIsInStore;
     coVm.courierHasDelivered = courierHasDelivered;
     coVm.routesStatus = 'noRoutes';
     coVm.routeLegs = [];
+
+    coVm.subtotalItems = coVm.customerOrder.subtotal_items_cents; //jshint ignore:line
+    coVm.shippingPrice = coVm.customerOrderDelivery.shipping_fare_price_cents; //jshint ignore:line
+    coVm.totalOrder = coVm.subtotalItems + coVm.shippingPrice;
     init();
 
     function init() {
       preloadShippingRequestData();
+    }
+
+    function showMapRoute () {
       performing();
       $q.all([
         loadMaps(),
@@ -181,48 +186,6 @@
 
     function finishedPerforming(){
       $ionicLoading.hide();
-    }
-
-    function showTakeRequestModal(){
-      // TODO translate me?
-      var subTitle;
-      if (coVm.order.customer_order) { //jshint ignore:line
-        // if it's a customer order delivery
-        subTitle = 'incluye el tiempo que tomará recoger el pedido';
-      }
-      $ionicPopup.show({
-        scope: $scope,
-        template: '<input type="number" ng-model="coVm.takeRequestTime" min="0" placeholder="Tiempo en minutos">',
-        title: 'Tiempo estimado para la entrega',
-        subTitle: subTitle,
-        buttons: [
-          { text: 'Cancelar',
-            onTap: function(){
-              coVm.takeRequestTime = null;
-            }
-          },
-          {
-            text: 'Confirmar',
-            type: 'button-positive',
-            onTap: function(e) {
-              if (!coVm.takeRequestTime) {
-                e.preventDefault();
-              } else {
-                performTakeRequest();
-              }
-            }
-          }
-        ]
-      });
-    }
-
-    function performTakeRequest(){
-      performing();
-      ShippingRequestService.takeShippingRequest(
-        coVm.order,
-        coVm.takeRequestTime
-      ).then(successFromShippingRequestService)
-      .finally(finishedPerforming);
     }
 
     function courierIsInStore(){
