@@ -1,4 +1,12 @@
 .shipping-request-show-page {
+  background: $light-grey;
+
+  &--fix-scroll {
+    height: auto;
+    bottom: initial;
+    padding-bottom: 60px;
+  }
+
   #order-map {
     height: 100%;
   }
@@ -8,6 +16,8 @@
     background: $base-teal;
     color: $white;
     padding: 5px 0;
+    font-family: Montserrat-Regular;
+    font-size: 12px;
   }
 
   .list-inset {
@@ -22,45 +32,6 @@
     .customer-order-item-observations {
       font-size: 12px;
       color: $base-grey;
-    }
-  }
-
-  .order-costs {
-
-    .label {
-      font-family: Montserrat-Light;
-      font-size: 12px;
-
-      &.total {
-        font-family: Montserrat-Regular;
-      }
-    }
-
-    .value {
-      font-family: Montserrat-Regular;
-      font-size: 12px;
-    }
-  }
-
-  .status {
-
-    .delivery-at-wrapper {
-      display: flex;
-      justify-content: space-between;
-      font-family: Montserrat-Light;
-      font-size: 12px;
-      width: 100%;
-  
-      .value {
-        font-family: Montserrat-Regular;
-        font-size: 12px;
-      }
-    }
-  }
-
-  .observations {
-    .content {
-      font-family: Montserrat-Light;
     }
   }
 
