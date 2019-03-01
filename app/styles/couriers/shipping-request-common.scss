@@ -11,5 +11,9 @@
     @media (min-height: $grid-responsive-md-break) {
       height: 400px;
     }
+
+    &.not-load-map {
+      height: 0;
+    }
   }
 }

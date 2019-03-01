@@ -162,7 +162,8 @@
           error: {
             wrongSubmission: 'No pudimos registrarte, por favor revisa los errores en el formulario'
           }
-        }
+        },
+        call: 'Llamar'
       },
       globals: {
         new: 'Nuevo',
@@ -451,6 +452,7 @@
         submittedAt: 'Enviada',
         observations: 'Observaciones',
         customerInfo: 'Información de Cliente',
+        invoiceInfo: 'Datos de Facturación',
         dispatchAt: 'Hora de despacho',
         timeForDispatch: 'Tiempo para el despacho',
         providerProfile: {
@@ -483,8 +485,11 @@
             pending: 'Esperando confirmación del proveedor',
             accepted: 'Aceptada por el proveedor',
             rejected: 'Rechazada'
-          }
-        }
+          },
+          place: 'Lugar de entrega'
+        },
+        seeMap: 'Ver ruta al lugar de entrega',
+        hideMap: 'Ocultar Mapa'
       },
       form: {
         requiredField: 'Campo requerido. ',

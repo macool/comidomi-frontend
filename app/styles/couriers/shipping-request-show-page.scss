@@ -1,26 +1,84 @@
 .shipping-request-show-page {
+  background: $light-grey;
+
+  &--fix-scroll {
+    height: auto;
+    bottom: initial;
+    padding-bottom: 60px;
+  }
+
   #order-map {
     height: 100%;
   }
 
-  .resource-detail-summary {
-    margin-bottom: 10px;
+  .list--top-narrow {
+    text-align: center;
+    background: $base-teal;
+    color: $white;
+    padding: 5px 0;
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+  }
 
-    h2,
-    .status-text {
-      display: inline-block;
+  .list-inset {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+
+  .order-item {
+    font-family: Montserrat-Light;
+    margin: 0;
+    border-bottom: 1px solid $medium-grey;
+    
+    .customer-order-item-observations {
+      font-size: 12px;
+      color: $base-grey;
+    }
+  }
+
+  .user-information {
+    display: flex;
+    padding: 0 10px;
+
+    .details {
+      flex-basis: 80%;
+
+      .user {
+        display: flex;
+
+        span {
+          margin-left: 5px;
+        }
+      }
     }
 
-    h2 {
-      margin-right: 8px;
-      margin-bottom: 0;
-    }
+    .actions {
+      flex-basis: 20%;
 
-    .status-text {
-      font-family: Montserrat-Regular;
-      color: $base-yellow;
-      font-size: 24px;
-      letter-spacing: -0.5px
+      .action {
+        color: $white;
+        background: $base-orange;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .address {
+    border-top: 1px solid $medium-grey;
+    font-size: 12px;
+    padding: 0 10px 10px 10px;
+    margin-top: 10px;
+  }
+
+  .narrow {
+    font-family: Montserrat-Light;
+
+    .image {
+      width: 40px;
+      height: 40px;
     }
   }
 }

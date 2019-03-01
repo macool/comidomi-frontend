@@ -9,6 +9,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <access origin="tel:*" launch-external="yes" />
     <allow-navigation href="*" />
     <allow-intent href="*" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
@@ -47,6 +48,7 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <allow-navigation href="http://192.168.1.6:8100" />
+    <allow-navigation href="tel:*" /> 
     <plugin name="cordova-plugin-facebook4" spec="git+https://github.com/jeduan/cordova-plugin-facebook4.git#0f2b695b3b8e7692c749a11cc85b09be5d14ffab">
         <variable name="APP_ID" value="239339217017827" />
         <variable name="APP_NAME" value="comidomi" />
