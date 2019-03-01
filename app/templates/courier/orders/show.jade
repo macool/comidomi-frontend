@@ -6,8 +6,17 @@ ion-view(
   ion-content.shipping-request-show-page.courier-shipping-request-common(
     ng-class="{'has-footer':coVm.order.status !== 'delivered'}"
   )
-    //- .map-view(ng-hide="coVm.mapIsHidden")
-    //-   #order-map(data-tap-disabled="true")
+    .list--top-narrow(
+      ng-click="coVm.toogleMap()"
+      ng-if="coVm.order.status !== 'delivered'"
+    )
+      p
+        | {{( coVm.mapIsHidden ? "order.seeMap" : "order.hideMap" | translate)}}
+
+    .map-view(
+      ng-class="{'not-load-map': coVm.mapIsHidden }"
+    )
+      #order-map(data-tap-disabled="true")
 
     .resource-collection.user-card
       .resource-collection

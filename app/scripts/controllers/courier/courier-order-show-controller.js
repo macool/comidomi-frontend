@@ -24,7 +24,8 @@
     coVm.courierHasDelivered = courierHasDelivered;
     coVm.routesStatus = 'noRoutes';
     coVm.routeLegs = [];
-
+    coVm.mapIsHidden = true;
+    coVm.toogleMap = toogleMap;
     coVm.subtotalItems = coVm.customerOrder.subtotal_items_cents; //jshint ignore:line
     coVm.shippingPrice = coVm.customerOrderDelivery.shipping_fare_price_cents; //jshint ignore:line
     coVm.totalOrder = coVm.subtotalItems + coVm.shippingPrice;
@@ -34,7 +35,8 @@
       preloadShippingRequestData();
     }
 
-    function showMapRoute () {
+    function toogleMap () {
+      coVm.mapIsHidden = !coVm.mapIsHidden;
       performing();
       $q.all([
         loadMaps(),

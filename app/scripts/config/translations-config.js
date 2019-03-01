@@ -487,7 +487,9 @@
             rejected: 'Rechazada'
           },
           place: 'Lugar de entrega'
-        }
+        },
+        seeMap: 'Ver ruta al lugar de entrega',
+        hideMap: 'Ocultar Mapa'
       },
       form: {
         requiredField: 'Campo requerido. ',

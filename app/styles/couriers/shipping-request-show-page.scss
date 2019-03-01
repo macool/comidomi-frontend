@@ -3,6 +3,13 @@
     height: 100%;
   }
 
+  .list--top-narrow {
+    text-align: center;
+    background: $base-teal;
+    color: $white;
+    padding: 5px 0;
+  }
+
   .list-inset {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
@@ -96,7 +103,7 @@
   }
 
   .narrow {
-    font-family: Montserrat-Regular;
+    font-family: Montserrat-Light;
 
     .image {
       width: 40px;
