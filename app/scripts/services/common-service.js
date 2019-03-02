@@ -86,11 +86,15 @@
       });
 
       if (officeWeekday) {
+        var horaDeApertura = officeWeekday.hora_de_apertura, // jshint ignore:line
+            openHour = horaDeApertura.split(' ')[0];
         openingTime = convertToDate(
-          officeWeekday.hora_de_apertura // jshint ignore:line
+          openHour 
         );
+        var horaDeCierre = officeWeekday.hora_de_cierre, // jshint ignore:line
+            closeHour = horaDeCierre.split(' ')[0];
         closingTime = convertToDate(
-          officeWeekday.hora_de_cierre // jshint ignore:line
+          closeHour
         );
         isOpen = getIsOpen(officeWeekday, openingTime, closingTime);
       }
