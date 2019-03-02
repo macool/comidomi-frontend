@@ -84,6 +84,7 @@ function appRoutes($stateProvider) {
   })
   .state('app.services.providers', {
     url: '/providers',
+    cache: false,
     views: {
       'menuContent@app': {
         templateUrl: 'templates/services/providers/index.html',
