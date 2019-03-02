@@ -9,15 +9,28 @@ ion-view(
         ng-repeat="order in shVm.orders"
         ui-sref='courier.order({ id: order.id, order: order})'
       )
-        .shipping-request
-          .row
+        .shipping-request(
+            ng-class="order.status"
+          )
+          .row.status
             .order-info
               span
-                | {{::("shippingRequest.statusShipping"| translate)}}
+                ng-md-icon.icon(
+                  icon="{{::shVm.getIconStatus(order)}}"
+                  size="20"
+                )
               span.status
                 | &nbsp;
                 | {{ ("shippingRequest.status." + order.status | translate) }}
-          .row.provider
+          .row.user.information
+            .order-info
+              .details
+                .name {{ order.customer_order.customer_profile.name || 'N/A' }}
+                .cost
+              img.img-provider(
+                ng-src="{{ ::order.customer_order.customer_profile.image_url}}"
+              )
+          .row.provider.information
             .order-info
               .details
                 .name {{ order.provider_profile.nombre_establecimiento }}
@@ -40,7 +53,7 @@ ion-view(
                 ng-src="{{ order.provider_profile.logotipo_url }}"
               )
           .row
-            .order-info
+            .order-info.time
               shipping-request-dispatch-at(
                 dispatch-at="order.estimated_dispatch_at"
               )
