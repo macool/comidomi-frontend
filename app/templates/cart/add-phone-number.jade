@@ -12,8 +12,8 @@ ion-modal-view
     ng-submit="userAddPhone.submitModal(userAddPhone.userEdit)"
     novalidate
   )
-    ion-content
-      .resource-form.customer-profile-form
+    ion-content(delegate-handle="customer-profile-form-scroll" direction="y" class="has-footer")
+      .resource-form.customer-profile-form.customer-profile-form-padding-bottom
         .list.list-inset
           .ui-icon-wrapper
             i.icon.ion-iphone
@@ -27,6 +27,7 @@ ion-modal-view
             input(
               type="tel"
               ng-model="userAddPhone.userEdit.phone_number"
+              ng-focus="userAddPhone.scrollToBottom()"
               required
             )
           .errors-wrapper

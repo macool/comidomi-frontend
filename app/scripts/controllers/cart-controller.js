@@ -12,6 +12,7 @@
                           $ionicPopup,
                           $ionicHistory,
                           $ionicLoading,
+                          $ionicScrollDelegate,
                           APP,
                           billingAddresses,
                           deliveryAddresses,
@@ -182,7 +183,8 @@
             closeModal: closeModal,
             submitModal: addPhoneNumber,
             updateProfileForm: {},
-            userEdit: angular.copy(cartVm.user)
+            userEdit: angular.copy(cartVm.user),
+            scrollToBottom: scrollCustomerProfileFormToBottom
           };
           ModalService.showModal({
             parentScope: $scope,
@@ -192,6 +194,10 @@
       }else {
         validateDataForDelivery();
       }
+    }
+
+    function scrollCustomerProfileFormToBottom(){
+      $ionicScrollDelegate.$getByHandle('customer-profile-form-scroll').scrollBottom(true);
     }
 
     function validateDataForDelivery() {
