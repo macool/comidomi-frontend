@@ -14,7 +14,7 @@
       padding-left: 0;
       padding-right: 35px;
       max-width: 100%;
-      font-family: Montserrat-Light;
+      font-family: Galano-Grotesque-Light;
       color: inherit;
 
       @media (max-width: $grid-responsive-sm-break) {
@@ -63,7 +63,7 @@
       color: $base-black;
       font-size: 0.9em;
       text-transform: uppercase;
-      font-family: Montserrat-Regular;
+      font-family: Galano-Grotesque-Medium;
       margin-bottom: 5px;
       font-weight: bold;
 
@@ -79,7 +79,7 @@
     margin-top: 100px;
     color: $base-grey;
     text-align: center;
-    font-family: Montserrat-Light;
+    font-family: Galano-Grotesque-Light;
 
     p {
       margin: auto;
@@ -99,6 +99,6 @@
   }
 
   .item {
-    font-family: Montserrat-Light;
+    font-family: Galano-Grotesque-Light;
   }
 }

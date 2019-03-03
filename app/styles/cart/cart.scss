@@ -24,9 +24,9 @@
   }
 
   .cart-delivery-address {
-    color: $grey-secondary;
+    color: $base-grey;
     padding: 20px;
-    font-family: Montserrat-Regular;
+    font-family: Galano-Grotesque-Medium;
     letter-spacing: -0.5px;
     position: relative;
     padding-right: 70px; // room for btn
@@ -37,7 +37,7 @@
     }
 
     .placeholder-title {
-      font-family: Montserrat-Light;
+      font-family: Galano-Grotesque-Light;
     }
 
     .button-clear {
@@ -67,13 +67,13 @@
       color: $base-black;
       text-transform: uppercase;
       font-size: 16px;
-      font-family: Montserrat-Regular;
+      font-family: Galano-Grotesque-Medium;
     }
 
     .provider-profile--subtitle {
       float: right;
       color: $positive;
-      font-family: Montserrat-Regular;
+      font-family: Galano-Grotesque-Medium;
       font-size: 13px;
 
       span:not(:last-child) {
@@ -82,7 +82,7 @@
     }
 
     .order-total-summary {
-      font-family: Montserrat-Light;
+      font-family: Galano-Grotesque-Light;
       margin: 10px 0 0 0;
 
       .order-row {
@@ -92,7 +92,7 @@
       }
 
       .order-total {
-        font-family: Montserrat-Regular;
+        font-family: Galano-Grotesque-Medium;
       }
     }
   }
@@ -142,7 +142,7 @@
 
   label.select-list-label.item-input--no-borders {
     margin: 0 0 10px 20px;
-    font-family: Montserrat-Regular;
+    font-family: Galano-Grotesque-Medium;
     text-transform: uppercase;
   }
 
@@ -151,7 +151,7 @@
     border-left: 0;
     border-right: 0;
     padding: 15px 15px 10px 15px;
-    font-family: Montserrat-Light;
+    font-family: Galano-Grotesque-Light;
     font-size: 14px;
 
     &--with-button {
@@ -160,7 +160,7 @@
 
     &.selected {
       color: $base-yellow;
-      font-family: Montserrat-Regular;
+      font-family: Galano-Grotesque-Medium;
       background-color: $light-grey;
     }
 
@@ -176,7 +176,7 @@
 
 .checkout-modal-form {
   .addresses-wrapper {
-    font-family: Montserrat-Light;
+    font-family: Galano-Grotesque-Light;
 
     // we programatically add content inside
     // the form and don't recalculate height
@@ -186,7 +186,7 @@
 
 .editable-list-item-wrapper {
   position: relative;
-  font-family: Montserrat-Light;
+  font-family: Galano-Grotesque-Light;
   font-size: 14px;
   
   .edit-list-item {

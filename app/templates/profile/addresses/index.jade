@@ -22,29 +22,29 @@ ion-view(
             ng-src="{{address.static_map_image}}"
           )
           .row(ng-if="address.ciudad")
-            .col.col-50.label {{::('addresses.city'|translate)}}
-            .col.col-50.value {{address.ciudad}}
+            .col.col-40.label.muted {{::('addresses.city'|translate)}}
+            .col.col-60.value {{address.ciudad}}
           .row(ng-if="address.parroquia")
-            .col.col-50.label {{::('addresses.parish'|translate)}}
-            .col.col-50.value {{ ::address.parroquia }}
+            .col.col-40.label.muted {{::('addresses.parish'|translate)}}
+            .col.col-60.value {{ ::address.parroquia }}
           .row(ng-if="address.barrio")
-            .col.col-50.label {{::('addresses.neighborhood'|translate)}}
-            .col.col-50.value {{ ::address.barrio }}
-          .row
-            .col.col-50.label {{::('addresses.addressOne'|translate)}}
-            .col.col-50.value {{address.direccion_uno}}
-          .row
-            .col.col-50.label {{::('addresses.addressTwo'|translate)}}
-            .col.col-50.value {{address.direccion_dos}}
+            .col.col-40.label.muted {{::('addresses.neighborhood'|translate)}}
+            .col.col-60.value {{ ::address.barrio }}
+          .row(ng-if="address.direccion_uno")
+            .col.col-40.label.muted {{::('addresses.addressOne'|translate)}}
+            .col.col-60.value {{address.direccion_uno}}
+          .row(ng-if="address.direccion_dos")
+            .col.col-40.label.muted {{::('addresses.addressTwo'|translate)}}
+            .col.col-60.value {{address.direccion_dos}}
           .row(ng-if="address.codigo_postal")
-            .col.col-50.label {{::('addresses.zipCode'|translate)}}
-            .col.col-50.value {{ ::address.codigo_postal }}
-          .row(ng-if="address.reference")
-            .col.col-50.label {{::('addresses.reference'|translate)}}
-            .col.col-50.value {{address.referencia}}
+            .col.col-40.label.muted {{::('addresses.zipCode'|translate)}}
+            .col.col-60.value {{ ::address.codigo_postal }}
+          .row(ng-if="address.referencia")
+            .col.col-40.label.muted {{::('addresses.reference'|translate)}}
+            .col.col-60.value {{address.referencia}}
           .row(ng-if="address.numero_convencional")
-            .col.col-50.label {{::('addresses.telephoneNumber'|translate)}}
-            .col.col-50.value {{ ::address.numero_convencional }}
+            .col.col-40.label.muted {{::('addresses.telephoneNumber'|translate)}}
+            .col.col-60.value {{ ::address.numero_convencional }}
 
   ion-footer-bar.bar-stable.bar-footer--tall
     button.button-full.button-main(

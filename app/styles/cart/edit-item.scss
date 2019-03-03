@@ -26,7 +26,7 @@
   }
 
   .input-label {
-    font-family: Montserrat-Regular;
+    font-family: Galano-Grotesque-Medium;
     text-transform: uppercase;
     margin-bottom: 5px;
   }
@@ -37,7 +37,7 @@
     min-height: 55px;
 
     &::placeholder {
-      color: $grey-secondary;
+      color: $base-grey;
     }
   }
 

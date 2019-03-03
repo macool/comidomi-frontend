@@ -29,17 +29,17 @@
 
         &-footer {
           text-align: left;
-          font-family: Montserrat-Regular;
+          font-family: Galano-Grotesque-Medium;
           font-size: 16px;
 
           .nombre {
-            color: $grey-secondary;
+            color: $base-grey;
           }
           .horario {
             color: $base-grey;
             font-size: 14px;
             letter-spacing: -0.5px;
-            font-family: Montserrat-Regular;
+            font-family: Galano-Grotesque-Medium;
 
             .office-schedule {
               .i {

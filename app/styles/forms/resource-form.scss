@@ -1,5 +1,5 @@
 .resource-form {
-  font-family: Montserrat-Light;
+  font-family: Galano-Grotesque-Light;
 
   .fields-wrapper {
     padding-bottom: 25px;
@@ -30,7 +30,7 @@
 
   p {
     margin: auto;
-    font-family: Montserrat-Light;
+    font-family: Galano-Grotesque-Light;
     font-size: 12px;
   }
 
@@ -84,7 +84,7 @@
 
   label.item-stacked-label.item-input--no-borders {
     margin-bottom: 0;
-    font-family: Montserrat-Light;
+    font-family: Galano-Grotesque-Light;
     font-size: 12px;
   }
 
@@ -108,7 +108,7 @@
   label.item-input {
     select, textarea {
       font-size: 16px;
-      font-family: Montserrat-Light;
+      font-family: Galano-Grotesque-Light;
     }
 
     textarea {
@@ -131,7 +131,7 @@
         border-left: 0;
         box-shadow: none;
         border-radius: 0;
-        font-family: Montserrat-Light;
+        font-family: Galano-Grotesque-Light;
         font-size: 14px;
 
         .item {
@@ -152,7 +152,7 @@
       }
 
       .selectize-dropdown {
-        font-family: Montserrat-Light;
+        font-family: Galano-Grotesque-Light;
         box-shadow: none;
         font-size: 14px;
       }
@@ -173,7 +173,7 @@
 
   .datetime-picker {
     color: $base-darkteal;
-    font-family: Montserrat-Light;
+    font-family: Galano-Grotesque-Light;
 
     .icon::before {
       color: $base-darkteal;
