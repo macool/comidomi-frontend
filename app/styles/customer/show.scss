@@ -76,10 +76,15 @@
       .address-card {
         margin: 20px;
         background: $white;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
         .label, .value {
-          font-family: Galano-Grotesque-Light;
+          font-family: Galano-Grotesque-Medium;
           font-size: 12px;
+
+          &.muted {
+            color:$base-grey;
+          }
         }
   
         .resource-detail-title {
