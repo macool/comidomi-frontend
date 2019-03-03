@@ -24,14 +24,14 @@
 
     .customer-item-description {
       text-align: left;
-      font-family: Montserrat-Light;
+      font-family: Galano-Grotesque-Light;
       font-size: 14px;
       line-height: 18px;
       letter-spacing: -0.5px;
 
       .customer-item--title {
         margin-top: 5px;
-        color: $grey-secondary;
+        color: $base-grey;
         text-transform: uppercase;
         max-height: 40px;
         overflow: hidden;

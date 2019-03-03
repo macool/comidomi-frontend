@@ -1,9 +1,9 @@
 .courier-shipping-request-my-shippings {
-  font-family: Montserrat-Light;
+  font-family: Galano-Grotesque-Light;
   color: $base-grey;
   background-color: $light-grey;
 
-  .list--bottom-narrow, 
+  .list--bottom-narrow,
   .list--top-narrow {
     text-align: center;
     margin: 10px 0;
@@ -49,9 +49,9 @@
           align-items: center;
           flex-basis: 100%;
           padding: 5px 0;
-  
+
           .status {
-            font-family: Montserrat-Regular;
+            font-family: Galano-Grotesque-Medium;
           }
   
           shipping-request-dispatch-at {
@@ -80,14 +80,14 @@
           .details {
             .name {
               color: $base-black;
-              font-family: Montserrat-Regular;
+              font-family: Galano-Grotesque-Medium;
             }
 
             .cost {
-              font-family: Montserrat-Light;
+              font-family: Galano-Grotesque-Light;
               font-size: 12px;
             }
-            
+
           }
 
           .img-provider {
@@ -103,6 +103,6 @@
 
 shipping-request-dispatch-at {
   humanized-countdown-time {
-    font-family: Montserrat-Regular;
+    font-family: Galano-Grotesque-Medium;
   }
 }
