@@ -1,5 +1,5 @@
 .courier-shipping-request-index-list {
-  font-family: Montserrat-Light;
+  font-family: Galano-Grotesque-Light;
   color: $base-grey;
   background-color: $light-grey;
 
@@ -49,14 +49,14 @@
         &.order-row {
 
           .label {
-            font-family: Montserrat-Regular;
+            font-family: Galano-Grotesque-Medium;
             color: $base-teal;
             text-transform: uppercase;
             font-size: 10px;
           }
 
           .information {
-            font-family: Montserrat-Regular;
+            font-family: Galano-Grotesque-Medium;
             color: $white;    
             font-size: 12px;
             line-height: 18px;
@@ -94,7 +94,7 @@
             background-color: $base-orange;
             color:$white;
             padding: 0 10px;
-            font-family: Montserrat-Regular;
+            font-family: Galano-Grotesque-Medium;
             text-transform: uppercase;
             cursor: pointer;
           }
@@ -106,6 +106,6 @@
 
 shipping-request-dispatch-at {
   humanized-countdown-time {
-    font-family: Montserrat-Regular;
+    font-family: Galano-Grotesque-Medium;
   }
 }

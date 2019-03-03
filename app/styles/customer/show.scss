@@ -16,7 +16,7 @@
       font-size: 16px;
       line-height: 30px;
       margin: 0 0 15px 0;
-      font-family: Montserrat-Light;
+      font-family: Galano-Grotesque-Light;
     }
   }
 
@@ -28,7 +28,7 @@
 .profile-page {
   .information {
     margin: 0 20px;
-    font-family: Montserrat-Light;
+    font-family: Galano-Grotesque-Light;
     color: $base-grey;
     
     .wrapper {
@@ -40,7 +40,7 @@
       font-size: 12px;
       
       .label {
-        font-family: Montserrat-Regular;
+        font-family: Galano-Grotesque-Medium;
         color: $base-black;
       }
 
@@ -57,7 +57,7 @@
   .empty-addressess {
     text-align: center;
     margin: 20px 0;
-    font-family: Montserrat-Light;
+    font-family: Galano-Grotesque-Light;
     color: $base-grey;
   }
 
@@ -78,12 +78,12 @@
         background: $white;
 
         .label, .value {
-          font-family: Montserrat-Light;
+          font-family: Galano-Grotesque-Light;
           font-size: 12px;
         }
   
         .resource-detail-title {
-          font-family: Montserrat-Regular;
+          font-family: Galano-Grotesque-Medium;
           font-size: 14px;
           margin-bottom: 5px;
           color: $base-darkteal;
