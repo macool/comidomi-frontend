@@ -4,6 +4,13 @@ ion-view(
   ion-nav-title
     .alt-logo
   ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common
+    .filter-tabs
+      .filter-tab(
+        ng-repeat="tab in ::shVm.tabs"
+        ng-click="shVm.switchTab(tab.key)"
+        ng-class="{'selected': shVm.currentOrderType === tab.key}"
+      )
+        | {{ ("orders." + tab.key | translate) }}
     .card-order
       .shipping-request-container(
         ng-repeat="order in shVm.orders"
