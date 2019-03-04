@@ -13,7 +13,14 @@
       getObjects: getObjects,
       getObject: getObject,
       deleteObject:deleteObject,
-      officeScheduleDay: officeScheduleDay
+      officeScheduleDay: officeScheduleDay,
+      getStatusOrderIcon: getStatusOrderIcon
+    };
+
+    var STATUS_ICONS = {
+      assigned: 'directions_bike',
+      delivered: 'check_circle',
+      in_progress: 'person_pin'
     };
 
     return service;
@@ -134,6 +141,10 @@
       if (!angular.element.isEmptyObject(horaStr)) {
         return $filter('toDate')(horaStr, 'timeSchedule');
       }
+    }
+
+    function getStatusOrderIcon (status){
+      return STATUS_ICONS[status];
     }
 
   }

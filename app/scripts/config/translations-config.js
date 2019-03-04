@@ -162,8 +162,7 @@
           error: {
             wrongSubmission: 'No pudimos registrarte, por favor revisa los errores en el formulario'
           }
-        },
-        call: 'Llamar'
+        }
       },
       globals: {
         new: 'Nuevo',
@@ -443,6 +442,8 @@
         titleFormOrders: 'Revisa todos los pedidos que los clientes hacen sobre tus productos.',
         inProcess: 'En gestión',
         completed: 'Completados',
+        inProgress: 'En progreso',
+        delivered: 'Entregados',
         have: 'Tienes',
         ordersPendings: 'Pedidos pendientes',
         ordersEmpty: 'No hay pedidos',

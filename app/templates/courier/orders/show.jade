@@ -11,7 +11,7 @@ ion-view(
         ng-click="coVm.toogleMap()"
         ng-if="coVm.order.status !== 'delivered'"
       )
-        p
+        span
           | {{( coVm.mapIsHidden ? "order.seeMap" : "order.hideMap" | translate)}}
 
       .map-view(
@@ -80,10 +80,12 @@ ion-view(
                       currency="{{coVm.customerOrder.subtotal_items_currency}}")
             .row
               .col.col-75.label.total
-                | {{ ::("order.summary.total" |translate) }}
+                strong
+                  | {{ ::("order.summary.total" |translate) }}
               .col.col-25.value
-                price(amount="{{ ::coVm.totalOrder }}"
-                      currency="{{coVm.customerOrder.subtotal_items_currency}}")
+                strong
+                  price(amount="{{ ::coVm.totalOrder }}"
+                        currency="{{coVm.customerOrder.subtotal_items_currency}}")
 
       .resource-collection.observations(ng-if="coVm.customerOrder.observaciones")
         .list.list-inset.list--no-borders.resource-collection-table

@@ -8,6 +8,7 @@ ion-view(
       .shipping-request-container(
         ng-repeat="customerOrder in ::customerOrdersVm.customerOrders track by $index"
         ui-sref='app.customerorders.show({ id: customerOrder.id , customerOrder: customerOrder })'
+        ng-class="customerOrder.status"
       )
         .shipping-request
           .row

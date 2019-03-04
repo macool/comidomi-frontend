@@ -1,9 +1,9 @@
 .order-item.row
-  .col.col-50 
+  .col.col-60 
     span {{ ::item.provider_item.titulo}}
     .customer-order-item-observations(ng-if="item.observaciones")
       | obs: {{ ::item.observaciones }}
-  .col.col-25 {{ ::( ("order.providerProfile.item.cantidadPrefix" |translate) + item.cantidad) }}
-  .col.col-25
+  .col.col-20 {{ ::( ("order.providerProfile.item.cantidadPrefix" |translate) + item.cantidad) }}
+  .col.col-20
       price(amount="{{item.provider_item_precio_cents}}"
             currency="{{item.provider_item.precio_currency}}")

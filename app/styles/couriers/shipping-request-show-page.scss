@@ -15,7 +15,7 @@
     text-align: center;
     background: $base-teal;
     color: $white;
-    padding: 5px 0;
+    padding: 10px 0;
     font-family: Galano-Grotesque-Medium;
     font-size: 12px;
   }
@@ -25,7 +25,7 @@
   }
 
   .order-item {
-    font-family: Galano-Grotesque-Light;
+    font-family: Galano-Grotesque-Medium;
     margin: 0;
     border-bottom: 1px solid $medium-grey;
     
@@ -38,6 +38,7 @@
   .user-information {
     display: flex;
     padding: 0 10px;
+    font-family: Galano-Grotesque-Light;
 
     .details {
       flex-basis: 80%;
@@ -47,6 +48,7 @@
 
         span {
           margin-left: 5px;
+          font-family: Galano-Grotesque-Medium;
         }
       }
     }
@@ -69,12 +71,11 @@
   .address {
     border-top: 1px solid $medium-grey;
     font-size: 12px;
-    padding: 0 10px 10px 10px;
+    padding: 10px;
     margin-top: 10px;
   }
 
   .narrow {
-    font-family: Galano-Grotesque-Light;
 
     .image {
       width: 40px;
