@@ -38,18 +38,24 @@
       spcVm.product
     );
 
-    console.log(cartItem);
+    spcVm.active = false;
 
     spcVm.counterOptions = {
       cantidad: 1,
-      limit: 5,
+      limit: 0,
       cartItem: cartItem,
       providerItem: spcVm.product,
       priceCents: spcVm.product.precio_cents,
       currencyCode: spcVm.product.precio_currency,
-      onChangeValue: function(){
-        console.log('onChangeValue');
+      onChangeValue: function(data){
+        if (data.itemsCount === 0){
+          spcVm.active = false;
+        }
       }
     };
+
+    spcVm.clickItem = function (){
+      spcVm.active = true;
+    }
   }
 })();

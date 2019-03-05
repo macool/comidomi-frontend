@@ -156,9 +156,27 @@
         font-family: Galano-Grotesque-Medium;
       } 
     }
-    
-    .product-counter {
-      margin: 0;
+
+    .add-product {
+      max-height: 0;
+      transition: max-height 0.25s ease-out;
+      visibility: hidden;
+
+      &.active-product {
+        max-height: 200px;
+        transition: max-height 0.25s ease-in;
+        visibility: initial;
+      }
+
+      .product-counter {
+        margin: 0;
+        border-top: none;
+
+        .product-counter-container {
+          font-size: 20px;
+          padding: 10px 0;
+        }
+      }
     }
   }
 }

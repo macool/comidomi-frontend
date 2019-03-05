@@ -18,7 +18,7 @@ ion-view(
 
   ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall
     product-counter(
-      ng-if="productVm.subProducts.length === 0"
+      ng-if="!productVm.product.is_group"
       options="productVm.counterOptions"
     )
 
