@@ -1,0 +1,14 @@
+.product-container(
+  ng-click="spcVm.onClick()"
+)
+  .description
+    ng-md-icon.icon(
+      icon="{{true ? 'check_box' : 'check_box_outline_blank' }}"
+    )
+    .title {{ ::spcVm.product.titulo }}
+  .price
+    price(amount="{{ ::spcVm.product.precio_cents }}"
+          currency="{{ ::spcVm.product.precio_currency }}")
+product-counter(
+  options="spcVm.counterOptions"
+)

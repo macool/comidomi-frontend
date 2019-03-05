@@ -20,20 +20,9 @@ slick-wrapper(
   .subproduct-container(
     ng-repeat="product in productVm.subProducts track by $index"
   )
-    .product-container(
-      ng-click="productVm.selectProduct($index)"
-    )
-      .description
-        ng-md-icon.icon(
-          icon="{{isSelected ? 'check_box' : 'check_box_outline_blank' }}"
-        )
-        .title {{product.titulo}}
-      .price 
-        price(amount="{{product.precio_cents}}"
-              currency="{{product.precio_currency}}")
-    product-counter(
-      ng-if="productVm.indexActive === $index"
-      options="product"
+    subproduct-row(
+      product="product"
+      on-click="productVm.selectProduct($index)"
     )
 
 .list.list-inset
