@@ -128,4 +128,33 @@
       font-family: Galano-Grotesque-Light;
     }
   }
+
+  .subproducts {
+    margin: 20px;
+
+    .product-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid $button-light-border;
+      padding: 10px 0;
+
+      .description {
+        display: flex;
+        align-items: center;
+        
+        .icon {
+          margin-right: 10px;
+        }
+
+        .title {
+          font-family: Galano-Grotesque-Medium;
+        }
+      }
+
+      .price {
+        font-family: Galano-Grotesque-Medium;
+      } 
+    }
+  }
 }

@@ -15,6 +15,7 @@
 
     productVm.more = false;
     productVm.product = providerItem;
+    productVm.subProducts = productVm.product.children || [];
     productVm.runAction = runAction;
     productVm.closeModal = closeModal;
     productVm.item = {};

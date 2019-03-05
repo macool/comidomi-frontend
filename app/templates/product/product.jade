@@ -16,6 +16,19 @@ slick-wrapper(
   h3 {{productVm.product.titulo}}
   p {{productVm.product.descripcion}}
 
+.subproducts
+  .product-container(
+    ng-repeat="product in productVm.subProducts"
+  )
+    .description
+      ng-md-icon.icon(
+        icon="check_box_outline_blank"
+      )
+      .title {{product.titulo}}
+    .price 
+      price(amount="{{product.precio_cents}}"
+            currency="{{product.precio_currency}}")
+
 .list.list-inset
   label.item.item-input.item-stacked-label.observaciones-wrapper
     span.input-label {{ ::('cart.observations' | translate) }}
