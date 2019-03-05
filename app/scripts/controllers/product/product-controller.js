@@ -31,6 +31,8 @@
     productVm.wishlistName = '';
     productVm.clearData = clearData;
     productVm.imagenes = productVm.product.imagenes.length > 0 ? productVm.product.imagenes : [defaultImage];
+    productVm.selectProduct =  selectProduct;
+    productVm.indexActive = null;
     // jshint ignore:start
     productVm.counterOptions = {
       cantidad: productVm.item.cantidad,
@@ -207,6 +209,10 @@
 
     function getCanAdd(){
       return CartService.canAddItem(productVm.cartItem, productVm.item.cantidad , productVm.product);
+    }
+
+    function selectProduct(index) {
+      productVm.indexActive = index;
     }
   }
 })();

@@ -17,17 +17,24 @@ slick-wrapper(
   p {{productVm.product.descripcion}}
 
 .subproducts
-  .product-container(
-    ng-repeat="product in productVm.subProducts"
+  .subproduct-container(
+    ng-repeat="product in productVm.subProducts track by $index"
   )
-    .description
-      ng-md-icon.icon(
-        icon="check_box_outline_blank"
-      )
-      .title {{product.titulo}}
-    .price 
-      price(amount="{{product.precio_cents}}"
-            currency="{{product.precio_currency}}")
+    .product-container(
+      ng-click="productVm.selectProduct($index)"
+    )
+      .description
+        ng-md-icon.icon(
+          icon="{{isSelected ? 'check_box' : 'check_box_outline_blank' }}"
+        )
+        .title {{product.titulo}}
+      .price 
+        price(amount="{{product.precio_cents}}"
+              currency="{{product.precio_currency}}")
+    product-counter(
+      ng-if="productVm.indexActive === $index"
+      options="product"
+    )
 
 .list.list-inset
   label.item.item-input.item-stacked-label.observaciones-wrapper
