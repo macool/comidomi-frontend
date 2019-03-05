@@ -11,7 +11,8 @@
     var productVm = this,
         defaultImage = {
           imagen_url: APP.defaultImage //jshint ignore:line
-        };
+        },
+        itemsObject = {};
 
     productVm.more = false;
     productVm.product = providerItem;
@@ -23,7 +24,7 @@
     productVm.item.cantidad = 1;
     productVm.wishlists = [];
     productVm.cartItem = CartService.findCartItem($auth.user.customer_order, productVm.product); //jshint ignore:line
-    productVm.canAdd = getCanAdd();
+    productVm.canAdd = productVm.product.is_group ? false : getCanAdd();//jshint ignore:line
     productVm.onWishlistSelect = onWishlistSelect;
     productVm.createNewWishlist = createNewWishlist;
     productVm.showNewWishlistInput = false;
@@ -31,8 +32,8 @@
     productVm.wishlistName = '';
     productVm.clearData = clearData;
     productVm.imagenes = productVm.product.imagenes.length > 0 ? productVm.product.imagenes : [defaultImage];
-    productVm.selectProduct =  selectProduct;
-    productVm.indexActive = null;
+    productVm.multipleItems = [];
+    productVm.onChangeChildrenItem = onChangeChildrenItem;
     // jshint ignore:start
     productVm.counterOptions = {
       cantidad: productVm.item.cantidad,
@@ -61,7 +62,10 @@
       },
       buyNow: {
         onActionSelect: buyNow
-      }
+      },
+      cartMultipleItems: {
+        onActionSelect: addMultipleItemsToCart
+      },
     };
 
     function runAction(action) {
@@ -72,6 +76,11 @@
 
     function addToCart() {
       CartService.addItem(productVm.item)
+        .then(onAddSuccess, onError);
+    }
+
+    function addMultipleItemsToCart() {
+      CartService.addMultipleItems(productVm.multipleItems)
         .then(onAddSuccess, onError);
     }
 
@@ -211,8 +220,15 @@
       return CartService.canAddItem(productVm.cartItem, productVm.item.cantidad , productVm.product);
     }
 
-    function selectProduct(index) {
-      productVm.indexActive = index;
+    function onChangeChildrenItem(product){
+      itemsObject[product.provider_item_id] = product;//jshint ignore:line
+      if (product.cantidad === 0){
+        delete itemsObject[product.provider_item_id];//jshint ignore:line
+      }
+      var result = Object.keys(itemsObject).map(function(key) {
+        return itemsObject[key];
+      });
+      productVm.multipleItems = result;
     }
   }
 })();

@@ -18,11 +18,11 @@ slick-wrapper(
 
 .subproducts
   .subproduct-container(
-    ng-repeat="product in productVm.subProducts track by $index"
+    ng-repeat="product in ::productVm.subProducts track by $index"
   )
     subproduct-row(
       product="product"
-      on-click="productVm.selectProduct($index)"
+      on-change-amount="productVm.onChangeChildrenItem"
     )
 
 .list.list-inset

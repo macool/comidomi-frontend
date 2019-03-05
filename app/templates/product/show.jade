@@ -23,6 +23,14 @@ ion-view(
     )
 
     button.button-full.button-main(
-      ng-click="productVm.runAction(productVm.actions.cart)"
+      ng-if="!productVm.product.is_group"
+      ng-click="::productVm.runAction(productVm.actions.cart)"
       ng-disabled="!productVm.item.cantidad || productVm.disableInputs || !productVm.canAdd"
+    ) {{::('product.addCar' | translate)}}
+
+
+    button.button-full.button-main(
+      ng-if="productVm.product.is_group"
+      ng-click="::productVm.runAction(productVm.actions.cartMultipleItems)"
+      ng-disabled="productVm.multipleItems.length === 0"
     ) {{::('product.addCar' | translate)}}

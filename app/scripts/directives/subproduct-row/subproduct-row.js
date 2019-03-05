@@ -14,7 +14,7 @@
       templateUrl: 'templates/directives/subproduct-row/subproduct-row.html',
       scope: {
         product: '=',
-        onClick: '@'
+        onChangeAmount: '='
       },
       controller: [
         '$auth',
@@ -51,11 +51,29 @@
         if (data.itemsCount === 0){
           spcVm.active = false;
         }
+        triggerCallback(data.itemsCount);
       }
     };
 
     spcVm.clickItem = function (){
-      spcVm.active = true;
+      spcVm.active = !spcVm.active;
+      if (spcVm.active){
+        triggerCallback(spcVm.counterOptions.cantidad);
+      }else{
+        triggerCallback(0);
+      }
+    };
+
+    function triggerCallback(cantidad){
+      var canAdd = CartService.canAddItem(cartItem, cantidad, spcVm.product);
+      if (spcVm.onChangeAmount && angular.isFunction(spcVm.onChangeAmount) && canAdd) {
+        var productSummary = {
+          cantidad: cantidad,
+          provider_item_id: spcVm.product.id,
+          product: spcVm.product
+        };
+        spcVm.onChangeAmount(productSummary);
+      }
     }
   }
 })();
