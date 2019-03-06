@@ -1,8 +1,9 @@
-.product-container
+.product-container(
+  ng-click="spcVm.clickItem()"
+)
   .description
     ng-md-icon.icon(
       icon="{{spcVm.active ? 'check_box' : 'check_box_outline_blank' }}"
-      ng-click="spcVm.clickItem()"
     )
     .title {{ ::spcVm.product.titulo }}
   .price

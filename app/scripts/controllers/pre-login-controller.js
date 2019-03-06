@@ -16,9 +16,10 @@ function PreController($auth,
   var successState = APP.successState;
 
   function load(){
-    if (!$localStorage.getItem('hasViewedTutorial')) {
-      $state.go('intro');
-    }
+    // if (!$localStorage.getItem('hasViewedTutorial')) {
+    //   $state.go('intro');
+    // }
+
     $auth.validateUser().then(function(){
       $state.go(successState);
     }).catch(function () {
