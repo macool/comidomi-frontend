@@ -20,7 +20,7 @@
     var STATUS_ICONS = {
       assigned: 'directions_bike',
       delivered: 'check_circle',
-      in_progress: 'person_pin'
+      in_progress: 'person_pin' //jshint ignore:line
     };
 
     return service;

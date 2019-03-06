@@ -8,6 +8,9 @@
   }
 }
 
+button[disabled]{
+  background: $grey-secondary;
+}
 .button-clear.button-secondary {
   color: $base-teal;
 }

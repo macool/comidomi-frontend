@@ -8,6 +8,7 @@
   function CartService($http, ENV, $q, ErrorHandlerService) {
     var service = {
       addItem: addItem,
+      addMultipleItems: addMultipleItems,
       getCart: getCart,
       checkout : checkout,
       updateOrderItem: updateOrderItem,
@@ -30,6 +31,26 @@
         }, function error(response){
           return $q.reject(response.data);
         });
+    }
+
+    function addMultipleItems(items){
+      var promises = [];
+      angular.forEach(items, function(item){
+        var promise = $http({
+          method: 'POST',
+          url: ENV.apiHost + '/api/customer/cart/items',
+          data: item
+        });
+        promises.push(promise);
+      });
+
+      return $q(function (resolve, reject) {
+        $q.all(promises).then(function (response) {
+          response = response || [];
+          var resp =response[response.length- 1];
+          resolve(resp.data);
+        }, reject);
+      });
     }
 
     function removeOrderItem(orderItem) {

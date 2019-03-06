@@ -16,6 +16,15 @@ slick-wrapper(
   h3 {{productVm.product.titulo}}
   p {{productVm.product.descripcion}}
 
+.subproducts
+  .subproduct-container(
+    ng-repeat="product in ::productVm.subProducts track by $index"
+  )
+    subproduct-row(
+      product="product"
+      on-change-amount="productVm.onChangeChildrenItem"
+    )
+
 .list.list-inset
   label.item.item-input.item-stacked-label.observaciones-wrapper
     span.input-label {{ ::('cart.observations' | translate) }}

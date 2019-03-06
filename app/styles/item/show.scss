@@ -128,4 +128,56 @@
       font-family: Galano-Grotesque-Light;
     }
   }
+
+  .subproducts {
+    margin: 20px;
+
+    .product-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid $button-light-border;
+      padding: 10px 0;
+
+      .description {
+        display: flex;
+        align-items: center;
+        
+        .icon {
+          margin-right: 10px;
+          color: $base-teal;
+        }
+
+        .title {
+          font-family: Galano-Grotesque-Medium;
+        }
+      }
+
+      .price {
+        font-family: Galano-Grotesque-Medium;
+      } 
+    }
+
+    .add-product {
+      max-height: 0;
+      transition: max-height 0.25s ease-out;
+      visibility: hidden;
+
+      &.active-product {
+        max-height: 200px;
+        transition: max-height 0.25s ease-in;
+        visibility: initial;
+      }
+
+      .product-counter {
+        margin: 0;
+        border-top: none;
+
+        .product-counter-container {
+          font-size: 20px;
+          padding: 10px 0;
+        }
+      }
+    }
+  }
 }
