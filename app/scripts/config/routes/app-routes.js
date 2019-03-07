@@ -165,6 +165,7 @@ function appRoutes($stateProvider) {
   })
   .state('app.categories.provider', {
     url: '/:categoryId/provider/:providerId',
+    cache: false,
     views: {
       'menuContent@app': {
         templateUrl: 'templates/provider/show.html',
