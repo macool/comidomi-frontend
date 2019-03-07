@@ -55,4 +55,4 @@ ion-view(
                 .img(ng-style="{'background-image':'url({{::(providerItem.imagenes[0].thumbnail_url | defaultImage)}})'}")
 
       .provider-category--no-more-items
-        | {{ ::("provider.noMoreItems" | translate)}}
+        | {{ ::("provider.noMoreItemsFor" | translate:providerDetVm.closedMsgTranslation)}}
