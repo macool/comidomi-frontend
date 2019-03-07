@@ -96,8 +96,8 @@ $providerShowPageCoverHeight: 150px;
 
     .provider-category--title {
       color: $base-black;
-      margin: 0 20px;
-      padding: 20px 15px 15px 0;
+      margin: 0 10px;
+      padding: 20px 15px 15px 5px;
       text-transform: uppercase;
       font-family: Ubuntu-Regular;
       font-size: 15px;
@@ -153,9 +153,13 @@ $providerShowPageCoverHeight: 150px;
       .item-container {
         display: flex;
         background-color: $white;
-        margin: 0 20px;
-        padding: 10px 0;
+        margin: 0 10px;
+        padding: 10px 5px;
         border-bottom: 1px solid $medium-grey;
+
+        &:hover, &:active {
+          background-color: $gridBGHoverColor;
+        }
 
         .info-wrapper {
           padding: 0px 15px 0 0;
