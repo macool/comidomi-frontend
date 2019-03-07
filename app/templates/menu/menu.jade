@@ -148,12 +148,13 @@ ion-side-menus(enable-menu-with-back-views='false')
           )
           span {{::("menu.user.courier"|translate)}}
 
-        ion-item.main-action.with-margin(
+        ion-item.main-action.with-margin.item-complex(
           menu-close
           ng-controller='LoginController as loginVm'
           ng-click='loginVm.logout()'
         )
-          ng-md-icon.icon(
-            icon="power_settings_new"
-          )
-          .close {{::("menu.logout"|translate)}}
+          a.item-content
+            ng-md-icon.icon(
+              icon="power_settings_new"
+            )
+            span {{::("menu.logout"|translate)}}
