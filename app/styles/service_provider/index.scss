@@ -17,6 +17,10 @@
       }
     }
 
+    &:hover, &:active {
+      background-color: rgba(0,0,0,.05);
+    }
+
     @media (max-width: $grid-responsive-sm-break) {
       // col-100
       -webkit-box-flex: 0;
