@@ -142,10 +142,11 @@
       .description {
         display: flex;
         align-items: center;
-        
+
         .icon {
           margin-right: 10px;
           color: $base-teal;
+          margin-top: 0;
         }
 
         .title {
@@ -155,7 +156,7 @@
 
       .price {
         font-family: Ubuntu-Regular;
-      } 
+      }
     }
 
     .add-product {
