@@ -17,7 +17,7 @@ button[disabled]{
 
 .common-button {
   border-radius: 8px;
-  font-family: Galano-Grotesque-Medium;
+  font-family: Ubuntu-Regular;
   color: $white;
   width: 100%;
   background-color: $base-orange;
@@ -27,7 +27,7 @@ button[disabled]{
 }
 
 .button {
-  font-family: Galano-Grotesque-Medium;
+  font-family: Ubuntu-Regular;
 }
 
 .button-default-action.button-outline {
@@ -69,7 +69,7 @@ button[disabled]{
 .button-positive:not(.button-small):not(.button-xsmall) {
   padding: 3px 18px;
   line-height: 30px;
-  font-family: Galano-Grotesque-Light;
+  font-family: Ubuntu-Light;
 }
 
 .button-stretched {
@@ -144,11 +144,11 @@ button[disabled]{
 .button-main {
   background-color: $base-orange;
   color: $white;
-  font-family: Galano-Grotesque-Medium;
+  font-family: Ubuntu-Regular;
 }
 
 .button-secondary {
   background-color: $base-teal;
   color: $white;
-  font-family: Galano-Grotesque-Medium;
+  font-family: Ubuntu-Regular;
 }

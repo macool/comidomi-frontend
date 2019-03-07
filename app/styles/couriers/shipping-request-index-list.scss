@@ -1,5 +1,5 @@
 .courier-shipping-request-index-list {
-  font-family: Galano-Grotesque-Light;
+  font-family: Ubuntu-Light;
   color: $base-grey;
   background-color: $light-grey;
 
@@ -8,10 +8,10 @@
     background: $base-teal;
     color: $white;
     padding: 10px 0;
-    font-family: Galano-Grotesque-Medium;
-    font-size: 12px
+    font-family: Ubuntu-Regular;
+    font-size: 14px
   }
-  
+
   .list--bottom-narrow{
     text-align: center;
     margin: 10px 0;
@@ -51,23 +51,23 @@
         &.order-row {
 
           .label {
-            font-family: Galano-Grotesque-Medium;
+            font-family: Ubuntu-Medium;
             color: $base-teal;
             text-transform: uppercase;
-            font-size: 10px;
+            font-size: 12px;
+            line-height: 14px;
           }
 
           .information {
-            font-family: Galano-Grotesque-Medium;
-            color: $white;    
-            font-size: 12px;
+            font-family: Ubuntu-Regular;
+            color: $white;
+            font-size: 14px;
             line-height: 18px;
             letter-spacing: -0.5px;
-            
+            margin-bottom: 5px;
+
             &.logo-image {
-              display: flex;    
-              justify-content: center;
-              align-items: center;
+              margin-top: 2px;
 
               .image {
                 width: 25px;
@@ -96,7 +96,7 @@
             background-color: $base-orange;
             color:$white;
             padding: 0 10px;
-            font-family: Galano-Grotesque-Medium;
+            font-family: Ubuntu-Regular;
             text-transform: uppercase;
             cursor: pointer;
           }
@@ -108,6 +108,6 @@
 
 shipping-request-dispatch-at {
   humanized-countdown-time {
-    font-family: Galano-Grotesque-Medium;
+    font-family: Ubuntu-Regular;
   }
 }

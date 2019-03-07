@@ -16,8 +16,8 @@
     background: $base-teal;
     color: $white;
     padding: 10px 0;
-    font-family: Galano-Grotesque-Medium;
-    font-size: 12px;
+    font-family: Ubuntu-Regular;
+    font-size: 14px;
   }
 
   .list-inset {
@@ -25,10 +25,10 @@
   }
 
   .order-item {
-    font-family: Galano-Grotesque-Medium;
+    font-family: Ubuntu-Regular;
     margin: 0;
     border-bottom: 1px solid $medium-grey;
-    
+
     .customer-order-item-observations {
       font-size: 12px;
       color: $base-grey;
@@ -38,7 +38,7 @@
   .user-information {
     display: flex;
     padding: 0 10px;
-    font-family: Galano-Grotesque-Light;
+    font-family: Ubuntu-Light;
 
     .details {
       flex-basis: 80%;
@@ -48,7 +48,7 @@
 
         span {
           margin-left: 5px;
-          font-family: Galano-Grotesque-Medium;
+          font-family: Ubuntu-Regular;
         }
       }
     }
@@ -70,7 +70,7 @@
 
   .address {
     border-top: 1px solid $medium-grey;
-    font-size: 12px;
+    font-size: 14px;
     padding: 10px;
     margin-top: 10px;
   }

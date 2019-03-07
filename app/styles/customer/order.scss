@@ -1,5 +1,5 @@
 .customer-my-orders {
-  font-family: Galano-Grotesque-Light;
+  font-family: Ubuntu-Light;
   color: $base-grey;
   background-color: $light-grey;
 
@@ -31,7 +31,7 @@
 
           .status {
             color: $base-teal;
-            font-family: Galano-Grotesque-Medium;
+            font-family: Ubuntu-Regular;
           }
 
           shipping-request-dispatch-at {
@@ -54,11 +54,11 @@
           .details {
             .name {
               color: $base-black;
-              font-family: Galano-Grotesque-Medium;
+              font-family: Ubuntu-Regular;
             }
 
             .cost {
-              font-family: Galano-Grotesque-Light;
+              font-family: Ubuntu-Light;
               font-size: 12px;
             }
 
@@ -77,7 +77,7 @@
 .submitted-customer-order-preview {
 
   .order-item {
-    font-family: Galano-Grotesque-Light;
+    font-family: Ubuntu-Light;
     margin: 0;
     border-bottom: 1px solid $medium-grey;
 
@@ -90,16 +90,16 @@
   .order-costs {
 
     .label {
-      font-family: Galano-Grotesque-Light;
+      font-family: Ubuntu-Light;
       font-size: 12px;
 
       &.total {
-        font-family: Galano-Grotesque-Medium;
+        font-family: Ubuntu-Regular;
       }
     }
 
     .value {
-      font-family: Galano-Grotesque-Medium;
+      font-family: Ubuntu-Regular;
       font-size: 12px;
     }
   }
@@ -109,12 +109,12 @@
     .delivery-at-wrapper {
       display: flex;
       justify-content: space-between;
-      font-family: Galano-Grotesque-Light;
+      font-family: Ubuntu-Light;
       font-size: 12px;
       width: 100%;
 
       .value {
-        font-family: Galano-Grotesque-Medium;
+        font-family: Ubuntu-Regular;
         font-size: 12px;
       }
     }
@@ -122,14 +122,14 @@
 
   .observations {
     .content {
-      font-family: Galano-Grotesque-Light;
+      font-family: Ubuntu-Light;
     }
   }
 
   .user-information {
 
     .narrow {
-      font-family: Galano-Grotesque-Light;
+      font-family: Ubuntu-Light;
     }
   }
 }

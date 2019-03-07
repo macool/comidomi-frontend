@@ -35,14 +35,14 @@ ion-side-menus(enable-menu-with-back-views='false')
         //- TODO
           ion-item
             | {{::("menu.courier.account"|translate)}}
-          ion-item  
+          ion-item
             | {{::("menu.courier.payments"|translate)}}
-          ion-item  
+          ion-item
             | {{::("menu.courier.history"|translate)}}
-          ion-item  
+          ion-item
             | {{::("menu.invite"|translate)}}
 
-        ion-item(
+        ion-item.main-action.with-margin(
           menu-close=''
           ui-sref='app.services.providers'
           ng-class='{"selected": state.current.name === "app.services.providers"}'
@@ -56,9 +56,12 @@ ion-side-menus(enable-menu-with-back-views='false')
         //-   | {{::("menu.user.provider"|translate)}}
 
 
-        ion-item.main-action(
+        ion-item.main-action.with-margin(
           menu-close
           ng-click='loginVm.logout()'
           ng-controller='LoginController as loginVm'
         )
+          ng-md-icon.icon(
+            icon="power_settings_new"
+          )
           .close {{::("menu.logout"|translate)}}
