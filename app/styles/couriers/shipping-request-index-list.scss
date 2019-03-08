@@ -17,6 +17,93 @@
     margin: 10px 0;
   }
 
+  .shipping-request-container {
+    background-color: $base-darkteal;
+    color: $white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin:  20px 20px 0 20px;
+    padding: 10px 0;
+
+    .shipping-request {
+      width: 100%;
+      display: block;
+
+      .row {
+        padding: 5px 20px;
+
+        .order-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-basis: 100%;
+        }
+
+        .icon {
+          color: $white;
+          background: $base-orange;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        &.order-row {
+
+          .label {
+            font-family: Galano-Grotesque-Medium;
+            color: $base-teal;
+            text-transform: uppercase;
+            font-size: 10px;
+          }
+
+          .information {
+            font-family: Galano-Grotesque-Medium;
+            color: $white;    
+            font-size: 12px;
+            line-height: 18px;
+            letter-spacing: -0.5px;
+            
+            &.logo-image {
+              display: flex;    
+              justify-content: center;
+              align-items: center;
+
+              .image {
+                width: 25px;
+                height: 25px;
+              }
+
+              .name {
+                margin-left: 10px;
+              }
+            }
+          }
+
+          .image {
+            width: 35px;
+            height: 35px;
+          }
+        }
+
+        .separator {
+          border-top: 1px solid $base-teal;
+          width: 100%;
+          padding-top: 10px;
+          margin-top: 10px;
+
+          .button {
+            background-color: $base-orange;
+            color:$white;
+            padding: 0 10px;
+            font-family: Galano-Grotesque-Medium;
+            text-transform: uppercase;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
 }
 
 shipping-request-dispatch-at {
