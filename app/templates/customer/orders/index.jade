@@ -11,35 +11,11 @@ ion-view(
         ng-class="{'selected': customerOrdersVm.currentOrderType === tab.key}"
       )
         | {{ ("orders." + tab.key | translate) }}
-    .card-order
-      .shipping-request-container(
+    .orders
+      order-card(
         ng-repeat="customerOrder in customerOrdersVm.orders track by $index"
-        ui-sref='app.customerorders.show({ id: customerOrder.id , customerOrder: customerOrder })'
-        ng-class="customerOrder.status"
+        order="customerOrder"
       )
-        .shipping-request
-          .row
-            .order-info
-              span
-                | {{ ::("order.summary.subtotal" | translate) }}
-              span.strong
-                | &nbsp;
-                price(amount="{{customerOrder.subtotal_items_cents}}"
-                      currency="{{customerOrder.subtotal_items_currency}}")
-          .row.provider
-            .order-info(
-                ng-repeat="provider in customerOrder.provider_profiles track by $index"
-              )
-              .details
-                .name {{ provider.nombre_establecimiento }}
-              img.img-provider(
-                ng-src="{{ provider.logotipo_url }}"
-              )
-          .row
-            .order-info
-              shipping-request-dispatch-at(
-                dispatch-at="customerOrder.submitted_at"
-              )
 
     .list--top-narrow
       p.text-center

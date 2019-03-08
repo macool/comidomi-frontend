@@ -1,0 +1,42 @@
+.order-card
+  .shipping-request-container
+    .shipping-request(
+      ng-class="orVm.order.status"
+    )
+      .row.user.information
+        .order-info
+          .details
+            .name {{ orVm.order.customer_profile.name || 'N/A' }}
+            .cost
+          img.img-provider(
+            ng-src="{{ ::orVm.order.customer_profile.image_url}}"
+          )
+      .row.provider.information
+        .order-info(
+          ng-repeat="profile in orVm.order.provider_profiles"
+        )
+          .details
+            .name {{ profile.nombre_establecimiento }}
+            .cost
+              span
+                | {{ ::("order.summary.subtotal" | translate) }}
+              span.strong
+                | &nbsp;
+                price(amount="{{orVm.order.subtotal_items_cents}}"
+                      currency="{{orVm.order.subtotal_items_currency}}")
+                | .
+              span
+                | &nbsp;
+                | {{ ::("order.summary.shipping" | translate) }}
+              span.strong
+                | &nbsp;
+                price(amount="{{profile.customer_order_delivery.shipping_fare_price_cents}}"
+                      currency="{{orVm.order.subtotal_items_currency}}")
+          img.img-provider(
+            ng-src="{{ profile.logotipo_url }}"
+          )
+      .row
+        .order-info.time
+          shipping-request-dispatch-at(
+            dispatch-at="orVm.order.submitted_at"
+          )
