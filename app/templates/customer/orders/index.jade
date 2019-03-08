@@ -4,9 +4,16 @@ ion-view(
   ion-nav-title
     .alt-logo
   ion-content.customer-my-orders
+    .filter-tabs
+      .filter-tab(
+        ng-repeat="tab in ::customerOrdersVm.tabs"
+        ng-click="::tab.onClick(tab.key)"
+        ng-class="{'selected': customerOrdersVm.currentOrderType === tab.key}"
+      )
+        | {{ ("orders." + tab.key | translate) }}
     .card-order
       .shipping-request-container(
-        ng-repeat="customerOrder in ::customerOrdersVm.customerOrders track by $index"
+        ng-repeat="customerOrder in customerOrdersVm.orders track by $index"
         ui-sref='app.customerorders.show({ id: customerOrder.id , customerOrder: customerOrder })'
         ng-class="customerOrder.status"
       )
@@ -21,7 +28,7 @@ ion-view(
                       currency="{{customerOrder.subtotal_items_currency}}")
           .row.provider
             .order-info(
-                ng-repeat="provider in ::customerOrder.provider_profiles track by $index"
+                ng-repeat="provider in customerOrder.provider_profiles track by $index"
               )
               .details
                 .name {{ provider.nombre_establecimiento }}

@@ -30,3 +30,24 @@
     border-width: 0 0 3px 0 !important;
   }
 }
+
+.filter-tabs {
+  display: flex;
+  flex-basis: 100%;
+  background: $white;
+  justify-content: center;
+
+  .filter-tab {
+    font-family: Galano-Grotesque-Medium;
+    flex-basis: 50%;
+    text-justify: center;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 2px solid $medium-grey;
+
+    &.selected {
+      color: $base-orange;
+      border-bottom: 2px solid $base-orange;
+    }
+  }
+}

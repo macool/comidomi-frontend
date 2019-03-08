@@ -9,27 +9,6 @@
     margin: 10px 0;
   }
 
-  .filter-tabs {
-    display: flex;
-    flex-basis: 100%;
-    background: $white;
-    justify-content: center;
-
-    .filter-tab {
-      font-family: Galano-Grotesque-Medium;
-      flex-basis: 50%;
-      text-justify: center;
-      text-align: center;
-      padding: 10px 0;
-      border-bottom: 2px solid $medium-grey;
-
-      &.selected {
-        color: $base-orange;
-        border-bottom: 2px solid $base-orange;
-      }
-    }
-  }
-
   .shipping-request-container {
     background-color: $white;
     margin:  20px 20px 0 20px;
