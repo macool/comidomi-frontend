@@ -6,35 +6,41 @@
       .row.user.information
         .order-info
           .details
-            .name {{ orVm.order.customer_profile.name || 'N/A' }}
-            .cost
-          img.img-provider(
-            ng-src="{{ ::orVm.order.customer_profile.image_url}}"
-          )
+            .name Orden No. 
+          .details
+            .name {{ orVm.order.id}}
       .row.provider.information
-        .order-info(
+        .provider-delivery(
           ng-repeat="profile in orVm.order.provider_profiles"
         )
-          .details
-            .name {{ profile.nombre_establecimiento }}
-            .cost
-              span
-                | {{ ::("order.summary.subtotal" | translate) }}
-              span.strong
-                | &nbsp;
-                price(amount="{{orVm.order.subtotal_items_cents}}"
-                      currency="{{orVm.order.subtotal_items_currency}}")
-                | .
-              span
-                | &nbsp;
-                | {{ ::("order.summary.shipping" | translate) }}
-              span.strong
-                | &nbsp;
-                price(amount="{{profile.customer_order_delivery.shipping_fare_price_cents}}"
-                      currency="{{orVm.order.subtotal_items_currency}}")
-          img.img-provider(
-            ng-src="{{ profile.logotipo_url }}"
-          )
+          //- .status
+          //-   .container-status
+          //-     ul.progressbar
+          //-       li( ng-repeat="(status, value) in orVm.progress")
+          //-         .title-status {{value.title}}
+              //- {{profile.customer_order_delivery.shipping_request.status}}
+          .order-info.no-border
+            img.img-provider(
+              ng-src="{{ profile.logotipo_url }}"
+            )
+            .details.end
+              .name {{ profile.nombre_establecimiento }}
+          .order-info.no-border
+            .details.start
+              .label ENVIADO
+              .name {{::orVm.getTime(orVm.order.submitted_at)}}
+            .details.end
+              .label TIEMPO EST
+              .name {{::orVm.getTime(profile.customer_order_delivery.courier_delivery_at)}}
+          .order-info
+            .details.start(
+              ng-init="status=profile.customer_order_delivery.shipping_request.status"
+            )
+              .label ESTADO
+              .name {{ ("shippingRequest.statusClient." + status | translate) }}
+            .details.end
+              .label MENSAJERO
+              .name {{profile.customer_order_delivery.shipping_request.courier_profile.nombres || 'N/A'}}
       .row
         .order-info.time
           shipping-request-dispatch-at(

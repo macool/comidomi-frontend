@@ -555,6 +555,12 @@
           in_progress: 'Camino a la entrega', // jshint ignore:line
           delivered: 'Entregado'
         },
+        statusClient: {
+          new: 'Enviado',
+          assigned: 'Asignado',
+          in_progress: 'Camino a la entrega', // jshint ignore:line
+          delivered: 'Entregado'
+        },
         routeLegs: {
           customer_order_delivery: { // jshint ignore:line
             'leg0': 'A la tienda',

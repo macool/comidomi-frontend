@@ -1,4 +1,4 @@
-.order-card {
+.order-card {		
 	.shipping-request-container {
 		background-color: $white;
 		margin:  20px 20px 0 20px;
@@ -64,14 +64,34 @@
 					flex-direction: column;
 
 					.order-info {
-						border-bottom: 1px solid $medium-grey;
+						border-bottom: 1px solid $base-grey;
 						padding: 10px 0;
+
+						&.no-border {
+							border-bottom: none;
+							padding: 10px 0 0 0;
+						}
 					}
 
+
 					.details {
+						&.end {
+							text-align: end;
+						}
+
+						&.start {
+							text-align: start;
+						}
+
+						.label {
+							font-size: 10px;
+							font-family: Galano-Grotesque-Medium;
+						}
+
 						.name {
 							color: $base-black;
 							font-family: Galano-Grotesque-Medium;
+							text-transform: uppercase;
 						}
 
 						.cost {
@@ -84,7 +104,7 @@
 					.img-provider {
 						width: 35px;
 						height: 35px;
-						margin-left: 10px;
+						margin-right: 10px;
 					}
 				}
 			}
