@@ -13,12 +13,6 @@
         .provider-delivery(
           ng-repeat="profile in orVm.order.provider_profiles"
         )
-          //- .status
-          //-   .container-status
-          //-     ul.progressbar
-          //-       li( ng-repeat="(status, value) in orVm.progress")
-          //-         .title-status {{value.title}}
-              //- {{profile.customer_order_delivery.shipping_request.status}}
           .order-info.no-border
             img.img-provider(
               ng-src="{{ profile.logotipo_url }}"
@@ -30,7 +24,7 @@
               .label ENVIADO
               .name {{::orVm.getTime(orVm.order.submitted_at)}}
             .details.end
-              .label TIEMPO EST
+              .label HORA EST
               .name {{::orVm.getTime(profile.customer_order_delivery.courier_delivery_at)}}
           .order-info
             .details.start(
@@ -45,4 +39,5 @@
         .order-info.time
           shipping-request-dispatch-at(
             dispatch-at="orVm.order.submitted_at"
+            simple-date="true"
           )

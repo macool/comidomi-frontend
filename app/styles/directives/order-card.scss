@@ -53,8 +53,9 @@
 					&.time {
 						font-size: 12px;
 		
-						humanized-countdown-time {
+						.time-date {
 							color: $base-black;
+							font-family: Galano-Grotesque-Medium;
 						}
 					}
 				}

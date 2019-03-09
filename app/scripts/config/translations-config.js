@@ -558,7 +558,7 @@
         statusClient: {
           new: 'Enviado',
           assigned: 'Asignado',
-          in_progress: 'Camino a la entrega', // jshint ignore:line
+          in_progress: 'Camino a tu dirección', // jshint ignore:line
           delivered: 'Entregado'
         },
         routeLegs: {
