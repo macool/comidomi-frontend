@@ -34,7 +34,7 @@ ion-view(
               .actions
                 .phone-number
                   a(
-                    ng-href="tel:{{coVm.customerOrder.customer_profile.phone_number}}" 
+                    ng-href="tel:{{coVm.customerOrder.customer_profile.phone_number}}"
                   )
                     ng-md-icon.action(
                       icon="phone"
@@ -42,25 +42,25 @@ ion-view(
                     )
             .address
               strong
-                | {{ ::("courier.deliveryAddresses" |translate) }} 
+                | {{ ::("courier.deliveryAddresses" |translate) }}
               .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.direccion_uno")
-                span 
+                span
                   strong
-                    | Dir: 
+                    | Dir:
                   | {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_uno) }}
               .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.direccion_dos")
                 span {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_dos) }}
               .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.referencia")
-                span 
+                span
                   strong
-                    | Ref: 
+                    | Ref:
                   | {{ ::(coVm.customerOrderDelivery.customer_address_attributes.referencia) }}
 
         .list.list-inset.list--no-borders.resource-collection-table.narrow
           .row.table-headers
-            .col.col-50 {{ coVm.provider.nombre_establecimiento || coVm.provider.razon_social }}
-            .col.col-25 {{ ::("order.providerProfile.quantity" |translate) }}
-            .col.col-25 {{ ::("order.providerProfile.price" |translate) }}
+            .col.col-60 {{ coVm.provider.nombre_establecimiento || coVm.provider.razon_social }}
+            .col.col-20 {{ ::("order.providerProfile.quantity" |translate) }}
+            .col.col-20 {{ ::("order.providerProfile.price" |translate) }}
           span(ng-repeat='item in coVm.items')
             span(
               ng-include="'templates/customer/orders/order-item-row.html'"

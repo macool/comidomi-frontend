@@ -1,5 +1,5 @@
 .item-show-page {
-  font-family: Galano-Grotesque-Light;
+  font-family: Ubuntu-Light;
 
   .item.item-toggle {
     border: 0;
@@ -102,7 +102,7 @@
   }
 
   .input-label {
-    font-family: Galano-Grotesque-Medium;
+    font-family: Ubuntu-Regular;
     text-transform: uppercase;
   }
 
@@ -125,7 +125,7 @@
       padding: 15px;
       background-color: $light-grey;
       min-height: 60px;
-      font-family: Galano-Grotesque-Light;
+      font-family: Ubuntu-Light;
     }
   }
 
@@ -142,20 +142,21 @@
       .description {
         display: flex;
         align-items: center;
-        
+
         .icon {
           margin-right: 10px;
           color: $base-teal;
+          margin-top: 0;
         }
 
         .title {
-          font-family: Galano-Grotesque-Medium;
+          font-family: Ubuntu-Regular;
         }
       }
 
       .price {
-        font-family: Galano-Grotesque-Medium;
-      } 
+        font-family: Ubuntu-Regular;
+      }
     }
 
     .add-product {

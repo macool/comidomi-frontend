@@ -34,10 +34,10 @@
         color: $base-orange;
       }
     }
+  }
 
-    .close {
-      padding-left: 16px;
-    }
+  .with-margin {
+    margin-top: 2px;
   }
 
   // .item {
@@ -46,7 +46,7 @@
   //   background-color: $base-darkteal;
   //   text-transform: uppercase;
   //   cursor: pointer;
-  //   font-family: Galano-Grotesque-Medium;
+  //   font-family: Ubuntu-Regular;
 
   //   &.item-complex:not(.gray-item) {
   //     padding-top: 5px;

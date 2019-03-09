@@ -16,7 +16,7 @@
       font-size: 16px;
       line-height: 30px;
       margin: 0 0 15px 0;
-      font-family: Galano-Grotesque-Light;
+      font-family: Ubuntu-Light;
     }
   }
 
@@ -28,19 +28,19 @@
 .profile-page {
   .information {
     margin: 0 20px;
-    font-family: Galano-Grotesque-Light;
+    font-family: Ubuntu-Light;
     color: $base-grey;
-    
+
     .wrapper {
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid $medium-grey;;
       padding: 10px 0;
       margin: 10px 0;
-      font-size: 12px;
-      
+      font-size: 14px;
+
       .label {
-        font-family: Galano-Grotesque-Medium;
+        font-family: Ubuntu-Regular;
         color: $base-black;
       }
 
@@ -57,50 +57,50 @@
   .empty-addressess {
     text-align: center;
     margin: 20px 0;
-    font-family: Galano-Grotesque-Light;
+    font-family: Ubuntu-Light;
     color: $base-grey;
   }
 
   .addresses-wrapper {
     top: 0;
-  
+
     &--fix-scroll {
       height: auto;
       bottom: initial;
       padding-bottom: 15px;
     }
-  
+
     .address-wrapper {
       margin-bottom: 2em;
-  
+
       .address-card {
         margin: 20px;
         background: $white;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
         .label, .value {
-          font-family: Galano-Grotesque-Medium;
+          font-family: Ubuntu-Regular;
           font-size: 12px;
 
           &.muted {
             color:$base-grey;
           }
         }
-  
+
         .resource-detail-title {
-          font-family: Galano-Grotesque-Medium;
+          font-family: Ubuntu-Regular;
           font-size: 14px;
           margin-bottom: 5px;
           color: $base-darkteal;
         }
-    
+
         .static-map-preview {
           max-width: 100%;
           padding: 0 10px 10px 10px;
         }
       }
     }
-  
+
     .edit-address-btn {
       float: right;
       min-height: initial;

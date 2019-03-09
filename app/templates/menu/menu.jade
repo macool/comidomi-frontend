@@ -138,7 +138,7 @@ ion-side-menus(enable-menu-with-back-views='false')
         //- )
         //-   i.icon.ion-model-s
         //-   | {{::("menu.user.courier"|translate)}}
-        ion-item(
+        ion-item.main-action.with-margin(
           menu-close=''
           ui-sref='courier.orders'
           ng-if='user.courier_profile'
@@ -148,9 +148,13 @@ ion-side-menus(enable-menu-with-back-views='false')
           )
           span {{::("menu.user.courier"|translate)}}
 
-        ion-item.main-action(
+        ion-item.main-action.with-margin.item-complex(
           menu-close
           ng-controller='LoginController as loginVm'
           ng-click='loginVm.logout()'
         )
-          .close {{::("menu.logout"|translate)}}
+          a.item-content
+            ng-md-icon.icon(
+              icon="power_settings_new"
+            )
+            span {{::("menu.logout"|translate)}}
