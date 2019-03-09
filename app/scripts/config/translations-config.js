@@ -115,6 +115,7 @@
         nextStep: 'Siguiente Paso',
         createProvider: 'Crear Proveedor',
         noMoreItems: 'No hay más productos que mostrar',
+        noMoreItemsFor: 'estos son todos los productos de {{providerName}}',
         acceptOrder: 'Aceptar orden',
         rejectOrder: 'Rechazar orden',
         reasonToReject: 'Razón',

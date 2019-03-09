@@ -1,7 +1,7 @@
 ion-view
   ion-nav-title
     .alt-logo
-  
+
   ion-content.provider-show-customer-order.resource-collection.submitted-customer-order-preview
     .list.list-inset.list--bottom-narrow
       h1
@@ -95,9 +95,9 @@ ion-view
 
     .list.list-inset.list--no-borders.resource-collection-table.narrow
       .row.table-headers
-        .col.col-50 {{ ::("order.providerProfile.item.name" | translate) }}
-        .col.col-25 {{ ::("order.providerProfile.quantity" |translate) }}
-        .col.col-25 {{ ::("order.providerProfile.price" |translate) }}
+        .col.col-60 {{ ::("order.providerProfile.item.name" | translate) }}
+        .col.col-20 {{ ::("order.providerProfile.quantity" |translate) }}
+        .col.col-20 {{ ::("order.providerProfile.price" |translate) }}
       span(ng-repeat='item in providerOrderShowVM.providerProfile.customer_order_items')
         span(
           ng-include="'templates/customer/orders/order-item-row.html'"

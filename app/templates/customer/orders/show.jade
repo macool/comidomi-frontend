@@ -9,9 +9,9 @@ ion-view(
     )
       .list.list-inset.list--no-borders.resource-collection-table.narrow
         .row.table-headers
-          .col.col-50 {{ providerProfile.nombre_establecimiento || providerProfile.razon_social }}
-          .col.col-25 {{ ::("order.providerProfile.quantity" |translate) }}
-          .col.col-25 {{ ::("order.providerProfile.price" |translate) }}
+          .col.col-60 {{ providerProfile.nombre_establecimiento || providerProfile.razon_social }}
+          .col.col-20 {{ ::("order.providerProfile.quantity" |translate) }}
+          .col.col-20 {{ ::("order.providerProfile.price" |translate) }}
         span(ng-repeat='item in providerProfile.customer_order_items')
           span(
             ng-include="'templates/customer/orders/order-item-row.html'"

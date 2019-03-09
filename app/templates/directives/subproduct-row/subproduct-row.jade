@@ -5,7 +5,9 @@
     ng-md-icon.icon(
       icon="{{spcVm.active ? 'check_box' : 'check_box_outline_blank' }}"
     )
-    .title {{ ::spcVm.product.titulo }}
+    div
+      .title {{ ::spcVm.product.titulo }}
+      .descripcion {{ ::spcVm.product.descripcion }}
   .price
     price(amount="{{ ::spcVm.product.precio_cents }}"
           currency="{{ ::spcVm.product.precio_currency }}")
