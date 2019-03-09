@@ -28,7 +28,7 @@
 						font-size: 12px;
 
 						span {
-							font-family: Galano-Grotesque-Medium;
+							font-family: Ubuntu-Regular;
 						}
 		
 						.time-date {
@@ -62,13 +62,13 @@
 
 						.label {
 							font-size: 10px;
-							font-family: Galano-Grotesque-Medium;
+							font-family: Ubuntu-Regular;
 							text-transform: uppercase;
 						}
 
 						.name {
 							color: $base-black;
-							font-family: Galano-Grotesque-Medium;
+							font-family: Ubuntu-Regular;
 							text-transform: uppercase;
 
 							&.highlight {
@@ -77,7 +77,7 @@
 						}
 
 						.cost {
-							font-family: Galano-Grotesque-Light;
+							font-family: Ubuntu-Light;
 							font-size: 12px;
 						}
 
