@@ -8,28 +8,6 @@
 			display: block;
 			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
-			&.assigned {
-				.status {
-					background-color: $base-orange;
-					color: $white;
-				}
-			}
-
-			&.in_progress {
-				.status {
-					background-color: $base-darkteal;
-					color: $white;
-				}
-			}
-
-			&.delivered {
-				.status {
-					background-color: $base-teal;
-					color: $white;
-				}
-			}
-
-
 			.row {
 				padding: 3px 20px;
 
@@ -39,10 +17,6 @@
 					align-items: center;
 					flex-basis: 100%;
 					padding: 5px 0;
-
-					.status {
-						font-family: Galano-Grotesque-Medium;
-					}
 	
 					shipping-request-dispatch-at {
 						display: flex;
@@ -52,10 +26,13 @@
 
 					&.time {
 						font-size: 12px;
+
+						span {
+							font-family: Galano-Grotesque-Medium;
+						}
 		
 						.time-date {
 							color: $base-black;
-							font-family: Galano-Grotesque-Medium;
 						}
 					}
 				}
@@ -74,7 +51,6 @@
 						}
 					}
 
-
 					.details {
 						&.end {
 							text-align: end;
@@ -87,12 +63,17 @@
 						.label {
 							font-size: 10px;
 							font-family: Galano-Grotesque-Medium;
+							text-transform: uppercase;
 						}
 
 						.name {
 							color: $base-black;
 							font-family: Galano-Grotesque-Medium;
 							text-transform: uppercase;
+
+							&.highlight {
+								color: $base-teal;
+							}
 						}
 
 						.cost {

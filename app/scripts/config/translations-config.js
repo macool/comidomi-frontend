@@ -542,6 +542,10 @@
         delivered: 'Entregado',
         availableRoutes: 'Rutas',
         statusShipping: 'Estado',
+        courier: 'Mensajero',
+        requestTime: 'Hora de envío',
+        estimatedTime: 'Hora de entrega est',
+        orderNumber: 'Pedido #',
         routesStatus: {
           searching: 'Buscando rutas..',
           noRoutes: 'No hay rutas disponibles'

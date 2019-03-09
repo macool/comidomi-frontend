@@ -6,7 +6,7 @@
       .row.user.information
         .order-info
           .details
-            .name Orden No. 
+            .name {{ "shippingRequest.orderNumber" | translate }}
           .details
             .name {{ orVm.order.id}}
       .row.provider.information
@@ -21,19 +21,19 @@
               .name {{ profile.nombre_establecimiento }}
           .order-info.no-border
             .details.start
-              .label ENVIADO
+              .label {{ "shippingRequest.requestTime" | translate }}
               .name {{::orVm.getTime(orVm.order.submitted_at)}}
             .details.end
-              .label HORA EST
+              .label {{ "shippingRequest.estimatedTime" | translate }}
               .name {{::orVm.getTime(profile.customer_order_delivery.courier_delivery_at)}}
           .order-info
             .details.start(
               ng-init="status=profile.customer_order_delivery.shipping_request.status"
             )
-              .label ESTADO
-              .name {{ ("shippingRequest.statusClient." + status | translate) }}
+              .label {{ "shippingRequest.statusShipping" | translate }}
+              .name.highlight {{ ("shippingRequest.statusClient." + status | translate) }}
             .details.end
-              .label MENSAJERO
+              .label {{ "shippingRequest.courier" | translate }}
               .name {{profile.customer_order_delivery.shipping_request.courier_profile.nombres || 'N/A'}}
       .row
         .order-info.time
