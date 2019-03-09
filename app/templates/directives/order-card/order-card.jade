@@ -1,0 +1,43 @@
+.order-card
+  .shipping-request-container
+    .shipping-request(
+      ng-class="orVm.order.status"
+    )
+      .row.user.information
+        .order-info
+          .details
+            .name {{ "shippingRequest.orderNumber" | translate }}
+          .details
+            .name {{ orVm.order.id}}
+      .row.provider.information
+        .provider-delivery(
+          ng-repeat="profile in orVm.order.provider_profiles"
+        )
+          .order-info.no-border
+            img.img-provider(
+              ng-src="{{ profile.logotipo_url }}"
+            )
+            .details.end
+              .name {{ profile.nombre_establecimiento }}
+          .order-info.no-border
+            .details.start
+              .label {{ "shippingRequest.requestTime" | translate }}
+              .name {{::orVm.getTime(orVm.order.submitted_at)}}
+            .details.end
+              .label {{ "shippingRequest.estimatedTime" | translate }}
+              .name {{::orVm.getTime(profile.customer_order_delivery.courier_delivery_at)}}
+          .order-info
+            .details.start(
+              ng-init="status=profile.customer_order_delivery.shipping_request.status"
+            )
+              .label {{ "shippingRequest.statusShipping" | translate }}
+              .name.highlight {{ ("shippingRequest.statusClient." + status | translate) }}
+            .details.end
+              .label {{ "shippingRequest.courier" | translate }}
+              .name {{profile.customer_order_delivery.shipping_request.courier_profile.nombres || 'N/A'}}
+      .row
+        .order-info.time
+          shipping-request-dispatch-at(
+            dispatch-at="orVm.order.submitted_at"
+            simple-date="true"
+          )

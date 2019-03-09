@@ -1,11 +1,15 @@
 span(
   ng-if="!dispatchAtVM.timeInFuture"
 ) {{::("courier.labels.dispatchRequested"| translate)}}
-humanized-countdown-time(
+humanized-countdown-time.time-date(
   show-past="true"
   hide-prefix="dispatchAtVM.timeInFuture"
   time="dispatchAtVM.dispatchAt"
+  ng-if="!dispatchAtVM.simpleDate"
 )
 span(
-  ng-if="dispatchAtVM.timeInFuture"
+  ng-if="dispatchAtVM.timeInFuture && !dispatchAtVM.simpleDate"
 ) {{::("courier.labels.timeForDispatchSuffix"| translate)}}
+span.time-date(
+  ng-if="dispatchAtVM.simpleDate"
+) {{::dispatchAtVM.date}}

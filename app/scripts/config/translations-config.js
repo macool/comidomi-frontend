@@ -543,6 +543,10 @@
         delivered: 'Entregado',
         availableRoutes: 'Rutas',
         statusShipping: 'Estado',
+        courier: 'Mensajero',
+        requestTime: 'Hora de envío',
+        estimatedTime: 'Hora de entrega est',
+        orderNumber: 'Pedido #',
         routesStatus: {
           searching: 'Buscando rutas..',
           noRoutes: 'No hay rutas disponibles'
@@ -554,6 +558,12 @@
           new: 'Nuevo',
           assigned: 'Camino a la tienda',
           in_progress: 'Camino a la entrega', // jshint ignore:line
+          delivered: 'Entregado'
+        },
+        statusClient: {
+          new: 'Enviado',
+          assigned: 'Asignado',
+          in_progress: 'Camino a tu dirección', // jshint ignore:line
           delivered: 'Entregado'
         },
         routeLegs: {

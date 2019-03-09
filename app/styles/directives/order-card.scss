@@ -1,0 +1,95 @@
+.order-card {		
+	.shipping-request-container {
+		background-color: $white;
+		margin:  20px 20px 0 20px;
+
+		.shipping-request {
+			width: 100%;
+			display: block;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+			.row {
+				padding: 3px 20px;
+
+				.order-info {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					flex-basis: 100%;
+					padding: 5px 0;
+	
+					shipping-request-dispatch-at {
+						display: flex;
+						justify-content: space-between;
+						width: 100%;
+					}
+
+					&.time {
+						font-size: 12px;
+
+						span {
+							font-family: Ubuntu-Regular;
+						}
+		
+						.time-date {
+							color: $base-black;
+						}
+					}
+				}
+
+				&.information {
+					display: flex;
+					flex-direction: column;
+
+					.order-info {
+						border-bottom: 1px solid $base-grey;
+						padding: 10px 0;
+
+						&.no-border {
+							border-bottom: none;
+							padding: 10px 0 0 0;
+						}
+					}
+
+					.details {
+						&.end {
+							text-align: end;
+						}
+
+						&.start {
+							text-align: start;
+						}
+
+						.label {
+							font-size: 10px;
+							font-family: Ubuntu-Regular;
+							text-transform: uppercase;
+						}
+
+						.name {
+							color: $base-black;
+							font-family: Ubuntu-Regular;
+							text-transform: uppercase;
+
+							&.highlight {
+								color: $base-teal;
+							}
+						}
+
+						.cost {
+							font-family: Ubuntu-Light;
+							font-size: 12px;
+						}
+
+					}
+
+					.img-provider {
+						width: 35px;
+						height: 35px;
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
+}

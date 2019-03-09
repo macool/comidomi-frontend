@@ -17,12 +17,10 @@
     shVm.currentOrderType = 'inProgress';
     shVm.tabs = [
       {
-        name: 'En progreso',
         key: 'inProgress',
         onClick: switchTab
       },
       {
-        name: 'Completados',
         key: 'delivered',
         onClick: switchTab
       },
