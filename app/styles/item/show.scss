@@ -45,11 +45,12 @@
     h3 {
       text-transform: uppercase;
       color: $base-black;
-      font-weight: bold;
+      font-family: $font-semibold;
     }
 
     p {
       color: $base-grey;
+      font-family: $font-base;
     }
   }
 
@@ -116,16 +117,21 @@
       width: 100%;
     }
   }
-
   .observaciones-wrapper {
-    border-bottom: 0;
+    margin: 0 20px;
 
-    textarea {
-      margin: 10px 0;
-      padding: 15px;
-      background-color: $light-grey;
-      min-height: 60px;
-      font-family: $font-light;
+    .observaciones {
+      border-bottom: 0;
+      padding: 0;
+
+      textarea {
+        margin: 10px 0;
+        // padding: 15px;
+        // background-color: $light-grey;
+        // min-height: 50px;
+        font-family: $font-light;
+        border-bottom: 1px solid $medium-grey;
+      }
     }
   }
 
