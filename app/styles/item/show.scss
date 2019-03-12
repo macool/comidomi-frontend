@@ -1,5 +1,5 @@
 .item-show-page {
-  font-family: Ubuntu-Light;
+  font-family: $font-light;
 
   .item.item-toggle {
     border: 0;
@@ -102,7 +102,7 @@
   }
 
   .input-label {
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
     text-transform: uppercase;
   }
 
@@ -125,7 +125,7 @@
       padding: 15px;
       background-color: $light-grey;
       min-height: 60px;
-      font-family: Ubuntu-Light;
+      font-family: $font-light;
     }
   }
 
@@ -150,12 +150,12 @@
         }
 
         .title {
-          font-family: Ubuntu-Regular;
+          font-family: $font-base;
         }
       }
 
       .price {
-        font-family: Ubuntu-Regular;
+        font-family: $font-base;
       }
     }
 

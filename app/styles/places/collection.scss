@@ -1,11 +1,11 @@
 .places-collection {
   .item-divider {
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
   }
 
   .place-item {
     cursor: pointer;
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
 
     .icon {
       padding-top: 13px;

@@ -17,10 +17,10 @@
 }
 
 .strong {
-  font-family: Ubuntu-Bold;
+  font-family: $font-bold;
 }
 
 body {
-  font-family: Ubuntu-Regular;
+  font-family: $font-base;
   line-height: 22px;
 }

@@ -16,7 +16,7 @@
     background: $base-teal;
     color: $white;
     padding: 10px 0;
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
     font-size: 14px;
   }
 
@@ -25,7 +25,7 @@
   }
 
   .order-item {
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
     margin: 0;
     border-bottom: 1px solid $medium-grey;
 
@@ -38,7 +38,7 @@
   .user-information {
     display: flex;
     padding: 0 10px;
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
 
     .details {
       flex-basis: 80%;
@@ -48,7 +48,7 @@
 
         span {
           margin-left: 5px;
-          font-family: Ubuntu-Regular;
+          font-family: $font-base;
         }
       }
     }

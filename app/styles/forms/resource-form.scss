@@ -1,5 +1,5 @@
 .resource-form {
-  font-family: Ubuntu-Light;
+  font-family: $font-light;
 
   .fields-wrapper {
     padding-bottom: 25px;
@@ -24,13 +24,13 @@
     font-size: 20px;
     line-height: 30px;
     text-transform: uppercase;
-    font-family: Ubuntu-Bold;
+    font-family: $font-bold;
     color: $base-darkteal;
   }
 
   p {
     margin: auto;
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
     font-size: 12px;
   }
 
@@ -62,7 +62,7 @@
     .input-label {
       font-size: 16px;
       text-transform: uppercase;
-      font-family: Ubuntu-Regular;
+      font-family: $font-base;
       color: $base-darkteal;
     }
 
@@ -84,7 +84,7 @@
 
   label.item-stacked-label.item-input--no-borders {
     margin-bottom: 0;
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
     font-size: 12px;
   }
 
@@ -108,7 +108,7 @@
   label.item-input {
     select, textarea {
       font-size: 16px;
-      font-family: Ubuntu-Light;
+      font-family: $font-light;
     }
 
     textarea {
@@ -131,7 +131,7 @@
         border-left: 0;
         box-shadow: none;
         border-radius: 0;
-        font-family: Ubuntu-Light;
+        font-family: $font-light;
         font-size: 14px;
 
         .item {
@@ -152,7 +152,7 @@
       }
 
       .selectize-dropdown {
-        font-family: Ubuntu-Light;
+        font-family: $font-light;
         box-shadow: none;
         font-size: 14px;
       }
@@ -173,7 +173,7 @@
 
   .datetime-picker {
     color: $base-darkteal;
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
 
     .icon::before {
       color: $base-darkteal;

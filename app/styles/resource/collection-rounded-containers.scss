@@ -1,10 +1,10 @@
 .resource-rounded-container {
   border-radius: 10px;
   border: 1px solid $base-orange;
-  font-family: Ubuntu-Light;
+  font-family: $font-light;
 
   .container-title {
     font-size: 18px;
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
   }
 }

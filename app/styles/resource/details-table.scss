@@ -3,7 +3,7 @@
 
   h2, h3, p {
     color: $base-grey;
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
   }
 
   h2 {
@@ -20,7 +20,7 @@
 .resource-details-table {
   font-size: 16px;
   margin-top: 0;
-  font-family: Ubuntu-Regular;
+  font-family: $font-base;
 
   .label {
     color: $base-darkteal;

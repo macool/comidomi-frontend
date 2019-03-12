@@ -1,5 +1,6 @@
 // https://github.com/driftyco/ionic/blob/v1.3.1/scss/_variables.scss
 @import "../bower_components/ionic/scss/_variables";
+@import "fonts/fonts";
 
 @import "colors/colors";
 @import "responsive/variables";
@@ -11,7 +12,6 @@
 @import "overrides/base-colors";
 @import "overrides/popup";
 
-@import "fonts/fonts";
 @import "common/rows";
 @import "common/text";
 @import "common/mixins";

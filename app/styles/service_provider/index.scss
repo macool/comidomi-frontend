@@ -86,7 +86,7 @@
     }
 
     .provider-title {
-      font-family: Ubuntu-Regular;
+      font-family: $font-base;
       font-size: 16px;
       line-height: 20px;
       color: $base-black;
@@ -94,7 +94,7 @@
     }
 
     .provider-activity {
-      font-family: Ubuntu-Medium;
+      font-family: $font-semibold;
       color: $base-black;
       font-size: 13px;
       line-height: 20px;
@@ -109,7 +109,7 @@
       }
 
       .office-schedule {
-        font-family: Ubuntu-Regular;
+        font-family: $font-base;
         color: $base-teal;
         font-size: 13px;
       }

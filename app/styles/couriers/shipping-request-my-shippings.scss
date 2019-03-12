@@ -1,5 +1,5 @@
 .courier-shipping-request-my-shippings {
-  font-family: Ubuntu-Light;
+  font-family: $font-light;
   color: $base-grey;
   background-color: $light-grey;
 
@@ -51,7 +51,7 @@
           padding: 5px 0;
 
           .status {
-            font-family: Ubuntu-Regular;
+            font-family: $font-base;
           }
 
           shipping-request-dispatch-at {
@@ -80,11 +80,11 @@
           .details {
             .name {
               color: $base-black;
-              font-family: Ubuntu-Regular;
+              font-family: $font-base;
             }
 
             .cost {
-              font-family: Ubuntu-Light;
+              font-family: $font-light;
               font-size: 14px;
             }
 
@@ -103,6 +103,6 @@
 
 shipping-request-dispatch-at {
   humanized-countdown-time {
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
   }
 }

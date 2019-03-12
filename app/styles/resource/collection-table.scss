@@ -14,7 +14,7 @@
       padding-left: 0;
       padding-right: 35px;
       max-width: 100%;
-      font-family: Ubuntu-Light;
+      font-family: $font-light;
       color: inherit;
 
       @media (max-width: $grid-responsive-sm-break) {
@@ -63,7 +63,7 @@
       color: $base-black;
       font-size: 12px;
       text-transform: uppercase;
-      font-family: Ubuntu-Regular;
+      font-family: $font-base;
       margin-bottom: 5px;
       font-weight: bold;
 
@@ -79,7 +79,7 @@
     margin-top: 100px;
     color: $base-grey;
     text-align: center;
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
 
     p {
       margin: auto;
@@ -99,6 +99,6 @@
   }
 
   .item {
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
   }
 }
