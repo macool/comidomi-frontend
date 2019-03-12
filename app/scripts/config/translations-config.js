@@ -452,7 +452,7 @@
       },
       order: {
         submittedAt: 'Enviada',
-        observations: 'El cliente dejo este mensaje',
+        observations: 'El cliente dejó este mensaje',
         customerInfo: 'Información de Cliente',
         invoiceInfo: 'Datos de Facturación',
         dispatchAt: 'Hora de despacho',
