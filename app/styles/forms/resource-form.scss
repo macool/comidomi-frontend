@@ -31,7 +31,7 @@
   p {
     margin: auto;
     font-family: $font-light;
-    font-size: 12px;
+    font-size: $font-s;
   }
 
   .input-label {
@@ -85,7 +85,7 @@
   label.item-stacked-label.item-input--no-borders {
     margin-bottom: 0;
     font-family: $font-light;
-    font-size: 12px;
+    font-size: $font-s;
   }
 
   label.item-input.item-select {
@@ -132,7 +132,7 @@
         box-shadow: none;
         border-radius: 0;
         font-family: $font-light;
-        font-size: 14px;
+        font-size: $font-m;
 
         .item {
           border: 0;
@@ -141,7 +141,7 @@
 
         input {
           height: 20px;
-          font-size: 14px;
+          font-size: $font-m;
         }
 
         &:not(.has-items) {
@@ -154,7 +154,7 @@
       .selectize-dropdown {
         font-family: $font-light;
         box-shadow: none;
-        font-size: 14px;
+        font-size: $font-m;
       }
     }
   }

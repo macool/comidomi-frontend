@@ -99,7 +99,7 @@
   .button-xsmall {
     @media (max-width: $grid-responsive-sm-break) {
       line-height: 25px;
-      font-size: 14px;
+      font-size: $font-m;
       min-height: 30px;
     }
   }

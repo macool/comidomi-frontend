@@ -61,7 +61,7 @@
           }
 
           &.time {
-            font-size: 14px;
+            font-size: $font-m;
 
             humanized-countdown-time {
               color: $base-black;
@@ -85,7 +85,7 @@
 
             .cost {
               font-family: $font-light;
-              font-size: 14px;
+              font-size: $font-m;
             }
 
           }

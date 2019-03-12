@@ -124,14 +124,17 @@ ion-view.shipping-request-show-page(
                       price(amount="{{ ::coVm.totalOrder }}"
                             currency="{{coVm.customerOrder.subtotal_items_currency}}")
 
-
-      .resource-collection.observations(ng-if="coVm.customerOrder.observaciones")
-        .list.list-inset.list--no-borders.resource-collection-table
-          .row.table-headers
-            .col.col-100 {{ ::("order.observations"|translate) }}
-          .row.content
-            .col.col-100.col--elastic {{ ::coVm.customerOrder.observaciones }}
-            .list.list-inset.list--no-borders.resource-collection-table
+      .card-order(
+        ng-if="coVm.customerOrder.observaciones"
+      )
+        .row.user.information
+          .order-info
+            .details
+              .name.semibold {{ ::("order.observations"|translate) }}
+        .row.information
+          .order-info.no-border
+            .details.start
+              .name {{ ::coVm.customerOrder.observaciones }}
 
   ion-footer-bar.bar-stable.text-center(
     ng-if="coVm.order.status !== 'delivered'"

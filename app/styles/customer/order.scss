@@ -18,7 +18,7 @@
     border-bottom: 1px solid $medium-grey;
 
     .customer-order-item-observations {
-      font-size: 12px;
+      font-size: $font-s;
       color: $base-grey;
     }
   }
@@ -27,7 +27,7 @@
 
     .label {
       font-family: $font-light;
-      font-size: 12px;
+      font-size: $font-s;
 
       &.total {
         font-family: $font-base;
@@ -36,7 +36,7 @@
 
     .value {
       font-family: $font-base;
-      font-size: 12px;
+      font-size: $font-s;
     }
   }
 
@@ -46,12 +46,12 @@
       display: flex;
       justify-content: space-between;
       font-family: $font-light;
-      font-size: 12px;
+      font-size: $font-s;
       width: 100%;
 
       .value {
         font-family: $font-base;
-        font-size: 12px;
+        font-size: $font-s;
       }
     }
   }

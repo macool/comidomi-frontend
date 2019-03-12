@@ -45,7 +45,7 @@
       top: 5px;
       right: 0;
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: $font-m;
       color: $base-yellow;
     }
   }
@@ -152,7 +152,7 @@
     border-right: 0;
     padding: 15px 15px 10px 15px;
     font-family: $font-light;
-    font-size: 14px;
+    font-size: $font-m;
 
     &--with-button {
       padding-right: 40px;
@@ -187,7 +187,7 @@
 .editable-list-item-wrapper {
   position: relative;
   font-family: $font-light;
-  font-size: 14px;
+  font-size: $font-m;
   
   .edit-list-item {
     position: absolute;

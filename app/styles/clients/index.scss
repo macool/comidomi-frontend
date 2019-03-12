@@ -2,7 +2,7 @@
   .resource-collection-table {
     .item.row {
       @media (max-width: $grid-responsive-sm-break) {
-        font-size: 14px;
+        font-size: $font-m;
       }
     }
   }

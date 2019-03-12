@@ -25,7 +25,7 @@
 					}
 
 					&.time {
-						font-size: 12px;
+						font-size: $font-s;
 
 						span {
 							font-family: $font-base;
@@ -61,7 +61,7 @@
 						}
 
 						.label {
-							font-size: 10px;
+							font-size: $font-xs;
 							font-family: $font-base;
 							text-transform: uppercase;
 						}
@@ -78,7 +78,7 @@
 
 						.cost {
 							font-family: $font-light;
-							font-size: 12px;
+							font-size: $font-s;
 						}
 
 					}

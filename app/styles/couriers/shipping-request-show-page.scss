@@ -3,7 +3,6 @@
 
   .shipping-request-content {
     margin:  20px 20px 0 20px;
-    background-color: $white;
 
     &--fix-scroll {
       height: auto;
@@ -21,6 +20,7 @@
       box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
       margin-bottom: 10px;
       padding: 10px 20px;
+      background-color: $white;
 
       .list-inset {
         margin: 0;
@@ -43,7 +43,7 @@
           }
 
           &.time {
-            font-size: 12px;
+            font-size: $font-s;
 
             span {
               font-family: $font-base;
@@ -107,7 +107,7 @@
             }
 
             .label {
-              font-size: 10px;
+              font-size: $font-xs;
               font-family: $font-base;
               text-transform: uppercase;
               color: $base-grey;
@@ -129,7 +129,7 @@
 
             .cost {
               font-family: $font-light;
-              font-size: 12px;
+              font-size: $font-s;
             }
 
             .user {
@@ -147,6 +147,36 @@
             height: 35px;
             margin-right: 10px;
           }
+        }
+      }
+      //items
+      .order-item {
+        margin: 0;
+        border-bottom: 1px solid $medium-grey;
+        text-transform: uppercase;
+
+        .customer-order-item-observations {
+          font-family: $font-light;
+          font-size: $font-s;
+          color: $base-grey;
+        }
+      }
+
+      .order-costs {
+
+        .label {
+          font-family: $font-light;
+          text-transform: uppercase;
+          font-size: $font-s;
+
+          &.total {
+            font-family: $font-base;
+          }
+        }
+
+        .value {
+          font-family: $font-bold;
+          font-size: $font-s;
         }
       }
     }
