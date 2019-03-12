@@ -1,4 +1,4 @@
-.order-card {		
+.order-card {
 	.shipping-request-container {
 		background-color: $white;
 		margin:  20px 20px 0 20px;
@@ -17,7 +17,7 @@
 					align-items: center;
 					flex-basis: 100%;
 					padding: 5px 0;
-	
+
 					shipping-request-dispatch-at {
 						display: flex;
 						justify-content: space-between;
@@ -30,7 +30,7 @@
 						span {
 							font-family: $font-base;
 						}
-		
+
 						.time-date {
 							color: $base-black;
 						}

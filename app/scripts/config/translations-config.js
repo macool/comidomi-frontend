@@ -275,7 +275,7 @@
         clientSearch: 'Buscar cliente',
         notas: 'Notas',
         ruc: 'Ruc',
-        nombres: 'Nombres',
+        nombres: 'Nombre',
         direccion: 'Dirección',
         telefono: 'Teléfono',
         ciudad: 'Ciudad',

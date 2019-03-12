@@ -1,4 +1,4 @@
-ion-view(
+ion-view.shipping-request-show-page(
   view-title='{{::("courier.orders"|translate)}}'
 )
   ion-nav-title
@@ -6,88 +6,124 @@ ion-view(
   ion-content(
       ng-class="{'has-footer':coVm.order.status !== 'delivered'}"
     )
-    .shipping-request-show-page.shipping-request-show-page--fix-scroll.courier-shipping-request-common
+    .shipping-request-content.shipping-request-content--fix-scroll.courier-shipping-request-common
       .map-view(
         ng-class="{'not-load-map': coVm.mapIsHidden }"
       )
         #order-map(data-tap-disabled="true")
-
-      .resource-collection.user-card
-        .resource-collection
-          .list.list-inset.list--no-borders.resource-collection-table
-            .row.table-headers
-              .col {{ ::("order.customerInfo"|translate) }}
-            .user-information
+        
+      .cards-order
+        .card-order.invoice(
+            ng-if="!coVm.customerOrder.anon_billing_address"
+          )
+          .row.user.information
+            .order-info
               .details
-                .user.narrow
+                .name.semibold {{ ::("order.invoiceInfo"|translate) }}
+          .row.information
+            .order-info.no-border
+              .details.start
+                .label {{ "client.razonSocial" | translate }}
+                .name {{ ::(coVm.customerOrder.customer_billing_address.razon_social) }}
+          .row.information
+            .order-info.no-border
+              .details.start
+                .label {{ "client.ruc" | translate }}
+                .name {{ ::(coVm.customerOrder.customer_billing_address.ruc) }}
+              .details.end
+                .label {{ "client.telefono" | translate }}
+                .name {{ ::(coVm.customerOrder.customer_billing_address.telefono) }}
+          .row.information
+            .order-info.no-border
+              .details.start
+                .label {{ "client.direccion" | translate }}
+                .name {{ ::(coVm.customerOrder.customer_billing_address.direccion) }}
+                
+          .row.information
+            .order-info.no-border
+              .details.start
+                .label {{ "client.email" | translate }}
+                .name {{ ::(coVm.customerOrder.customer_billing_address.email) }}
+
+        .card-order
+          .row.user.information
+            .order-info
+              .details
+                .name.semibold {{ ::("order.customerInfo"|translate) }}
+          .row.information
+            .order-info.no-border
+              .details.start
+                .label {{ "client.nombres" | translate }}
+                .user
                   img.image(
                     ng-src="{{ coVm.customerOrder.customer_profile.image_url }}"
                   )
-                  span {{ ::(coVm.customerOrder.customer_profile.name) || "N/A"}}
-              .actions
-                .phone-number
-                  a(
-                    ng-href="tel:{{coVm.customerOrder.customer_profile.phone_number}}"
-                    ng-if="coVm.order.status !== 'delivered'"
+                  .name {{ ::(coVm.customerOrder.customer_profile.name) || "N/A"}}
+              .details.end
+                .label LLAMAR
+                .name 
+                  .phone-number
+                    a(
+                      ng-href="tel:{{coVm.customerOrder.customer_profile.phone_number}}"
+                    )
+                      ng-md-icon.action(
+                        icon="phone"
+                        size="20"
+                      )
+          .row.information
+            .order-info.no-border
+              .details.start
+                .label {{ ::("courier.deliveryAddresses" |translate) }}
+                .name {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_uno) }}
+              .details.end
+                .label VER MAPA
+                .map
+                  button.btn-map(
+                    ng-click="coVm.toogleMap()"
                   )
                     ng-md-icon.action(
-                      icon="phone"
+                      icon="navigation"
                       size="20"
                     )
-            .user-information.address
-              .details
-                .strong
-                  | {{ ::("courier.deliveryAddresses" |translate) }}
-                .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.direccion_uno")
-                  span
-                    | {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_uno) }}
-                .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.direccion_dos")
-                  span {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_dos) }}
-                .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.referencia")
-                  span
-                    .strong
-                      | Referencia
-                    | {{ ::(coVm.customerOrderDelivery.customer_address_attributes.referencia) }}
-              .actions
-                button.btn-map(
-                  ng-click="coVm.toogleMap()"
-                  ng-if="coVm.order.status !== 'delivered'"
+          .row.information
+            .order-info.no-border
+              .details.start
+                .label {{ ::("addresses.reference" |translate) }}
+                .name {{ ::(coVm.customerOrderDelivery.customer_address_attributes.referencia) }}
+        
+        .card-order
+          .resource-collection.user-card
+            .list.list-inset.list--no-borders.resource-collection-table.narrow
+              .row.table-headers
+                .col.col-60 {{ coVm.provider.nombre_establecimiento || coVm.provider.razon_social }}
+                .col.col-20 {{ ::("order.providerProfile.quantity" |translate) }}
+                .col.col-20 {{ ::("order.providerProfile.price" |translate) }}
+              span(ng-repeat='item in coVm.items')
+                span(
+                  ng-include="'templates/customer/orders/order-item-row.html'"
                 )
-                  ng-md-icon.action(
-                    icon="navigation"
-                    size="20"
-                  )
-                  
-        .list.list-inset.list--no-borders.resource-collection-table.narrow
-          .row.table-headers
-            .col.col-60 {{ coVm.provider.nombre_establecimiento || coVm.provider.razon_social }}
-            .col.col-20 {{ ::("order.providerProfile.quantity" |translate) }}
-            .col.col-20 {{ ::("order.providerProfile.price" |translate) }}
-          span(ng-repeat='item in coVm.items')
-            span(
-              ng-include="'templates/customer/orders/order-item-row.html'"
-            )
-          .resource-collection-table.text-right.order-costs
-            .row
-              .col.col-75.label
-                | {{ ::("order.summary.subtotal" |translate) }}
-              .col.col-25.value
-                price(amount="{{ ::coVm.subtotalItems }}"
-                        currency="{{coVm.customerOrder.subtotal_items_currency}}")
-            .row
-              .col.col-75.label
-                | {{ ::("order.summary.shippingCosts" |translate) }}
-              .col.col-25.value
-                price(amount="{{ ::coVm.shippingPrice }}"
-                      currency="{{coVm.customerOrder.subtotal_items_currency}}")
-            .row
-              .col.col-75.label.total
-                strong
-                  | {{ ::("order.summary.total" |translate) }}
-              .col.col-25.value
-                strong
-                  price(amount="{{ ::coVm.totalOrder }}"
-                        currency="{{coVm.customerOrder.subtotal_items_currency}}")
+              .resource-collection-table.text-right.order-costs
+                .row
+                  .col.col-75.label
+                    | {{ ::("order.summary.subtotal" |translate) }}
+                  .col.col-25.value
+                    price(amount="{{ ::coVm.subtotalItems }}"
+                            currency="{{coVm.customerOrder.subtotal_items_currency}}")
+                .row
+                  .col.col-75.label
+                    | {{ ::("order.summary.shippingCosts" |translate) }}
+                  .col.col-25.value
+                    price(amount="{{ ::coVm.shippingPrice }}"
+                          currency="{{coVm.customerOrder.subtotal_items_currency}}")
+                .row
+                  .col.col-75.label.total
+                    strong
+                      | {{ ::("order.summary.total" |translate) }}
+                  .col.col-25.value
+                    strong
+                      price(amount="{{ ::coVm.totalOrder }}"
+                            currency="{{coVm.customerOrder.subtotal_items_currency}}")
+
 
       .resource-collection.observations(ng-if="coVm.customerOrder.observaciones")
         .list.list-inset.list--no-borders.resource-collection-table
@@ -96,40 +132,6 @@ ion-view(
           .row.content
             .col.col-100.col--elastic {{ ::coVm.customerOrder.observaciones }}
             .list.list-inset.list--no-borders.resource-collection-table
-
-      .resource-collection.user-invoice-card(
-          ng-if="!coVm.customerOrder.anon_billing_address"
-        )
-        .list.list-inset.list--no-borders.resource-collection-table
-          .row.table-headers
-            .col {{ ::("order.invoiceInfo"|translate) }}
-          span
-            .row.narrow
-              .col {{ ::(coVm.customerOrder.customer_billing_address.razon_social) }}
-            .row.narrow
-              .col {{ ::(coVm.customerOrder.customer_billing_address.ruc) }}
-            .row.narrow
-              .col {{ ::(coVm.customerOrder.customer_billing_address.direccion) }}
-            .row.narrow(
-              ng-if="coVm.customerOrder.customer_billing_address.ciudad"
-            )
-              .col {{ ::( coVm.customerOrder.customer_billing_address.ciudad ) }}
-            .row.narrow
-              .col {{ ::(coVm.customerOrder.customer_billing_address.telefono) }}
-            .row.narrow
-              .col {{ ::(coVm.customerOrder.customer_billing_address.email) }}
-          span(
-            ng-if="coVm.customerOrder.customerOrder.anon_billing_address"
-          )
-            .row.narrow
-              .col {{ ::("cart.anonBillingAddress"| translate) }}
-
-          .row(
-            ng-if="coVm.customerOrder.forma_de_pago"
-          )
-            .col
-              strong {{ ::("provider.methodPayment" | translate) }}:
-              span  {{ ::( coVm.customerOrder.forma_de_pago ) }}
 
   ion-footer-bar.bar-stable.text-center(
     ng-if="coVm.order.status !== 'delivered'"
