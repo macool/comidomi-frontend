@@ -1,4 +1,4 @@
-ion-view(
+ion-view.item-page(
   view-title='{{::("menu.product"|translate)}}'
 )
   ion-nav-title
@@ -17,7 +17,7 @@ ion-view(
       )
 
   ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall
-    product-counter(
+    product-counter.counter(
       ng-if="!productVm.product.is_group"
       options="productVm.counterOptions"
     )

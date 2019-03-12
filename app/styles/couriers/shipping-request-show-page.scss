@@ -37,6 +37,8 @@
 
   .user-information {
     display: flex;
+    flex-basis: 100%;
+    justify-content: space-around;
     padding: 0 10px;
     font-family: $font-light;
 
@@ -55,15 +57,23 @@
 
     .actions {
       flex-basis: 20%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
 
       .action {
         color: $white;
         background: $base-orange;
-        width: 30px;
+        width: 36px;
         height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 0;
       }
     }
   }

@@ -7,13 +7,6 @@ ion-view(
       ng-class="{'has-footer':coVm.order.status !== 'delivered'}"
     )
     .shipping-request-show-page.shipping-request-show-page--fix-scroll.courier-shipping-request-common
-      .list--top-narrow(
-        ng-click="coVm.toogleMap()"
-        ng-if="coVm.order.status !== 'delivered'"
-      )
-        span
-          | {{( coVm.mapIsHidden ? "order.seeMap" : "order.hideMap" | translate)}}
-
       .map-view(
         ng-class="{'not-load-map': coVm.mapIsHidden }"
       )
@@ -35,27 +28,36 @@ ion-view(
                 .phone-number
                   a(
                     ng-href="tel:{{coVm.customerOrder.customer_profile.phone_number}}"
+                    ng-if="coVm.order.status !== 'delivered'"
                   )
                     ng-md-icon.action(
                       icon="phone"
                       size="20"
                     )
-            .address
-              strong
-                | {{ ::("courier.deliveryAddresses" |translate) }}
-              .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.direccion_uno")
-                span
-                  strong
-                    | Dir:
-                  | {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_uno) }}
-              .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.direccion_dos")
-                span {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_dos) }}
-              .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.referencia")
-                span
-                  strong
-                    | Ref:
-                  | {{ ::(coVm.customerOrderDelivery.customer_address_attributes.referencia) }}
-
+            .user-information.address
+              .details
+                .strong
+                  | {{ ::("courier.deliveryAddresses" |translate) }}
+                .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.direccion_uno")
+                  span
+                    | {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_uno) }}
+                .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.direccion_dos")
+                  span {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_dos) }}
+                .narrow(ng-if="coVm.customerOrderDelivery.customer_address_attributes.referencia")
+                  span
+                    .strong
+                      | Referencia
+                    | {{ ::(coVm.customerOrderDelivery.customer_address_attributes.referencia) }}
+              .actions
+                button.btn-map(
+                  ng-click="coVm.toogleMap()"
+                  ng-if="coVm.order.status !== 'delivered'"
+                )
+                  ng-md-icon.action(
+                    icon="navigation"
+                    size="20"
+                  )
+                  
         .list.list-inset.list--no-borders.resource-collection-table.narrow
           .row.table-headers
             .col.col-60 {{ coVm.provider.nombre_establecimiento || coVm.provider.razon_social }}

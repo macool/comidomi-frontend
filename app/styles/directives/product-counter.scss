@@ -1,11 +1,11 @@
 product-counter {
-
   border-top: 1px solid #e7e7e7;
 
   .product-counter {
     margin: 10px 20px;
-    // border-top: 1px solid $medium-grey;
-    // border-bottom: 1px solid $medium-grey;
+    border-top: 1px solid $medium-grey;
+    border-bottom: 1px solid $medium-grey;
+
     .product-counter-container {
       display: flex;
       font-family: $font-light;
@@ -19,18 +19,12 @@ product-counter {
         align-items: center;
         justify-content: center;
 
-        .button-minus-container {
-          .button-minus {
-            color: $white;
-            background-color: $base-teal;
-          }
+        button {
+          color: $white;
+          background-color: $base-teal;
+          border-radius: 4px;
         }
-        .button-plus-container {
-          .button-plus {
-            color: $white;
-            background-color: $base-teal;
-          }
-        }
+
         .counter-container {
           width: 60px;
           text-align: center;
