@@ -1,5 +1,5 @@
 .customer-my-orders {
-  font-family: Ubuntu-Light;
+  font-family: $font-light;
   color: $base-grey;
   background-color: $light-grey;
 
@@ -13,12 +13,12 @@
 .submitted-customer-order-preview {
 
   .order-item {
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
     margin: 0;
     border-bottom: 1px solid $medium-grey;
 
     .customer-order-item-observations {
-      font-size: 12px;
+      font-size: $font-s;
       color: $base-grey;
     }
   }
@@ -26,17 +26,17 @@
   .order-costs {
 
     .label {
-      font-family: Ubuntu-Light;
-      font-size: 12px;
+      font-family: $font-light;
+      font-size: $font-s;
 
       &.total {
-        font-family: Ubuntu-Regular;
+        font-family: $font-base;
       }
     }
 
     .value {
-      font-family: Ubuntu-Regular;
-      font-size: 12px;
+      font-family: $font-base;
+      font-size: $font-s;
     }
   }
 
@@ -45,27 +45,27 @@
     .delivery-at-wrapper {
       display: flex;
       justify-content: space-between;
-      font-family: Ubuntu-Light;
-      font-size: 12px;
+      font-family: $font-light;
+      font-size: $font-s;
       width: 100%;
 
       .value {
-        font-family: Ubuntu-Regular;
-        font-size: 12px;
+        font-family: $font-base;
+        font-size: $font-s;
       }
     }
   }
 
   .observations {
     .content {
-      font-family: Ubuntu-Light;
+      font-family: $font-light;
     }
   }
 
   .user-information {
 
     .narrow {
-      font-family: Ubuntu-Light;
+      font-family: $font-light;
     }
   }
 }

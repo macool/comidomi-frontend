@@ -1,36 +1,34 @@
-.product-counter {
-  border-top: 1px solid $medium-grey;
-  border-bottom: 1px solid $medium-grey;
-  margin: 10px 20px;
+product-counter {
+  border-top: 1px solid #e7e7e7;
 
-  .product-counter-container {
-    display: flex;
-    font-family: Ubuntu-Light;
-    font-size: 26px;
-    line-height: 34px;
-    justify-content: space-between;
-    padding: 15px 0;
+  .product-counter {
+    margin: 10px 20px;
+    border-top: 1px solid $medium-grey;
+    border-bottom: 1px solid $medium-grey;
 
-    .actions-panel {
+    .product-counter-container {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: $font-light;
+      font-size: 26px;
+      line-height: 34px;
+      justify-content: space-between;
+      padding: 15px 0;
 
-      .button-minus-container {
-        .button-minus {
+      .actions-panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
           color: $white;
           background-color: $base-teal;
+          border-radius: 4px;
         }
-      }
-      .button-plus-container {
-        .button-plus {
-          color: $white;
-          background-color: $base-teal;
+
+        .counter-container {
+          width: 60px;
+          text-align: center;
         }
-      }
-      .counter-container {
-        width: 60px;
-        text-align: center;
       }
     }
   }

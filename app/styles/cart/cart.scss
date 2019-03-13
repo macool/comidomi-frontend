@@ -26,7 +26,7 @@
   .cart-delivery-address {
     color: $base-grey;
     padding: 20px;
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
     letter-spacing: -0.5px;
     position: relative;
     padding-right: 70px; // room for btn
@@ -37,7 +37,7 @@
     }
 
     .placeholder-title {
-      font-family: Ubuntu-Light;
+      font-family: $font-light;
     }
 
     .button-clear {
@@ -45,7 +45,7 @@
       top: 5px;
       right: 0;
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: $font-m;
       color: $base-yellow;
     }
   }
@@ -67,13 +67,13 @@
       color: $base-black;
       text-transform: uppercase;
       font-size: 16px;
-      font-family: Ubuntu-Regular;
+      font-family: $font-base;
     }
 
     .provider-profile--subtitle {
       float: right;
       color: $positive;
-      font-family: Ubuntu-Regular;
+      font-family: $font-base;
       font-size: 13px;
 
       span:not(:last-child) {
@@ -82,7 +82,7 @@
     }
 
     .order-total-summary {
-      font-family: Ubuntu-Light;
+      font-family: $font-light;
       margin: 10px 0 0 0;
 
       .order-row {
@@ -92,7 +92,7 @@
       }
 
       .order-total {
-        font-family: Ubuntu-Regular;
+        font-family: $font-base;
       }
     }
   }
@@ -142,7 +142,7 @@
 
   label.select-list-label.item-input--no-borders {
     margin: 0 0 10px 20px;
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
     text-transform: uppercase;
   }
 
@@ -151,8 +151,8 @@
     border-left: 0;
     border-right: 0;
     padding: 15px 15px 10px 15px;
-    font-family: Ubuntu-Light;
-    font-size: 14px;
+    font-family: $font-light;
+    font-size: $font-m;
 
     &--with-button {
       padding-right: 40px;
@@ -160,7 +160,7 @@
 
     &.selected {
       color: $base-yellow;
-      font-family: Ubuntu-Regular;
+      font-family: $font-base;
       background-color: $light-grey;
     }
 
@@ -176,7 +176,7 @@
 
 .checkout-modal-form {
   .addresses-wrapper {
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
 
     // we programatically add content inside
     // the form and don't recalculate height
@@ -186,8 +186,8 @@
 
 .editable-list-item-wrapper {
   position: relative;
-  font-family: Ubuntu-Light;
-  font-size: 14px;
+  font-family: $font-light;
+  font-size: $font-m;
   
   .edit-list-item {
     position: absolute;

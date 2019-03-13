@@ -1,5 +1,5 @@
 .courier-shipping-request-index-list {
-  font-family: Ubuntu-Light;
+  font-family: $font-light;
   color: $base-grey;
   background-color: $light-grey;
 
@@ -8,8 +8,8 @@
     background: $base-teal;
     color: $white;
     padding: 10px 0;
-    font-family: Ubuntu-Regular;
-    font-size: 14px
+    font-family: $font-base;
+    font-size: $font-m
   }
 
   .list--bottom-narrow{
@@ -17,97 +17,156 @@
     margin: 10px 0;
   }
 
-  .shipping-request-container {
-    background-color: $base-darkteal;
-    color: $white;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    margin:  20px 20px 0 20px;
-    padding: 10px 0;
+  .cards-order{
+    margin: 20px;
 
-    .shipping-request {
+    .card-order {
       width: 100%;
       display: block;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: $base-darkteal;
+      color: $white;
 
       .row {
-        padding: 5px 20px;
+        padding: 3px 0;
 
         .order-info {
           display: flex;
           justify-content: space-between;
-          align-items: center;
+          align-items: baseline;
           flex-basis: 100%;
-        }
+          padding: 5px 0;
 
-        .icon {
-          color: $white;
-          background: $base-orange;
-          width: 30px;
-          height: 30px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        &.order-row {
-
-          .label {
-            font-family: Ubuntu-Medium;
-            color: $base-teal;
-            text-transform: uppercase;
-            font-size: 12px;
-            line-height: 14px;
+          shipping-request-dispatch-at {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
           }
 
-          .information {
-            font-family: Ubuntu-Regular;
-            color: $white;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: -0.5px;
-            margin-bottom: 5px;
+          &.time {
+            font-size: $font-s;
 
-            &.logo-image {
-              margin-top: 2px;
+            span {
+              font-family: $font-base;
+            }
 
-              .image {
-                width: 25px;
-                height: 25px;
-              }
-
-              .name {
-                margin-left: 10px;
-              }
+            .time-date {
+              color: $base-black;
             }
           }
 
+          .action {
+            color: $white;
+            background: $base-orange;
+            width: 36px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+          }
+
+          button {
+            padding: 0;
+          }
+
           .image {
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
           }
         }
 
-        .separator {
-          border-top: 1px solid $base-teal;
-          width: 100%;
-          padding-top: 10px;
-          margin-top: 10px;
+        &.information {
+          display: flex;
+          flex-direction: column;
 
-          .button {
-            background-color: $base-orange;
-            color:$white;
-            padding: 0 10px;
-            font-family: Ubuntu-Regular;
-            text-transform: uppercase;
-            cursor: pointer;
+          .order-info {
+            border-bottom: 1px solid $base-grey;
+            padding: 10px 0;
+
+            &.no-border {
+              border-bottom: none;
+              padding: 8px 0 0 0;
+            }
+          }
+
+          .details {
+            &.end {
+              text-align: end;
+              flex-basis: 20%;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+            }
+
+            &.start {
+              text-align: start;
+              flex-basis: 80%;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+            }
+
+            .label {
+              font-size: $font-xs;
+              font-family: $font-base;
+              text-transform: uppercase;
+              color: $base-teal;
+            }
+
+            .name {
+              font-family: $font-base;
+              text-transform: uppercase;
+
+              &.highlight {
+                color: $base-teal;
+              }
+
+              &.semibold {
+                font-family: $font-semibold;
+              }
+            }
+
+            .cost {
+              font-family: $font-light;
+              font-size: $font-s;
+            }
+
+            .user {
+              display: flex;
+
+              .name {
+                margin-left: 5px;
+              }
+            }
+
+          }
+
+          .img-provider {
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
           }
         }
       }
-    }
-  }
-}
 
-shipping-request-dispatch-at {
-  humanized-countdown-time {
-    font-family: Ubuntu-Regular;
+      .separator {
+        border-top: 1px solid $base-teal;
+        width: 100%;
+        padding-top: 10px;
+        margin-top: 10px;
+
+        .button {
+          background-color: $base-orange;
+          color:$white;
+          padding: 0 10px;
+          font-family: $font-base;
+          text-transform: uppercase;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }

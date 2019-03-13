@@ -25,8 +25,8 @@ slick-wrapper(
       on-change-amount="productVm.onChangeChildrenItem"
     )
 
-.list.list-inset
-  label.item.item-input.item-stacked-label.observaciones-wrapper
+.list.list-inset.observaciones-wrapper
+  label.item.item-input.item-stacked-label.observaciones
     span.input-label {{ ::('cart.observations' | translate) }}
     textarea(
       msd-elastic

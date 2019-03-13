@@ -1,8 +1,8 @@
 .provider-show-customer-order {
-  font-family: Ubuntu-Light;
+  font-family: $font-light;
 
   h1, h2, h3, h4 {
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
   }
 
   .button-block {

@@ -24,9 +24,9 @@
       position: absolute;
       margin: auto;
       right: 0;
-      font-size: 12px;
+      font-size: $font-s;
       line-height: 12px;
-      font-family: Ubuntu-Regular;
+      font-family: $font-base;
     }
   }
 }
@@ -48,7 +48,7 @@
   }
 
   .title {
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
     color: $white;
   }
 }

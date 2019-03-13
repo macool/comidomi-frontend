@@ -275,7 +275,7 @@
         clientSearch: 'Buscar cliente',
         notas: 'Notas',
         ruc: 'Ruc',
-        nombres: 'Nombres',
+        nombres: 'Nombre',
         direccion: 'Dirección',
         telefono: 'Teléfono',
         ciudad: 'Ciudad',
@@ -452,7 +452,7 @@
       },
       order: {
         submittedAt: 'Enviada',
-        observations: 'Observaciones',
+        observations: 'El cliente dejó este mensaje',
         customerInfo: 'Información de Cliente',
         invoiceInfo: 'Datos de Facturación',
         dispatchAt: 'Hora de despacho',

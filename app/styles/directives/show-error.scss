@@ -5,7 +5,7 @@
 .errors-wrapper,
 .message-error {
   color: $error-red;
-  font-family: Ubuntu-Light;
+  font-family: $font-light;
 
   .bottom-spaced {
     margin-bottom: 10px;

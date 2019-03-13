@@ -1,5 +1,5 @@
 .category-page {
-  font-family: Ubuntu-Regular;
+  font-family: $font-base;
   background-origin: content-box;
   background-repeat: no-repeat;
   background-size: cover;
@@ -7,7 +7,7 @@
   color: $white;
 
   .category-title {
-    font-family: Ubuntu-Bold;
+    font-family: $font-bold;
     font-size: 50px;
     line-height: 65px;
     margin-top: 50px;

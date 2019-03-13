@@ -4,21 +4,31 @@
 }
 
 @font-face {
-  font-family: Ubuntu-Regular;
-  src: URL("../fonts/Ubuntu-R.ttf");
+  font-family: Roboto-Medium;
+  src: URL("../fonts/Roboto-Medium.ttf");
 }
 
 @font-face {
-  font-family: Ubuntu-Light;
-  src: URL("../fonts/Ubuntu-L.ttf");
+  font-family: Roboto-Light;
+  src: URL("../fonts/Roboto-Light.ttf");
 }
 
 @font-face {
-  font-family: Ubuntu-Bold;
-  src: URL("../fonts/Ubuntu-B.ttf");
+  font-family: Roboto-Regular;
+  src: URL("../fonts/Roboto-Regular.ttf");
 }
 
 @font-face {
-  font-family: Ubuntu-Medium;
-  src: URL("../fonts/Ubuntu-M.ttf");
+  font-family: Roboto-Bold;
+  src: URL("../fonts/Roboto-Bold.ttf");
 }
+
+$font-base: 'Roboto-Regular';
+$font-semibold: 'Roboto-Medium';
+$font-bold: 'Roboto-Bold';
+$font-light: 'Roboto-Light';
+
+$font-l: 16px;
+$font-m: 14px;
+$font-s: 12px;
+$font-xs: 10px;

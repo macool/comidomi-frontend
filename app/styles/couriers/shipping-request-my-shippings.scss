@@ -1,5 +1,5 @@
 .courier-shipping-request-my-shippings {
-  font-family: Ubuntu-Light;
+  font-family: $font-light;
   color: $base-grey;
   background-color: $light-grey;
 
@@ -11,7 +11,7 @@
 
   .shipping-request-container {
     background-color: $white;
-    margin:  20px 20px 0 20px;
+    margin: 20px 20px 0;
 
     .shipping-request {
       width: 100%;
@@ -39,7 +39,6 @@
         }
       }
 
-
       .row {
         padding: 3px 20px;
 
@@ -51,7 +50,7 @@
           padding: 5px 0;
 
           .status {
-            font-family: Ubuntu-Regular;
+            font-family: $font-base;
           }
 
           shipping-request-dispatch-at {
@@ -61,7 +60,7 @@
           }
 
           &.time {
-            font-size: 14px;
+            font-size: $font-m;
 
             humanized-countdown-time {
               color: $base-black;
@@ -80,14 +79,19 @@
           .details {
             .name {
               color: $base-black;
-              font-family: Ubuntu-Regular;
+              font-family: $font-base;
+              font-family: $font-semibold;
+              text-transform: uppercase;
             }
 
             .cost {
-              font-family: Ubuntu-Light;
-              font-size: 14px;
-            }
+              font-family: $font-light;
+              font-size: $font-m;
 
+              .semibold {
+                font-family: $font-semibold;
+              }
+            }
           }
 
           .img-provider {
@@ -103,6 +107,6 @@
 
 shipping-request-dispatch-at {
   humanized-countdown-time {
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
   }
 }

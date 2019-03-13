@@ -16,7 +16,7 @@
       font-size: 16px;
       line-height: 30px;
       margin: 0 0 15px 0;
-      font-family: Ubuntu-Light;
+      font-family: $font-light;
     }
   }
 
@@ -28,7 +28,7 @@
 .profile-page {
   .information {
     margin: 0 20px;
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
     color: $base-grey;
 
     .wrapper {
@@ -37,10 +37,10 @@
       border-bottom: 1px solid $medium-grey;;
       padding: 10px 0;
       margin: 10px 0;
-      font-size: 14px;
+      font-size: $font-m;
 
       .label {
-        font-family: Ubuntu-Regular;
+        font-family: $font-base;
         color: $base-black;
       }
 
@@ -57,7 +57,7 @@
   .empty-addressess {
     text-align: center;
     margin: 20px 0;
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
     color: $base-grey;
   }
 
@@ -79,8 +79,8 @@
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
         .label, .value {
-          font-family: Ubuntu-Regular;
-          font-size: 12px;
+          font-family: $font-base;
+          font-size: $font-s;
 
           &.muted {
             color:$base-grey;
@@ -88,8 +88,8 @@
         }
 
         .resource-detail-title {
-          font-family: Ubuntu-Regular;
-          font-size: 14px;
+          font-family: $font-base;
+          font-size: $font-m;
           margin-bottom: 5px;
           color: $base-darkteal;
         }
@@ -107,7 +107,7 @@
       line-height: 18px;
       margin-bottom: 5px;
       margin-left: 5px;
-      font-size: 12px;
+      font-size: $font-s;
     }
   }
 }

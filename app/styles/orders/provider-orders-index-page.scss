@@ -1,15 +1,15 @@
 .provider-orders-index-page{
-  font-family: Ubuntu-Light;
+  font-family: $font-light;
   color: $base-grey;
 
   .page-title {
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
 
     h2 {
       color: $base-grey;
       font-size: 22px;
       line-height: 24px;
-      font-family: Ubuntu-Regular;
+      font-family: $font-base;
       text-transform: capitalize;
     }
   }

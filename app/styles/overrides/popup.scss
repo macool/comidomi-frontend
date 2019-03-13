@@ -2,16 +2,16 @@
   // overriding popup for ion datetime picker
   .popup-head {
     h3 {
-      font-family: Ubuntu-Regular;
+      font-family: $font-base;
     }
   }
   .popup-sub-title {
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
   }
   select, .year-input input {
-    font-family: Ubuntu-Regular;
+    font-family: $font-base;
   }
   .popup-body {
-    font-family: Ubuntu-Light;
+    font-family: $font-light;
   }
 }

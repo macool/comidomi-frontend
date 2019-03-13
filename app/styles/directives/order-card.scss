@@ -1,4 +1,4 @@
-.order-card {		
+.order-card {
 	.shipping-request-container {
 		background-color: $white;
 		margin:  20px 20px 0 20px;
@@ -17,7 +17,7 @@
 					align-items: center;
 					flex-basis: 100%;
 					padding: 5px 0;
-	
+
 					shipping-request-dispatch-at {
 						display: flex;
 						justify-content: space-between;
@@ -25,12 +25,12 @@
 					}
 
 					&.time {
-						font-size: 12px;
+						font-size: $font-s;
 
 						span {
-							font-family: Ubuntu-Regular;
+							font-family: $font-base;
 						}
-		
+
 						.time-date {
 							color: $base-black;
 						}
@@ -47,7 +47,7 @@
 
 						&.no-border {
 							border-bottom: none;
-							padding: 10px 0 0 0;
+							padding: 8px 0 0 0;
 						}
 					}
 
@@ -61,14 +61,14 @@
 						}
 
 						.label {
-							font-size: 10px;
-							font-family: Ubuntu-Regular;
+							font-size: $font-xs;
+							font-family: $font-base;
 							text-transform: uppercase;
 						}
 
 						.name {
 							color: $base-black;
-							font-family: Ubuntu-Regular;
+							font-family: $font-base;
 							text-transform: uppercase;
 
 							&.highlight {
@@ -77,8 +77,8 @@
 						}
 
 						.cost {
-							font-family: Ubuntu-Light;
-							font-size: 12px;
+							font-family: $font-light;
+							font-size: $font-s;
 						}
 
 					}
