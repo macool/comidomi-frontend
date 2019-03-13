@@ -44,7 +44,7 @@ ion-view(
                 .cost
                   span
                     | {{ ::("order.summary.subtotal" | translate) }}
-                  span.strong
+                  span.semibold
                     | &nbsp;
                     price(amount="{{order.customer_order.subtotal_items_cents}}"
                           currency="{{order.customer_order.subtotal_items_currency}}")
@@ -52,7 +52,7 @@ ion-view(
                   span
                     | &nbsp;
                     | {{ ::("order.summary.shipping" | translate) }}
-                  span.strong
+                  span.semibold
                     | &nbsp;
                     price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
                           currency="{{order.customer_order.subtotal_items_currency}}")

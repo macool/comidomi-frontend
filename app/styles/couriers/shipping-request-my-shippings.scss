@@ -11,7 +11,7 @@
 
   .shipping-request-container {
     background-color: $white;
-    margin:  20px 20px 0 20px;
+    margin: 20px 20px 0;
 
     .shipping-request {
       width: 100%;
@@ -38,7 +38,6 @@
           color: $white;
         }
       }
-
 
       .row {
         padding: 3px 20px;
@@ -81,13 +80,18 @@
             .name {
               color: $base-black;
               font-family: $font-base;
+              font-family: $font-semibold;
+              text-transform: uppercase;
             }
 
             .cost {
               font-family: $font-light;
               font-size: $font-m;
-            }
 
+              .semibold {
+                font-family: $font-semibold;
+              }
+            }
           }
 
           .img-provider {

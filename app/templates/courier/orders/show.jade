@@ -11,7 +11,7 @@ ion-view.shipping-request-show-page(
         ng-class="{'not-load-map': coVm.mapIsHidden }"
       )
         #order-map(data-tap-disabled="true")
-        
+
       .cards-order
         .card-order.invoice(
             ng-if="!coVm.customerOrder.anon_billing_address"
@@ -30,7 +30,9 @@ ion-view.shipping-request-show-page(
               .details.start
                 .label {{ "client.ruc" | translate }}
                 .name {{ ::(coVm.customerOrder.customer_billing_address.ruc) }}
-              .details.end
+              .details.end(
+                ng-if="coVm.customerOrder.customer_billing_address.telefono"
+              )
                 .label {{ "client.telefono" | translate }}
                 .name {{ ::(coVm.customerOrder.customer_billing_address.telefono) }}
           .row.information
@@ -38,14 +40,16 @@ ion-view.shipping-request-show-page(
               .details.start
                 .label {{ "client.direccion" | translate }}
                 .name {{ ::(coVm.customerOrder.customer_billing_address.direccion) }}
-                
-          .row.information
+
+          .row.information(
+              ng-if="coVm.customerOrder.customer_billing_address.email"
+            )
             .order-info.no-border
               .details.start
                 .label {{ "client.email" | translate }}
                 .name {{ ::(coVm.customerOrder.customer_billing_address.email) }}
 
-        .card-order
+        .card-order.customerInfo
           .row.user.information
             .order-info
               .details
@@ -61,7 +65,7 @@ ion-view.shipping-request-show-page(
                   .name {{ ::(coVm.customerOrder.customer_profile.name) || "N/A"}}
               .details.end
                 .label LLAMAR
-                .name 
+                .name
                   .phone-number
                     a(
                       ng-href="tel:{{coVm.customerOrder.customer_profile.phone_number}}"
@@ -90,8 +94,8 @@ ion-view.shipping-request-show-page(
               .details.start
                 .label {{ ::("addresses.reference" |translate) }}
                 .name {{ ::(coVm.customerOrderDelivery.customer_address_attributes.referencia) }}
-        
-        .card-order
+
+        .card-order.provider
           .resource-collection.user-card
             .list.list-inset.list--no-borders.resource-collection-table.narrow
               .row.table-headers
@@ -124,32 +128,34 @@ ion-view.shipping-request-show-page(
                       price(amount="{{ ::coVm.totalOrder }}"
                             currency="{{coVm.customerOrder.subtotal_items_currency}}")
 
-      .card-order(
-        ng-if="coVm.customerOrder.observaciones"
-      )
-        .row.user.information
-          .order-info
-            .details
-              .name.semibold {{ ::("order.observations"|translate) }}
-        .row.information
-          .order-info.no-border
-            .details.start
-              .name {{ ::coVm.customerOrder.observaciones }}
+        .card-order.observations(
+          ng-if="coVm.customerOrder.observaciones"
+        )
+          .row.user.information
+            .order-info
+              .details
+                .name.semibold {{ ::("order.observations"|translate) }}
+          .row.information
+            .order-info.no-border
+              .details.start
+                .name {{ ::coVm.customerOrder.observaciones }}
 
-  ion-footer-bar.bar-stable.text-center(
+  ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall(
     ng-if="coVm.order.status !== 'delivered'"
   )
-    button.button.button-outline.button-energized.button-small(
+    button.button-full.button-main(
       ng-if="coVm.order.status === 'new'"
       ng-click="coVm.showTakeRequestModal()"
     )
       | {{ ::("shippingRequest.takeRequest" | translate) }}
-    button.button.button-outline.button-energized.button-small(
+
+    button.button-full.button-main(
       ng-if="coVm.order.status === 'assigned'"
       ng-click="coVm.courierIsInStore()"
     )
       | {{ ::("shippingRequest.pickingUp" | translate) }}
-    button.button.button-outline.button-energized.button-small(
+
+    button.button-full.button-main(
       ng-if="coVm.order.status === 'in_progress'"
       ng-click="coVm.courierHasDelivered()"
     )

@@ -17,106 +17,156 @@
     margin: 10px 0;
   }
 
-  .shipping-request-container {
-    background-color: $base-darkteal;
-    color: $white;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    margin:  20px 20px 0 20px;
-    padding: 10px 0;
+  .cards-order{
+    margin: 20px;
 
-    .shipping-request {
+    .card-order {
       width: 100%;
       display: block;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: $base-darkteal;
+      color: $white;
 
       .row {
-        padding: 5px 20px;
+        padding: 3px 0;
 
         .order-info {
           display: flex;
           justify-content: space-between;
-          align-items: center;
+          align-items: baseline;
           flex-basis: 100%;
-        }
+          padding: 5px 0;
 
-        .icon {
-          color: $white;
-          background: $base-orange;
-          width: 36px;
-          height: 30px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 4px;
-        }
-
-        .details {
-          .information.logo-image {
+          shipping-request-dispatch-at {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
+            width: 100%;
           }
-        }
 
-        &.order-row {
-
-          .label {
-            font-family: $font-semibold;
-            color: $base-teal;
-            text-transform: uppercase;
+          &.time {
             font-size: $font-s;
-            line-height: 14px;
-          }
 
-          .information {
-            font-family: $font-base;
-            color: $white;
-            font-size: 16px;
-            line-height: 18px;
-            letter-spacing: -0.5px;
-            margin-bottom: 5px;
+            span {
+              font-family: $font-base;
+            }
 
-            &.logo-image {
-              margin-top: 2px;
-
-              .image {
-                width: 35px;
-                height: 35px;
-              }
-
-              .name {
-                margin-left: 10px;
-              }
+            .time-date {
+              color: $base-black;
             }
           }
 
+          .action {
+            color: $white;
+            background: $base-orange;
+            width: 36px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+          }
+
+          button {
+            padding: 0;
+          }
+
           .image {
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
           }
         }
 
-        .separator {
-          border-top: 1px solid $base-teal;
-          width: 100%;
-          padding-top: 10px;
-          margin-top: 10px;
+        &.information {
+          display: flex;
+          flex-direction: column;
 
-          .button {
-            background-color: $base-orange;
-            color:$white;
-            padding: 0 10px;
-            font-family: $font-base;
-            text-transform: uppercase;
-            cursor: pointer;
+          .order-info {
+            border-bottom: 1px solid $base-grey;
+            padding: 10px 0;
+
+            &.no-border {
+              border-bottom: none;
+              padding: 8px 0 0 0;
+            }
+          }
+
+          .details {
+            &.end {
+              text-align: end;
+              flex-basis: 20%;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+            }
+
+            &.start {
+              text-align: start;
+              flex-basis: 80%;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+            }
+
+            .label {
+              font-size: $font-xs;
+              font-family: $font-base;
+              text-transform: uppercase;
+              color: $base-teal;
+            }
+
+            .name {
+              font-family: $font-base;
+              text-transform: uppercase;
+
+              &.highlight {
+                color: $base-teal;
+              }
+
+              &.semibold {
+                font-family: $font-semibold;
+              }
+            }
+
+            .cost {
+              font-family: $font-light;
+              font-size: $font-s;
+            }
+
+            .user {
+              display: flex;
+
+              .name {
+                margin-left: 5px;
+              }
+            }
+
+          }
+
+          .img-provider {
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
           }
         }
       }
-    }
-  }
-}
 
-shipping-request-dispatch-at {
-  humanized-countdown-time {
-    font-family: $font-base;
+      .separator {
+        border-top: 1px solid $base-teal;
+        width: 100%;
+        padding-top: 10px;
+        margin-top: 10px;
+
+        .button {
+          background-color: $base-orange;
+          color:$white;
+          padding: 0 10px;
+          font-family: $font-base;
+          text-transform: uppercase;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
