@@ -177,7 +177,7 @@
     }
 
     function showCheckoutModal() {
-      if (needsToAddPhoneNumber()){
+      if (needsToAddPhoneNumberOrName()){
         closeModal().then(function(){
           $scope.userAddPhone = {
             closeModal: closeModal,
@@ -479,8 +479,8 @@
       return cartVm.addresses.length === 0 && anyDeliveryIsShipping();
     }
 
-    function needsToAddPhoneNumber(){
-      return !cartVm.user.phone_number;
+    function needsToAddPhoneNumberOrName(){
+      return !cartVm.user.phone_number || !cartVm.user.name;
     }
 
     function chooseAnonBillingAddress(){

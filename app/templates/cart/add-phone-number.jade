@@ -18,7 +18,20 @@ ion-modal-view
           .ui-icon-wrapper
             i.icon.ion-iphone
 
-          .phone-number-intro {{ ::("client.pleaseProvidePhoneNumber" | translate) }}
+          .phone-number-intro {{ ::("client.pleaseProvidePhoneNumberAndName" | translate) }}
+
+          label.item.item-input.item-stacked-label(
+            ng-class="{'item-error': userAddPhone.messages.phone_number}"
+          )
+            span.input-label {{::("user.name"|translate)}}
+            input(
+              type="text"
+              ng-model="userAddPhone.userEdit.name"
+              ng-focus="userAddPhone.scrollToBottom()"
+              required
+            )
+          .errors-wrapper
+            show-error(array-messages="userAddPhone.messages.name")
 
           label.item.item-input.item-stacked-label(
             ng-class="{'item-error': userAddPhone.messages.phone_number}"
