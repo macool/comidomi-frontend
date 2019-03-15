@@ -1,50 +1,43 @@
-ion-view(
+ion-view.addresses-page(
   view-title="{{::('profile.tabs.addresses'|translate)}}"
 )
   ion-nav-title
     .alt-logo
 
-  ion-content.addresses-page
-    .empty-addressess(ng-if="!pfaVm.addresses.length") 
+  ion-content.addresses-content
+    .empty-addressess(ng-if="!pfaVm.addresses.length")
       | {{::('addresses.noAddressesSaved'|translate)}}
     .addresses-wrapper.addresses-wrapper--fix-scroll
-      .address-wrapper(
+      .card-information(
         ng-repeat="address in ::pfaVm.addresses"
+        ng-click="pfaVm.redirectToUpdateAddressView(address.id)"
       )
-        .address-card
-          .row
-            .col.col-50.resource-detail-title {{ address.nombre || address.direccion_uno }}
-            .col.col-50
-              button.button.button-clear.button-secondary.edit-address-btn(
-                ng-click="pfaVm.redirectToUpdateAddressView(address.id)"
-              ) {{::('globals.edit'|translate)}}
-          img.static-map-preview(
-            ng-src="{{address.static_map_image}}"
-          )
-          .row(ng-if="address.ciudad")
-            .col.col-40.label.muted {{::('addresses.city'|translate)}}
-            .col.col-60.value {{address.ciudad}}
-          .row(ng-if="address.parroquia")
-            .col.col-40.label.muted {{::('addresses.parish'|translate)}}
-            .col.col-60.value {{ ::address.parroquia }}
-          .row(ng-if="address.barrio")
-            .col.col-40.label.muted {{::('addresses.neighborhood'|translate)}}
-            .col.col-60.value {{ ::address.barrio }}
-          .row(ng-if="address.direccion_uno")
-            .col.col-40.label.muted {{::('addresses.addressOne'|translate)}}
-            .col.col-60.value {{address.direccion_uno}}
-          .row(ng-if="address.direccion_dos")
-            .col.col-40.label.muted {{::('addresses.addressTwo'|translate)}}
-            .col.col-60.value {{address.direccion_dos}}
-          .row(ng-if="address.codigo_postal")
-            .col.col-40.label.muted {{::('addresses.zipCode'|translate)}}
-            .col.col-60.value {{ ::address.codigo_postal }}
-          .row(ng-if="address.referencia")
-            .col.col-40.label.muted {{::('addresses.reference'|translate)}}
-            .col.col-60.value {{address.referencia}}
-          .row(ng-if="address.numero_convencional")
-            .col.col-40.label.muted {{::('addresses.telephoneNumber'|translate)}}
-            .col.col-60.value {{ ::address.numero_convencional }}
+        .row.user.information
+          .row-info
+            .details
+              .name.semibold {{ address.nombre || address.direccion_uno }}
+        .row.information
+          .row-info.no-border
+            .details.full
+              .map-image
+                img.image.map(
+                  ng-src="{{ address.static_map_image }}"
+                )
+        .row.information
+          .row-info.no-border
+            .details.start
+              .label {{::('addresses.addressOne'|translate)}}
+              .name {{address.direccion_uno}}
+        .row.information(ng-if="address.direccion_dos")
+          .row-info.no-border
+            .details.start
+              .label {{::('addresses.addressTwo'|translate)}}
+              .name {{address.direccion_dos}}
+        .row.information(ng-if="address.referencia")
+          .row-info.no-border
+            .details.start
+              .label {{::('addresses.reference'|translate)}}
+              .name {{address.referencia}}
 
   ion-footer-bar.bar-stable.bar-footer--tall
     button.button-full.button-main(
