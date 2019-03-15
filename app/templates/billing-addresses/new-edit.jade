@@ -99,8 +99,8 @@ ion-modal-view
         .errors-wrapper
           show-error(array-messages="billingAddressesVm.messages.telefono")
 
-    .bar.bar-footer.bar-stable
-      button.button.button-small.button-outline.button-energized(
+    ion-footer-bar.bar-stable.bar-footer--tall
+      button.button-full.button-main(
         type="submit"
         ng-disabled="billingAddressesVm.form.$invalid"
       ) {{::("globals.save"|translate)}}
