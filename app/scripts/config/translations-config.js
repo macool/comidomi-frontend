@@ -501,7 +501,7 @@
       },
       billingAddress: {
         legendForm: 'Dirección de facturación',
-        newBillingAddress: 'agregar datos de facturación',
+        newBillingAddress: 'Agregar datos de facturación',
         anyBillingAddress: 'no has registrado tus datos para facturación',
         successSave: 'La dirección de facturación ha sido guardado éxitosamente',
         successUpdate: 'La dirección de facturación ha sido actualizado éxitosamente',

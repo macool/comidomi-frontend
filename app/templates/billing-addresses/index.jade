@@ -1,35 +1,49 @@
-ion-view(
+ion-view.billing-addresses-page(
   view-title="{{::('billingAddress.legendForm'|translate)}}"
 )
   ion-nav-title
     .alt-logo
-  ion-content.resource-collection
-    .row
-      .list.list--centered
-        button.button.button-outline.button-default-action(
-          ng-click="billingAddressesVm.showNewModal()"
-        ) {{::("billingAddress.newBillingAddress"|translate)}}
-      
-    .list.list-inset.list--no-borders.resource-collection-table
-      .row.table-headers
-        .col.col-40
-          strong {{::("client.ruc"|translate)}}
-        .col.col-40
-          strong {{::("provider.businessName"|translate)}}
-        .col.col-20
-        
-      .item.row(
-        ng-repeat='item in billingAddressesVm.billingAddresses'
-      )
-        .col.col-40.text-ellipsis {{ ::item.ruc}}
-        .col.col-40.text-ellipsis {{ ::item.razon_social}}
-        .col.col-20
-          a.action(
-            ng-click='billingAddressesVm.showEditModal(item, $index)'
-          )
-            | {{::("globals.edit"|translate)}}
+  ion-content.billing-addresses-content
+    .billing-addresses
+      .card-information.invoice(
+          ng-repeat='item in billingAddressesVm.billingAddresses'
+          ng-click='billingAddressesVm.showEditModal(item, $index)'
+        )
+        .row.user.information
+          .row-info
+            .details
+              .name.semibold {{ ::("order.invoiceInfo"|translate) }}
+            .details
+              .name.semibold # {{ $index + 1 }}
+        .row.information
+          .row-info.no-border
+            .details.start
+              .label {{ "client.razonSocial" | translate }}
+              .name {{ ::(item.razon_social) }}
+        .row.information
+          .row-info.no-border
+            .details.start
+              .label {{ "client.ruc" | translate }}
+              .name {{ ::(item.ruc) }}
+            .details.end(
+              ng-if="item.telefono"
+            )
+              .label {{ "client.telefono" | translate }}
+              .name {{ ::(item.telefono) }}
+        .row.information
+          .row-info.no-border
+            .details.start
+              .label {{ "client.direccion" | translate }}
+              .name {{ ::(item.direccion) }}
+        .row.information(
+              ng-if="item.email"
+            )
+            .row-info.no-border
+              .details.start
+                .label {{ "client.email" | translate }}
+                .name {{ ::(item.email) }}
 
-      .col.without-items(
-        ng-if="billingAddressesVm.billingAddresses.length === 0"
-      )
-        p {{::("billingAddress.anyBillingAddress"|translate)}}
+  ion-footer-bar.bar-stable.bar-footer--tall
+      button.button-full.button-main(
+        ng-click="billingAddressesVm.showNewModal()"
+      ) {{::("billingAddress.newBillingAddress"|translate)}}
