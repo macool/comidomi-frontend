@@ -43,11 +43,13 @@
     text-justify: center;
     text-align: center;
     padding: 10px 0;
-    border-bottom: 2px solid $medium-grey;
+    border-bottom: 2.5px solid $medium-grey;
+    text-decoration: none;
+    color: $base-grey;
 
     &.selected {
       color: $base-orange;
-      border-bottom: 2px solid $base-orange;
+      border-bottom: 2.5px solid $base-orange;
     }
   }
 }

@@ -27,7 +27,7 @@
 
     function newShippingRequest(data){
       if (data.wasTapped) {
-        $state.go('courier.orders');
+        $state.go('courier.orders.new');
       }
     }
   }

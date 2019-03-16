@@ -18,6 +18,18 @@
     orVm.totalOrders = 0;
     orVm.mapRendered = mapRendered;
     orVm.showTakeRequestModal = showTakeRequestModal;
+    orVm.currentTab= 'new';
+
+    orVm.tabs = [
+      {
+        key: 'new',
+        sref: 'courier.orders.new'
+      },
+      {
+        key: 'inProgress',
+        sref: 'courier.orders.shippings({type:"inProgress"})'
+      },
+    ];
 
     init();
 

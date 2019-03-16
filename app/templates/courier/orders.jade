@@ -4,6 +4,13 @@ ion-view(
   ion-nav-title
     .alt-logo
   ion-content.courier-shipping-request-index-list.courier-shipping-request-common
+    .filter-tabs
+      a.filter-tab(
+        ng-repeat="tab in ::orVm.tabs"
+        ui-sref="{{::tab.sref}}"
+        ng-class='{"selected": state.current.name === tab.sref}'
+      )
+        | {{ ("orders." + tab.key | translate) }}
     .list--top-narrow
       span
         | {{ ::("courier.labels.found" | translate) }}

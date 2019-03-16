@@ -61,7 +61,7 @@
           account: 'Cuenta',
           payments: 'Pagos',
           history: 'Historial',
-          myShipping: 'Mis Pedidos'
+          myShipping: 'Historial de Pedidos'
         },
         dispatcher: {
           dispatch: 'Despachos'
@@ -445,6 +445,7 @@
         completed: 'Completados',
         inProgress: 'En progreso',
         delivered: 'Entregados',
+        new: 'Nuevos',
         have: 'Tienes',
         ordersPendings: 'Pedidos pendientes',
         ordersEmpty: 'No hay pedidos',

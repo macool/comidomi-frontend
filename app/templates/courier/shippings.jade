@@ -4,7 +4,18 @@ ion-view(
   ion-nav-title
     .alt-logo
   ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common
-    .filter-tabs
+    .filter-tabs(
+      ng-if="shVm.showFilterTab"
+    )
+      a.filter-tab(
+        ng-repeat="tab in ::shVm.mainTabs"
+        ui-sref="{{::tab.sref}}"
+        ng-class='{"selected": state.current.name === tab.sref}'
+      )
+        | {{ ("orders." + tab.key | translate) }}
+    .filter-tabs(
+      ng-if="!shVm.showFilterTab"
+    )
       .filter-tab(
         ng-repeat="tab in ::shVm.tabs"
         ng-click="shVm.switchTab(tab.key)"
