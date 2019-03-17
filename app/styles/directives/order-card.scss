@@ -1,7 +1,7 @@
 .order-card {
 	.shipping-request-container {
 		background-color: $white;
-		margin:  20px 20px 0 20px;
+		margin: 20px 20px 0;
 
 		.shipping-request {
 			width: 100%;
@@ -47,7 +47,7 @@
 
 						&.no-border {
 							border-bottom: none;
-							padding: 8px 0 0 0;
+							padding: 8px 0 0;
 						}
 					}
 
@@ -76,15 +76,14 @@
 							}
 
 							&.semibold {
-                font-family: $font-semibold;
-              }
+								font-family: $font-semibold;
+							}
 						}
 
 						.cost {
 							font-family: $font-light;
 							font-size: $font-s;
 						}
-
 					}
 
 					.img-provider {

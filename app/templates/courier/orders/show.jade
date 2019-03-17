@@ -13,20 +13,20 @@ ion-view.shipping-request-show-page(
         #order-map(data-tap-disabled="true")
 
       .cards-order
-        .card-order.invoice(
+        .card-information.invoice(
             ng-if="!coVm.customerOrder.anon_billing_address"
           )
           .row.user.information
-            .order-info
+            .row-info
               .details
                 .name.semibold {{ ::("order.invoiceInfo"|translate) }}
           .row.information
-            .order-info.no-border
+            .row-info.no-border
               .details.start
                 .label {{ "client.razonSocial" | translate }}
                 .name {{ ::(coVm.customerOrder.customer_billing_address.razon_social) }}
           .row.information
-            .order-info.no-border
+            .row-info.no-border
               .details.start
                 .label {{ "client.ruc" | translate }}
                 .name {{ ::(coVm.customerOrder.customer_billing_address.ruc) }}
@@ -36,7 +36,7 @@ ion-view.shipping-request-show-page(
                 .label {{ "client.telefono" | translate }}
                 .name {{ ::(coVm.customerOrder.customer_billing_address.telefono) }}
           .row.information
-            .order-info.no-border
+            .row-info.no-border
               .details.start
                 .label {{ "client.direccion" | translate }}
                 .name {{ ::(coVm.customerOrder.customer_billing_address.direccion) }}
@@ -44,22 +44,22 @@ ion-view.shipping-request-show-page(
           .row.information(
               ng-if="coVm.customerOrder.customer_billing_address.email"
             )
-            .order-info.no-border
+            .row-info.no-border
               .details.start
                 .label {{ "client.email" | translate }}
                 .name {{ ::(coVm.customerOrder.customer_billing_address.email) }}
 
-        .card-order.customerInfo
+        .card-information.customerInfo
           .row.user.information
-            .order-info
+            .row-info
               .details
                 .name.semibold {{ ::("order.customerInfo"|translate) }}
           .row.information
-            .order-info.no-border
+            .row-info.no-border
               .details.start
                 .label {{ "client.nombres" | translate }}
                 .user
-                  img.image(
+                  img.img-provider(
                     ng-src="{{ coVm.customerOrder.customer_profile.image_url }}"
                   )
                   .name {{ ::(coVm.customerOrder.customer_profile.name) || "N/A"}}
@@ -75,7 +75,7 @@ ion-view.shipping-request-show-page(
                         size="20"
                       )
           .row.information
-            .order-info.no-border
+            .row-info.no-border
               .details.start
                 .label {{ ::("courier.deliveryAddresses" |translate) }}
                 .name {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_uno) }}
@@ -90,12 +90,12 @@ ion-view.shipping-request-show-page(
                       size="20"
                     )
           .row.information
-            .order-info.no-border
+            .row-info.no-border
               .details.start
                 .label {{ ::("addresses.reference" |translate) }}
                 .name {{ ::(coVm.customerOrderDelivery.customer_address_attributes.referencia) }}
 
-        .card-order.provider
+        .card-information.provider
           .resource-collection.user-card
             .list.list-inset.list--no-borders.resource-collection-table.narrow
               .row.table-headers
@@ -128,15 +128,15 @@ ion-view.shipping-request-show-page(
                       price(amount="{{ ::coVm.totalOrder }}"
                             currency="{{coVm.customerOrder.subtotal_items_currency}}")
 
-        .card-order.observations(
+        .card-information.observations(
           ng-if="coVm.customerOrder.observaciones"
         )
           .row.user.information
-            .order-info
+            .row-info
               .details
                 .name.semibold {{ ::("order.observations"|translate) }}
           .row.information
-            .order-info.no-border
+            .row-info.no-border
               .details.start
                 .name {{ ::coVm.customerOrder.observaciones }}
 

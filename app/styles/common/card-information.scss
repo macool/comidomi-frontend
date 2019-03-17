@@ -131,6 +131,12 @@
 				.user {
 					display: flex;
 
+					.img-provider {
+						width: 35px;
+						height: 35px;
+						margin-right: 10px;
+					}
+
 					.name {
 						margin-left: 5px;
 					}
@@ -171,6 +177,41 @@
 		.value {
 			font-family: $font-bold;
 			font-size: $font-s;
+		}
+	}
+
+	.separator {
+		border-top: 1px solid $base-teal;
+		width: 100%;
+		padding-top: 10px;
+		margin-top: 10px;
+
+		.button {
+			background-color: $base-orange;
+			color:$white;
+			padding: 0 10px;
+			font-family: $font-base;
+			text-transform: uppercase;
+			cursor: pointer;
+		}
+	}
+
+	&.dark-mode {
+		background-color: $base-darkteal;
+		color: $white;
+
+		.row {
+			&.information {
+				.details {
+					.label {
+						color: $base-teal;
+					}
+
+					.name {
+						color: $white;
+					}
+				}
+			}
 		}
 	}
 }
