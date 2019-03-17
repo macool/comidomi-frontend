@@ -61,7 +61,7 @@
           account: 'Cuenta',
           payments: 'Pagos',
           history: 'Historial',
-          myShipping: 'Mis Pedidos'
+          myShipping: 'Historial de Pedidos'
         },
         dispatcher: {
           dispatch: 'Despachos'
@@ -207,7 +207,8 @@
         geolocation: 'Geolocalizando...',
         somethingWentWrong: 'Algo salió mal',
         noInformation: 'No has registrado este campo',
-        providerClose: 'Podrás hacer pedidos cuando {{providerName}} esté disponible'
+        providerClose: 'Podrás hacer pedidos cuando {{providerName}} esté disponible',
+        seeDetails: 'Ver detalles'
       },
       item: {
         item: 'Producto',
@@ -445,6 +446,7 @@
         completed: 'Completados',
         inProgress: 'En progreso',
         delivered: 'Entregados',
+        new: 'Nuevos',
         have: 'Tienes',
         ordersPendings: 'Pedidos pendientes',
         ordersEmpty: 'No hay pedidos',
@@ -501,7 +503,7 @@
       },
       billingAddress: {
         legendForm: 'Dirección de facturación',
-        newBillingAddress: 'agregar datos de facturación',
+        newBillingAddress: 'Agregar datos de facturación',
         anyBillingAddress: 'no has registrado tus datos para facturación',
         successSave: 'La dirección de facturación ha sido guardado éxitosamente',
         successUpdate: 'La dirección de facturación ha sido actualizado éxitosamente',

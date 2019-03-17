@@ -24,9 +24,9 @@ ion-modal-view.cart-edit-item-modal.slim-modal
 
   ion-footer-bar.bar-stable.text-center
     .constraint-width
-      button.button.button-outline.button-assertive.button-small.button-letter-stretched(
+      button.button-full.button-main.button-remove(
         ng-click="cartVm.removeOrderItem(cartVm.currentItem)"
       ) {{ ::("globals.delete" | translate) }}
-      button.button.button-outline.button-positive.button-small.button-letter-stretched(
+      button.button-full.button-main(
         ng-click="cartVm.updateOrderItem()"
       ) {{ ::("globals.save" | translate) }}

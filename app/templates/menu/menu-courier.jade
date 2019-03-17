@@ -15,8 +15,8 @@ ion-side-menus(enable-menu-with-back-views='false')
 
         ion-item(
           menu-close=''
-          ui-sref='courier.orders'
-          ng-class='{"selected": state.current.name === "courier.orders"}'
+          ui-sref='courier.orders.new'
+          ng-class='{"selected": state.current.name === "courier.orders.new"}'
         )
           ng-md-icon.icon(
             icon="shopping_cart"
@@ -25,8 +25,8 @@ ion-side-menus(enable-menu-with-back-views='false')
 
         ion-item(
           menu-close=''
-          ui-sref='courier.shippings'
-          ng-class='{"selected": state.current.name === "courier.shippings"}'
+          ui-sref='courier.orders.shippings'
+          ng-class='{"selected": state.current.name === "courier.orders.shippings"}'
         )
           ng-md-icon.icon(
             icon="shopping_basket"

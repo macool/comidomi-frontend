@@ -54,6 +54,10 @@
 .addresses-page {
   background: $light-grey;
 
+  .addresses-content {
+    padding: 20px;
+  }
+
   .empty-addressess {
     text-align: center;
     margin: 20px 0;

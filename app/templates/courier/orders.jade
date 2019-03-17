@@ -4,6 +4,13 @@ ion-view(
   ion-nav-title
     .alt-logo
   ion-content.courier-shipping-request-index-list.courier-shipping-request-common
+    .filter-tabs
+      a.filter-tab(
+        ng-repeat="tab in ::orVm.tabs"
+        ui-sref="{{::tab.sref}}"
+        ng-class='{"selected": state.current.name === tab.sref}'
+      )
+        | {{ ("orders." + tab.key | translate) }}
     .list--top-narrow
       span
         | {{ ::("courier.labels.found" | translate) }}
@@ -11,59 +18,58 @@ ion-view(
         |  {{ ::("courier.labels.closeToYou" | translate) }}
 
     .cards-order
-      .shipping-request-container(
+      .card-information.dark-mode(
         ng-repeat="order in orVm.orders"
       )
-        .card-order.customerInfo
-          .row.information
-            .order-info.no-border
-              .details.start
-                .label {{ "client.client" | translate }}
-                .user
-                  img.image(
-                    ng-src="{{order.customer_order.customer_profile.image_url}}"
+        .row.information
+          .row-info.no-border
+            .details.start
+              .label {{ "client.client" | translate }}
+              .user
+                img.image(
+                  ng-src="{{order.customer_order.customer_profile.image_url}}"
+                )
+                .name {{ ::(order.customer_order.customer_profile.name) || "N/A"}}
+            .details.end
+              .label LLAMAR
+              .name
+                .phone-number
+                  a(
+                    ng-href="tel:{{order.customer_order.customer_profile.phone_number}}"
                   )
-                  .name {{ ::(order.customer_order.customer_profile.name) || "N/A"}}
-              .details.end
-                .label LLAMAR
-                .name
-                  .phone-number
-                    a(
-                      ng-href="tel:{{order.customer_order.customer_profile.phone_number}}"
+                    ng-md-icon.action(
+                      icon="phone"
+                      size="20"
                     )
-                      ng-md-icon.action(
-                        icon="phone"
-                        size="20"
-                      )
-          .row.information
-            .order-info.no-border
-              .details.start
-                .label {{ ::("courier.deliveryAddresses" | translate) }}
-                .name {{ order.customer_order_delivery.customer_address_attributes.direccion_uno }}
-                .name {{ order.customer_order_delivery.customer_address_attributes.direccion_dos }}
-          .row.information
-            .order-info.no-border
-              .details.start
-                .label {{ ::("shippingRequest.providerName" | translate) }}
-                .name {{ ::(order.provider_profile.nombre_establecimiento) }}
-          .row.information
-            .order-info.no-border
-              .details.start
-                .label {{ ::("order.summary.subtotal" | translate) }}
-                .name
-                  price(amount="{{order.customer_order.subtotal_items_cents}}"
-                       currency="{{order.customer_order.subtotal_items_currency}}")
-              .details.end
-                .label {{ ::("order.summary.shipping" | translate) }}
-                .name
-                  price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
-                        currency="{{order.customer_order.subtotal_items_currency}}")
-          .row
-            .separator
-              button.button.button-small(
-                ng-click="orVm.showTakeRequestModal(order)"
-              )
-                | {{ ::("shippingRequest.takeRequest" | translate) }}
+        .row.information
+          .row-info.no-border
+            .details.start
+              .label {{ ::("courier.deliveryAddresses" | translate) }}
+              .name {{ order.customer_order_delivery.customer_address_attributes.direccion_uno }}
+              .name {{ order.customer_order_delivery.customer_address_attributes.direccion_dos }}
+        .row.information
+          .row-info.no-border
+            .details.start
+              .label {{ ::("shippingRequest.providerName" | translate) }}
+              .name {{ ::(order.provider_profile.nombre_establecimiento) }}
+        .row.information
+          .row-info.no-border
+            .details.start
+              .label {{ ::("order.summary.subtotal" | translate) }}
+              .name
+                price(amount="{{order.customer_order.subtotal_items_cents}}"
+                      currency="{{order.customer_order.subtotal_items_currency}}")
+            .details.end
+              .label {{ ::("order.summary.shipping" | translate) }}
+              .name
+                price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
+                      currency="{{order.customer_order.subtotal_items_currency}}")
+        .row
+          .separator
+            button.button.button-small(
+              ng-click="orVm.showTakeRequestModal(order)"
+            )
+              | {{ ::("shippingRequest.takeRequest" | translate) }}
 
     .list--bottom-narrow
       p.text-center

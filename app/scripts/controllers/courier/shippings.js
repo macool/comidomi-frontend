@@ -5,7 +5,7 @@
     .module('porttare.controllers')
     .controller('ShippingController', ShippingController);
 
-  function ShippingController(shippingMyRequests, CommonService) {
+  function ShippingController(shippingMyRequests, CommonService, $stateParams) {
 
     var shVm = this;
 
@@ -14,7 +14,9 @@
     shVm.deliveredOrders = [];
     shVm.getIconStatus = CommonService.getStatusOrderIcon;
     shVm.switchTab = switchTab;
-    shVm.currentOrderType = 'inProgress';
+    shVm.currentOrderType = $stateParams.type || 'inProgress';
+    shVm.showFilterTab = !!$stateParams.type;
+    shVm.currentTab= 'new';
     shVm.tabs = [
       {
         key: 'inProgress',
@@ -23,6 +25,17 @@
       {
         key: 'delivered',
         onClick: switchTab
+      },
+    ];
+
+    shVm.mainTabs = [
+      {
+        key: 'new',
+        sref: 'courier.orders.new'
+      },
+      {
+        key: 'inProgress',
+        sref: 'courier.orders.shippings'
       },
     ];
 

@@ -14,6 +14,10 @@ function courierRoutes($stateProvider) {
   })
   .state('courier.orders', {
     url: '/orders',
+    abstract: true
+  })
+  .state('courier.orders.new', {
+    url: '/new',
     cache: false,
     views: {
       'menuContent@courier': {
@@ -23,6 +27,22 @@ function courierRoutes($stateProvider) {
         resolve: {
           shippingRequests: function (ShippingRequestService) {
             return ShippingRequestService.getShippingRequestsWithStatus('new');
+          }
+        }
+      }
+    }
+  })
+  .state('courier.orders.shippings', {
+    url: '/shippings/:type?',
+    cache: false,
+    views: {
+      'menuContent@courier': {
+        templateUrl: 'templates/courier/shippings.html',
+        controller: 'ShippingController',
+        controllerAs: 'shVm',
+        resolve: {
+          shippingMyRequests: function (ShippingRequestService) {
+            return ShippingRequestService.getMyShippingRequests();
           }
         }
       }
@@ -46,22 +66,6 @@ function courierRoutes($stateProvider) {
             } else {
               return ShippingRequestService.getShippingRequest($stateParams.id);
             }
-          }
-        }
-      }
-    }
-  })
-  .state('courier.shippings', {
-    url: '/shippings',
-    cache: false,
-    views: {
-      'menuContent@courier': {
-        templateUrl: 'templates/courier/shippings.html',
-        controller: 'ShippingController',
-        controllerAs: 'shVm',
-        resolve: {
-          shippingMyRequests: function (ShippingRequestService) {
-            return ShippingRequestService.getMyShippingRequests();
           }
         }
       }
