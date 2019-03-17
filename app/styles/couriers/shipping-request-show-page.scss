@@ -9,9 +9,12 @@
       bottom: initial;
       padding-bottom: 60px;
     }
+  }
+}
 
-    #order-map {
-      height: 100%;
-    }
+.map-page {
+  #order-map {
+    height: 800px;
+    width: 100%;
   }
 }

@@ -1,0 +1,11 @@
+ion-modal-view.map-page
+  ion-header-bar.bar-stable.bar.bar-header
+    .title {{::("order.navigation"|translate)}}
+
+  ion-content
+    #order-map(data-tap-disabled="true")
+
+  ion-footer-bar
+    button.button-full.button-main(
+      ng-click="mdVm.closeModal()"
+    ) {{::('globals.cancel'|translate)}}

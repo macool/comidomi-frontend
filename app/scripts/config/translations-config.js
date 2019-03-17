@@ -492,8 +492,7 @@
           },
           place: 'Lugar de entrega'
         },
-        seeMap: 'Ver ruta al lugar de entrega',
-        hideMap: 'Ocultar Mapa'
+        navigation: 'Ruta de navegación'
       },
       form: {
         requiredField: 'Campo requerido. ',

@@ -6,13 +6,15 @@
 
   function CourierOrderController(courierOrder,
                                   $q,
+                                  $scope,
                                   $ionicLoading,
                                   $ionicPopup,
                                   $translate,
                                   MapsService,
                                   GeolocationService,
                                   MapDirectionsService,
-                                  ShippingRequestService) {
+                                  ShippingRequestService,
+                                  ModalService) {
     var coVm = this,
         currentLocation;
     coVm.order = courierOrder;
@@ -24,8 +26,7 @@
     coVm.courierHasDelivered = courierHasDelivered;
     coVm.routesStatus = 'noRoutes';
     coVm.routeLegs = [];
-    coVm.mapIsHidden = true;
-    coVm.toogleMap = toogleMap;
+    coVm.openMap = openMap;
     coVm.subtotalItems = coVm.customerOrder.subtotal_items_cents; //jshint ignore:line
     coVm.shippingPrice = coVm.customerOrderDelivery.shipping_fare_price_cents; //jshint ignore:line
     coVm.totalOrder = coVm.subtotalItems + coVm.shippingPrice;
@@ -35,8 +36,24 @@
       preloadShippingRequestData();
     }
 
-    function toogleMap () {
-      coVm.mapIsHidden = !coVm.mapIsHidden;
+    function modalMap () {
+      closeModal().then(function(){
+        $scope.mdVm = {
+          closeModal: closeModal
+        };
+        ModalService.showModal({
+          parentScope: $scope,
+          fromTemplateUrl: 'templates/courier/orders/map.html',
+        });
+      });
+    }
+
+    function closeModal() {
+      return ModalService.closeModal();
+    }
+
+    function openMap () {
+      modalMap();
       performing();
       $q.all([
         loadMaps(),

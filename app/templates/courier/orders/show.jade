@@ -7,11 +7,6 @@ ion-view.shipping-request-show-page(
       ng-class="{'has-footer':coVm.order.status !== 'delivered'}"
     )
     .shipping-request-content.shipping-request-content--fix-scroll.courier-shipping-request-common
-      .map-view(
-        ng-class="{'not-load-map': coVm.mapIsHidden }"
-      )
-        #order-map(data-tap-disabled="true")
-
       .cards-order
         .card-information.invoice(
             ng-if="!coVm.customerOrder.anon_billing_address"
@@ -83,7 +78,7 @@ ion-view.shipping-request-show-page(
                 .label VER MAPA
                 .map
                   button.btn-map(
-                    ng-click="coVm.toogleMap()"
+                    ng-click="coVm.openMap()"
                   )
                     ng-md-icon.action(
                       icon="navigation"
