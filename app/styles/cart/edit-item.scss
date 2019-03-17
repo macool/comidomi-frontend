@@ -43,8 +43,8 @@
 
   .bar-stable {
     .constraint-width {
-      max-width: 350px;
-      margin: auto;
+      display: flex;
+      width: 100%;
 
       .button {
         margin: auto 10px;
