@@ -10,12 +10,17 @@ ion-view.addresses-page(
     .addresses-wrapper.addresses-wrapper--fix-scroll
       .card-information(
         ng-repeat="address in ::pfaVm.addresses"
-        ng-click="pfaVm.redirectToUpdateAddressView(address.id)"
       )
         .row.user.information
           .row-info
             .details
               .name.semibold {{ address.nombre || address.direccion_uno }}
+            .details
+              .name
+                .button-link.secondary(
+                  ng-click="pfaVm.redirectToUpdateAddressView(address.id)"
+                )
+                  | {{ ::("globals.edit" | translate) }}
         .row.information
           .row-info.no-border
             .details.full

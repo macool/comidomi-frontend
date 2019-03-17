@@ -14,7 +14,6 @@ ion-view(
     .orders
       order-card(
         ng-repeat="customerOrder in customerOrdersVm.orders track by $index"
-        ui-sref='app.customerorders.show({ id: customerOrder.id , customerOrder: customerOrder })'
         order="customerOrder"
       )
 

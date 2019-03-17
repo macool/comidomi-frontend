@@ -6,9 +6,14 @@
       .row.user.information
         .order-info
           .details
-            .name {{ "shippingRequest.orderNumber" | translate }}
+            .name {{ "shippingRequest.orderNumber" | translate }} {{ orVm.order.id}}
           .details
-            .name {{ orVm.order.id}}
+            .name
+              .button-link.secondary(
+                  ui-sref='app.customerorders.show({ id: orVm.order.id , customerOrder: orVm.order })'
+                )
+                  | {{ ::("globals.seeDetails" | translate) }}
+        .row.information
       .row.provider.information
         .provider-delivery(
           ng-repeat="profile in orVm.order.provider_profiles"
@@ -31,7 +36,7 @@
               ng-init="status=profile.customer_order_delivery.shipping_request.status"
             )
               .label {{ "shippingRequest.statusShipping" | translate }}
-              .name.highlight {{ ("shippingRequest.statusClient." + status | translate) }}
+              .name.highlight.semibold {{ ("shippingRequest.statusClient." + status | translate) }}
             .details.end
               .label {{ "shippingRequest.courier" | translate }}
               .name {{profile.customer_order_delivery.shipping_request.courier_profile.nombres || 'N/A'}}

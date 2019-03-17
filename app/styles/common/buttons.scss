@@ -158,3 +158,12 @@ button[disabled]{
   color: $white;
   font-family: $font-base;
 }
+
+.button-link {
+  font-family: $font-base;
+  padding: 5px;
+
+  &.secondary {
+    color: $base-teal;
+  }
+}

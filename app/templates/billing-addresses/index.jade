@@ -6,15 +6,18 @@ ion-view.billing-addresses-page(
   ion-content.billing-addresses-content
     .billing-addresses
       .card-information.invoice(
-          ng-repeat='item in billingAddressesVm.billingAddresses'
-          ng-click='billingAddressesVm.showEditModal(item, $index)'
+          ng-repeat='item in ::billingAddressesVm.billingAddresses'
         )
         .row.user.information
           .row-info
             .details
-              .name.semibold {{ ::("order.invoiceInfo"|translate) }}
+              .name.semibold {{ ::("order.invoiceInfo"|translate)}}
             .details
-              .name.semibold # {{ $index + 1 }}
+              .name
+                .button-link.secondary(
+                  ng-click="billingAddressesVm.showEditModal(item, $index)"
+                )
+                  | {{ ::("globals.edit" | translate) }}
         .row.information
           .row-info.no-border
             .details.start

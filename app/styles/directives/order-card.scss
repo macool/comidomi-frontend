@@ -72,8 +72,12 @@
 							text-transform: uppercase;
 
 							&.highlight {
-								color: $base-teal;
+								color: $base-orange;
 							}
+
+							&.semibold {
+                font-family: $font-semibold;
+              }
 						}
 
 						.cost {

@@ -207,7 +207,8 @@
         geolocation: 'Geolocalizando...',
         somethingWentWrong: 'Algo salió mal',
         noInformation: 'No has registrado este campo',
-        providerClose: 'Podrás hacer pedidos cuando {{providerName}} esté disponible'
+        providerClose: 'Podrás hacer pedidos cuando {{providerName}} esté disponible',
+        seeDetails: 'Ver detalles'
       },
       item: {
         item: 'Producto',
