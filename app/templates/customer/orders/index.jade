@@ -8,7 +8,7 @@ ion-view(
       .filter-tab(
         ng-repeat="tab in ::customerOrdersVm.tabs"
         ng-click="::tab.onClick(tab.key)"
-        ng-class="{'selected': customerOrdersVm.currentOrderType === tab.key}"
+        ng-class="{'selected': customerOrdersVm.currentTab === tab.key}"
       )
         | {{ ("orders." + tab.key | translate) }}
     .orders
