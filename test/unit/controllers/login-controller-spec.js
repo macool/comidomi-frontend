@@ -53,7 +53,7 @@
       };
       APP = {
         successState: 'app.categories.index',
-        preloginState: 'prelogin'
+        loginState: 'login'
       };
       $localStorage = {
         setItem:sinon.stub(),
@@ -133,7 +133,7 @@
       });
 
       describe('when the logout is executed,', function () {
-        var preloginState = 'prelogin';
+        var loginState = 'login';
 
         it('should show loading', function () {
           sinon.assert.calledOnce($ionicLoading.show);
@@ -150,7 +150,7 @@
           $rootScope.$digest();
 
           sinon.assert.calledWithExactly($state.go,
-            preloginState,
+            loginState,
             {},
             { location: 'replace' });
         });

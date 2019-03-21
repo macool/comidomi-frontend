@@ -20,7 +20,7 @@
     loginVm.loginWithFB = SessionService.loginWithFB;
     loginVm.loginForm = {};
     var successState = APP.successState,
-        preloginState = APP.preloginState,
+        loginState = APP.loginState,
         placesState = APP.placesState,
         courierState = APP.successStateCourier;
 
@@ -67,7 +67,7 @@
         .then(function () {
           $localStorage.removeItem('hasViewedTutorial');
           $ionicHistory.clearHistory();
-          $state.go(preloginState, {}, { location: 'replace' });
+          $state.go(loginState, {}, { location: 'replace' });
         })
         .catch(function () {
           $ionicPopup.alert({

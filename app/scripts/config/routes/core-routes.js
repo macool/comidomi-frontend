@@ -97,7 +97,7 @@ function coreRoutes($stateProvider, $urlRouterProvider) {
     if (isResetPassword($location.absUrl())) {
       return '/reset';
     } else {
-      return '/prelogin';
+      return '/login';
     }
   });
 
