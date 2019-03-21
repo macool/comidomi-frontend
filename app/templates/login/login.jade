@@ -33,10 +33,15 @@ ion-view(
             ).button.button-primary.button-block
 
       .list.list-inset.list--top-narrow.constraint-width
-        a.button.button-block.button-clear.button-link(ui-sref='send') {{::("login.forgotPassword"|translate)}}
 
         .button.button-block.facebook-login(ng-click="loginVm.loginWithFB()")
           span.fb-left-icon
           span.fb-copytext {{::("login.continueWithFacebook"|translate)}}
+
+  .bottom-button
+    a.text(ui-sref='register')
+      | Crear una cuenta
+    a(ui-sref='send')
+      | {{::("login.forgotPassword"|translate)}}
 
 .bar.bar-footer.bar-footer-yellow-stripe
