@@ -13,6 +13,10 @@
     opacity: 0.45;
   }
 
+  .header-text, .intro-description {
+    color: $white;
+  }
+
   .list-inset {
     background-color: transparent;
 
@@ -31,7 +35,7 @@
       }
     }
 
-    .button-block {
+    .button-block, button {
       border-radius: 0;
     }
 
@@ -120,7 +124,6 @@ ion-view[hide-nav-bar="true"] {
   height: 50px;
   display: flex;
   align-items: center;
-
   justify-content: space-around;
 
   a {
