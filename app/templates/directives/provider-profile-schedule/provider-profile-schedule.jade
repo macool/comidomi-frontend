@@ -1,7 +1,6 @@
 .office-schedule(
   ng-if="::ppSVm.openingTime"
 )
-  span.i.icon.ion-clock.schedule
   | {{ ::ppSVm.openingTime | formatDate:'HH:mm' }}
   | -
   | {{ ::ppSVm.closingTime | formatDate:'HH:mm' }}

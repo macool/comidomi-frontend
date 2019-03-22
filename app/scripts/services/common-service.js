@@ -96,7 +96,7 @@
         var horaDeApertura = officeWeekday.hora_de_apertura || '', // jshint ignore:line
             openHour = horaDeApertura.split(' ')[0];
         openingTime = convertToDate(
-          openHour 
+          openHour
         );
         var horaDeCierre = officeWeekday.hora_de_cierre || '', // jshint ignore:line
             closeHour = horaDeCierre.split(' ')[0];

@@ -40,8 +40,13 @@
 			align-items: center;
 			z-index: 1;
 
-			.text {
-				color: $white;
+			.information {
+				text-align: center;
+
+				.text {
+					color: $white;
+					margin-bottom: 3px;
+				}
 			}
 		}
 	}
@@ -78,6 +83,7 @@
 
 			.provider-activity {
 				color: $base-black;
+				font-family: $font-light;
 				font-size: 13px;
 			}
 

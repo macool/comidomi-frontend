@@ -8,7 +8,9 @@
     .close-provider(
       ng-if="!pcVm.provider.officeIsOpen.isOpen"
     )
-      .text {{ ::("provider.schedule.closed" | translate) }}
+      .information
+        .text {{ ::("provider.schedule.closed" | translate) }}
+        .text Abrira a las: {{ ::pcVm.provider.officeIsOpen.openingTime | formatDate:'HH:mm a' }}
   .provider-info-wrapper
     .provider-logo-wrapper
       .provider-logo-img(
