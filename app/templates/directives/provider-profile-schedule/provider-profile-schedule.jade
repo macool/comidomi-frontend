@@ -6,14 +6,14 @@
   | -
   | {{ ::ppSVm.closingTime | formatDate:'HH:mm' }}
 
-.office-status-text.open(
-  ng-if="::ppSVm.isOpen"
-)
-  i.i.icon.ion-record
-  | {{ ::("provider.schedule.open" | translate) }}
-.office-status-text.closed(
-  ng-if="::!ppSVm.isOpen"
-  ng-class="{'closed--no-hours':!ppSVm.openingTime || !ppSVm.closingTime}"
-)
-  i.i.icon.ion-ios-circle-outline
-  | {{ ::("provider.schedule.closed" | translate) }}
+//- .office-status-text.open(
+//-   ng-if="::ppSVm.isOpen"
+//- )
+//-   i.i.icon.ion-record
+//-   | {{ ::("provider.schedule.open" | translate) }}
+//- .office-status-text.closed(
+//-   ng-if="::!ppSVm.isOpen"
+//-   ng-class="{'closed--no-hours':!ppSVm.openingTime || !ppSVm.closingTime}"
+//- )
+//-   i.i.icon.ion-ios-circle-outline
+//-   | {{ ::("provider.schedule.closed" | translate) }}

@@ -15,23 +15,8 @@ ion-view
           ng-model="searchName"
         )
 
-    .service-provider-list
-      .service-provider-item.col(
+    .provider-cards
+      provider-card(
         ng-repeat="provider in servicesProvidersVM.providers | filter:searchName"
-        ui-sref="app.categories.provider({ categoryId: provider.provider_category_id, providerId: provider.id })"
-        class="{{ ::provider.officeIsOpen.isOpen ? 'open' : 'closed'}}"
+        provider="provider"
       )
-        .provider-info-wrapper
-          .provider-logo-wrapper
-            .provider-logo-img(
-              style="background-image: url('{{ ::provider.logotipo_thumbnail_url }}')"
-            )
-
-          .provider-title {{ ::provider.nombre_establecimiento }}
-          .provider-activity {{ ::provider.actividad_economica }}
-          .provider-test-provider-wrapper(
-            ng-if="provider.test_provider"
-            class="assertive"
-          ) {{ ::("provider.isTestProvider" | translate)}}
-          .provider-schedule
-            provider-profile-schedule(provider-profile="provider")
