@@ -11,24 +11,21 @@ ion-view(
     .provider-show-page(
       class="{{ ::providerDetVm.isOpen ? 'open' : 'closed'}}"
     )
-      .provider-cover
-        .provider-header--background(
-          style="background-image:url('{{ ::providerDetVm.provider.cover_url }}')"
+      .provider-cover-detail
+        .provider-cover--background(
+          style="background-image: url('/images/login.jpg')"
         )
-        .provider-header
-          .provider-logo
-            img(
-              ng-src='{{ ::providerDetVm.provider.logotipo_thumbnail_url | defaultImage }}'
-            )
-          .provider-info
-            .title.wrapper {{ ::providerDetVm.provider.nombre_establecimiento }}
-            //- .subtitle.wrapper {{ ::providerDetVm.provider.actividad_economica }}
-            .wrapper(
-              ng-if="::providerDetVm.provider.provider_offices.length"
-            )
-              provider-profile-schedule(
-                provider-profile='providerDetVm.provider'
+        .provider-header-detail
+          .provider-header-container
+            .provider-info
+              .title.wrapper {{ ::providerDetVm.provider.nombre_establecimiento }}
+              .subtitle.wrapper {{ ::providerDetVm.provider.actividad_economica }}
+              .wrapper(
+                ng-if="::providerDetVm.provider.provider_offices.length"
               )
+                provider-profile-schedule(
+                  provider-profile='providerDetVm.provider'
+                )
       .message-provider-close(
         ng-if="::!providerDetVm.isOpen"
       )
