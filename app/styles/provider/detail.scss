@@ -45,11 +45,17 @@ $providerShowPageCoverHeight: 180px;
           text-align: center;
 
           .title {
-            font-family: $font-base;
+            font-family: $font-semibold;
           }
 
           .subtitle {
             font-family: $font-light;
+            font-size: $font-s;
+          }
+
+          .office-schedule {
+            font-family: $font-light;
+            font-size: $font-s;
           }
         }
       }
@@ -229,7 +235,7 @@ $providerShowPageCoverHeight: 180px;
             background-size: cover;
             width: 100%;
             // height: 100%;
-            border-radius: 10px;
+            // border-radius: 10px;
           }
         }
 

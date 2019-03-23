@@ -13,13 +13,13 @@ ion-view(
     )
       .provider-cover-detail
         .provider-cover--background(
-          style="background-image: url('/images/login.jpg')"
+          style="background-image: url('{{ ::providerDetVm.provider.cover_url }}')"
         )
         .provider-header-detail
           .provider-header-container
             .provider-info
               .title.wrapper {{ ::providerDetVm.provider.nombre_establecimiento }}
-              .subtitle.wrapper {{ ::providerDetVm.provider.actividad_economica }}
+              .subtitle.wrapper {{ ::providerDetVm.provider.provider_offices[0].direccion }}
               .wrapper(
                 ng-if="::providerDetVm.provider.provider_offices.length"
               )

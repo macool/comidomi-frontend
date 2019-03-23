@@ -78,6 +78,18 @@
 
   form {
     width: 100%;
+
+    .input-form {
+      &::-webkit-input-placeholder {
+        color: $white;
+      }
+      &:-moz-placeholder {
+        color: $white;
+      }
+      &:-ms-input-placeholder { /* IE10+ */
+        color: $white;
+      }
+    }
   }
 
   // define a min so that we can scroll to buttons

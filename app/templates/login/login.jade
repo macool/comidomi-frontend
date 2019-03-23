@@ -12,7 +12,7 @@ ion-view(
           .list.list-inset.constraint-width
             label.item.item-input
               i.icon.ion-email.placeholder-icon
-              input(
+              input.input-form(
                 type='email',
                 ng-model='loginVm.loginForm.email'
                 required='required'
@@ -20,7 +20,7 @@ ion-view(
               )
             label.item.item-input
               i.icon.ion.ion-android-lock.placeholder-icon
-              input(
+              input.input-form(
                 type='password',
                 ng-model='loginVm.loginForm.password',
                 required='required',

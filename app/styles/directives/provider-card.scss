@@ -46,6 +46,14 @@
 				.text {
 					color: $white;
 					margin-bottom: 3px;
+
+					&.msg {
+						font-size: $font-m;
+					}
+
+					&.open-time {
+						font-size: $font-s;
+					}
 				}
 			}
 		}
@@ -53,8 +61,8 @@
 
 	.provider-info-wrapper {
 		display: flex;
-		padding: 10px 10px 10px 5px;
-		background-color: $light-grey;
+		padding: 10px 0;
+		// background-color: $light-grey;
 		width: 100%;
 		// justify-content: space-between;
 

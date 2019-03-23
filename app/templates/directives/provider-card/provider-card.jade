@@ -3,14 +3,14 @@
   class="{{ ::pcVm.provider.officeIsOpen.isOpen ? 'open' : 'closed'}}"
 )
   .provider-cover-img(
-    style="background-image: url('/images/login.jpg')"
+    style="background-image: url('{{ ::pcVm.provider.cover_url }}')"
   )
     .close-provider(
       ng-if="!pcVm.provider.officeIsOpen.isOpen"
     )
       .information
-        .text {{ ::("provider.schedule.closed" | translate) }}
-        .text Abrira a las: {{ ::pcVm.provider.officeIsOpen.openingTime | formatDate:'HH:mm a' }}
+        .text.msg {{ ::("provider.schedule.closed" | translate) }}
+        .text.open-time Abrira a las: {{ ::pcVm.provider.officeIsOpen.openingTime | formatDate:'HH:mm a' }}
   .provider-info-wrapper
     .provider-logo-wrapper
       .provider-logo-img(
