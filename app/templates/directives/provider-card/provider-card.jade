@@ -3,7 +3,7 @@
   class="{{ ::pcVm.provider.officeIsOpen.isOpen ? 'open' : 'closed'}}"
 )
   .provider-cover-img(
-    style="background-image: url('{{ ::pcVm.provider.cover_url }}')"
+    style="background-image: url('{{ ::pcVm.provider.cover_provider_url }}')"
   )
     .close-provider(
       ng-if="!pcVm.provider.officeIsOpen.isOpen"
