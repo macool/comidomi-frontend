@@ -5,17 +5,8 @@
     .module('porttare.controllers')
     .controller('ServicesProvidersController', ServicesProvidersController);
 
-  function ServicesProvidersController(providers, CommonService){
+  function ServicesProvidersController(providers){
     var servicesProvidersVM = this;
-     
-    servicesProvidersVM.providers = addOfficeIsOpen(providers) || [];
-
-    function addOfficeIsOpen(providers){
-      angular.forEach(providers, function(provider){
-        var office = provider.provider_offices[0]; //jshint ignore:line
-        provider.officeIsOpen = CommonService.officeScheduleDay(office);
-      });
-      return providers;
-    }
+    servicesProvidersVM.providers = providers || [];
   }
 })();

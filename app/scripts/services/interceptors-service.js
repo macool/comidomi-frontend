@@ -65,7 +65,7 @@ function InterceptorsService($injector, $q) {
     $injector.get('$auth').validateUser().then(function(){
       $injector.get('$state').go('app.categories.index');
     }, function(){
-      $injector.get('$state').go('prelogin');
+      $injector.get('$state').go('login');
     });
   }
 }

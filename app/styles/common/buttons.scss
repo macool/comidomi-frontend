@@ -92,7 +92,7 @@ button[disabled]{
  {
   @extend .common-button;
   background-color: $facebook-blue;
-
+  border-radius: 0;
   .fb-copytext {
     padding-left: 30px;
   }

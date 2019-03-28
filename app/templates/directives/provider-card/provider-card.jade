@@ -1,0 +1,27 @@
+.provider-card.col(
+  ui-sref="app.categories.provider({ categoryId: pcVm.provider.provider_category_id, providerId: pcVm.provider.id })"
+  class="{{ ::pcVm.provider.officeIsOpen.isOpen ? 'open' : 'closed'}}"
+)
+  .provider-cover-img(
+    style="background-image: url('{{ ::pcVm.provider.cover_provider_url }}')"
+  )
+    .close-provider(
+      ng-if="!pcVm.provider.officeIsOpen.isOpen"
+    )
+      .information
+        .text.msg {{ ::("provider.schedule.closed" | translate) }}
+        .text.open-time Abrira a las: {{ ::pcVm.provider.officeIsOpen.openingTime | formatDate:'HH:mm a' }}
+  .provider-info-wrapper
+    .provider-logo-wrapper
+      .provider-logo-img(
+        style="background-image: url('{{ ::pcVm.provider.logotipo_thumbnail_url }}')"
+      )
+    .provider-information
+      .provider-title {{ ::pcVm.provider.nombre_establecimiento }}
+      .provider-test-provider-wrapper(
+        ng-if="pcVm.provider.test_provider"
+        class="assertive"
+      ) {{ ::("provider.isTestProvider" | translate)}}
+      .provider-schedule
+        provider-profile-schedule(provider-profile="pcVm.provider")
+        .provider-activity {{ ::pcVm.provider.actividad_economica }}

@@ -519,7 +519,7 @@ function appRoutes($stateProvider) {
           //   $state.go('termsAndCond');
           // }
       }, function userNotAuthorized() {
-        $state.go(APP.preloginState);
+        $state.go(APP.login);
       });
   }
 }

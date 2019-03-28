@@ -7,7 +7,7 @@
     placesState: 'app.places.index',
     successState: 'app.services.providers',
     successStateCourier: 'courier.orders.new',
-    preloginState: 'prelogin',
+    loginState: 'login',
     defaultImage: 'images/placeholder-menu.png',
     defaultProfileImage: 'images/mysteryman.png',
     centsInDollar: '100',

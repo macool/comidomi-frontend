@@ -20,7 +20,7 @@ ion-view(
             ng-class="{'item-error': registerVm.registerForm.email.$touched && registerVm.registerForm.email.$invalid}"
           )
             i.icon.ion-email.placeholder-icon
-            input(
+            input.input-form(
               type='email'
               ng-model='registerVm.user.email'
               name="email"
@@ -36,7 +36,7 @@ ion-view(
             ng-class="{'item-error': registerVm.registerForm.password.$touched && registerVm.registerForm.password.$invalid}"
           )
             i.icon.ion.ion-android-lock.placeholder-icon
-            input(
+            input.input-form(
               type='password'
               name='password'
               ng-model='registerVm.user.password'
@@ -50,7 +50,7 @@ ion-view(
             ng-class="{'item-error': registerVm.registerForm.password_confirmation.$touched && registerVm.registerForm.password_confirmation.$invalid}"
           )
             i.icon.ion.ion-android-lock.placeholder-icon
-            input(
+            input.input-form(
               type='password'
               name='password_confirmation'
               ng-model='registerVm.user.password_confirmation'
@@ -66,10 +66,6 @@ ion-view(
             type='submit',
             value="¡Regístrame!"
           ).button.button-primary.button-block
-
-    .list.list-inset
-      .or-option
-        span {{::("globals.or"|translate)}}
 
     .list.list-inset.constraint-width
       .button.facebook-login(ng-click="registerVm.loginWithFB()")
