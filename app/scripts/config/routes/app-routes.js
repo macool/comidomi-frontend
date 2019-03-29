@@ -459,6 +459,27 @@ function appRoutes($stateProvider) {
       }
     }
   })
+  .state('app.errands', {
+    url: '/errands',
+    abstract: true
+  })
+  .state('app.errands.new', {
+    url: '/new',
+    views: {
+      'menuContent@app': {
+        templateUrl: 'templates/customer/errands/new.html',
+        controller: 'CustomerErrandController',
+        controllerAs: 'customerErrandVm',
+        resolve: {
+          customerAddresses: function (ProfileAddressesService, ErrorHandlerService) {
+            return ProfileAddressesService
+                     .getAddresses()
+                     .catch(ErrorHandlerService.handleCommonErrorGET);
+          }
+        }
+      }
+    }
+  })
   .state('app.customerorders', {
     url: '/customer_orders',
     abstract: true

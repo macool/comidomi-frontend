@@ -186,6 +186,7 @@
         index: 'Inicio',
         loading: 'Cargando',
         sending: 'Enviando',
+        send: 'Solicitar Envio',
         start: 'Empezar',
         sendRequest: 'Enviar solicitud',
         isRequired: 'Este campo es obligatorio',

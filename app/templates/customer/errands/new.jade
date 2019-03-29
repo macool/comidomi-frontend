@@ -1,0 +1,33 @@
+ion-view(
+  view-title="{{ ::('menu.client.myOrders' | translate) }}"
+)
+  ion-nav-title
+    .alt-logo
+
+  form(
+    name="clientsVm.clientForm"
+    ng-submit="clientsVm.submitProcess(clientsVm.client.id)"
+    novalidate
+  )
+    ion-content.errands-page
+      .header-message
+        p.main Hola! Dinos que necesitas?
+        span.tip Un mensajero se comunicara contigo una vez reciba este mensaje.
+      .place.input-form
+        span.label Lugar de Entrega
+        .select-address-container(
+          ng-click="customerErrandVm.selecAddress()"
+        )
+          .select-addres Seleccionar un lugar
+      .description.input-form
+        span.label Mensaje
+        textarea(
+          msd-elastic
+          ng-model='productVm.item.observaciones'
+          ng-disabled='productVm.disableInputs'
+        )
+
+    ion-footer-bar.bar-stable.bar-footer--tall
+      button.button-full.button-main(
+        type="submit"
+      ) {{::("globals.send"|translate)}}

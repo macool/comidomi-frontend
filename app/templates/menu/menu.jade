@@ -22,6 +22,16 @@ ion-side-menus(enable-menu-with-back-views='false')
 
         ion-item(
           menu-close=''
+          ui-sref='app.errands.new'
+          ng-class='{"selected": state.current.name === "app.errands.new"}'
+        )
+          ng-md-icon.icon(
+            icon="restaurant"
+          )
+          span Pedidos
+
+        ion-item(
+          menu-close=''
           ui-sref='app.services.providers'
           ng-class='{"selected": state.current.name === "app.services.providers"}'
         )
