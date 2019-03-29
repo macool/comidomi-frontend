@@ -16,9 +16,23 @@ ion-view(
       .place.input-form
         span.label Lugar de Entrega
         .select-address-container(
-          ng-click="customerErrandVm.selecAddress()"
+          ng-click="errVm.selecAddress()"
         )
-          .select-addres Seleccionar un lugar
+          .select-address(
+            ng-if="!errVm.addressSelected"
+          ) Seleccionar un lugar
+          .select-addresss(
+            ng-if="errVm.addressSelected"
+          )
+            .address-row
+              .content-address
+                .address
+                  .one {{ errVm.addressSelected.direccion_uno }}
+                  .two {{ errVm.addressSelected.direccion_dos }}
+              .map
+                .image(
+                  style="background-image: url('{{errVm.addressSelected.static_map_image}}')"
+                )
       .description.input-form
         span.label Mensaje
         textarea(

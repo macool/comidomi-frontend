@@ -9,7 +9,7 @@ ion-modal-view.addresses-choose-page
 
   ion-content
     .addresses
-      .address-container(
+      .address-row(
         ng-repeat="address in vm.addresses"
         ng-click="vm.clickAddress(address, $index)"
       )
@@ -29,5 +29,5 @@ ion-modal-view.addresses-choose-page
 
   ion-footer-bar.bar-stable.bar-footer--tall
     button.button-full.button-main(
-      type="submit"
+      ng-click="vm.addAddress(address)"
     ) {{::('globals.save'|translate)}}

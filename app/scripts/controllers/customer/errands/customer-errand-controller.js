@@ -9,25 +9,25 @@
                                     ModalService,
                                     $auth,
                                     customerAddresses) {
-    var customerErrandVm = this;
+    var errVm = this;
 
-    customerErrandVm.selecAddress = showAddressesModal;
-    customerErrandVm.user = $auth.user;
-    customerErrandVm.indexSelected = null;
+    errVm.selecAddress = showAddressesModal;
+    errVm.user = $auth.user;
+    errVm.indexSelected = null;
 
     console.log(customerAddresses);
 
     function showAddressesModal(){
       $scope.vm = {
-        user: customerErrandVm.user,
+        user: errVm.user,
         addresses: customerAddresses,
         clickAddress: clickAddress,
-        indexSelected: customerErrandVm.indexSelected,
+        indexSelected: errVm.indexSelected,
+        addAddress: addAddress,
         closeModal: function(){
           return ModalService.closeModal();
         }
       };
-      console.log($scope.cartVm);
 
       ModalService.showModal({
         parentScope: $scope,
@@ -37,8 +37,14 @@
     }
 
     function clickAddress(address, index){
-      address.active = !address.active;
       $scope.vm.indexSelected = index;
+      errVm.indexSelected = index;
+    };
+
+    function addAddress(){
+      errVm.addressSelected = customerAddresses[errVm.indexSelected];
+      console.log(errVm.addressSelected.direccion_uno);
+      return ModalService.closeModal();
     };
   }
 })();

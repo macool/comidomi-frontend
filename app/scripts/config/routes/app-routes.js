@@ -469,7 +469,7 @@ function appRoutes($stateProvider) {
       'menuContent@app': {
         templateUrl: 'templates/customer/errands/new.html',
         controller: 'CustomerErrandController',
-        controllerAs: 'customerErrandVm',
+        controllerAs: 'errVm',
         resolve: {
           customerAddresses: function (ProfileAddressesService, ErrorHandlerService) {
             return ProfileAddressesService
