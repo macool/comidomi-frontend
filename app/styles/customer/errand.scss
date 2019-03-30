@@ -3,6 +3,7 @@
 
   .header-message {
     margin-bottom: 10px;
+    border-bottom: 1px solid $base-grey;
 
     .main {
       font-family: $font-semibold;
@@ -11,7 +12,7 @@
 
     .tip {
       font-family: $font-base;
-      font-size: $font-m;
+      font-size: $font-s;
     }
   }
 
@@ -37,9 +38,10 @@
 
   textarea {
     background: $light-grey;
+    font-family: $font-semibold;
     width: 100%;
     min-height: 200px;
-    padding: 10px 0px;
+    padding: 10px;
     line-height: 20px;
   }
 }
@@ -56,14 +58,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border-bottom: 1px solid $button-light-border;
+  border-bottom: 1px solid $base-grey;
+
   padding: 10px 0;
 
   .content-address {
     display: flex;
     width: 80%;
     padding-right: 15px;
-    
+
     .icon {
       color: $base-teal;
       margin: 0 10px 0 0;
