@@ -11,27 +11,28 @@ ion-view(
   )
     ion-content.errands-page
       .header-message
-        p.main Hola! Dinos que necesitas?
+        p.main Hola! que necesitas?
         span.tip Un mensajero se comunicara contigo una vez reciba este mensaje.
       .place.input-form
         span.label Lugar de Entrega
         .select-address-container(
-          ng-click="errVm.selecAddress()"
+          ng-click="errVm.inputOptions.onClick()"
         )
           .select-address(
-            ng-if="!errVm.addressSelected"
-          ) Seleccionar un lugar
+            ng-if="!errVm.inputOptions.address"  
+          )
+            | {{errVm.inputOptions.text}}
           .select-addresss(
-            ng-if="errVm.addressSelected"
+            ng-if="errVm.inputOptions.address"
           )
             .address-row
               .content-address
                 .address
-                  .one {{ errVm.addressSelected.direccion_uno }}
-                  .two {{ errVm.addressSelected.direccion_dos }}
+                  .one {{ errVm.inputOptions.address.direccion_uno }}
+                  .two {{ errVm.inputOptions.address.direccion_dos }}
               .map
                 .image(
-                  style="background-image: url('{{errVm.addressSelected.static_map_image}}')"
+                  style="background-image: url('{{errVm.inputOptions.address.static_map_image}}')"
                 )
       .description.input-form
         span.label Mensaje
@@ -44,5 +45,5 @@ ion-view(
     ion-footer-bar.bar-stable.bar-footer--tall
       button.button-full.button-main(
         type="submit"
-        ng-disabled='errVm.errandForm.$invalid'
+        ng-disabled='errVm.errandForm.$invalid || errVm.inputOptions.address == null'
       ) {{::("globals.send"|translate)}}

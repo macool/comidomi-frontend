@@ -15,7 +15,7 @@ ion-modal-view.addresses-choose-page
       )
         .content-address
           ng-md-icon.icon(
-            icon="{{vm.indexSelected == $index ? 'check_box' : 'check_box_outline_blank' }}"
+            icon="{{vm.addressSelected.id == address.id ? 'check_box' : 'check_box_outline_blank' }}"
           )
           .address
             .one {{ ::address.direccion_uno }}
@@ -27,5 +27,5 @@ ion-modal-view.addresses-choose-page
       
   ion-footer-bar.bar-stable.bar-footer--tall
     button.button-full.button-main(
-      ng-click="vm.addAddress(address)"
+      ng-click="vm.addAddress(vm.addressSelected)"
     ) {{::('globals.save'|translate)}}
