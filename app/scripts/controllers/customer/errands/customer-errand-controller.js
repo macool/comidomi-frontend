@@ -8,12 +8,15 @@
   function CustomerErrandController($scope,
                                     ModalService,
                                     $auth,
-                                    customerAddresses) {
+                                    customerAddresses,
+                                    ErrandsService) {
     var errVm = this;
 
     errVm.selecAddress = showAddressesModal;
     errVm.user = $auth.user;
     errVm.indexSelected = null;
+    errVm.errand = {};
+    errVm.submitProcess = submitProcess;
 
     console.log(customerAddresses);
 
@@ -46,5 +49,11 @@
       console.log(errVm.addressSelected.direccion_uno);
       return ModalService.closeModal();
     };
+
+    function submitProcess(){
+      errVm.errand.customer_address_id = errVm.addressSelected.id;
+      console.log('errVm.errandForm: ', errVm.errand);
+      ErrandsService.sendErrand(errVm.errand);
+    }
   }
 })();

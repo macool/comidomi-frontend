@@ -5,8 +5,8 @@ ion-view(
     .alt-logo
 
   form(
-    name="clientsVm.clientForm"
-    ng-submit="clientsVm.submitProcess(clientsVm.client.id)"
+    name="errVm.errandForm"
+    ng-submit="errVm.submitProcess()"
     novalidate
   )
     ion-content.errands-page
@@ -37,11 +37,12 @@ ion-view(
         span.label Mensaje
         textarea(
           msd-elastic
-          ng-model='productVm.item.observaciones'
-          ng-disabled='productVm.disableInputs'
+          ng-model='errVm.errand.description'
+          required
         )
 
     ion-footer-bar.bar-stable.bar-footer--tall
       button.button-full.button-main(
         type="submit"
+        ng-disabled='errVm.errandForm.$invalid'
       ) {{::("globals.send"|translate)}}
