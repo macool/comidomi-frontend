@@ -1,4 +1,4 @@
-(function () {
+(function() {
   'use strict';
 
   angular
@@ -6,11 +6,16 @@
     .controller('CustomerErrandController', CustomerErrandController);
 
   function CustomerErrandController($scope,
-                                    ModalService,
-                                    $auth,
-                                    customerAddresses,
-                                    ErrandsService) {
-    var errVm = this;
+    ModalService,
+    $auth,
+    $state,
+    customerAddresses,
+    ErrandsService,
+    $ionicLoading,
+    $ionicPopup,
+    CommonService) {
+    var errVm = this,
+      addresss = customerAddresses;
 
     errVm.selecAddress = showAddressesModal;
     errVm.user = $auth.user;
@@ -18,18 +23,14 @@
     errVm.errand = {};
     errVm.submitProcess = submitProcess;
 
-    console.log(customerAddresses);
-
-    function showAddressesModal(){
+    function showAddressesModal() {
       $scope.vm = {
         user: errVm.user,
-        addresses: customerAddresses,
+        addresses: addresss,
         clickAddress: clickAddress,
         indexSelected: errVm.indexSelected,
         addAddress: addAddress,
-        closeModal: function(){
-          return ModalService.closeModal();
-        }
+        closeModal: closeModal
       };
 
       ModalService.showModal({
@@ -39,21 +40,49 @@
       });
     }
 
-    function clickAddress(address, index){
+    function closeModal() {
+      return ModalService.closeModal();
+    }
+
+    function resetValues() {
+      errVm.errand = {};
+      errVm.addressSelected = null;
+      errVm.indexSelected = null;
+    }
+
+    function clickAddress(address, index) {
       $scope.vm.indexSelected = index;
       errVm.indexSelected = index;
     };
 
-    function addAddress(){
+    function addAddress() {
       errVm.addressSelected = customerAddresses[errVm.indexSelected];
-      console.log(errVm.addressSelected.direccion_uno);
       return ModalService.closeModal();
     };
 
-    function submitProcess(){
-      errVm.errand.customer_address_id = errVm.addressSelected.id;
-      console.log('errVm.errandForm: ', errVm.errand);
-      ErrandsService.sendErrand(errVm.errand);
+    function submitProcess() {
+      var errandParams = {
+        customer_address_id: errVm.addressSelected.id,
+        description: errVm.errand.description
+      };
+      $ionicLoading.show({
+        template: '{{::("globals.loading"|translate)}}'
+      });
+      ErrandsService.sendErrand(errandParams)
+        .then(function success(response) {
+          CommonService.nextViewIsRoot();
+          $state.go('app.services.providers').then(function() {
+            closeModal();
+            resetValues();
+          });
+        }, function error(res) {
+          $ionicLoading.hide();
+          var message = '{{::("globals.pleaseTryAgain"|translate)}}';
+          $ionicPopup.alert({
+            title: 'Error',
+            template: message
+          });
+        });
     }
   }
 })();

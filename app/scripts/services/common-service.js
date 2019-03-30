@@ -5,7 +5,7 @@
     .module('porttare.services')
     .factory('CommonService', CommonService);
 
-  function CommonService($http, ENV, $filter) {
+  function CommonService($http, ENV, $filter, $ionicHistory) {
 
     var service = {
       editObject: editObject,
@@ -14,7 +14,8 @@
       getObject: getObject,
       deleteObject:deleteObject,
       officeScheduleDay: officeScheduleDay,
-      getStatusOrderIcon: getStatusOrderIcon
+      getStatusOrderIcon: getStatusOrderIcon,
+      nextViewIsRoot: nextViewIsRoot,
     };
 
     var STATUS_ICONS = {
@@ -147,5 +148,10 @@
       return STATUS_ICONS[status];
     }
 
+    function nextViewIsRoot(){
+      $ionicHistory.nextViewOptions({
+        historyRoot: true
+      });
+    }
   }
 })();
