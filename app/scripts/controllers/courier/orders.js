@@ -19,23 +19,25 @@
     orVm.mapRendered = mapRendered;
     orVm.showTakeRequestModal = showTakeRequestModal;
     orVm.currentTab= 'new';
+    orVm.refreshOrders = refreshOrders;
 
-    orVm.tabs = [
-      {
-        key: 'new',
-        sref: 'courier.orders.new'
-      },
-      {
-        key: 'inProgress',
-        sref: 'courier.orders.shippings({type:"inProgress"})'
-      },
-    ];
+    init(shippingRequests);
 
-    init();
-
-    function init() {
-      orVm.orders = shippingRequests;
+    function init(orders) {
+      orVm.orders = orders;
       orVm.totalOrders = orVm.orders.length;
+      orVm.tabs = [
+        {
+          key: 'new',
+          sref: 'courier.orders.new',
+          total: orVm.orders.length
+        },
+        {
+          key: 'inProgress',
+          sref: 'courier.orders.shippings({type:"inProgress"})'
+        },
+      ];
+      orVm.loaded = true;
     }
 
     function mapRendered(map){
@@ -178,6 +180,13 @@
             }
           }
         ]
+      });
+    }
+
+    function refreshOrders() {
+      orVm.loaded = false;
+      ShippingRequestService.getShippingRequestsWithStatus('new').then(function(orders){
+        init(orders);
       });
     }
   }

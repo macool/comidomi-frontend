@@ -11,13 +11,9 @@ ion-view(
         ng-class='{"selected": state.current.name === tab.sref}'
       )
         | {{ ("orders." + tab.key | translate) }}
-    .list--top-narrow
-      span
-        | {{ ::("courier.labels.found" | translate) }}
-        |  {{ orVm.totalOrders }}
-        |  {{ ::("courier.labels.closeToYou" | translate) }}
+        .badge {{tab.total}}
 
-    .cards-order
+    .cards-order(ng-if="orVm.loaded")
       courier-order-card(
         ng-repeat="order in orVm.orders track by $index" 
         order="order"
@@ -25,3 +21,11 @@ ion-view(
     .list--bottom-narrow
       p.text-center
         | {{ ::("shippingRequest.noMoreItems" | translate) }}
+        
+  .bottom-circle-button(
+    ng-click="orVm.refreshOrders()"
+  )
+    ng-md-icon.icon(
+      icon="refresh"
+      size="20"
+    )
