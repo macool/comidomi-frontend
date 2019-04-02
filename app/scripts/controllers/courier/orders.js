@@ -20,6 +20,7 @@
     orVm.showTakeRequestModal = showTakeRequestModal;
     orVm.currentTab= 'new';
     orVm.refreshOrders = refreshOrders;
+    orVm.loaded = false;
 
     init(shippingRequests);
 
