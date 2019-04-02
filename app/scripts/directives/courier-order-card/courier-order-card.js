@@ -13,7 +13,8 @@
       restrict: 'E',
       templateUrl: 'templates/directives/courier-order-card/courier-order-card.html',
       scope: {
-        order: '='
+        order: '=',
+        onClick: '=',
       },
       controller: [
         courierOrderCardController
@@ -32,12 +33,18 @@
           customer_errand: 'green-mode'
         };
 
-    coVm.order = formatData(coVm.order);
+    coVm.courierOrder = formatData(coVm.order);
+    coVm.onClickOrder = onClickOrder;
 
+    function onClickOrder() {
+      if (coVm.onClick && angular.isFunction(coVm.onClick)) {
+        coVm.onClick(coVm.order);
+      }
+    }
 
-
-    function formatData(order) {
-      var customer = order.customer_order.customer_profile || {},
+    function formatData(courierOrder) {
+      var order = angular.copy(courierOrder) || {},
+          customer = order.customer_order.customer_profile || {},
           defaultOrder = {
             customer_image: customer.image_url,
             customer_name: customer.name,

@@ -17,7 +17,9 @@ ion-view(
       courier-order-card(
         ng-repeat="order in orVm.orders track by $index" 
         order="order"
+        on-click="orVm.showTakeRequestModal"
       )
+      
     .list--bottom-narrow
       p.text-center
         | {{ ::("shippingRequest.noMoreItems" | translate) }}

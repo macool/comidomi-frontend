@@ -1,5 +1,5 @@
 .card-information(
-  ng-class='coVm.order.theme'
+  ng-class='coVm.courierOrder.theme'
 )
   .rows
     .row.information
@@ -8,15 +8,15 @@
           .label {{ "client.client" | translate }}
           .user
             img.image(
-              ng-src="{{coVm.order.customer_image}}"
+              ng-src="{{coVm.courierOrder.customer_image}}"
             )
-            .name {{::(coVm.order.customer_name)}}
+            .name {{::(coVm.courierOrder.customer_name)}}
         .details.end
           .label LLAMAR
           .name
             .phone-number
               a(
-                ng-href="tel:{{coVm.order.customer_phone_number}}"
+                ng-href="tel:{{coVm.courierOrder.customer_phone_number}}"
               )
                 ng-md-icon.action(
                   icon="phone"
@@ -26,32 +26,34 @@
       .row-info.no-border
         .details.start
           .label {{ ::("courier.deliveryAddresses" | translate) }}
-          .name {{ coVm.order.address_one }}
-          .name {{ coVm.order.address_two }}
+          .name {{ coVm.courierOrder.address_one }}
+          .name {{ coVm.courierOrder.address_two }}
     .row.information(
-      ng-if="coVm.order.provider_name"
+      ng-if="coVm.courierOrder.provider_name"
     )
       .row-info.no-border
         .details.start
           .label {{ ::("shippingRequest.providerName" | translate) }}
-          .name {{ ::(coVm.order.provider_name) }}
+          .name {{ ::(coVm.courierOrder.provider_name) }}
     .row.information
       .row-info.no-border
         .details.start(
-          ng-if="coVm.order.subtotal"
+          ng-if="coVm.courierOrder.subtotal"
         )
           .label {{ ::("order.summary.subtotal" | translate) }}
           .name
-            price(amount="{{coVm.order.subtotal}}"
-                  currency="{{coVm.order.currency}}")
+            price(amount="{{coVm.courierOrder.subtotal}}"
+                  currency="{{coVm.courierOrder.currency}}")
         .details(
-          ng-class="{'end' : coVm.order.subtotal, 'start' : !coVm.order.subtotal}"
+          ng-class="{'end' : coVm.courierOrder.subtotal, 'start' : !coVm.courierOrder.subtotal}"
         )
           .label {{ ::("order.summary.shipping" | translate) }}
           .name
-            price(amount="{{coVm.order.shipping_price}}"
-                  currency="{{coVm.order.currency}}")
+            price(amount="{{coVm.courierOrder.shipping_price}}"
+                  currency="{{coVm.courierOrder.currency}}")
     .row
       .separator
-        button.button.button-small()
+        button.button.button-small(
+          ng-click="coVm.onClickOrder()"
+        )
           | {{ ::("shippingRequest.takeRequest" | translate) }}
