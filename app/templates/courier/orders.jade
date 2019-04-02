@@ -53,20 +53,10 @@ ion-view(
           .row.information
             .row-info.no-border
               .details.start
-                .label {{ ::("shippingRequest.providerName" | translate) }}
-                .name {{ ::(order.provider_profile.nombre_establecimiento) }}
-          .row.information
-            .row-info.no-border
-              .details.start
-                .label {{ ::("order.summary.subtotal" | translate) }}
-                .name
-                  price(amount="{{order.customer_order.subtotal_items_cents}}"
-                        currency="{{order.customer_order.subtotal_items_currency}}")
-              .details.end
                 .label {{ ::("order.summary.shipping" | translate) }}
                 .name
-                  price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
-                        currency="{{order.customer_order.subtotal_items_currency}}")
+                  price(amount="{{order.customer_errand.shipping_fare_price_cents}}"
+                        currency="{{order.customer_errand.shipping_fare_price_currency}}")
           .row
             .separator
               button.button.button-small(
