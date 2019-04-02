@@ -188,7 +188,7 @@
 
 		.button {
 			background-color: $base-orange;
-			color:$white;
+			color: $white;
 			padding: 0 10px;
 			font-family: $font-base;
 			text-transform: uppercase;
@@ -196,7 +196,7 @@
 		}
 	}
 
-	&.dark-mode {
+	&.blue-mode {
 		background-color: $base-darkteal;
 		color: $white;
 
@@ -212,6 +212,29 @@
 					}
 				}
 			}
+		}
+	}
+
+	&.green-mode {
+		background-color: $base-teal;
+		color: $white;
+
+		.row {
+			&.information {
+				.details {
+					.label {
+						color: $base-darkteal;
+					}
+
+					.name {
+						color: $white;
+					}
+				}
+			}
+		}
+
+		.separator {
+			border-top: 1px solid $white;
 		}
 	}
 }

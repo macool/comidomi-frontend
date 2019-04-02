@@ -18,105 +18,10 @@ ion-view(
         |  {{ ::("courier.labels.closeToYou" | translate) }}
 
     .cards-order
-      .card-information.dark-mode(
-        ng-repeat="order in orVm.orders"
+      courier-order-card(
+        ng-repeat="order in orVm.orders track by $index" 
+        order="order"
       )
-        .rows(
-          ng-if="order.kind === 'customer_errand'"
-        )
-          .row.information
-            .row-info.no-border
-              .details.start
-                .label {{ "client.client" | translate }}
-                .user
-                  img.image(
-                    ng-src="{{order.customer_order.customer_profile.image_url}}"
-                  )
-                  .name {{ ::(order.customer_order.customer_profile.name) || "N/A"}}
-              .details.end
-                .label LLAMAR
-                .name
-                  .phone-number
-                    a(
-                      ng-href="tel:{{order.customer_order.customer_profile.phone_number}}"
-                    )
-                      ng-md-icon.action(
-                        icon="phone"
-                        size="20"
-                      )
-          .row.information
-            .row-info.no-border
-              .details.start
-                .label {{ ::("courier.deliveryAddresses" | translate) }}
-                .name {{ order.address_attributes.direccion_uno }}
-                .name {{ order.address_attributes.direccion_dos }}
-          .row.information
-            .row-info.no-border
-              .details.start
-                .label {{ ::("order.summary.shipping" | translate) }}
-                .name
-                  price(amount="{{order.customer_errand.shipping_fare_price_cents}}"
-                        currency="{{order.customer_errand.shipping_fare_price_currency}}")
-          .row
-            .separator
-              button.button.button-small(
-                ng-click="orVm.showTakeRequestModal(order)"
-              )
-                | {{ ::("shippingRequest.takeRequest" | translate) }}
-
-        .rows(
-          ng-if="order.kind === 'customer_order_delivery'"
-        )
-          .row.information
-            .row-info.no-border
-              .details.start
-                .label {{ "client.client" | translate }}
-                .user
-                  img.image(
-                    ng-src="{{order.customer_order.customer_profile.image_url}}"
-                  )
-                  .name {{ ::(order.customer_order.customer_profile.name) || "N/A"}}
-              .details.end
-                .label LLAMAR
-                .name
-                  .phone-number
-                    a(
-                      ng-href="tel:{{order.customer_order.customer_profile.phone_number}}"
-                    )
-                      ng-md-icon.action(
-                        icon="phone"
-                        size="20"
-                      )
-          .row.information
-            .row-info.no-border
-              .details.start
-                .label {{ ::("courier.deliveryAddresses" | translate) }}
-                .name {{ order.customer_order_delivery.customer_address_attributes.direccion_uno }}
-                .name {{ order.customer_order_delivery.customer_address_attributes.direccion_dos }}
-          .row.information
-            .row-info.no-border
-              .details.start
-                .label {{ ::("shippingRequest.providerName" | translate) }}
-                .name {{ ::(order.provider_profile.nombre_establecimiento) }}
-          .row.information
-            .row-info.no-border
-              .details.start
-                .label {{ ::("order.summary.subtotal" | translate) }}
-                .name
-                  price(amount="{{order.customer_order.subtotal_items_cents}}"
-                        currency="{{order.customer_order.subtotal_items_currency}}")
-              .details.end
-                .label {{ ::("order.summary.shipping" | translate) }}
-                .name
-                  price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
-                        currency="{{order.customer_order.subtotal_items_currency}}")
-          .row
-            .separator
-              button.button.button-small(
-                ng-click="orVm.showTakeRequestModal(order)"
-              )
-                | {{ ::("shippingRequest.takeRequest" | translate) }}
-
     .list--bottom-narrow
       p.text-center
         | {{ ::("shippingRequest.noMoreItems" | translate) }}
