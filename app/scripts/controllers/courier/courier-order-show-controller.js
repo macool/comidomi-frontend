@@ -46,7 +46,8 @@
       totalOrder: 0,
       description: null,
       status: coVm.order.status,
-      isErrand: false
+      isErrand: false,
+      messageForCourier: null
     };
 
     init();
@@ -72,9 +73,9 @@
         defaultOrder.subtotalItems = coVm.order.customer_order.subtotal_items_cents;
         defaultOrder.shippingPrice = coVm.order.customer_order_delivery.shipping_fare_price_cents;
         defaultOrder.totalOrder = coVm.order.customer_order_delivery.shipping_fare_price_cents + defaultOrder.subtotalItems;
+        defaultOrder.messageForCourier = coVm.order.customer_order.observaciones;
       }
       coVm.orderCustomer = defaultOrder;
-      // preloadShippingRequestData();
     }
 
     function modalMap () {

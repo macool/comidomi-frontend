@@ -126,7 +126,7 @@ ion-view.shipping-request-show-page(
                             currency="{{coVm.orderCustomer.currency}}")
 
         .card-information.observations(
-          ng-if="coVm.orderCustomer.observaciones"
+          ng-if="coVm.orderCustomer.messageForCourier"
         )
           .row.user.information
             .row-info
@@ -135,8 +135,20 @@ ion-view.shipping-request-show-page(
           .row.information
             .row-info.no-border
               .details.start
-                .name {{ ::coVm.orderCustomer.observaciones }}
-
+                .name {{ ::coVm.orderCustomer.messageForCourier }}
+                
+        .card-information.observations(
+          ng-if="coVm.orderCustomer.isErrand"
+        )
+          .row.user.information
+            .row-info
+              .details
+                .name.semibold {{ ::("order.observations"|translate) }}
+          .row.information
+            .row-info.no-border
+              .details
+                .name.preline {{ ::coVm.orderCustomer.description }}
+                
   ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall(
     ng-if="coVm.orderCustomer.status !== 'delivered'"
   )

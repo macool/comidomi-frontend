@@ -121,6 +121,11 @@
 					&.semibold {
 						font-family: $font-semibold;
 					}
+
+					&.preline {
+						white-space: pre-wrap;
+						text-transform: none;
+					}
 				}
 
 				.cost {
