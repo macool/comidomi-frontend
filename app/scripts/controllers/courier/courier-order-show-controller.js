@@ -1,5 +1,9 @@
 (function () {
   'use strict';
+
+  /* jshint validthis:true */
+  /* jshint camelcase:false */
+
   angular
     .module('porttare.controllers')
     .controller('CourierOrderController', CourierOrderController);
@@ -27,13 +31,50 @@
     coVm.routesStatus = 'noRoutes';
     coVm.routeLegs = [];
     coVm.openMap = openMap;
-    coVm.subtotalItems = coVm.customerOrder.subtotal_items_cents; //jshint ignore:line
-    coVm.shippingPrice = coVm.customerOrderDelivery.shipping_fare_price_cents; //jshint ignore:line
-    coVm.totalOrder = coVm.subtotalItems + coVm.shippingPrice;
+    coVm.orderCustomer = null;
+
+    var defaultOrder = {
+      anon_billing_address: {},
+      customer_billing_address: {},
+      customer_profile: {},
+      customer_address_attributes: {},
+      provider: {},
+      items: [],
+      currency: 'USD',
+      subtotalItems: 0,
+      shippingPrice: 0,
+      totalOrder: 0,
+      description: null,
+      status: coVm.order.status,
+      isErrand: false
+    };
+
     init();
 
     function init() {
-      preloadShippingRequestData();
+      if (coVm.order.kind === 'customer_errand') {
+        defaultOrder.anon_billing_address = true;
+        defaultOrder.customer_address_attributes = coVm.order.address_attributes;
+        defaultOrder.customer_profile = coVm.order.customer_order.customer_profile;
+        defaultOrder.currency = coVm.order.customer_errand.shipping_fare_price_currency;
+        defaultOrder.shippingPrice = coVm.order.customer_errand.shipping_fare_price_cents;
+        defaultOrder.totalOrder = coVm.order.customer_errand.shipping_fare_price_cents;
+        defaultOrder.description = coVm.order.customer_errand.description;
+        defaultOrder.isErrand = true;
+      } else {
+        defaultOrder.anon_billing_address = coVm.order.customer_order.anon_billing_address;
+        defaultOrder.customer_billing_address = coVm.order.customer_order.customer_billing_address;
+        defaultOrder.customer_profile = coVm.order.customer_order.customer_profile;
+        defaultOrder.customer_address_attributes = coVm.order.customer_order_delivery.customer_address_attributes;
+        defaultOrder.provider = coVm.order.provider_profile;
+        defaultOrder.items = coVm.order.customer_order.customer_order_items;
+        defaultOrder.currency = coVm.order.customer_order.subtotal_items_currency;
+        defaultOrder.subtotalItems = coVm.order.customer_order.subtotal_items_cents;
+        defaultOrder.shippingPrice = coVm.order.customer_order_delivery.shipping_fare_price_cents;
+        defaultOrder.totalOrder = coVm.order.customer_order_delivery.shipping_fare_price_cents + defaultOrder.subtotalItems;
+      }
+      coVm.orderCustomer = defaultOrder;
+      // preloadShippingRequestData();
     }
 
     function modalMap () {
@@ -98,55 +139,6 @@
         );
         infoWindow.open(map,marker);
       });
-    }
-
-    function preloadShippingRequestData() {
-      coVm.address = coVm.order.address_attributes; // jshint ignore:line
-      coVm.provider = coVm.order.provider_profile; // jshint ignore:line
-      preloadCustomerOrderData();
-      // jshint ignore:start
-      if (coVm.order.customer_order_delivery) {
-        coVm.fareCurrencyCents = coVm.order.customer_order_delivery.shipping_fare_price_cents;
-      }
-      // jshint ignore:end
-      reinitialize();
-    }
-
-    function reinitialize() {
-      // a 'smaller' init
-      coVm.shouldDisplayClientDetails = getShouldDisplayClientDetails();
-    }
-
-    function preloadCustomerOrderData(){
-      // jshint ignore:start
-      if (!coVm.order.customer_order) { return }
-      coVm.fareCurrency = coVm.order.customer_order.subtotal_items_currency;
-      coVm.billingAddress = coVm.order.customer_order.customer_billing_address;
-      // jshint ignore:end
-      coVm.orderItemsTotal = getOrderItemsTotal();
-      coVm.clientName = getClientName();
-      coVm.shouldDisplayShippingPrice = true; // if it's a customer_order_delivery
-    }
-
-    function getClientName() {
-      // jshint ignore:start
-      var customerProfile = coVm.order.customer_order.customer_profile;
-      return customerProfile.name || customerProfile.nickname;
-      // jshint ignore:end
-    }
-
-    function getOrderItemsTotal() {
-      // jshint ignore:start
-      var customerOrderItems = coVm.order.customer_order.customer_order_items;
-      return customerOrderItems.reduce(function(memo, orderItem){
-        var subtotalOrderItem = orderItem.cantidad * orderItem.provider_item_precio_cents;
-        return memo + subtotalOrderItem;
-      }, 0);
-      // jshint ignore:end
-    }
-
-    function getShouldDisplayClientDetails(){
-      return coVm.order.customer_order_delivery && coVm.order.status !== 'new'; // jshint ignore:line
     }
 
     function getWaypoints(){
@@ -225,7 +217,7 @@
 
     function successFromShippingRequestService(respShippingReq){
       coVm.order = respShippingReq;
-      reinitialize();
+      coVm.orderCustomer.status = respShippingReq.status;
     }
   }
 })();

@@ -4,12 +4,12 @@ ion-view.shipping-request-show-page(
   ion-nav-title
     .alt-logo
   ion-content(
-      ng-class="{'has-footer':coVm.order.status !== 'delivered'}"
+      ng-class="{'has-footer':coVm.orderCustomer.status !== 'delivered'}"
     )
     .shipping-request-content.shipping-request-content--fix-scroll.courier-shipping-request-common
       .cards-order
         .card-information.invoice(
-            ng-if="!coVm.customerOrder.anon_billing_address"
+            ng-if="!coVm.orderCustomer.anon_billing_address"
           )
           .row.user.information
             .row-info
@@ -19,30 +19,30 @@ ion-view.shipping-request-show-page(
             .row-info.no-border
               .details.start
                 .label {{ "client.razonSocial" | translate }}
-                .name {{ ::(coVm.customerOrder.customer_billing_address.razon_social) }}
+                .name {{ ::(coVm.orderCustomer.customer_billing_address.razon_social) }}
           .row.information
             .row-info.no-border
               .details.start
                 .label {{ "client.ruc" | translate }}
-                .name {{ ::(coVm.customerOrder.customer_billing_address.ruc) }}
+                .name {{ ::(coVm.orderCustomer.customer_billing_address.ruc) }}
               .details.end(
-                ng-if="coVm.customerOrder.customer_billing_address.telefono"
+                ng-if="coVm.orderCustomer.customer_billing_address.telefono"
               )
                 .label {{ "client.telefono" | translate }}
-                .name {{ ::(coVm.customerOrder.customer_billing_address.telefono) }}
+                .name {{ ::(coVm.orderCustomer.customer_billing_address.telefono) }}
           .row.information
             .row-info.no-border
               .details.start
                 .label {{ "client.direccion" | translate }}
-                .name {{ ::(coVm.customerOrder.customer_billing_address.direccion) }}
+                .name {{ ::(coVm.orderCustomer.customer_billing_address.direccion) }}
 
           .row.information(
-              ng-if="coVm.customerOrder.customer_billing_address.email"
+              ng-if="coVm.orderCustomer.customer_billing_address.email"
             )
             .row-info.no-border
               .details.start
                 .label {{ "client.email" | translate }}
-                .name {{ ::(coVm.customerOrder.customer_billing_address.email) }}
+                .name {{ ::(coVm.orderCustomer.customer_billing_address.email) }}
 
         .card-information.customerInfo
           .row.user.information
@@ -55,15 +55,15 @@ ion-view.shipping-request-show-page(
                 .label {{ "client.nombres" | translate }}
                 .user
                   img.img-provider(
-                    ng-src="{{ coVm.customerOrder.customer_profile.image_url }}"
+                    ng-src="{{ coVm.orderCustomer.customer_profile.image_url }}"
                   )
-                  .name {{ ::(coVm.customerOrder.customer_profile.name) || "N/A"}}
+                  .name {{ ::(coVm.orderCustomer.customer_profile.name) || "N/A"}}
               .details.end
                 .label LLAMAR
                 .name
                   .phone-number
                     a(
-                      ng-href="tel:{{coVm.customerOrder.customer_profile.phone_number}}"
+                      ng-href="tel:{{coVm.orderCustomer.customer_profile.phone_number}}"
                     )
                       ng-md-icon.action(
                         icon="phone"
@@ -73,7 +73,7 @@ ion-view.shipping-request-show-page(
             .row-info.no-border
               .details.start
                 .label {{ ::("courier.deliveryAddresses" |translate) }}
-                .name {{ ::(coVm.customerOrderDelivery.customer_address_attributes.direccion_uno) }}
+                .name {{ ::(coVm.orderCustomer.customer_address_attributes.direccion_uno) }}
               .details.end
                 .label VER MAPA
                 .map
@@ -88,13 +88,15 @@ ion-view.shipping-request-show-page(
             .row-info.no-border
               .details.start
                 .label {{ ::("addresses.reference" |translate) }}
-                .name {{ ::(coVm.customerOrderDelivery.customer_address_attributes.referencia) }}
+                .name {{ ::(coVm.orderCustomer.customer_address_attributes.referencia) }}
 
-        .card-information.provider
+        .card-information.provider(
+          ng-if="!coVm.orderCustomer.isErrand"
+        )
           .resource-collection.user-card
             .list.list-inset.list--no-borders.resource-collection-table.narrow
               .row.table-headers
-                .col.col-60 {{ coVm.provider.nombre_establecimiento || coVm.provider.razon_social }}
+                .col.col-60 {{ coVm.orderCustomer.provider.nombre_establecimiento || coVm.orderCustomer.provider.razon_social }}
                 .col.col-20 {{ ::("order.providerProfile.quantity" |translate) }}
                 .col.col-20 {{ ::("order.providerProfile.price" |translate) }}
               span(ng-repeat='item in coVm.items')
@@ -106,25 +108,25 @@ ion-view.shipping-request-show-page(
                   .col.col-75.label
                     | {{ ::("order.summary.subtotal" |translate) }}
                   .col.col-25.value
-                    price(amount="{{ ::coVm.subtotalItems }}"
-                            currency="{{coVm.customerOrder.subtotal_items_currency}}")
+                    price(amount="{{ ::coVm.orderCustomer.subtotalItems }}"
+                            currency="{{coVm.orderCustomer.currency}}")
                 .row
                   .col.col-75.label
                     | {{ ::("order.summary.shippingCosts" |translate) }}
                   .col.col-25.value
-                    price(amount="{{ ::coVm.shippingPrice }}"
-                          currency="{{coVm.customerOrder.subtotal_items_currency}}")
+                    price(amount="{{ ::coVm.orderCustomer.shippingPrice }}"
+                          currency="{{coVm.orderCustomer.currency}}")
                 .row
                   .col.col-75.label.total
                     strong
                       | {{ ::("order.summary.total" |translate) }}
                   .col.col-25.value
                     strong
-                      price(amount="{{ ::coVm.totalOrder }}"
-                            currency="{{coVm.customerOrder.subtotal_items_currency}}")
+                      price(amount="{{ ::coVm.orderCustomer.totalOrder }}"
+                            currency="{{coVm.orderCustomer.currency}}")
 
         .card-information.observations(
-          ng-if="coVm.customerOrder.observaciones"
+          ng-if="coVm.orderCustomer.observaciones"
         )
           .row.user.information
             .row-info
@@ -133,25 +135,25 @@ ion-view.shipping-request-show-page(
           .row.information
             .row-info.no-border
               .details.start
-                .name {{ ::coVm.customerOrder.observaciones }}
+                .name {{ ::coVm.orderCustomer.observaciones }}
 
   ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall(
-    ng-if="coVm.order.status !== 'delivered'"
+    ng-if="coVm.orderCustomer.status !== 'delivered'"
   )
     button.button-full.button-main(
-      ng-if="coVm.order.status === 'new'"
+      ng-if="coVm.orderCustomer.status === 'new'"
       ng-click="coVm.showTakeRequestModal()"
     )
       | {{ ::("shippingRequest.takeRequest" | translate) }}
 
     button.button-full.button-main(
-      ng-if="coVm.order.status === 'assigned'"
+      ng-if="coVm.orderCustomer.status === 'assigned'"
       ng-click="coVm.courierIsInStore()"
     )
       | {{ ::("shippingRequest.pickingUp" | translate) }}
 
     button.button-full.button-main(
-      ng-if="coVm.order.status === 'in_progress'"
+      ng-if="coVm.orderCustomer.status === 'in_progress'"
       ng-click="coVm.courierHasDelivered()"
     )
       | {{ ::("shippingRequest.delivered" | translate) }}
