@@ -6,7 +6,7 @@
     .controller('OrdersController', OrdersController);
 
   function OrdersController(APP,
-                            shippingRequests,
+                            // shippingRequests,
                             ShippingRequestService,
                             $state,
                             $filter,
@@ -14,30 +14,39 @@
                             $ionicPopup,
                             $ionicLoading) {
     var orVm = this,
-        currentMap, currentInfoWindow;
+        currentMap,
+        currentInfoWindow;
+
     orVm.totalOrders = 0;
     orVm.mapRendered = mapRendered;
     orVm.showTakeRequestModal = showTakeRequestModal;
     orVm.currentTab= 'new';
     orVm.refreshOrders = refreshOrders;
     orVm.loaded = false;
+    orVm.tabs = [
+      {
+        key: 'new',
+        sref: 'courier.orders.new',
+        total: null
+      },
+      {
+        key: 'inProgress',
+        sref: 'courier.orders.shippings({type:"inProgress"})'
+      },
+    ];
+    // init(shippingRequests);
 
-    init(shippingRequests);
+    init();
 
-    function init(orders) {
+    function init() {
+      ShippingRequestService.getShippingRequestsWithStatus('new').then(function(orders){
+        initOrders(orders);
+      });
+    }
+
+    function initOrders(orders) {
       orVm.orders = orders;
       orVm.totalOrders = orVm.orders.length;
-      orVm.tabs = [
-        {
-          key: 'new',
-          sref: 'courier.orders.new',
-          total: orVm.orders.length
-        },
-        {
-          key: 'inProgress',
-          sref: 'courier.orders.shippings({type:"inProgress"})'
-        },
-      ];
       orVm.loaded = true;
     }
 

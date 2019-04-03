@@ -20,18 +20,7 @@ ion-view(
         on-click="orVm.showTakeRequestModal"
       )
     .cards-order(ng-if="!orVm.loaded")
-      .skeleton-card(
-        ng-repeat="fakeData in [1,2,3,4]" 
-      )
-        .row
-          .square.skeleton
-          .text.skeleton.small.add-space
-        .row
-          .text.skeleton
-        .row
-          .text.skeleton.medium
-        .row
-          .btn.skeleton
+      skeleton(number=5)
     .list--bottom-narrow
       p.text-center
         | {{ ::("shippingRequest.noMoreItems" | translate) }}

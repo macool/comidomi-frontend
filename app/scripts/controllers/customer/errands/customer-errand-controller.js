@@ -72,7 +72,7 @@
       errVm.indexSelected = null;
     }
 
-    function clickAddress(address, index) {
+    function clickAddress(address) {
       $scope.vm.addressSelected = address;
     }
 

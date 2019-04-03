@@ -22,7 +22,7 @@ ion-view(
         ng-class="{'selected': shVm.currentOrderType === tab.key}"
       )
         | {{ ("orders." + tab.key | translate) }}
-    .card-order
+    .card-order(ng-if="shVm.loaded")
       .shipping-request-container(
         ng-repeat="order in shVm.orders"
         ui-sref='courier.order({ id: order.id, order: order})'
@@ -76,6 +76,9 @@ ion-view(
                 dispatch-at="order.estimated_dispatch_at"
               )
 
+    .card-order(ng-if="!shVm.loaded")
+      skeleton(number=5)
+      
     .list--top-narrow
       p.text-center
         | {{ ::("shippingRequest.noMoreItems" | translate) }}

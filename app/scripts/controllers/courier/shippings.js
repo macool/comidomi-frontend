@@ -1,11 +1,14 @@
-(function () {
+(function() {
   'use strict';
   /*jshint camelcase:false */
   angular
     .module('porttare.controllers')
     .controller('ShippingController', ShippingController);
 
-  function ShippingController(shippingMyRequests, CommonService, $stateParams) {
+  function ShippingController(ShippingRequestService,
+                              // shippingMyRequests,
+                              CommonService,
+                              $stateParams) {
 
     var shVm = this;
 
@@ -16,9 +19,9 @@
     shVm.switchTab = switchTab;
     shVm.currentOrderType = $stateParams.type || 'inProgress';
     shVm.showFilterTab = !!$stateParams.type;
-    shVm.currentTab= 'new';
-    shVm.tabs = [
-      {
+    shVm.currentTab = 'new';
+    shVm.loaded = false;
+    shVm.tabs = [{
         key: 'inProgress',
         onClick: switchTab
       },
@@ -28,8 +31,7 @@
       },
     ];
 
-    shVm.mainTabs = [
-      {
+    shVm.mainTabs = [{
         key: 'new',
         sref: 'courier.orders.new'
       },
@@ -47,23 +49,30 @@
     init();
 
     function init() {
-      var allOrders = shippingMyRequests || [];
+      ShippingRequestService.getMyShippingRequests().then(function(orders) {
+        initOrders(orders);
+      });
+    }
+
+    function initOrders(data) {
+      var allOrders = data || [];
       sortOrders(allOrders);
       shVm.orders = orders[shVm.currentOrderType];
       shVm.totalOrders = allOrders.length;
+      shVm.loaded = true;
     }
 
-    function sortOrders (orders) {
-      angular.forEach(orders, function(order){
+    function sortOrders(orders) {
+      angular.forEach(orders, function(order) {
         if (order.status === 'delivered') {
           shVm.deliveredOrders.push(order);
-        }else{
+        } else {
           shVm.inProgressOrders.push(order);
         }
       });
     }
 
-    function switchTab (key){
+    function switchTab(key) {
       shVm.orders = orders[key];
       shVm.currentOrderType = key;
     }

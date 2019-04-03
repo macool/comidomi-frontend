@@ -24,11 +24,11 @@ function courierRoutes($stateProvider) {
         templateUrl: 'templates/courier/orders.html',
         controller: 'OrdersController',
         controllerAs: 'orVm',
-        resolve: {
-          shippingRequests: function (ShippingRequestService) {
-            return ShippingRequestService.getShippingRequestsWithStatus('new');
-          }
-        }
+        // resolve: {
+        //   shippingRequests: function (ShippingRequestService) {
+        //     return ShippingRequestService.getShippingRequestsWithStatus('new');
+        //   }
+        // }
       }
     }
   })
@@ -40,11 +40,11 @@ function courierRoutes($stateProvider) {
         templateUrl: 'templates/courier/shippings.html',
         controller: 'ShippingController',
         controllerAs: 'shVm',
-        resolve: {
-          shippingMyRequests: function (ShippingRequestService) {
-            return ShippingRequestService.getMyShippingRequests();
-          }
-        }
+        // resolve: {
+        //   shippingMyRequests: function (ShippingRequestService) {
+        //     return ShippingRequestService.getMyShippingRequests();
+        //   }
+        // }
       }
     }
   })
