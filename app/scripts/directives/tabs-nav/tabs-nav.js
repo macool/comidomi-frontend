@@ -28,9 +28,32 @@
   }
 
   function tabsNavController($state, $scope) {
-    var tbVm = this;
+    var tbVm = this,
+        defaultTabsOptions = [
+          {
+            sref: 'app.services.providers',
+            icon: 'home',
+            title: 'Home'
+          },
+          {
+            sref: 'app.errands.new',
+            icon: 'shopping_basket',
+            title: 'Encomiendas'
+          },
+          {
+            sref: 'app.customerorders.index',
+            icon: 'receipt',
+            title: 'Mis Pedidos'
+          },
+          {
+            sref: 'app.profile.info',
+            icon: 'person',
+            title: 'Perfil'
+          }
+        ];
+
     tbVm.options = tbVm.options || {};
-    tbVm.tabs = tbVm.options.tabs || [];
+    tbVm.tabs = tbVm.options.tabs || defaultTabsOptions;
     $scope.state = $state;
   }
 })();

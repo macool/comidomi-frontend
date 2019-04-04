@@ -7,7 +7,11 @@ ion-view(
   ion-content.profile-page
 
     ng-include(src="'templates/profile/profile.html'")
-
+    
+    button.button-full.button-main(
+      ng-click="piVm.showNewModal(piVm.user)"
+    ) {{::('globals.edit'|translate)}}
+      
     .information
       .wrapper
         .label
@@ -31,8 +35,5 @@ ion-view(
       .row
         .col.col-50.label {{::("user.password"|translate)}}
         .col.col-50.value ********
-
-  ion-footer-bar.bar-stable.bar-footer--tall
-    button.button-full.button-main(
-      ng-click="piVm.showNewModal(piVm.user)"
-    ) {{::('globals.edit'|translate)}}
+    
+  tabs-nav
