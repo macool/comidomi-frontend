@@ -6,29 +6,6 @@
       display: none;
     }
   }
-
-  .cart-main-button {
-    font-size: 28px;
-    color: $white;
-    border: 0;
-    background: 0;
-    position: relative;
-
-    i {
-      font-size: 32px;
-    }
-
-    .number-of-items {
-      background: $base-orange;
-      color: $white;
-      position: absolute;
-      margin: auto;
-      right: 0;
-      font-size: $font-s;
-      line-height: 12px;
-      font-family: $font-base;
-    }
-  }
 }
 
 .bar-stable.bar.bar-header {
