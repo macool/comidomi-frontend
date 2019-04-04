@@ -89,19 +89,7 @@ function appRoutes($stateProvider) {
       'menuContent@app': {
         templateUrl: 'templates/services/providers/index.html',
         controller: 'ServicesProvidersController',
-        controllerAs: 'servicesProvidersVM',
-        resolve: {
-          providers: function ($ionicLoading, ProvidersService, ErrorHandlerService) {
-            $ionicLoading.show({
-              template: '{{::("globals.loading"|translate)}}'
-            });
-            return ProvidersService.getProviders()
-              .then(function success(providers) {
-                $ionicLoading.hide();
-                return providers;
-              }, ErrorHandlerService.handleCommonErrorGET);
-          }
-        }
+        controllerAs: 'servicesProvidersVM'
       }
     }
   })

@@ -15,11 +15,19 @@ ion-view
           ng-model="searchName"
         )
 
-    .provider-cards
+    .provider-cards(
+      ng-if="servicesProvidersVM.loaded"
+    )
       provider-card(
         ng-repeat="provider in servicesProvidersVM.providers | filter:searchName"
         provider="provider"
       )
+      
+
+    .provider-cards(
+      ng-if="!servicesProvidersVM.loaded"
+    )
+      skeleton(number=5)
       
   cart-button(
     over-tab-nav="true"
