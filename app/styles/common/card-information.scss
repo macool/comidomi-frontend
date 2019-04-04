@@ -131,6 +131,11 @@
 				.cost {
 					font-family: $font-light;
 					font-size: $font-s;
+					display: flex;
+
+					.value {
+						padding-right: 5px;
+					}
 				}
 
 				.user {

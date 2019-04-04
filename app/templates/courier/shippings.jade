@@ -25,58 +25,12 @@ ion-view(
         
     .card-orders
       .card-order(ng-if="shVm.loaded")
-        .shipping-request-container(
-          ng-repeat="order in shVm.orders"
+        courier-order-card(
+          ng-repeat="order in shVm.orders" 
+          order="order"
           ui-sref='courier.order({ id: order.id, order: order})'
+          type='status'
         )
-          .shipping-request(
-              ng-class="order.status"
-            )
-            .row.status
-              .order-info
-                span
-                  ng-md-icon.icon(
-                    icon="{{::shVm.getIconStatus(order.status)}}"
-                    size="20"
-                  )
-                span.status
-                  | &nbsp;
-                  | {{ ("shippingRequest.status." + order.status | translate) }}
-            .row.user.information
-              .order-info
-                .details
-                  .name {{ order.customer_order.customer_profile.name || 'N/A' }}
-                  .cost
-                img.img-provider(
-                  ng-src="{{ ::order.customer_order.customer_profile.image_url}}"
-                )
-            .row.provider.information
-              .order-info
-                .details
-                  .name {{ order.provider_profile.nombre_establecimiento }}
-                  .cost
-                    span
-                      | {{ ::("order.summary.subtotal" | translate) }}
-                    span.semibold
-                      | &nbsp;
-                      price(amount="{{order.customer_order.subtotal_items_cents}}"
-                            currency="{{order.customer_order.subtotal_items_currency}}")
-                      | .
-                    span
-                      | &nbsp;
-                      | {{ ::("order.summary.shipping" | translate) }}
-                    span.semibold
-                      | &nbsp;
-                      price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
-                            currency="{{order.customer_order.subtotal_items_currency}}")
-                img.img-provider(
-                  ng-src="{{ order.provider_profile.logotipo_url }}"
-                )
-            .row
-              .order-info.time
-                shipping-request-dispatch-at(
-                  dispatch-at="order.estimated_dispatch_at"
-                )
 
       .card-order(ng-if="!shVm.loaded")
         skeleton(number=5)
