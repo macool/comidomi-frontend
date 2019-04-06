@@ -43,12 +43,24 @@
 
     function sortOrders (orders) {
       angular.forEach(orders, function(order){
-        if (theRequestWasDelivered(order.provider_profiles)) { // jshint ignore:line
-          customerOrdersVm.deliveredOrders.push(order);
+        if (order.kind === 'customer_errand') {
+          sortErrands(order);
         }else{
-          customerOrdersVm.inProgressOrders.push(order);
+          if (theRequestWasDelivered(order.provider_profiles)) { // jshint ignore:line
+            customerOrdersVm.deliveredOrders.push(order);
+          }else{
+            customerOrdersVm.inProgressOrders.push(order);
+          }
         }
       });
+    }
+
+    function sortErrands(order) {
+      if (order.status === 'delivered') {
+        customerOrdersVm.deliveredOrders.push(order);
+      }else{
+        customerOrdersVm.inProgressOrders.push(order);
+      }
     }
 
     function theRequestWasDelivered(provider){

@@ -551,6 +551,8 @@
         requestTime: 'Hora de envío',
         estimatedTime: 'Hora de entrega est',
         orderNumber: 'Pedido #',
+        errandNumber: 'Encomienda #',
+        delivery: 'Envio',
         routesStatus: {
           searching: 'Buscando rutas..',
           noRoutes: 'No hay rutas disponibles'

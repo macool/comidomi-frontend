@@ -18,7 +18,7 @@
         method: 'GET',
         url: ENV.apiHost + '/api/customer/orders'
       }).then(function (response) {
-        return response.data.customer_orders; // jshint ignore:line
+        return response.data.customer_resources; // jshint ignore:line
       });
     }
 
