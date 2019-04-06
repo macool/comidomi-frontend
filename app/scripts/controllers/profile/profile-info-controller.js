@@ -37,7 +37,6 @@
 
     function init(){
       piVm.user = $auth.user;
-      console.log('piVm.user: ', piVm.user);
       piVm.canChangePassword = piVm.user.provider === 'email';
       piVm.options = options;
     }

@@ -3,6 +3,7 @@
     ng-repeat="tab in tbVm.tabs"
     ui-sref="{{::tab.sref}}"
     ng-class="{'tab-item-active' : state.current.name === tab.sref}"
+    ng-if="::tab.validate()"
   )
     ng-md-icon.icon(
       icon="{{::tab.icon}}"

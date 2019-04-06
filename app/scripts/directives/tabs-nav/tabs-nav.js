@@ -18,6 +18,7 @@
       controller: [
         '$state',
         '$scope',
+        '$auth',
         tabsNavController
       ],
       controllerAs: 'tbVm',
@@ -27,38 +28,49 @@
     return directive;
   }
 
-  function tabsNavController($state, $scope) {
+  function tabsNavController($state, $scope, $auth) {
     var tbVm = this,
         defaultTabsOptions = [
           {
             sref: 'app.services.providers',
             icon: 'store',
-            title: 'Home'
+            title: 'Home',
+            validate: isValid
           },
           {
             sref: 'app.errands.new',
             icon: 'shopping_basket',
-            title: 'Encomiendas'
+            title: 'Encomiendas',
+            validate: isValid
           },
           {
             sref: 'app.customerorders.index',
             icon: 'receipt',
-            title: 'Mis Pedidos'
+            title: 'Mis Pedidos',
+            validate: isValid
           },
           {
             sref: 'app.profile.info',
             icon: 'person',
-            title: 'Perfil'
+            title: 'Perfil',
+            validate: isValid
           },
           {
             sref: 'courier.orders.new',
             icon: 'swap_horiz',
-            title: 'Mensajero'
+            title: 'Mensajero',
+            validate: function(){
+              return $auth.user.courier_profile;
+            }
           }
         ];
 
     tbVm.options = tbVm.options || {};
     tbVm.tabs = tbVm.options.tabs || defaultTabsOptions;
     $scope.state = $state;
+
+    function isValid() {
+      return true;
+    }
   }
 })();
