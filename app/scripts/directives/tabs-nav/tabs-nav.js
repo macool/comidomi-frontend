@@ -79,7 +79,7 @@
             validate: isValid
           },
           {
-            sref: 'courier.orders.shippings',
+            sref: 'courier.orders.all',
             icon: 'view_list',
             title: 'Todos',
             validate: isValid

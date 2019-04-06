@@ -48,6 +48,18 @@ function courierRoutes($stateProvider) {
       }
     }
   })
+
+  .state('courier.orders.all', {
+    url: '/all',
+    cache: false,
+    views: {
+      'menuContent@courier': {
+        templateUrl: 'templates/courier/shippings.html',
+        controller: 'AllOrdersController',
+        controllerAs: 'shVm'
+      }
+    }
+  })
   .state('courier.order', {
     url: '/orders/:id',
     cache: false,
