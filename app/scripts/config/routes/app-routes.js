@@ -479,14 +479,7 @@ function appRoutes($stateProvider) {
       'menuContent@app': {
         controllerAs: 'customerOrdersVm',
         controller: 'CustomerOrdersIndexController',
-        templateUrl: 'templates/customer/orders/index.html',
-        resolve: {
-          customerOrders: function (CustomerOrdersService, ErrorHandlerService){
-            return CustomerOrdersService
-                     .getCustomerOrders()
-                     .catch(ErrorHandlerService.handleCommonErrorGET);
-          }
-        }
+        templateUrl: 'templates/customer/orders/index.html'
       }
     }
   })

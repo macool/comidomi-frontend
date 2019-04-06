@@ -5,10 +5,11 @@
     .module('porttare.controllers')
     .controller('CustomerOrdersIndexController', CustomerOrdersIndexController);
 
-  function CustomerOrdersIndexController(customerOrders) {
+  function CustomerOrdersIndexController(CustomerOrdersService,
+                                        ErrorHandlerService) {
     var customerOrdersVm = this;
 
-    customerOrdersVm.customerOrders = customerOrders;
+    customerOrdersVm.loaded = false;
     customerOrdersVm.inProgressOrders = [];
     customerOrdersVm.deliveredOrders = [];
     customerOrdersVm.currentTab= 'inProgress';
@@ -31,9 +32,13 @@
     init();
 
     function init() {
-      var allOrders = customerOrders || [];
-      sortOrders(allOrders);
-      customerOrdersVm.orders = orders[customerOrdersVm.currentTab];
+      CustomerOrdersService.getCustomerOrders().then(function(customerOrders){
+        var allOrders = customerOrders || [];
+        customerOrdersVm.customerOrders = customerOrders;
+        sortOrders(allOrders);
+        customerOrdersVm.orders = orders[customerOrdersVm.currentTab];
+        customerOrdersVm.loaded = true;
+      },ErrorHandlerService.handleCommonErrorGET);
     }
 
     function sortOrders (orders) {

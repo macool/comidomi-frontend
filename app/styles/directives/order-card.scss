@@ -1,13 +1,13 @@
 .order-card {
 	.shipping-request-container {
 		background-color: $white;
-		margin: 20px 20px 0;
 
 		.shipping-request {
 			width: 100%;
 			display: block;
 			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-
+			margin-bottom: 20px;
+			
 			.row {
 				padding: 3px 20px;
 
