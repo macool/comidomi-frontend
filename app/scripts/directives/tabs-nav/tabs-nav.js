@@ -68,7 +68,7 @@
         courieTabs = [
           {
             sref: 'courier.orders.new',
-            icon: 'fibre_new',
+            icon: 'stars',
             title: 'Nuevos',
             validate: isValid
           },
@@ -81,7 +81,7 @@
           {
             sref: 'courier.orders.all',
             icon: 'view_list',
-            title: 'Todos',
+            title: 'Míos',
             validate: isValid
           },
           {
