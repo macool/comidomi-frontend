@@ -5,15 +5,6 @@ ion-view(
     .alt-logo
   ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common
     .filter-tabs(
-      ng-if="shVm.showFilterTab"
-    )
-      a.filter-tab(
-        ng-repeat="tab in ::shVm.mainTabs"
-        ui-sref="{{::tab.sref}}"
-        ng-class='{"selected": state.current.name === tab.sref}'
-      )
-        | {{ ("orders." + tab.key | translate) }}
-    .filter-tabs(
       ng-if="!shVm.showFilterTab"
     )
       .filter-tab(
@@ -38,3 +29,7 @@ ion-view(
     .list--top-narrow
       p.text-center
         | {{ ::("shippingRequest.noMoreItems" | translate) }}
+  
+  tabs-nav(
+    type="courier"
+  )
