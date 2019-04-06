@@ -457,7 +457,9 @@
       order: {
         submittedAt: 'Enviada',
         observations: 'El cliente dejó este mensaje',
+        message: 'Mensaje',
         customerInfo: 'Información de Cliente',
+        orderInfo: 'Información de tu pedido',
         invoiceInfo: 'Datos de Facturación',
         dispatchAt: 'Hora de despacho',
         timeForDispatch: 'Tiempo para el despacho',

@@ -35,7 +35,6 @@ ion-view.shipping-request-show-page(
               .details.start
                 .label {{ "client.direccion" | translate }}
                 .name {{ ::(coVm.orderCustomer.customer_billing_address.direccion) }}
-
           .row.information(
               ng-if="coVm.orderCustomer.customer_billing_address.email"
             )

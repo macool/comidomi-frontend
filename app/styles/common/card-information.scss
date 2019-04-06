@@ -6,6 +6,10 @@
 	padding: 10px 20px;
 	background-color: $white;
 
+	&.no-space {
+		margin-bottom: 0;
+	}
+
 	.list-inset {
 		margin: 0;
 	}

@@ -18,8 +18,10 @@
       customerOrderVm.customerBillingAddress = getBillingAddress();
       getSumaryProvider();
 
-      $scope.$on('$ionicView.enter', wsSubscribe);
-      $scope.$on('$ionicView.leave', wsUnsubscribe);
+      if (customerOrder.kind === 'customer_order') {
+        $scope.$on('$ionicView.enter', wsSubscribe);
+        $scope.$on('$ionicView.leave', wsUnsubscribe);
+      }
     }
 
     function wsSubscribe() {
