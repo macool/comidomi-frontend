@@ -19,7 +19,8 @@
 
     orVm.totalOrders = 0;
     orVm.mapRendered = mapRendered;
-    orVm.showTakeRequestModal = showTakeRequestModal;
+    orVm.takeRequest = takeRequest;
+    orVm.showConfirmRequestModal = showConfirmRequestModal;
     orVm.currentTab= 'new';
     orVm.refreshOrders = refreshOrders;
     orVm.loaded = false;
@@ -160,8 +161,21 @@
       });
     }
 
-    function showTakeRequestModal(order){
+    function refreshOrders() {
+      orVm.loaded = false;
+      ShippingRequestService.getShippingRequestsWithStatus('new').then(function(orders){
+        init(orders);
+      });
+    }
+
+    function takeRequest(order) {
+      ShippingRequestService.takeShippingRequest(order);
+      // ShippingRequestService.confirmShippingRequest(order, )
+    }
+
+    function showConfirmRequestModal(order){
       // TODO translate me?
+      console.log('asd');
       var subTitle;
       if (order.customer_order.customer_profile) { //jshint ignore:line
         // if it's a customer order delivery
@@ -185,18 +199,12 @@
               if (!orVm.takeRequestTime) {
                 e.preventDefault();
               } else {
-                performTakeRequest(order);
+                // performTakeRequest(order);
+                alert('TODO');
               }
             }
           }
         ]
-      });
-    }
-
-    function refreshOrders() {
-      orVm.loaded = false;
-      ShippingRequestService.getShippingRequestsWithStatus('new').then(function(orders){
-        init(orders);
       });
     }
   }

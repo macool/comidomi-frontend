@@ -136,7 +136,7 @@ ion-view.shipping-request-show-page(
             .row-info.no-border
               .details.start
                 .name {{ ::coVm.orderCustomer.messageForCourier }}
-                
+
         .card-information.observations(
           ng-if="coVm.orderCustomer.isErrand"
         )
@@ -148,7 +148,7 @@ ion-view.shipping-request-show-page(
             .row-info.no-border
               .details
                 .name.preline {{ ::coVm.orderCustomer.description }}
-                
+
   ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall(
     ng-if="coVm.orderCustomer.status !== 'delivered'"
   )
@@ -160,6 +160,12 @@ ion-view.shipping-request-show-page(
 
     button.button-full.button-main(
       ng-if="coVm.orderCustomer.status === 'assigned'"
+      ng-click="coVm.showConfirmRequestModal()"
+    )
+      | {{ ::("shippingRequest.confirmRequest" | translate) }}
+
+    button.button-full.button-main(
+      ng-if="coVm.orderCustomer.status === 'confirmed'"
       ng-click="coVm.courierIsInStore()"
     )
       | {{ ::("shippingRequest.pickingUp" | translate) }}

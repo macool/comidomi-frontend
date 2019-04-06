@@ -539,6 +539,7 @@
       shippingRequest: {
         noMoreItems: 'No hay más pedidos que mostrar',
         takeRequest: 'Tomar pedido',
+        confirmRequest: 'Confirmar el tiempo',
         pickingUp: 'En la tienda',
         clientDetails: 'Datos del cliente',
         deliverToAddress: 'Dirección para la entrega',
