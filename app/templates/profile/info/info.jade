@@ -5,31 +5,63 @@ ion-view(
     .alt-logo
 
   ion-content.profile-page
-
-    ng-include(src="'templates/profile/profile.html'")
-    
-    button.button-full.button-main(
-      ng-click="piVm.showNewModal(piVm.user)"
-    ) {{::('globals.edit'|translate)}}
-      
-    .information
-      .wrapper
-        .label
-          span {{::("user.name"|translate)}}
-        .value {{piVm.user.name || ("globals.noInformation"|translate) }}
-      .wrapper
-        .label {{::("user.email"|translate)}}
-        .value {{piVm.user.email}}
-      .wrapper
-        .label {{::("user.phoneNumber"|translate)}}
-        .value {{(piVm.user.phone_number) || ("globals.noInformation"|translate) }}
-      .wrapper
-        .label {{::("user.age"|translate)}}
-        .value {{(piVm.user.fecha_nacimiento | age) || ("globals.noInformation"|translate) }}
-      .wrapper
-        .label {{::("user.country"|translate)}}
-        .value {{piVm.user.ciudad || ("globals.noInformation"|translate) }}
-
+    .profile-container
+      .profile-user
+        .user
+          .image
+            img.img-profile(
+              ng-src="{{piVm.user.custom_image_url || '../images/avatar.png'}}"
+            )
+          .information
+            .name {{piVm.user.name}}
+            .birth {{piVm.user.email}}
+            button.button-ghost(
+              ng-click="piVm.showNewModal(piVm.user)"
+            ) {{::('globals.editProfile'|translate)}}
+        .details
+          .phone.wrapper
+            ng-md-icon.icon(
+              icon="phone"
+              size="20"
+            )
+            | {{(piVm.user.phone_number) || ("globals.noInformation"|translate) }}
+          .email.wrapper
+            ng-md-icon.icon(
+              icon="location_on"
+              size="20"
+            )
+            | {{piVm.user.current_place.full_str}}
+      .options
+        .option(
+          ng-repeat="option in ::piVm.options"
+          ui-sref="{{::option.sref}}"
+        )
+          .wrapper
+            ng-md-icon.icon(
+              icon="{{::option.icon}}"
+              size="20"
+            )
+            .value {{option.text}}
+          
+          ng-md-icon.icon(
+            icon="keyboard_arrow_right"
+            size="20"
+          )
+          
+        .option.logout(
+          ng-controller='LoginController as loginVm'
+          ng-click='loginVm.logout()'
+        )
+          .wrapper
+            ng-md-icon.icon(
+              icon="power_settings_new"
+            )
+            span {{::("menu.logout"|translate)}}
+          ng-md-icon.icon(
+            icon="keyboard_arrow_right"
+            size="20"
+          )
+          
     // until we update
     .list.hide
       .row

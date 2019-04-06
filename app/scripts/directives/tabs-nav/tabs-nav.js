@@ -13,7 +13,7 @@
       restrict: 'E',
       templateUrl: 'templates/directives/tabs-nav/tabs-nav.html',
       scope: {
-        options: '='
+        options: '=?'
       },
       controller: [
         '$state',
@@ -32,7 +32,7 @@
         defaultTabsOptions = [
           {
             sref: 'app.services.providers',
-            icon: 'home',
+            icon: 'store',
             title: 'Home'
           },
           {
@@ -49,6 +49,11 @@
             sref: 'app.profile.info',
             icon: 'person',
             title: 'Perfil'
+          },
+          {
+            sref: 'courier.orders.new',
+            icon: 'swap_horiz',
+            title: 'Mensajero'
           }
         ];
 

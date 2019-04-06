@@ -26,29 +26,144 @@
 }
 
 .profile-page {
-  .information {
-    margin: 0 20px;
-    font-family: $font-light;
-    color: $base-grey;
+  .profile-container {
+    width: 100%;
+    padding: 20px;
 
-    .wrapper {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid $medium-grey;;
-      padding: 10px 0;
-      margin: 10px 0;
-      font-size: $font-m;
+    .profile-user {
+      margin-top: 30px;
 
-      .label {
-        font-family: $font-base;
-        color: $base-black;
+      .user {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .image {
+          width: 30%;
+
+          img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 50%;
+            background-color: $light-grey;
+          }
+        }
+
+        .information {
+          width: 70%;
+          font-family: $font-semibold;
+          text-align: center;
+
+          .name {
+            font-size: $font-xl;
+          }
+
+          .birth {
+            font-size: $font-s;
+            color: $base-grey;
+          }
+
+          .button-ghost {
+            border: 1px solid $base-orange;
+            color: $base-orange;
+            background: transparent;
+            padding: 3px 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+          }
+        }
       }
 
-      .value {
-        color: $base-black;
+      .details {
+        font-family: $font-base;
+        color: $base-grey;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+        padding: 20px 0 10px 0;
+
+        .wrapper {
+          padding: 10px;
+          width: 50%;
+          border-top: 1px solid $medium-grey;
+          border-bottom: 1px solid $medium-grey;
+          text-align: center;
+
+          &.phone {
+            border-right: 1px solid $medium-grey;
+          }
+
+          .icon {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .options {
+      font-family: $font-base;
+      color: $base-grey;
+
+      .option {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: $font-l;
+        padding: 10px 0;
+        border-bottom: 1px solid $medium-grey;
+
+        .wrapper {
+          display: flex;
+
+          .icon {
+            margin: 0 15px 0 0;
+            color: $base-darkteal;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+
+        .icon {
+          margin: 0;
+        }
+
+        &.logout {
+          color: $error-red;
+
+          .icon {
+            color: $error-red
+          }
+        }
       }
     }
   }
+
+
+  // .information {
+  //   margin: 0 20px;
+  //   font-family: $font-light;
+  //   color: $base-grey;
+  //
+  //   .wrapper {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     border-bottom: 1px solid $medium-grey;;
+  //     padding: 10px 0;
+  //     margin: 10px 0;
+  //     font-size: $font-m;
+  //
+  //     .label {
+  //       font-family: $font-base;
+  //       color: $base-black;
+  //     }
+  //
+  //     .value {
+  //       color: $base-black;
+  //     }
+  //   }
+  // }
 }
 
 .addresses-page {

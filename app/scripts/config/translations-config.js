@@ -169,6 +169,7 @@
         new: 'Nuevo',
         list: 'Listar',
         edit: 'Editar',
+        editProfile: 'Editar Perfil',
         delete: 'Eliminar',
         seeMore: 'Ver más',
         see: 'Ver',
@@ -207,7 +208,7 @@
         accept:'Aceptar',
         geolocation: 'Geolocalizando...',
         somethingWentWrong: 'Algo salió mal',
-        noInformation: 'No has registrado este campo',
+        noInformation: 'N/A',
         providerClose: 'Podrás hacer pedidos cuando {{providerName}} esté disponible',
         seeDetails: 'Ver detalles'
       },
