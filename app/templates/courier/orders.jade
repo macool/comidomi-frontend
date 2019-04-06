@@ -8,7 +8,7 @@ ion-view(
       courier-order-card(
         ng-repeat="order in orVm.orders track by $index" 
         order="order"
-        on-click="orVm.showTakeRequestModal"
+        on-click="orVm.takeRequest"
       )
     .cards-order(ng-if="!orVm.loaded")
       skeleton(number=5)

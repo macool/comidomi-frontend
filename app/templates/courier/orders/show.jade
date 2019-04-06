@@ -152,12 +152,6 @@ ion-view.shipping-request-show-page(
     ng-if="coVm.orderCustomer.status !== 'delivered'"
   )
     button.button-full.button-main(
-      ng-if="coVm.orderCustomer.status === 'new'"
-      ng-click="coVm.showTakeRequestModal()"
-    )
-      | {{ ::("shippingRequest.takeRequest" | translate) }}
-
-    button.button-full.button-main(
       ng-if="coVm.orderCustomer.status === 'assigned'"
       ng-click="coVm.showConfirmRequestModal()"
     )

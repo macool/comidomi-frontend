@@ -94,7 +94,7 @@
         tabs = {
           customer: customerTabs,
           courier: courieTabs
-        }
+        };
 
     tbVm.options = tbVm.options || {};
     tbVm.tabs = tbVm.options.tabs || (tabs[tbVm.type] || customerTabs);

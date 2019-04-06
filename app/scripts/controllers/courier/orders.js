@@ -20,7 +20,7 @@
     orVm.totalOrders = 0;
     orVm.mapRendered = mapRendered;
     orVm.takeRequest = takeRequest;
-    orVm.showConfirmRequestModal = showConfirmRequestModal;
+    // orVm.showConfirmRequestModal = showConfirmRequestModal;
     orVm.currentTab= 'new';
     orVm.refreshOrders = refreshOrders;
     orVm.loaded = false;
@@ -141,19 +141,6 @@
       });
     }
 
-    function performTakeRequest(order){
-      $ionicLoading.show({
-        template: '{{::("globals.loading"|translate)}}'
-      });
-      ShippingRequestService.takeShippingRequest(
-        order,
-        orVm.takeRequestTime
-      ).then(successFromShippingRequestService)
-      .finally(function(){
-        $ionicLoading.hide();
-      });
-    }
-
     function successFromShippingRequestService(respShippingReq){
       $state.go('courier.order', {
         id: respShippingReq.id,
@@ -169,42 +156,14 @@
     }
 
     function takeRequest(order) {
-      ShippingRequestService.takeShippingRequest(order);
-      // ShippingRequestService.confirmShippingRequest(order, )
-    }
-
-    function showConfirmRequestModal(order){
-      // TODO translate me?
-      console.log('asd');
-      var subTitle;
-      if (order.customer_order.customer_profile) { //jshint ignore:line
-        // if it's a customer order delivery
-        subTitle = 'incluye el tiempo que tomará recoger el pedido';
-      }
-      $ionicPopup.show({
-        scope: $scope,
-        template: '<input type="number" ng-model="orVm.takeRequestTime" min="0" placeholder="Tiempo en minutos">',
-        title: 'Tiempo estimado para la entrega',
-        subTitle: subTitle,
-        buttons: [
-          { text: 'Cancelar',
-            onTap: function(){
-              orVm.takeRequestTime = null;
-            }
-          },
-          {
-            text: 'Confirmar',
-            type: 'button-positive',
-            onTap: function(e) {
-              if (!orVm.takeRequestTime) {
-                e.preventDefault();
-              } else {
-                // performTakeRequest(order);
-                alert('TODO');
-              }
-            }
-          }
-        ]
+      $ionicLoading.show({
+        template: '{{::("globals.loading"|translate)}}'
+      });
+      ShippingRequestService.takeShippingRequest(
+        order
+      ).then(successFromShippingRequestService)
+      .finally(function(){
+        $ionicLoading.hide();
       });
     }
   }

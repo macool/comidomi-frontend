@@ -32,6 +32,7 @@
     coVm.routeLegs = [];
     coVm.openMap = openMap;
     coVm.orderCustomer = null;
+    coVm.showConfirmRequestModal = showConfirmRequestModal;
 
     var defaultOrder = {
       anon_billing_address: {},
@@ -219,6 +220,54 @@
     function successFromShippingRequestService(respShippingReq){
       coVm.order = respShippingReq;
       coVm.orderCustomer.status = respShippingReq.status;
+    }
+
+    function performTakeRequest(order){
+      $ionicLoading.show({
+        template: '{{::("globals.loading"|translate)}}'
+      });
+      ShippingRequestService.confirmShippingRequest(
+        order,
+        coVm.takeRequestTime
+      ).then(successFromShippingRequestService)
+      .finally(function(){
+        $ionicLoading.hide();
+      });
+    }
+
+    function showConfirmRequestModal(){
+      // TODO translate me?
+      var subTitle,
+          order = coVm.order;
+      if (order.customer_order.customer_profile) { //jshint ignore:line
+        // if it's a customer order delivery
+        subTitle = 'incluye el tiempo que tomará recoger el pedido';
+      }
+      $ionicPopup.show({
+        scope: $scope,
+        template: '<input type="number" ng-model="coVm.takeRequestTime" min="0" placeholder="Tiempo en minutos">',
+        title: 'Tiempo estimado para la entrega',
+        subTitle: subTitle,
+        buttons: [
+          { text: 'Cancelar',
+            onTap: function(){
+              coVm.takeRequestTime = null;
+            }
+          },
+          {
+            text: 'Confirmar',
+            type: 'button-positive',
+            onTap: function(e) {
+              if (!coVm.takeRequestTime) {
+                e.preventDefault();
+              } else {
+                performTakeRequest(order);
+                // alert('TODO');
+              }
+            }
+          }
+        ]
+      });
     }
   }
 })();

@@ -15,7 +15,8 @@
           courierHasDelivered: courierHasDelivered,
           takeShippingRequest: takeShippingRequest,
           getShippingRequestsWithStatus: getShippingRequestsWithStatus,
-          getMyShippingRequests: getMyShippingRequests
+          getMyShippingRequests: getMyShippingRequests,
+          confirmShippingRequest: confirmShippingRequest
         };
     return service;
 
