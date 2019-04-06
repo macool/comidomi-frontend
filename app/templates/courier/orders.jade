@@ -3,7 +3,7 @@ ion-view(
 )
   ion-nav-title
     .alt-logo
-  ion-content.courier-shipping-request-index-list.courier-shipping-request-common
+  ion-content.courier-shipping-request-index-list.courier-shipping-request-common.has-footer
     .cards-order(ng-if="orVm.loaded")
       courier-order-card(
         ng-repeat="order in orVm.orders track by $index" 
