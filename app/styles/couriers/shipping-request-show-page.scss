@@ -1,6 +1,21 @@
 .shipping-request-show-page {
   background-color: $light-grey;
 
+  .bottom-circle-status {
+    .status-btn {
+      .tip {
+        position: fixed;
+        bottom: 70px;
+        right: 80px;
+        border-radius: 2px;
+        background: #e8e8e8;
+        color: #696262;
+        font-size: 9px;
+        padding: 0 5px;
+      }
+    }
+  }
+
   .shipping-request-content {
     margin:  20px 20px 0 20px;
 

@@ -178,6 +178,14 @@ ion-view[hide-nav-bar="true"] {
     align-items: center;
     cursor: pointer;;
   }
+
+  &.green {
+    background: $base-teal;
+  }
+
+  &.blue {
+    background: $base-darkteal;
+  }
 }
 
 .skeleton-card {
