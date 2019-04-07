@@ -1,7 +1,10 @@
 .card-information(
   ng-class='coVm.courierOrder.theme'
+  ng-if="coVm.type !== 'status'"
 )
-  .rows
+  .rows(
+    ng-if="coVm.type !== 'status'"
+  )
     .row.information
       .row-info.no-border
         .details
@@ -46,3 +49,57 @@
           ng-click="coVm.onClickOrder()"
         )
           | {{ ::("shippingRequest.takeRequest" | translate) }}
+
+
+.shipping-status-request(
+  ng-if="coVm.type === 'status'"
+  ng-class="coVm.courierOrder.status"
+)
+  .row.status
+    .order-info
+      span
+        ng-md-icon.icon(
+          icon="{{::coVm.getIconStatus(coVm.courierOrder.status)}}"
+          size="20"
+        )
+      span.status
+        | &nbsp;
+        | {{ ("shippingRequest.status." + coVm.courierOrder.status | translate) }}
+  .row.user.information
+    .order-info
+      .details
+        .name {{ coVm.courierOrder.customer_name }}
+        .cost
+      img.img-provider(
+        ng-src="{{ ::coVm.courierOrder.customer_image}}"
+      )
+  .row.provider.information
+    .order-info
+      .details
+        .name {{ coVm.courierOrder.provider_name }}
+        .cost
+          .subtotal.value(
+            ng-if="coVm.courierOrder.subtotal"
+          )
+            span
+              | {{ ::("order.summary.subtotal" | translate) + ': '}}
+            span.semibold(
+              ng-if="coVm.courierOrder.subtotal"
+            )
+              price(amount="{{coVm.courierOrder.subtotal}}"
+                    currency="{{coVm.courierOrder.currency}}")
+          .total.value
+            span
+              | {{ ::("order.summary.shipping" | translate) + ': '}}
+            span.semibold
+              price(amount="{{coVm.courierOrder.shipping_price}}"
+                    currency="{{coVm.courierOrder.currency}}")
+      img.img-provider(
+        ng-src="{{ ::coVm.courierOrder.provider_image }}"
+        ng-if="coVm.courierOrder.provider_image"
+      )
+  .row
+    .order-info.time
+      shipping-request-dispatch-at(
+        dispatch-at="order.estimated_dispatch_at"
+      )
