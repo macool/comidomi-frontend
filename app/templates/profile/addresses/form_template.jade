@@ -21,18 +21,6 @@ form(
       show-error(array-messages='pfaVm.messages.lat || pfaVm.messages.lon')
       .text-stable {{ pfaVm.geolocationMessageKey | translate }}
 
-      label.item.item-input.item-stacked-label(
-        ng-class="{'item-error': pfaVm.messages.nombre}"
-      )
-        span.input-label {{::("addresses.name"|translate)}}
-        input(
-          type='text'
-          ng-model='pfaVm.addressFormData.nombre'
-          placeholder='{{ ::("addresses.namePlaceholder" | translate) }}'
-        )
-      .errors-wrapper
-        show-error(array-messages='pfaVm.messages.nombre')
-
       //- label.item.item-input.item-stacked-label(
       //-   ng-class="{'item-error': pfaVm.messages.ciudad}"
       //- )
@@ -126,6 +114,18 @@ form(
         )
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.referencia')
+
+      label.item.item-input.item-stacked-label(
+        ng-class="{'item-error': pfaVm.messages.nombre}"
+      )
+        span.input-label {{::("addresses.name"|translate)}}
+        input(
+          type='text'
+          ng-model='pfaVm.addressFormData.nombre'
+          placeholder='{{ ::("addresses.namePlaceholder" | translate) }}'
+        )
+      .errors-wrapper
+        show-error(array-messages='pfaVm.messages.nombre')
 
   ion-footer-bar.bar-stable.bar-footer--tall
     button.button-full.button-main(

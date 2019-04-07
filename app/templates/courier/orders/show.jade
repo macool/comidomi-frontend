@@ -73,6 +73,7 @@ ion-view.shipping-request-show-page(
               .details.start
                 .label {{ ::("courier.deliveryAddresses" |translate) }}
                 .name {{ ::(coVm.orderCustomer.customer_address_attributes.direccion_uno) }}
+                .name {{ ::(coVm.orderCustomer.customer_address_attributes.direccion_dos) }}
               .details.end
                 .label VER MAPA
                 .map
