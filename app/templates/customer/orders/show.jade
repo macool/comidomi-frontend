@@ -32,20 +32,21 @@ ion-view(
                     span {{ ::(provider.customer_order_delivery.courier_delivery_at | toDate | formatDate:'hourAndDate') }}
                   .date(
                     ng-if="!provider.customer_order_delivery.courier_delivery_at"
-                  ) 
+                  )
                     | N/A
             .row.information
             .row-info.no-border
               .details
                 .label {{ ::("courier.deliveryAddresses" |translate) }}
                 .name {{ ::(provider.customer_order_delivery.customer_address_attributes.direccion_uno) }}
-              
+                .name {{ ::(provider.customer_order_delivery.customer_address_attributes.direccion_dos) }}
+
           .row.information
             .row-info.no-border
               .details
                 .label {{ ::("addresses.reference" |translate) }}
                 .name {{ ::(provider.customer_order_delivery.customer_address_attributes.referencia) }}
-        
+
         .card-information.provider
           .resource-collection.user-card
             .list.list-inset.list--no-borders.resource-collection-table.narrow
@@ -89,8 +90,8 @@ ion-view(
         .row.information
           .row-info.no-border
             .details.start
-              .name {{ ::customerOrderVm.customerOrder.observaciones }}  
-    
+              .name {{ ::customerOrderVm.customerOrder.observaciones }}
+
       .card-information.invoice(
           ng-if="customerOrderVm.customerBillingAddress"
         )
@@ -124,6 +125,6 @@ ion-view(
           .row-info.no-border
             .details.start
               .label {{ "client.email" | translate }}
-              .name {{ ::(customerOrderVm.customerBillingAddress.email) }}    
+              .name {{ ::(customerOrderVm.customerBillingAddress.email) }}
 
   tabs-nav
