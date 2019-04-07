@@ -93,10 +93,28 @@ ion-view.shipping-request-show-page(
         .card-information.provider(
           ng-if="!coVm.orderCustomer.isErrand"
         )
+          .row.information
+            .row-info.no-border
+              .details.start
+                .label {{ "provider.profileName" | translate }}
+                .name {{ coVm.orderCustomer.provider.nombre_establecimiento || coVm.orderCustomer.provider.razon_social }}
+              .details.end(
+                ng-if="coVm.orderCustomer.provider.telefono"
+              )
+                .label LLAMAR
+                .name
+                  .phone-number
+                    a(
+                      ng-href="tel:{{coVm.orderCustomer.provider.telefono}}"
+                    )
+                      ng-md-icon.action(
+                        icon="phone"
+                        size="20"
+                      )
           .resource-collection.user-card
             .list.list-inset.list--no-borders.resource-collection-table.narrow
               .row.table-headers
-                .col.col-60 {{ coVm.orderCustomer.provider.nombre_establecimiento || coVm.orderCustomer.provider.razon_social }}
+                .col.col-60 {{ ::("order.providerProfile.items" |translate)  }}
                 .col.col-20 {{ ::("order.providerProfile.quantity" |translate) }}
                 .col.col-20 {{ ::("order.providerProfile.price" |translate) }}
               span(ng-repeat='item in coVm.items')
@@ -149,23 +167,47 @@ ion-view.shipping-request-show-page(
               .details
                 .name.preline {{ ::coVm.orderCustomer.description }}
 
-  ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall(
+  .bottom-circle-status(
     ng-if="coVm.orderCustomer.status !== 'delivered'"
   )
-    button.button-full.button-main(
+    .status-btn(
       ng-if="coVm.orderCustomer.status === 'assigned'"
-      ng-click="coVm.showConfirmRequestModal()"
     )
-      | {{ ::("shippingRequest.confirmRequest" | translate) }}
-
-    button.button-full.button-main(
+      .tip {{ ::("shippingRequest.confirmRequest" | translate) }}
+      .bottom-circle-button.blue(
+        ng-if="coVm.orderCustomer.status === 'assigned'"
+        ng-click="coVm.showConfirmRequestModal()"
+      )
+        ng-md-icon.icon(
+          icon="timer"
+          size="20"
+        )
+    .status-btn(
       ng-if="coVm.orderCustomer.status === 'confirmed'"
-      ng-click="coVm.courierIsInStore()"
     )
-      | {{ ::("shippingRequest.pickingUp" | translate) }}
+      .tip {{ ::("shippingRequest.pickingUp" | translate) }}
+      .bottom-circle-button.blue(
+        ng-if="coVm.orderCustomer.status === 'confirmed'"
+        ng-click="coVm.courierIsInStore()"
+      )
+        ng-md-icon.icon(
+          icon="store"
+          size="20"
+        )
 
-    button.button-full.button-main(
+    .status-btn(
       ng-if="coVm.orderCustomer.status === 'in_progress'"
-      ng-click="coVm.courierHasDelivered()"
-    )
-      | {{ ::("shippingRequest.delivered" | translate) }}
+    ) 
+      .tip {{ ::("shippingRequest.delivered" | translate) }}
+      .bottom-circle-button.green(
+        ng-if="coVm.orderCustomer.status === 'in_progress'"
+        ng-click="coVm.courierHasDelivered()"
+      )
+        ng-md-icon.icon(
+          icon="check"
+          size="20"
+        )
+
+  tabs-nav(
+    type="courier"
+  )
