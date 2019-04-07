@@ -126,31 +126,4 @@ ion-view(
               .label {{ "client.email" | translate }}
               .name {{ ::(customerOrderVm.customerBillingAddress.email) }}    
 
-    .customer-errand(
-      ng-if="customerOrderVm.customerOrder.kind === 'customer_errand'"
-    )
-      .card-information.customerInfo
-        .row.user.information
-          .row-info
-            .details
-              .name.semibold {{ ::("order.customerInfo"|translate) }}
-        .row.information
-          .row-info.no-border
-            .details.start
-              .label {{ ::("courier.deliveryAddresses" |translate) }}
-              .name {{ ::(customerOrderVm.customerOrder.customer_address_attributes.direccion_uno) }}
-        .row.information
-          .row-info.no-border
-            .details.start
-              .label {{ ::("addresses.reference" |translate) }}
-              .name {{ ::(customerOrderVm.customerOrder.customer_address_attributes.referencia) }}
-      .card-information
-        .row.user.information
-          .row-info
-            .details
-              .name.semibold {{ ::("order.message"|translate) }}
-        .row.information
-          .row-info.no-border
-            .details
-              .name.preline {{ ::customerOrderVm.customerOrder.description }}
   tabs-nav

@@ -468,6 +468,30 @@ function appRoutes($stateProvider) {
       }
     }
   })
+  .state('app.errands.show', {
+    url: '/:id',
+    params: {
+      customerErrand: null
+    },
+    views: {
+      'menuContent@app': {
+        templateUrl: 'templates/customer/errands/show.html',
+        controller: 'CustomerOrderController',
+        controllerAs: 'customerOrderVm',
+        resolve: {
+          customerOrder: function ($stateParams, CustomerOrdersService) {
+            if ($stateParams.customerErrand) {
+              return $stateParams.customerErrand;
+            } else {
+              var customerErrandId = $stateParams.id;
+              return CustomerOrdersService
+                        .getCustomerErrand(customerErrandId);
+            }
+          }
+        }
+      }
+    }
+  })
   .state('app.customerorders', {
     url: '/customer_orders',
     abstract: true
