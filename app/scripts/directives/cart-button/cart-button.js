@@ -15,7 +15,10 @@
         '$scope',
         cartButtonController
       ],
-      templateUrl: 'templates/directives/cart-button/cart-button.html'
+      templateUrl: 'templates/directives/cart-button/cart-button.html',
+      scope: {
+        overTabNav: '='
+      },
     };
     return directive;
   }

@@ -1,7 +1,8 @@
-.button.cart-main-button(
+.cart-main-button(
   ui-sref='app.cart.index'
+  ng-class="{'over': cartButtonVM.overTabNav === true}"
 )
-  span.badge.badge-light.number-of-items(
+  .badge.badge-light.float-counter(
     ng-if="cartButtonVM.numberItems > 0"
   ) {{ cartButtonVM.numberItems }}
   ng-md-icon.icon(

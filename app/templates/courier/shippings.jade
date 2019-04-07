@@ -3,16 +3,7 @@ ion-view(
 )
   ion-nav-title
     .alt-logo
-  ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common
-    .filter-tabs(
-      ng-if="shVm.showFilterTab"
-    )
-      a.filter-tab(
-        ng-repeat="tab in ::shVm.mainTabs"
-        ui-sref="{{::tab.sref}}"
-        ng-class='{"selected": state.current.name === tab.sref}'
-      )
-        | {{ ("orders." + tab.key | translate) }}
+  ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common.has-footer
     .filter-tabs(
       ng-if="!shVm.showFilterTab"
     )
@@ -22,60 +13,23 @@ ion-view(
         ng-class="{'selected': shVm.currentOrderType === tab.key}"
       )
         | {{ ("orders." + tab.key | translate) }}
-    .card-order
-      .shipping-request-container(
-        ng-repeat="order in shVm.orders"
-        ui-sref='courier.order({ id: order.id, order: order})'
-      )
-        .shipping-request(
-            ng-class="order.status"
-          )
-          .row.status
-            .order-info
-              span
-                ng-md-icon.icon(
-                  icon="{{::shVm.getIconStatus(order.status)}}"
-                  size="20"
-                )
-              span.status
-                | &nbsp;
-                | {{ ("shippingRequest.status." + order.status | translate) }}
-          .row.user.information
-            .order-info
-              .details
-                .name {{ order.customer_order.customer_profile.name || 'N/A' }}
-                .cost
-              img.img-provider(
-                ng-src="{{ ::order.customer_order.customer_profile.image_url}}"
-              )
-          .row.provider.information
-            .order-info
-              .details
-                .name {{ order.provider_profile.nombre_establecimiento }}
-                .cost
-                  span
-                    | {{ ::("order.summary.subtotal" | translate) }}
-                  span.semibold
-                    | &nbsp;
-                    price(amount="{{order.customer_order.subtotal_items_cents}}"
-                          currency="{{order.customer_order.subtotal_items_currency}}")
-                    | .
-                  span
-                    | &nbsp;
-                    | {{ ::("order.summary.shipping" | translate) }}
-                  span.semibold
-                    | &nbsp;
-                    price(amount="{{order.customer_order_delivery.shipping_fare_price_cents}}"
-                          currency="{{order.customer_order.subtotal_items_currency}}")
-              img.img-provider(
-                ng-src="{{ order.provider_profile.logotipo_url }}"
-              )
-          .row
-            .order-info.time
-              shipping-request-dispatch-at(
-                dispatch-at="order.estimated_dispatch_at"
-              )
+        
+    .card-orders
+      .card-order(ng-if="shVm.loaded")
+        courier-order-card(
+          ng-repeat="order in shVm.orders" 
+          order="order"
+          ui-sref='courier.order({ id: order.id, order: order})'
+          type='status'
+        )
 
+      .card-order(ng-if="!shVm.loaded")
+        skeleton(number=5)
+      
     .list--top-narrow
       p.text-center
         | {{ ::("shippingRequest.noMoreItems" | translate) }}
+  
+  tabs-nav(
+    type="courier"
+  )

@@ -5,7 +5,7 @@
     .module('porttare.services')
     .factory('CommonService', CommonService);
 
-  function CommonService($http, ENV, $filter) {
+  function CommonService($http, ENV, $filter, $ionicHistory) {
 
     var service = {
       editObject: editObject,
@@ -14,11 +14,13 @@
       getObject: getObject,
       deleteObject:deleteObject,
       officeScheduleDay: officeScheduleDay,
-      getStatusOrderIcon: getStatusOrderIcon
+      getStatusOrderIcon: getStatusOrderIcon,
+      nextViewIsRoot: nextViewIsRoot,
     };
 
     var STATUS_ICONS = {
-      assigned: 'directions_bike',
+      confirmed: 'directions_bike',
+      assigned: 'thumb_up',
       delivered: 'check_circle',
       in_progress: 'person_pin' //jshint ignore:line
     };
@@ -147,5 +149,10 @@
       return STATUS_ICONS[status];
     }
 
+    function nextViewIsRoot(){
+      $ionicHistory.nextViewOptions({
+        historyRoot: true
+      });
+    }
   }
 })();

@@ -2,6 +2,7 @@
   .shipping-request-container
     .shipping-request(
       ng-class="orVm.order.status"
+      ng-if="orVm.order.kind === 'customer_order'"
     )
       .row.user.information
         .order-info
@@ -40,6 +41,37 @@
             .details.end
               .label {{ "shippingRequest.courier" | translate }}
               .name {{profile.customer_order_delivery.shipping_request.courier_profile.nombres || 'N/A'}}
+      .row
+        .order-info.time
+          shipping-request-dispatch-at(
+            dispatch-at="orVm.order.submitted_at"
+            simple-date="true"
+          )
+    .shipping-request(
+      ng-class="orVm.order.status"
+      ng-if="orVm.order.kind === 'customer_errand'"
+    )
+      .row.user.information
+        .order-info
+          .details
+            .name {{ "shippingRequest.errandNumber" | translate }} {{ orVm.order.id}}
+          .details
+            .name
+              .button-link.secondary(
+                  ui-sref='app.errands.show({ id: orVm.order.id , customerErrand: orVm.order })'
+                )
+                  | {{ ::("globals.seeDetails" | translate) }}
+      .row.provider.information
+        .provider-delivery
+          .order-info.no-border
+            .details.start
+              .label {{ "shippingRequest.requestTime" | translate }}
+              .name {{::orVm.getTime(orVm.order.created_at)}}
+            .details.end
+              .label {{ "shippingRequest.delivery" | translate }}
+              .name
+                price(amount="{{orVm.order.shipping_fare_price_cents}}"
+                      currency="{{orVm.order.shipping_fare_price_currency}}")
       .row
         .order-info.time
           shipping-request-dispatch-at(

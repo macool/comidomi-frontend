@@ -1,0 +1,32 @@
+ion-modal-view.addresses-choose-page
+  ion-header-bar.bar-stable.bar.bar-header
+    .title Tus Direcciones
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="vm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  ion-content
+    .addresses
+      .address-row(
+        ng-repeat="address in vm.addresses"
+        ng-click="vm.clickAddress(address, $index)"
+      )
+        .content-address
+          ng-md-icon.icon(
+            icon="{{vm.addressSelected.id == address.id ? 'check_box' : 'check_box_outline_blank' }}"
+          )
+          .address
+            .one {{ ::address.direccion_uno }}
+            .two {{ ::address.direccion_dos }}
+        .map
+          .image(
+            style="background-image: url('{{address.static_map_image}}')"
+          )
+
+  ion-footer-bar.bar-stable.bar-footer--tall
+    button.button-full.button-main(
+      ng-click="vm.addAddress(vm.addressSelected)"
+      ng-disabled="!vm.addressSelected"
+    ) {{::('globals.save'|translate)}}

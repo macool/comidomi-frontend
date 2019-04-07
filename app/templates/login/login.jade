@@ -38,7 +38,7 @@ ion-view(
           span.fb-left-icon
           span.fb-copytext {{::("login.continueWithFacebook"|translate)}}
 
-  .bottom-button
+  .bottom-button.hide-on-keyboard-open
     a.text(ui-sref='register')
       | Crear una cuenta
     a(ui-sref='send')

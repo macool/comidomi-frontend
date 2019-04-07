@@ -8,9 +8,15 @@
     text-align: center;
     margin: 10px 0;
   }
+
+  .orders {
+    margin: 20px;
+  }
 }
 
 .submitted-customer-order-preview {
+  padding: 20px;
+  background: $light-grey;
 
   .order-item {
     font-family: $font-light;

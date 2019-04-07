@@ -1,0 +1,12 @@
+.tab-nav.tabs.tabs-stable.tabs-icon-top.tabs-comidomi
+  .tab-item(
+    ng-repeat="tab in tbVm.tabs"
+    ui-sref="{{::tab.sref}}"
+    ng-class="{'tab-item-active' : state.current.name === tab.sref}"
+    ng-if="::tab.validate()"
+  )
+    ng-md-icon.icon(
+      icon="{{::tab.icon}}"
+    )
+    .tab-title 
+      | {{::tab.title}}

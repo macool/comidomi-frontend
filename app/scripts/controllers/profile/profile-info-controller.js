@@ -12,6 +12,20 @@
                                  $ionicPopup,
                                  $scope) {
     var piVm = this;
+
+    var options = [
+      {
+        icon: 'person_pin_circle',
+        text: 'Direcciones',
+        sref: 'app.profile.addresses.index'
+      },
+      {
+        icon: 'insert_drive_file',
+        text: 'Facturación',
+        sref: 'app.billing.addresses'
+      }
+    ];
+
     piVm.tab = 'info';
     piVm.showNewModal = showNewModal;
     piVm.closeModal = closeModal;
@@ -24,6 +38,7 @@
     function init(){
       piVm.user = $auth.user;
       piVm.canChangePassword = piVm.user.provider === 'email';
+      piVm.options = options;
     }
 
     function showNewModal() {

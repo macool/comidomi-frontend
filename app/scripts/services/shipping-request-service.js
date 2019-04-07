@@ -15,7 +15,8 @@
           courierHasDelivered: courierHasDelivered,
           takeShippingRequest: takeShippingRequest,
           getShippingRequestsWithStatus: getShippingRequestsWithStatus,
-          getMyShippingRequests: getMyShippingRequests
+          getMyShippingRequests: getMyShippingRequests,
+          confirmShippingRequest: confirmShippingRequest
         };
     return service;
 
@@ -32,8 +33,16 @@
                );
     }
 
-    function takeShippingRequest(shippingRequest, time){
+    function takeShippingRequest(shippingRequest){
       var url = baseURL + shippingRequest.id + '/take';
+      return $http({
+        method: 'POST',
+        url: ENV.apiHost + url
+      }).then(successApiResponse);
+    }
+
+    function confirmShippingRequest(shippingRequest, time){
+      var url = baseURL + shippingRequest.id + '/confirm';
       return $http({
         method: 'POST',
         url: ENV.apiHost + url,

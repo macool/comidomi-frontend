@@ -5,7 +5,6 @@ ion-view.item-page(
     .alt-logo
 
   ion-nav-buttons(side="right")
-    cart-button
 
   ion-content.item-show-page
     form.product-wrapper(
@@ -16,7 +15,7 @@ ion-view.item-page(
         ng-include="'templates/product/product.html'"
       )
 
-  ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall
+  ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall.hide-on-keyboard-open
     product-counter.counter(
       ng-if="!productVm.product.is_group"
       options="productVm.counterOptions"

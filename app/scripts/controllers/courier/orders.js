@@ -6,7 +6,7 @@
     .controller('OrdersController', OrdersController);
 
   function OrdersController(APP,
-                            shippingRequests,
+                            // shippingRequests,
                             ShippingRequestService,
                             $state,
                             $filter,
@@ -14,28 +14,41 @@
                             $ionicPopup,
                             $ionicLoading) {
     var orVm = this,
-        currentMap, currentInfoWindow;
+        currentMap,
+        currentInfoWindow;
+
     orVm.totalOrders = 0;
     orVm.mapRendered = mapRendered;
-    orVm.showTakeRequestModal = showTakeRequestModal;
+    orVm.takeRequest = takeRequest;
+    // orVm.showConfirmRequestModal = showConfirmRequestModal;
     orVm.currentTab= 'new';
-
+    orVm.refreshOrders = refreshOrders;
+    orVm.loaded = false;
     orVm.tabs = [
       {
         key: 'new',
-        sref: 'courier.orders.new'
+        sref: 'courier.orders.new',
+        total: null
       },
       {
         key: 'inProgress',
         sref: 'courier.orders.shippings({type:"inProgress"})'
       },
     ];
+    // init(shippingRequests);
 
     init();
 
     function init() {
-      orVm.orders = shippingRequests;
+      ShippingRequestService.getShippingRequestsWithStatus('new').then(function(orders){
+        initOrders(orders);
+      });
+    }
+
+    function initOrders(orders) {
+      orVm.orders = orders;
       orVm.totalOrders = orVm.orders.length;
+      orVm.loaded = true;
     }
 
     function mapRendered(map){
@@ -128,19 +141,6 @@
       });
     }
 
-    function performTakeRequest(order){
-      $ionicLoading.show({
-        template: '{{::("globals.loading"|translate)}}'
-      });
-      ShippingRequestService.takeShippingRequest(
-        order,
-        orVm.takeRequestTime
-      ).then(successFromShippingRequestService)
-      .finally(function(){
-        $ionicLoading.hide();
-      });
-    }
-
     function successFromShippingRequestService(respShippingReq){
       $state.go('courier.order', {
         id: respShippingReq.id,
@@ -148,36 +148,22 @@
       });
     }
 
-    function showTakeRequestModal(order){
-      // TODO translate me?
-      var subTitle;
-      if (order.customer_order.customer_profile) { //jshint ignore:line
-        // if it's a customer order delivery
-        subTitle = 'incluye el tiempo que tomará recoger el pedido';
-      }
-      $ionicPopup.show({
-        scope: $scope,
-        template: '<input type="number" ng-model="orVm.takeRequestTime" min="0" placeholder="Tiempo en minutos">',
-        title: 'Tiempo estimado para la entrega',
-        subTitle: subTitle,
-        buttons: [
-          { text: 'Cancelar',
-            onTap: function(){
-              orVm.takeRequestTime = null;
-            }
-          },
-          {
-            text: 'Confirmar',
-            type: 'button-positive',
-            onTap: function(e) {
-              if (!orVm.takeRequestTime) {
-                e.preventDefault();
-              } else {
-                performTakeRequest(order);
-              }
-            }
-          }
-        ]
+    function refreshOrders() {
+      orVm.loaded = false;
+      ShippingRequestService.getShippingRequestsWithStatus('new').then(function(orders){
+        init(orders);
+      });
+    }
+
+    function takeRequest(order) {
+      $ionicLoading.show({
+        template: '{{::("globals.loading"|translate)}}'
+      });
+      ShippingRequestService.takeShippingRequest(
+        order
+      ).then(successFromShippingRequestService)
+      .finally(function(){
+        $ionicLoading.hide();
       });
     }
   }

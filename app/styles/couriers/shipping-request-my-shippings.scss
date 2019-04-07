@@ -9,97 +9,114 @@
     margin: 10px 0;
   }
 
-  .shipping-request-container {
-    background-color: $white;
-    margin: 20px 20px 0;
+  .card-orders {
+    margin: 20px;
 
-    .shipping-request {
-      width: 100%;
-      display: block;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    .shipping-request-container {
+      background-color: $white;
+      margin-bottom: 20px;
+    }
+  }
+}
 
-      &.assigned {
-        .status {
-          background-color: $base-orange;
-          color: $white;
-        }
+.shipping-status-request {
+  width: 100%;
+  display: block;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin-bottom: 20px;
+
+  &.assigned {
+    .status {
+      background-color: $base-orange;
+      color: $white;
+    }
+  }
+
+  &.in_progress {
+    .status {
+      background-color: $base-darkteal;
+      color: $white;
+    }
+  }
+
+  &.delivered {
+    .status {
+      background-color: $base-teal;
+      color: $white;
+    }
+  }
+
+  &.confirmed {
+    .status {
+      background-color: $base-darkteal;
+      color: $white;
+    }
+  }
+
+  .row {
+    padding: 3px 20px;
+
+    .order-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-basis: 100%;
+      padding: 5px 0;
+
+      .status {
+        font-family: $font-base;
       }
 
-      &.in_progress {
-        .status {
-          background-color: $base-darkteal;
-          color: $white;
-        }
+      shipping-request-dispatch-at {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
       }
 
-      &.delivered {
-        .status {
-          background-color: $base-teal;
-          color: $white;
+      &.time {
+        font-size: $font-m;
+
+        humanized-countdown-time {
+          color: $base-black;
         }
       }
+    }
 
-      .row {
-        padding: 3px 20px;
+    &.information {
+      align-items: center;
 
-        .order-info {
+      .order-info {
+        border-bottom: 1px solid $medium-grey;
+        padding: 10px 0;
+      }
+
+      .details {
+        .name {
+          color: $base-black;
+          font-family: $font-base;
+          font-family: $font-semibold;
+          text-transform: uppercase;
+        }
+
+        .cost {
+          font-family: $font-light;
+          font-size: $font-m;
           display: flex;
-          justify-content: space-between;
-          align-items: center;
-          flex-basis: 100%;
-          padding: 5px 0;
 
-          .status {
-            font-family: $font-base;
-          }
+          .value {
+						padding-right: 5px;
+					}
 
-          shipping-request-dispatch-at {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-          }
-
-          &.time {
-            font-size: $font-m;
-
-            humanized-countdown-time {
-              color: $base-black;
-            }
+          .semibold {
+            font-family: $font-semibold;
           }
         }
+      }
 
-        &.information {
-          align-items: center;
-
-          .order-info {
-            border-bottom: 1px solid $medium-grey;
-            padding: 10px 0;
-          }
-
-          .details {
-            .name {
-              color: $base-black;
-              font-family: $font-base;
-              font-family: $font-semibold;
-              text-transform: uppercase;
-            }
-
-            .cost {
-              font-family: $font-light;
-              font-size: $font-m;
-
-              .semibold {
-                font-family: $font-semibold;
-              }
-            }
-          }
-
-          .img-provider {
-            width: 35px;
-            height: 35px;
-            margin-left: 10px;
-          }
-        }
+      .img-provider {
+        width: 35px;
+        height: 35px;
+        margin-left: 10px;
       }
     }
   }

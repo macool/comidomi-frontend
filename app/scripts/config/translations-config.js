@@ -169,6 +169,7 @@
         new: 'Nuevo',
         list: 'Listar',
         edit: 'Editar',
+        editProfile: 'Editar Perfil',
         delete: 'Eliminar',
         seeMore: 'Ver más',
         see: 'Ver',
@@ -186,6 +187,7 @@
         index: 'Inicio',
         loading: 'Cargando',
         sending: 'Enviando',
+        send: 'Solicitar envío',
         start: 'Empezar',
         sendRequest: 'Enviar solicitud',
         isRequired: 'Este campo es obligatorio',
@@ -206,7 +208,7 @@
         accept:'Aceptar',
         geolocation: 'Geolocalizando...',
         somethingWentWrong: 'Algo salió mal',
-        noInformation: 'No has registrado este campo',
+        noInformation: 'N/A',
         providerClose: 'Podrás hacer pedidos cuando {{providerName}} esté disponible',
         seeDetails: 'Ver detalles'
       },
@@ -455,7 +457,9 @@
       order: {
         submittedAt: 'Enviada',
         observations: 'El cliente dejó este mensaje',
+        message: 'Mensaje',
         customerInfo: 'Información de Cliente',
+        orderInfo: 'Información de tu pedido',
         invoiceInfo: 'Datos de Facturación',
         dispatchAt: 'Hora de despacho',
         timeForDispatch: 'Tiempo para el despacho',
@@ -537,6 +541,7 @@
       shippingRequest: {
         noMoreItems: 'No hay más pedidos que mostrar',
         takeRequest: 'Tomar pedido',
+        confirmRequest: 'Confirmar el tiempo',
         pickingUp: 'En la tienda',
         clientDetails: 'Datos del cliente',
         deliverToAddress: 'Dirección para la entrega',
@@ -548,6 +553,8 @@
         requestTime: 'Hora de envío',
         estimatedTime: 'Hora de entrega est',
         orderNumber: 'Pedido #',
+        errandNumber: 'Encomienda #',
+        delivery: 'Envío',
         routesStatus: {
           searching: 'Buscando rutas..',
           noRoutes: 'No hay rutas disponibles'
@@ -557,9 +564,10 @@
         },
         status: {
           new: 'Nuevo',
-          assigned: 'Camino a la tienda',
+          assigned: 'Tomado',
           in_progress: 'Camino a la entrega', // jshint ignore:line
-          delivered: 'Entregado'
+          delivered: 'Entregado',
+          confirmed: 'Camino a la tienda'
         },
         statusClient: {
           new: 'Enviado',

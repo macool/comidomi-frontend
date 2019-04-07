@@ -2,8 +2,8 @@ ion-side-menus(enable-menu-with-back-views='false')
   ion-side-menu-content
     ion-nav-bar.bar-stable
       ion-nav-back-button
-      ion-nav-buttons(side='left')
-        button.button.button-icon.button-clear.ion-navicon(menu-toggle='left')
+      //- ion-nav-buttons(side='left')
+      //-   button.button.button-icon.button-clear.ion-navicon(menu-toggle='left')
     ion-nav-view(name='menuContent')
   ion-side-menu(side='left')
     ion-content.main-sidebar
@@ -19,6 +19,16 @@ ion-side-menus(enable-menu-with-back-views='false')
         //-   .item-content
         //-     i.icon.ion-home
         //-     | {{ ::( "globals.index" | translate ) }}
+
+        ion-item(
+          menu-close=''
+          ui-sref='app.errands.new'
+          ng-class='{"selected": state.current.name === "app.errands.new"}'
+        )
+          ng-md-icon.icon(
+            icon="restaurant"
+          )
+          span Pedidos
 
         ion-item(
           menu-close=''

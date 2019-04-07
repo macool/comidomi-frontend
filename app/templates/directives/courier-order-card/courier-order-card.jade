@@ -1,0 +1,116 @@
+.card-information(
+  ng-class='coVm.courierOrder.theme'
+  ng-if="coVm.type !== 'status'"
+)
+  .rows(
+    ng-if="coVm.type !== 'status'"
+  )
+    .row.information
+      .row-info.no-border
+        .details.start
+          .label {{ "client.client" | translate }}
+          .user
+            img.image(
+              ng-src="{{coVm.courierOrder.customer_image}}"
+            )
+            .name {{::(coVm.courierOrder.customer_name)}}
+        .details.end
+          .label LLAMAR
+          .name
+            .phone-number
+              a(
+                ng-href="tel:{{coVm.courierOrder.customer_phone_number}}"
+              )
+                ng-md-icon.action(
+                  icon="phone"
+                  size="20"
+                )
+    .row.information
+      .row-info.no-border
+        .details.start
+          .label {{ ::("courier.deliveryAddresses" | translate) }}
+          .name {{ coVm.courierOrder.address_one }}
+          .name {{ coVm.courierOrder.address_two }}
+    .row.information(
+      ng-if="coVm.courierOrder.provider_name"
+    )
+      .row-info.no-border
+        .details.start
+          .label {{ ::("shippingRequest.providerName" | translate) }}
+          .name {{ ::(coVm.courierOrder.provider_name) }}
+    .row.information
+      .row-info.no-border
+        .details.start(
+          ng-if="coVm.courierOrder.subtotal"
+        )
+          .label {{ ::("order.summary.subtotal" | translate) }}
+          .name
+            price(amount="{{coVm.courierOrder.subtotal}}"
+                  currency="{{coVm.courierOrder.currency}}")
+        .details(
+          ng-class="{'end' : coVm.courierOrder.subtotal, 'start' : !coVm.courierOrder.subtotal}"
+        )
+          .label {{ ::("order.summary.shipping" | translate) }}
+          .name
+            price(amount="{{coVm.courierOrder.shipping_price}}"
+                  currency="{{coVm.courierOrder.currency}}")
+    .row
+      .separator
+        button.button.button-small(
+          ng-click="coVm.onClickOrder()"
+        )
+          | {{ ::("shippingRequest.takeRequest" | translate) }}
+
+
+.shipping-status-request(
+  ng-if="coVm.type === 'status'"
+  ng-class="coVm.courierOrder.status"
+)
+  .row.status
+    .order-info
+      span
+        ng-md-icon.icon(
+          icon="{{::coVm.getIconStatus(coVm.courierOrder.status)}}"
+          size="20"
+        )
+      span.status
+        | &nbsp;
+        | {{ ("shippingRequest.status." + coVm.courierOrder.status | translate) }}
+  .row.user.information
+    .order-info
+      .details
+        .name {{ coVm.courierOrder.customer_name }}
+        .cost
+      img.img-provider(
+        ng-src="{{ ::coVm.courierOrder.customer_image}}"
+      )
+  .row.provider.information
+    .order-info
+      .details
+        .name {{ coVm.courierOrder.provider_name }}
+        .cost
+          .subtotal.value(
+            ng-if="coVm.courierOrder.subtotal"
+          )
+            span
+              | {{ ::("order.summary.subtotal" | translate) + ': '}}
+            span.semibold(
+              ng-if="coVm.courierOrder.subtotal"
+            )
+              price(amount="{{coVm.courierOrder.subtotal}}"
+                    currency="{{coVm.courierOrder.currency}}")
+          .total.value
+            span
+              | {{ ::("order.summary.shipping" | translate) + ': '}}
+            span.semibold
+              price(amount="{{coVm.courierOrder.shipping_price}}"
+                    currency="{{coVm.courierOrder.currency}}")
+      img.img-provider(
+        ng-src="{{ ::coVm.courierOrder.provider_image }}"
+        ng-if="coVm.courierOrder.provider_image"
+      )
+  .row
+    .order-info.time
+      shipping-request-dispatch-at(
+        dispatch-at="order.estimated_dispatch_at"
+      )

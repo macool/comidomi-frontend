@@ -6,6 +6,10 @@
 	padding: 10px 20px;
 	background-color: $white;
 
+	&.no-space {
+		margin-bottom: 0;
+	}
+
 	.list-inset {
 		margin: 0;
 	}
@@ -121,11 +125,21 @@
 					&.semibold {
 						font-family: $font-semibold;
 					}
+
+					&.preline {
+						white-space: pre-wrap;
+						text-transform: none;
+					}
 				}
 
 				.cost {
 					font-family: $font-light;
 					font-size: $font-s;
+					display: flex;
+
+					.value {
+						padding-right: 5px;
+					}
 				}
 
 				.user {
@@ -188,7 +202,7 @@
 
 		.button {
 			background-color: $base-orange;
-			color:$white;
+			color: $white;
 			padding: 0 10px;
 			font-family: $font-base;
 			text-transform: uppercase;
@@ -196,7 +210,7 @@
 		}
 	}
 
-	&.dark-mode {
+	&.blue-mode {
 		background-color: $base-darkteal;
 		color: $white;
 
@@ -212,6 +226,29 @@
 					}
 				}
 			}
+		}
+	}
+
+	&.green-mode {
+		background-color: $base-teal;
+		color: $white;
+
+		.row {
+			&.information {
+				.details {
+					.label {
+						color: $base-darkteal;
+					}
+
+					.name {
+						color: $white;
+					}
+				}
+			}
+		}
+
+		.separator {
+			border-top: 1px solid $white;
 		}
 	}
 }

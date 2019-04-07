@@ -2,10 +2,7 @@ ion-view
   ion-nav-title
     .alt-logo
 
-  ion-nav-buttons(side="right")
-    cart-button
-
-  ion-content.service-provider-index.resource-collection
+  ion-content.service-provider-index.resource-collection.has-footer
     .row
       label.item.search-input
         i.icon.ion-search.placeholder-icon
@@ -15,8 +12,23 @@ ion-view
           ng-model="searchName"
         )
 
-    .provider-cards
+    .provider-cards(
+      ng-if="servicesProvidersVM.loaded"
+    )
       provider-card(
         ng-repeat="provider in servicesProvidersVM.providers | filter:searchName"
         provider="provider"
       )
+      
+    .provider-cards(
+      ng-if="!servicesProvidersVM.loaded"
+    )
+      skeleton(number=5)
+      
+  cart-button(
+    over-tab-nav="true"
+  )
+  
+  tabs-nav.hide-on-keyboard-open(
+    options="servicesProvidersVM.tabsOptions"
+  )

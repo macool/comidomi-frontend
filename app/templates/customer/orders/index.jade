@@ -3,7 +3,7 @@ ion-view(
 )
   ion-nav-title
     .alt-logo
-  ion-content.customer-my-orders
+  ion-content.customer-my-orders.has-footer
     .filter-tabs
       .filter-tab(
         ng-repeat="tab in ::customerOrdersVm.tabs"
@@ -11,12 +11,15 @@ ion-view(
         ng-class="{'selected': customerOrdersVm.currentTab === tab.key}"
       )
         | {{ ("orders." + tab.key | translate) }}
-    .orders
+    .orders(ng-if="customerOrdersVm.loaded")
       order-card(
         ng-repeat="customerOrder in customerOrdersVm.orders track by $index"
         order="customerOrder"
       )
-
+    .orders(ng-if="!customerOrdersVm.loaded")
+      skeleton(number=5)
+      
     .list--top-narrow
       p.text-center
         | {{ ::("shippingRequest.noMoreItems" | translate) }}
+  tabs-nav

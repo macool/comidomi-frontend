@@ -1,0 +1,51 @@
+ion-view(
+  view-title="{{ ::('menu.client.myOrders' | translate) }}"
+)
+  ion-nav-title
+    .alt-logo
+
+  form(
+    name="errVm.errandForm"
+    ng-submit="errVm.submitProcess()"
+    novalidate
+  )
+    ion-content.errands-page
+      .header-message
+        ng-md-icon.icon(icon="textsms" size="64")
+        p.main ¿En qué te podemos ayudar?
+        p.tip Recogemos (o entregamos) un paquete por ti, hacemos tus compras en tu supermercado favorito, te llevamos medicinas, bebidas o básicamente lo que desees!
+      .place.input-form
+        span.label Lugar de Entrega
+        .select-address-container(
+          ng-click="errVm.inputOptions.onClick()"
+        )
+          .select-address(
+            ng-if="!errVm.inputOptions.address"
+          )
+            | {{errVm.inputOptions.text}}
+          .select-addresss(
+            ng-if="errVm.inputOptions.address"
+          )
+            .address-row
+              .content-address
+                .address
+                  .one {{ errVm.inputOptions.address.direccion_uno }}
+                  .two {{ errVm.inputOptions.address.direccion_dos }}
+              .map
+                .image(
+                  style="background-image: url('{{errVm.inputOptions.address.static_map_image}}')"
+                )
+      .description.input-form
+        span.label Mensaje
+        textarea(
+          msd-elastic
+          ng-model='errVm.errand.description'
+          placeholder="Por favor detalla las instrucciones de tu pedido"
+          required
+        )
+
+    ion-footer-bar.bar-stable.bar-footer--tall
+      button.button-full.button-main(
+        type="submit"
+        ng-disabled='errVm.errandForm.$invalid || errVm.inputOptions.address == null'
+      ) {{::("globals.send"|translate)}}

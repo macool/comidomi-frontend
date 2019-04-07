@@ -89,19 +89,7 @@ function appRoutes($stateProvider) {
       'menuContent@app': {
         templateUrl: 'templates/services/providers/index.html',
         controller: 'ServicesProvidersController',
-        controllerAs: 'servicesProvidersVM',
-        resolve: {
-          providers: function ($ionicLoading, ProvidersService, ErrorHandlerService) {
-            $ionicLoading.show({
-              template: '{{::("globals.loading"|translate)}}'
-            });
-            return ProvidersService.getProviders()
-              .then(function success(providers) {
-                $ionicLoading.hide();
-                return providers;
-              }, ErrorHandlerService.handleCommonErrorGET);
-          }
-        }
+        controllerAs: 'servicesProvidersVM'
       }
     }
   })
@@ -459,6 +447,51 @@ function appRoutes($stateProvider) {
       }
     }
   })
+  .state('app.errands', {
+    url: '/errands',
+    abstract: true
+  })
+  .state('app.errands.new', {
+    url: '/new',
+    views: {
+      'menuContent@app': {
+        templateUrl: 'templates/customer/errands/new.html',
+        controller: 'CustomerErrandController',
+        controllerAs: 'errVm',
+        resolve: {
+          customerAddresses: function (ProfileAddressesService, ErrorHandlerService) {
+            return ProfileAddressesService
+                     .getAddresses()
+                     .catch(ErrorHandlerService.handleCommonErrorGET);
+          }
+        }
+      }
+    }
+  })
+  .state('app.errands.show', {
+    url: '/:id',
+    params: {
+      customerErrand: null
+    },
+    views: {
+      'menuContent@app': {
+        templateUrl: 'templates/customer/errands/show.html',
+        controller: 'CustomerOrderController',
+        controllerAs: 'customerOrderVm',
+        resolve: {
+          customerOrder: function ($stateParams, CustomerOrdersService) {
+            if ($stateParams.customerErrand) {
+              return $stateParams.customerErrand;
+            } else {
+              var customerErrandId = $stateParams.id;
+              return CustomerOrdersService
+                        .getCustomerErrand(customerErrandId);
+            }
+          }
+        }
+      }
+    }
+  })
   .state('app.customerorders', {
     url: '/customer_orders',
     abstract: true
@@ -470,14 +503,7 @@ function appRoutes($stateProvider) {
       'menuContent@app': {
         controllerAs: 'customerOrdersVm',
         controller: 'CustomerOrdersIndexController',
-        templateUrl: 'templates/customer/orders/index.html',
-        resolve: {
-          customerOrders: function (CustomerOrdersService, ErrorHandlerService){
-            return CustomerOrdersService
-                     .getCustomerOrders()
-                     .catch(ErrorHandlerService.handleCommonErrorGET);
-          }
-        }
+        templateUrl: 'templates/customer/orders/index.html'
       }
     }
   })

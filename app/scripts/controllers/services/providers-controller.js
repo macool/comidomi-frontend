@@ -5,8 +5,20 @@
     .module('porttare.controllers')
     .controller('ServicesProvidersController', ServicesProvidersController);
 
-  function ServicesProvidersController(providers){
+  function ServicesProvidersController(ProvidersService,
+                                      ErrorHandlerService){
+
     var servicesProvidersVM = this;
-    servicesProvidersVM.providers = providers || [];
+    servicesProvidersVM.loaded = false;
+    
+    init();
+
+    function init() {
+      ProvidersService.getProviders()
+        .then(function success(providers) {
+          servicesProvidersVM.providers = providers || [];
+          servicesProvidersVM.loaded = true;
+        }, ErrorHandlerService.handleCommonErrorGET);
+    }
   }
 })();
