@@ -15,7 +15,7 @@ ion-view.item-page(
         ng-include="'templates/product/product.html'"
       )
 
-  ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall
+  ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall.hide-on-keyboard-open
     product-counter.counter(
       ng-if="!productVm.product.is_group"
       options="productVm.counterOptions"
