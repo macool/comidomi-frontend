@@ -464,6 +464,7 @@
         dispatchAt: 'Hora de despacho',
         timeForDispatch: 'Tiempo para el despacho',
         providerProfile: {
+          items: 'Productos',
           quantity: 'Can',
           price: 'Precio',
           item: {

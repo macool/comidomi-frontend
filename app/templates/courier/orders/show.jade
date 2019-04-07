@@ -93,10 +93,28 @@ ion-view.shipping-request-show-page(
         .card-information.provider(
           ng-if="!coVm.orderCustomer.isErrand"
         )
+          .row.information
+            .row-info.no-border
+              .details.start
+                .label {{ "provider.profileName" | translate }}
+                .name {{ coVm.orderCustomer.provider.nombre_establecimiento || coVm.orderCustomer.provider.razon_social }}
+              .details.end(
+                ng-if="coVm.orderCustomer.provider.telefono"
+              )
+                .label LLAMAR
+                .name
+                  .phone-number
+                    a(
+                      ng-href="tel:{{coVm.orderCustomer.provider.telefono}}"
+                    )
+                      ng-md-icon.action(
+                        icon="phone"
+                        size="20"
+                      )
           .resource-collection.user-card
             .list.list-inset.list--no-borders.resource-collection-table.narrow
               .row.table-headers
-                .col.col-60 {{ coVm.orderCustomer.provider.nombre_establecimiento || coVm.orderCustomer.provider.razon_social }}
+                .col.col-60 {{ ::("order.providerProfile.items" |translate)  }}
                 .col.col-20 {{ ::("order.providerProfile.quantity" |translate) }}
                 .col.col-20 {{ ::("order.providerProfile.price" |translate) }}
               span(ng-repeat='item in coVm.items')
