@@ -573,7 +573,8 @@
           new: 'Enviado',
           assigned: 'Asignado',
           in_progress: 'Camino a tu dirección', // jshint ignore:line
-          delivered: 'Entregado'
+          delivered: 'Entregado',
+          confirmed: 'Camino a la tienda'
         },
         routeLegs: {
           customer_order_delivery: { // jshint ignore:line
