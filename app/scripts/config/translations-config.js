@@ -187,7 +187,7 @@
         index: 'Inicio',
         loading: 'Cargando',
         sending: 'Enviando',
-        send: 'Solicitar Envio',
+        send: 'Solicitar envío',
         start: 'Empezar',
         sendRequest: 'Enviar solicitud',
         isRequired: 'Este campo es obligatorio',
@@ -554,7 +554,7 @@
         estimatedTime: 'Hora de entrega est',
         orderNumber: 'Pedido #',
         errandNumber: 'Encomienda #',
-        delivery: 'Envio',
+        delivery: 'Envío',
         routesStatus: {
           searching: 'Buscando rutas..',
           noRoutes: 'No hay rutas disponibles'

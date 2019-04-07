@@ -11,14 +11,16 @@ ion-view(
   )
     ion-content.errands-page
       .header-message
-        p.main Hola! que necesitas?
+        ng-md-icon.icon(icon="textsms" size="64")
+        p.main ¿En qué te podemos ayudar?
+        p.tip Recogemos (o entregamos) un paquete por ti, hacemos tus compras en tu supermercado favorito, te llevamos medicinas, bebidas o básicamente lo que desees!
       .place.input-form
         span.label Lugar de Entrega
         .select-address-container(
           ng-click="errVm.inputOptions.onClick()"
         )
           .select-address(
-            ng-if="!errVm.inputOptions.address"  
+            ng-if="!errVm.inputOptions.address"
           )
             | {{errVm.inputOptions.text}}
           .select-addresss(
@@ -38,6 +40,7 @@ ion-view(
         textarea(
           msd-elastic
           ng-model='errVm.errand.description'
+          placeholder="Por favor detalla las instrucciones de tu pedido"
           required
         )
 
