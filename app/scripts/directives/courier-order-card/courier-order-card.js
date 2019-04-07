@@ -21,7 +21,7 @@
         'CommonService',
         courierOrderCardController
       ],
-      controllerAs: 'coVm',
+      controllerAs: 'coCardVm',
       bindToController: true
     };
 
@@ -29,20 +29,20 @@
   }
 
   function courierOrderCardController(CommonService) {
-    var coVm = this,
+    var coCardVm = this,
         THEMES = {
           customer_order_delivery: 'blue-mode',
           customer_errand: 'green-mode'
         };
 
 
-    coVm.courierOrder = formatData(coVm.order);
-    coVm.onClickOrder = onClickOrder;
-    coVm.getIconStatus = CommonService.getStatusOrderIcon;
+    coCardVm.courierOrder = formatData(coCardVm.order);
+    coCardVm.onClickOrder = onClickOrder;
+    coCardVm.getIconStatus = CommonService.getStatusOrderIcon;
 
     function onClickOrder() {
-      if (coVm.onClick && angular.isFunction(coVm.onClick)) {
-        coVm.onClick(coVm.order);
+      if (coCardVm.onClick && angular.isFunction(coCardVm.onClick)) {
+        coCardVm.onClick(coCardVm.order);
       }
     }
 
