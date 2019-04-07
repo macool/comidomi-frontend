@@ -46,6 +46,13 @@
     }
   }
 
+  &.confirmed {
+    .status {
+      background-color: $base-darkteal;
+      color: $white;
+    }
+  }
+
   .row {
     padding: 3px 20px;
 

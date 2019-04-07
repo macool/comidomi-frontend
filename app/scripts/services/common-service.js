@@ -19,7 +19,8 @@
     };
 
     var STATUS_ICONS = {
-      assigned: 'directions_bike',
+      confirmed: 'directions_bike',
+      assigned: 'thumb_up',
       delivered: 'check_circle',
       in_progress: 'person_pin' //jshint ignore:line
     };

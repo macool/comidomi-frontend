@@ -564,9 +564,10 @@
         },
         status: {
           new: 'Nuevo',
-          assigned: 'Camino a la tienda',
+          assigned: 'Tomado',
           in_progress: 'Camino a la entrega', // jshint ignore:line
-          delivered: 'Entregado'
+          delivered: 'Entregado',
+          confirmed: 'Camino a la tienda'
         },
         statusClient: {
           new: 'Enviado',
