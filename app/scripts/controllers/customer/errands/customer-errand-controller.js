@@ -159,9 +159,10 @@
         template: '{{::("globals.loading"|translate)}}'
       });
       ErrandsService.sendErrand(errandParams)
-        .then(function success() {
-          CommonService.nextViewIsRoot();
-          $state.go('app.services.providers').then(function() {
+        .then(function success(resp) {
+          $state.go('app.errands.show', {
+            id: resp.customer_errand.id
+          }).then(function() {
             closeModal();
             resetValues();
           });
