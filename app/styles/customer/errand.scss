@@ -1,57 +1,64 @@
 .errands-page {
-  padding: 20px;
 
-  .header-message {
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid $base-grey;
+  ion-footer-bar {
+    bottom: 50px;
+  }
 
-    .main {
-      font-family: $font-semibold;
-      font-size: $font-l;
+  ion-content {
+    padding: 20px;
+
+    .header-message {
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid $base-grey;
+
+      .main {
+        font-family: $font-semibold;
+        font-size: $font-l;
+      }
+
+      .tip {
+        font-family: $font-base;
+        font-size: $font-m;
+      }
+
+      .icon {
+        float: right;
+        height: 64px;
+        width: 64px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+      }
     }
 
-    .tip {
-      font-family: $font-base;
-      font-size: $font-m;
-    }
-
-    .icon {
-      float: right;
-      height: 64px;
-      width: 64px;
-      margin-left: 10px;
+    .input-form {
       margin-bottom: 10px;
     }
-  }
 
-  .input-form {
-    margin-bottom: 10px;
-  }
+    .select-address-container {
 
-  .select-address-container {
-
-    .select-address {
-      border: 1px solid $base-teal;
-      color: $base-teal;
-      padding: 5px;
-      cursor: pointer;
+      .select-address {
+        border: 1px solid $base-teal;
+        color: $base-teal;
+        padding: 5px;
+        cursor: pointer;
+      }
     }
-  }
 
-  .label {
-    text-transform: uppercase;
-    font-size: $font-xs;
-    font-family: $font-base;
-  }
+    .label {
+      text-transform: uppercase;
+      font-size: $font-xs;
+      font-family: $font-base;
+    }
 
-  textarea {
-    background: $light-grey;
-    font-family: $font-semibold;
-    width: 100%;
-    min-height: 200px;
-    padding: 10px;
-    line-height: 20px;
+    textarea {
+      background: $light-grey;
+      font-family: $font-semibold;
+      width: 100%;
+      min-height: 200px;
+      padding: 10px;
+      line-height: 20px;
+    }
   }
 }
 

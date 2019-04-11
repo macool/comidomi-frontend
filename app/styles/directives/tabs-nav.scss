@@ -7,3 +7,15 @@
     height: 30px;
   }
 }
+
+.keyboard-open .tabs {
+  display: none;
+}
+
+.keyboard-open .has-tabs {
+  bottom: 0;
+}
+
+body.keyboard-open .has-footer {
+  bottom: 0;
+}
