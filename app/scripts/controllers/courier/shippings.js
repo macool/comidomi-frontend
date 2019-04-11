@@ -6,7 +6,6 @@
     .controller('ShippingController', ShippingController);
 
   function ShippingController(ShippingRequestService,
-                              // shippingMyRequests,
                               CommonService,
                               $stateParams) {
 
@@ -16,30 +15,7 @@
     shVm.inProgressOrders = [];
     shVm.deliveredOrders = [];
     shVm.getIconStatus = CommonService.getStatusOrderIcon;
-    shVm.switchTab = switchTab;
-    shVm.currentOrderType = $stateParams.type || 'inProgress';
-    shVm.showFilterTab = !!$stateParams.type;
-    shVm.currentTab = 'new';
     shVm.loaded = false;
-    shVm.tabs = [{
-        key: 'inProgress',
-        onClick: switchTab
-      },
-      {
-        key: 'delivered',
-        onClick: switchTab
-      },
-    ];
-
-    shVm.mainTabs = [{
-        key: 'new',
-        sref: 'courier.orders.new'
-      },
-      {
-        key: 'inProgress',
-        sref: 'courier.orders.shippings'
-      },
-    ];
 
     var orders = {
       inProgress: shVm.inProgressOrders,
@@ -57,7 +33,7 @@
     function initOrders(data) {
       var allOrders = data || [];
       sortOrders(allOrders);
-      shVm.orders = orders[shVm.currentOrderType];
+      shVm.orders = orders.inProgress;
       shVm.totalOrders = allOrders.length;
       shVm.loaded = true;
     }
@@ -70,11 +46,6 @@
           shVm.inProgressOrders.push(order);
         }
       });
-    }
-
-    function switchTab(key) {
-      shVm.orders = orders[key];
-      shVm.currentOrderType = key;
     }
   }
 })();

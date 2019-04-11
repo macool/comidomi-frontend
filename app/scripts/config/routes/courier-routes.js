@@ -33,11 +33,11 @@ function courierRoutes($stateProvider) {
     }
   })
   .state('courier.orders.shippings', {
-    url: '/shippings/:type?',
+    url: '/shippings',
     cache: false,
     views: {
       'menuContent@courier': {
-        templateUrl: 'templates/courier/shippings.html',
+        templateUrl: 'templates/courier/in-progress-shippings.html',
         controller: 'ShippingController',
         controllerAs: 'shVm',
         // resolve: {

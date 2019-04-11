@@ -73,7 +73,7 @@
             validate: isValid
           },
           {
-            sref: 'courier.orders.shippings({type:"inProgress"})',
+            sref: 'courier.orders.shippings',
             icon: 'directions_bike',
             title: 'En Progreso',
             validate: isValid

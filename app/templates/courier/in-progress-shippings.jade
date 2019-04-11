@@ -1,0 +1,25 @@
+ion-view(
+  view-title='{{::("courier.orders"|translate)}}'
+)
+  ion-nav-title
+    .alt-logo
+  ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common.has-footer
+    .card-orders
+      .card-order(ng-if="shVm.loaded")
+        courier-order-card(
+          ng-repeat="order in shVm.orders" 
+          order="order"
+          ui-sref='courier.order({ id: order.id, order: order})'
+          type='status'
+        )
+
+      .card-order(ng-if="!shVm.loaded")
+        skeleton(number=5)
+      
+    .list--top-narrow
+      p.text-center
+        | {{ ::("shippingRequest.noMoreItems" | translate) }}
+  
+  tabs-nav(
+    type="courier"
+  )
