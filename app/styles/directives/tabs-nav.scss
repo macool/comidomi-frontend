@@ -6,6 +6,10 @@
     cursor: pointer;
     height: 30px;
   }
+
+  .tab-item-active {
+    color: $base-orange;
+  }
 }
 
 .keyboard-open .tabs {
