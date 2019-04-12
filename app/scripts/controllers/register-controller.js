@@ -28,6 +28,9 @@
               registerVm.registerForm.$setPristine();
               registerVm.registerForm.$setUntouched();
               $ionicLoading.hide();
+
+              // unset form
+              registerVm.errors = {};
             });
           }, function () {
             $ionicLoading.hide();

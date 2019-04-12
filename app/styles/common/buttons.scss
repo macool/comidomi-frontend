@@ -17,7 +17,7 @@ button[disabled]{
 
 .common-button {
   border-radius: 8px;
-  font-family: $font-base;
+  font-family: $font-semibold;
   color: $white;
   width: 100%;
   background-color: $base-orange;
@@ -27,7 +27,7 @@ button[disabled]{
 }
 
 .button {
-  font-family: $font-base;
+  font-family: $font-semibold;
 }
 
 .button-default-action.button-outline {

@@ -1,3 +1,8 @@
+ng-md-icon.icon.message-error(
+  ng-if="seVm.arrayMessages"
+  icon="error"
+  size="20"
+)
 span.message-error(
   ng-repeat='message in seVm.arrayMessages track by $index'
 ) {{ message }}.
