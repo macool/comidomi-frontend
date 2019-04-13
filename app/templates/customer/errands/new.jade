@@ -20,19 +20,19 @@ ion-view.errands-page(
           .select-address(
             ng-if="!errVm.inputOptions.address"
           )
+            ng-md-icon.icon(icon="directions" size="20")
             | {{errVm.inputOptions.text}}
           .select-addresss(
             ng-if="errVm.inputOptions.address"
           )
-            .address-row
-              .content-address
+            .selected-address-row-wrapper
+              .content-address.selected-address
+                ng-md-icon.icon(icon="directions" size="20")
                 .address
-                  .one {{ errVm.inputOptions.address.direccion_uno }}
-                  .two {{ errVm.inputOptions.address.direccion_dos }}
-              .map
-                .image(
-                  style="background-image: url('{{errVm.inputOptions.address.static_map_image}}')"
-                )
+                  span {{ errVm.inputOptions.address.direccion_uno }}
+                  span(
+                    ng-if="errVm.inputOptions.address.direccion_dos"
+                  ) , {{ errVm.inputOptions.address.direccion_dos }}
       .description.input-form
         span.label Mensaje
         textarea(
