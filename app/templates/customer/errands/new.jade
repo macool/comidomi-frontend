@@ -47,7 +47,7 @@ ion-view.errands-page(
         p.tip Recogemos (o entregamos) un paquete por ti, hacemos tus compras en tu supermercado favorito, te llevamos medicinas, bebidas o básicamente lo que desees!
 
     ion-footer-bar.bar-stable.bar-footer--tall
-      button.button-full.button-main(
+      button.button-full.button-main.button-primary(
         type="submit"
         ng-disabled='errVm.errandForm.$invalid || errVm.inputOptions.address == null'
       ) {{::("globals.send"|translate)}}

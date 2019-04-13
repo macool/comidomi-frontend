@@ -1,3 +1,5 @@
+$originalBoxShadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+
 .button {
   margin: auto;
   min-height: 40px;
@@ -16,14 +18,17 @@ button[disabled]{
 }
 
 .common-button {
-  border-radius: 8px;
+  border-radius: 0;
   font-family: $font-semibold;
   color: $white;
   width: 100%;
-  background-color: $base-orange;
-  -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: $originalBoxShadow;
+  -webkit-box-shadow: $originalBoxShadow;
+  box-shadow: $originalBoxShadow;
+
+  &:not[disabled] {
+    background-color: $base-orange;
+  }
 }
 
 .button {
@@ -110,8 +115,12 @@ button[disabled]{
   }
 }
 
-.button[disabled] {
+.button[disabled], .button-primary[disabled] {
   pointer-events: auto;
+
+  &:hover {
+    box-shadow: $originalBoxShadow;
+  }
 
   &:active {
     color: $button-stable-text;
