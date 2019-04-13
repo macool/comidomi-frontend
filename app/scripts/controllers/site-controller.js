@@ -8,7 +8,8 @@
   function SiteController($rootScope,
                           $ionicLoading,
                           $auth,
-                          ProfileService) {
+                          ProfileService,
+                          $timeout) {
     var siteVm = this,
         currentUser = null;
 
@@ -36,6 +37,13 @@
     $rootScope.$on('currentProfileProviderUpdated',function(event, updatedCurrentProfileProvider){
       currentUser.provider_profile = updatedCurrentProfileProvider;//jshint ignore:line
       updatePropertiesProfileProvider();
+    });
+
+    $rootScope.$on('porttare:notification', function (event, data) {
+      siteVm.flashMessageOptions = data;
+      $timeout(function(){
+        siteVm.flashMessageOptions = null;
+      }, 5000); //destroy en 8s
     });
 
     function finishedLoading(){
