@@ -2,10 +2,12 @@ flash-notification {
   .flash-container {
     position: absolute;
     top: 50px;
-    height: 60px;
+    min-height: 60px;
     width: 100%;
     z-index: 10;
     color: $white;
+    font-size: $font-m;
+    font-family: $font-base;
     padding: 0 15px;
     animation: bounceInDown 0.8s ease-in-out;
 
@@ -19,13 +21,21 @@ flash-notification {
     }
 
     .wrapper {
-      background-color: black;
-      height: 100%;
-      padding: 0 10px;
+      background-color: #323232;
+      min-height: 60px;
+      padding: 0 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+      .message {
+        text-align: left;
+      }
+
+      .btn-close {
+        margin-left: 10px;
+      }
     }
   }
 }
