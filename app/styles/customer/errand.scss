@@ -7,27 +7,35 @@
   ion-content {
     padding: 20px;
 
-    .header-message {
-      padding-bottom: 10px;
-      margin-bottom: 15px;
-      border-bottom: 1px solid $base-grey;
-
-      .main {
-        font-family: $font-semibold;
-        font-size: $font-l;
-      }
-
+    .header-message, .after-form-message {
       .tip {
         font-family: $font-base;
         font-size: $font-m;
       }
+    }
+
+    .after-form-message {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid $base-grey;
 
       .icon {
-        float: right;
+        float: left;
         height: 64px;
-        width: 64px;
-        margin-left: 10px;
-        margin-bottom: 10px;
+        width: 80px;
+
+        svg {
+          margin: auto;
+        }
+      }
+    }
+
+    .header-message {
+      margin-bottom: 5px;
+
+      .main {
+        font-family: $font-semibold;
+        font-size: $font-l;
       }
     }
 
