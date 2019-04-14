@@ -10,7 +10,9 @@
     )
       .information
         .text.msg {{ ::("provider.schedule.closed" | translate) }}
-        .text.open-time Abre a las {{ ::pcVm.provider.officeIsOpen.openingTime | formatDate:'h:mma' }}
+        .text.open-time(
+          ng-if="::pcVm.provider.officeIsOpen.openingTime"
+        ) Abre a las {{ ::pcVm.provider.officeIsOpen.openingTime | formatDate:'h:mma' }}
   .provider-info-wrapper
     .provider-logo-wrapper
       .provider-logo-img(
