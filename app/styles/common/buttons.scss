@@ -33,25 +33,29 @@ button[disabled]{
 
 .button {
   font-family: $font-semibold;
+
+  &.activated, &.active {
+    border-color: transparent;
+    box-shadow: $originalBoxShadow inset;
+  }
 }
 
 .button-default-action.button-outline {
   border-color: $base-orange;
   color: $base-orange;
-
-  &.activated {
-    background-color: $base-orange;
-  }
 }
 
 .button-primary,
-.button-primary.button-full,
-.button-primary.activated {
+.button-primary.button-full {
   @extend .common-button;
 
   &.spaced {
     margin-top: 30px;
   }
+}
+
+.button-primary {
+  background-color: $base-orange !important;
 }
 
 .button-outline {
@@ -64,10 +68,6 @@ button[disabled]{
 .button.button-energized.button-outline {
   border-color: $base-orange;
   color: $base-orange;
-
-  &.activated {
-    background-color: $base-orange;
-  }
 }
 
 .button-energized,
@@ -93,10 +93,9 @@ button[disabled]{
   padding-right: 12px;
 }
 
-.facebook-login
- {
+.facebook-login {
   @extend .common-button;
-  background-color: $facebook-blue;
+  background-color: $facebook-blue !important;
   border-radius: 0;
   .fb-copytext {
     padding-left: 30px;

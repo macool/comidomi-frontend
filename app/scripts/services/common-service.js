@@ -94,7 +94,7 @@
         return wday.day === dia;
       });
 
-      if (officeWeekday) {
+      if (officeWeekday && officeWeekday.abierto) {
         var horaDeApertura = officeWeekday.hora_de_apertura || '', // jshint ignore:line
             openHour = horaDeApertura.split(' ')[0];
         openingTime = convertToDate(
