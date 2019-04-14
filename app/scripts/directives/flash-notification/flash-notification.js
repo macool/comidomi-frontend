@@ -1,4 +1,4 @@
-(function () {
+(function() {
   'use strict';
 
   /* jshint validthis:true */
@@ -29,15 +29,23 @@
   function flashNotificationController($timeout) {
     var fnVm = this;
 
+    fnVm.options = fnVm.options || {};
     fnVm.message = fnVm.options.message;
     fnVm.animate = false;
     fnVm.isHide = false;
 
-    fnVm.close = function(){
+    fnVm.close = function() {
       fnVm.animate = true;
-      $timeout(function(){
+      $timeout(function() {
         fnVm.isHide = true;
       }, 800); // time animation
-    }
+    };
+
+    fnVm.onClick = function() {
+      fnVm.options.onClick = fnVm.options.onClick || emptyFunction;
+      fnVm.options.onClick(fnVm.options.data);
+    };
+
+    function emptyFunction() {}
   }
 })();

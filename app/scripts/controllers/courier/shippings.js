@@ -6,8 +6,7 @@
     .controller('ShippingController', ShippingController);
 
   function ShippingController(ShippingRequestService,
-                              CommonService,
-                              $stateParams) {
+                              CommonService) {
 
     var shVm = this;
 

@@ -39,11 +39,11 @@
       updatePropertiesProfileProvider();
     });
 
-    $rootScope.$on('porttare:notification', function (event, data) {
+    $rootScope.$on('shipping_request_updated:show-flash-notification', function (event, data) {
       siteVm.flashMessageOptions = data;
       $timeout(function(){
         siteVm.flashMessageOptions = null;
-      }, 5000); //destroy en 8s
+      }, 5000); //destroy en 5s
     });
 
     function finishedLoading(){
