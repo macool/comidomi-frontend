@@ -41,10 +41,11 @@
 
     $rootScope.$on('shipping_request_updated:show-flash-notification', function (event, data) {
       siteVm.flashMessageOptions = data;
-      $timeout(function(){
-        siteVm.flashMessageOptions = null;
-      }, 5000); //destroy en 5s
+      siteVm.flashMessageOptions.cleanOptions = cleanflashMessageOptions;
     });
+    function cleanflashMessageOptions() {
+      siteVm.flashMessageOptions = null;
+    }
 
     function finishedLoading(){
       return $ionicLoading.hide();

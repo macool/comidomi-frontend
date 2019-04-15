@@ -31,20 +31,27 @@
 
     fnVm.options = fnVm.options || {};
     fnVm.message = fnVm.options.message;
+    fnVm.cleanOptions = fnVm.options.cleanOptions || emptyFunction;
     fnVm.animate = false;
     fnVm.isHide = false;
 
     fnVm.close = function() {
-      fnVm.animate = true;
-      $timeout(function() {
-        fnVm.isHide = true;
-      }, 800); // time animation
+      animateOut();
     };
 
     fnVm.onClick = function() {
+      animateOut();
       fnVm.options.onClick = fnVm.options.onClick || emptyFunction;
       fnVm.options.onClick(fnVm.options.data);
     };
+
+    function animateOut() {
+      fnVm.animate = true;
+      $timeout(function() {
+        fnVm.isHide = true;
+        fnVm.cleanOptions();
+      }, 800); // time animation
+    }
 
     function emptyFunction() {}
   }
