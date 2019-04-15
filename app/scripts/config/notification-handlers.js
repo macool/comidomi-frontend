@@ -33,14 +33,20 @@
     }
 
     function shippingRequestUpdated(data) {
-      var notification = data.notification || {},
-        title = notification.title;
-      if (title) {
-        $rootScope.$broadcast('shipping_request_updated:show-flash-notification', {
-          data: data,
-          message: title,
-          onClick: goToOrder,
-        });
+      data = data || {};
+      if (data.shipping_request && data.wasTapped) {
+        var order = data.shipping_request || {};
+        goToOrder(order);
+      }else{
+        var notification = data.notification || {},
+          title = notification.title;
+        if (title) {
+          $rootScope.$broadcast('shipping_request_updated:show-flash-notification', {
+            data: data,
+            message: title,
+            onClick: goToOrder,
+          });
+        }
       }
     }
 
