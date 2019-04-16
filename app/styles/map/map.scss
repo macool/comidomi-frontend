@@ -39,10 +39,27 @@
     border-radius: 20px;
     transition: height 0.5s ease-out;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 0 10px;
 
     &.expand {
       height: 85%;
       transition: height 0.5s ease-out;
+    }
+
+    .icon {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    label {
+      margin: 0;
+      padding: 0 0px 5px 0px;
+
+      span {
+        font-size: $font-m;
+        font-family: $font-semibold;
+      }
     }
   }
 }

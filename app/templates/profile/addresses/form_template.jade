@@ -19,6 +19,11 @@ form.address-form-page(
   .form-address(
     ng-class="{'expand': pfaVm.expand}"
   )
+    ng-md-icon.icon(
+      icon="{{pfaVm.expand ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}"
+      size="20"
+      ng-click="pfaVm.expandForm()"
+    )
     label.item.item-input.item-stacked-label(
       ng-class="{'item-error': pfaVm.messages.direccion_uno}"
     )
