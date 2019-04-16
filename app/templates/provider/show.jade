@@ -43,7 +43,15 @@ ion-view(
               .info-wrapper
                 .provider-item--title {{ ::providerItem.titulo }}
                 .provider-item--description {{ ::providerItem.descripcion }}
-                .provider-item--subtitle
+                .provider-item--subtitle(
+                  ng-if="providerItem.is_group"
+                )
+                  span.group(ng-repeat="item in ::providerItem.children")
+                    price(amount="{{item.precio_cents}}"
+                          currency="{{item.precio_currency}}")
+                .provider-item--subtitle(
+                  ng-if="!providerItem.is_group"
+                )
                   span
                     price(amount="{{providerItem.precio_cents}}"
                           currency="{{providerItem.precio_currency}}")

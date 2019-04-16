@@ -262,6 +262,18 @@ $providerShowPageCoverHeight: 180px;
           color: $base-black;
           font-family: $font-base;
           padding: 10px 0 0 0;
+
+          .group {
+            &:after {
+              content: ' / '
+            }
+          }
+
+          .group:last-child {
+            &:after {
+              content: ''
+            }
+          }
         }
       }
 

@@ -161,7 +161,7 @@
       ErrandsService.sendErrand(errandParams)
         .then(function success(resp) {
           $state.go('app.errands.show', {
-            id: resp.customer_errand.id
+            id: resp.customer_errand.id //jshint ignore:line
           }).then(function() {
             closeModal();
             resetValues();

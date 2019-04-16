@@ -4,10 +4,15 @@
 
 .errors-wrapper,
 .message-error {
-  color: $error-red;
+  color: white;
   font-family: $font-base;
 
   .bottom-spaced {
     margin-bottom: 10px;
   }
+}
+
+.message-error.icon {
+  margin-left: 5px;
+  margin-right: 5px;
 }

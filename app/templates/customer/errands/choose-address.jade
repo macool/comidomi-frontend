@@ -18,6 +18,7 @@ ion-modal-view.addresses-choose-page
             icon="{{vm.addressSelected.id == address.id ? 'check_box' : 'check_box_outline_blank' }}"
           )
           .address
+            .zero {{ ::address.nombre }}
             .one {{ ::address.direccion_uno }}
             .two {{ ::address.direccion_dos }}
         .map

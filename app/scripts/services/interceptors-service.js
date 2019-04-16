@@ -63,7 +63,7 @@ function InterceptorsService($injector, $q) {
   function dismissedAlert(){
     unsetCurrentAlert();
     $injector.get('$auth').validateUser().then(function(){
-      $injector.get('$state').go('app.categories.index');
+      $injector.get('$state').go('app.services.providers');
     }, function(){
       $injector.get('$state').go('login');
     });

@@ -24,6 +24,8 @@
         $auth.submitRegistration(registerVm.user)
           .then(function() {
             $state.go(APP.successState).then(function(){
+              // unset form
+              registerVm.errors = {};
               registerVm.user = {};
               registerVm.registerForm.$setPristine();
               registerVm.registerForm.$setUntouched();

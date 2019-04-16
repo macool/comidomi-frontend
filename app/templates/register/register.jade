@@ -28,7 +28,7 @@ ion-view(
               placeholder='Correo electrónico'
               autosize-input
             )
-          .show-errors(ng-messages="registerVm.registerForm.email.$error" ng-if="registerVm.registerForm.email.$touched")
+          .show-errors(ng-messages="registerVm.registerForm.email.$error" ng-if="registerVm.registerForm.email.$touched && !registerVm.errors.email")
             span(ng-message="required" class="message-error") Campo requerido
             span(ng-message="email" class="message-error") E-mail no válido
           show-error(array-messages="registerVm.errors.email")
@@ -70,6 +70,6 @@ ion-view(
     .list.list-inset.constraint-width
       .button.facebook-login(ng-click="registerVm.loginWithFB()")
         span.fb-left-icon
-        span.fb-copytext Continuar con facebook
+        span.fb-copytext Continuar con Facebook
 
 .bar.bar-footer.bar-footer-yellow-stripe

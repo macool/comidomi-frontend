@@ -53,7 +53,7 @@
   }
 
   .comidomi-logo-1 {
-    max-width: 220px;
+    max-width: 300px;
 
     @media (min-height: 500px) {
       margin-bottom: 40px;
@@ -143,8 +143,8 @@ ion-view[hide-nav-bar="true"] {
     text-decoration: none;
     color: $white;
     z-index: 1;
-    font-family: $font-base;
-    font-size: $font-s;
+    font-family: $font-semibold;
+    font-size: $font-m;
   }
 
   &:before {

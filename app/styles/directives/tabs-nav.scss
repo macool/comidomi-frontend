@@ -6,4 +6,20 @@
     cursor: pointer;
     height: 30px;
   }
+
+  .tab-item-active {
+    color: $base-orange;
+  }
+}
+
+.keyboard-open .tabs {
+  display: none;
+}
+
+.keyboard-open .has-tabs {
+  bottom: 0;
+}
+
+body.keyboard-open .has-footer {
+  bottom: 0;
 }

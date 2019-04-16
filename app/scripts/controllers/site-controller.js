@@ -5,9 +5,10 @@
     .module('porttare.controllers')
     .controller('SiteController', SiteController);
 
-  function SiteController($rootScope,
+  function SiteController($auth,
+                          $scope,
+                          $rootScope,
                           $ionicLoading,
-                          $auth,
                           ProfileService) {
     var siteVm = this,
         currentUser = null;
@@ -37,6 +38,16 @@
       currentUser.provider_profile = updatedCurrentProfileProvider;//jshint ignore:line
       updatePropertiesProfileProvider();
     });
+
+    $rootScope.$on('shipping_request_updated:show-flash-notification', function (event, data) {
+      $scope.$apply(function(){
+        siteVm.flashMessageOptions = data;
+        siteVm.flashMessageOptions.cleanOptions = cleanflashMessageOptions;
+      });
+    });
+    function cleanflashMessageOptions() {
+      siteVm.flashMessageOptions = null;
+    }
 
     function finishedLoading(){
       return $ionicLoading.hide();
