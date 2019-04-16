@@ -6,18 +6,17 @@ form.address-form-page(
   ion-content.addresses-page.resource-form(
     locking="false"
   )
-    //- .row
-    //-   maps(
-    //-     lat="pfaVm.addressFormData.lat"
-    //-     lon="pfaVm.addressFormData.lon"
-    //-     default-in-current-geolocation="pfaVm.defaultInCurrentGeolocation"
-    //-     direccion="pfaVm.addressFormData.direccion_uno"
-    //-     direccion-dos="pfaVm.addressFormData.direccion_dos"
-    //-     referencia="pfaVm.addressFormData.referencia"
-    //-     geolocation-message-key="pfaVm.geolocationMessageKey"
-    //-   )
-    //-   show-error(array-messages='pfaVm.messages.lat || pfaVm.messages.lon')
-    //-   .text-stable {{ pfaVm.geolocationMessageKey | translate }}
+    maps(
+      lat="pfaVm.addressFormData.lat"
+      lon="pfaVm.addressFormData.lon"
+      default-in-current-geolocation="pfaVm.defaultInCurrentGeolocation"
+      direccion="pfaVm.addressFormData.direccion_uno"
+      direccion-dos="pfaVm.addressFormData.direccion_dos"
+      referencia="pfaVm.addressFormData.referencia"
+      geolocation-message-key="pfaVm.geolocationMessageKey"
+    )
+    show-error(array-messages='pfaVm.messages.lat || pfaVm.messages.lon')
+    .text-stable {{ pfaVm.geolocationMessageKey | translate }}
 
   .form-address(
     ng-class="{'expand': pfaVm.expand}"
