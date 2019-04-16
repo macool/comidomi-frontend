@@ -3,12 +3,10 @@ form(
   ng-submit="pfaVm.processAddress(pfaVm.addressFormData)"
   novalidate
 )
-  ion-content.addresses-wrapper.resource-form(
+  ion-content.addresses-page.resource-form(
     locking="false"
   )
-    .list.list-inset.fields-wrapper
-      legend {{::pfaVm.inUpdateMode ? ("addresses.formLegendUpdate"|translate) : ("addresses.formLegendNew"|translate)}}
-
+    .row
       maps(
         lat="pfaVm.addressFormData.lat"
         lon="pfaVm.addressFormData.lon"
@@ -21,17 +19,7 @@ form(
       show-error(array-messages='pfaVm.messages.lat || pfaVm.messages.lon')
       .text-stable {{ pfaVm.geolocationMessageKey | translate }}
 
-      //- label.item.item-input.item-stacked-label(
-      //-   ng-class="{'item-error': pfaVm.messages.ciudad}"
-      //- )
-      //-   span.input-label {{::("addresses.city"|translate)}}
-      //-   input(
-      //-     type='text'
-      //-     ng-model='::pfaVm.addressFormData.ciudad'
-      //-   )
-      //- .errors-wrapper
-      //-   show-error(array-messages='pfaVm.messages.ciudad')
-
+    .form-address
       label.item.item-input.item-stacked-label(
         ng-class="{'item-error': pfaVm.messages.direccion_uno}"
       )
@@ -57,51 +45,6 @@ form(
         )
       .errors-wrapper
         show-error(array-messages='pfaVm.messages.direccion_dos')
-
-      //- label.item.item-input.item-stacked-label(
-      //-   ng-class="{'item-error': pfaVm.messages.parroquia}"
-      //- )
-      //-   span.input-label {{::("addresses.parish"|translate)}}
-      //-   input(
-      //-     type='text'
-      //-     ng-model='pfaVm.addressFormData.parroquia'
-      //-   )
-      //- .errors-wrapper
-      //-   show-error(array-messages='pfaVm.messages.parroquia')
-      //-
-      //- label.item.item-input.item-stacked-label(
-      //-   ng-class="{'item-error': pfaVm.messages.barrio}"
-      //- )
-      //-   span.input-label {{::("addresses.neighborhood"|translate)}}
-      //-   input(
-      //-     type='text'
-      //-     ng-model='pfaVm.addressFormData.barrio'
-      //-   )
-      //- .errors-wrapper
-      //-   show-error(array-messages='pfaVm.messages.barrio')
-      //-
-      //- label.item.item-input.item-stacked-label(
-      //-   ng-class="{'item-error': pfaVm.messages.codigo_postal}"
-      //- )
-      //-   span.input-label {{::("addresses.zipCode"|translate)}}
-      //-   input(
-      //-     type='text'
-      //-     ng-model='pfaVm.addressFormData.codigo_postal'
-      //-   )
-      //- .errors-wrapper
-      //-   show-error(array-messages='pfaVm.messages.codigo_postal')
-
-      label.item.item-input.item-stacked-label(
-        ng-class="{'item-error': pfaVm.messages.numero_convencional}"
-      )
-        span.input-label {{::("addresses.telephoneNumber"|translate)}}
-        input(
-          type='tel'
-          ng-model='pfaVm.addressFormData.numero_convencional'
-          placeholder='072369727'
-        )
-      .errors-wrapper
-        show-error(array-messages='pfaVm.messages.numero_convencional')
 
       label.item.item-input.item-stacked-label(
         ng-class="{'item-error': pfaVm.messages.referencia}"

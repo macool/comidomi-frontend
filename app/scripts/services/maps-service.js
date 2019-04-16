@@ -71,7 +71,7 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false,
         disableDefaultUI: true,
-        center: mapPositionDefault()
+        // center: mapPositionDefault()
       };
     }
 

@@ -22,3 +22,21 @@
     box-shadow: 0 0 10px $base-blue;
   }
 }
+
+.addresses-page {
+  .map-view {
+    height: 800px;
+    margin: 0 0 5px 0;
+
+    #map {
+      width: 100%;
+    }
+  }
+
+  .form-address {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background: white
+  }
+}
