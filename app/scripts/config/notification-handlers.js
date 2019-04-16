@@ -36,8 +36,7 @@
       data = parseRawNotificationData(data);
 
       if (data.customer_resource && data.wasTapped) {
-        var order = data.customer_resource || {};
-        goToOrder(order);
+        goToOrder(data);
       } else {
         var notification_description = data.notification_description || {},
             title = notification_description.title,
