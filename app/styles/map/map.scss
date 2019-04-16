@@ -25,9 +25,6 @@
 
 .address-form-page {
   .map-view {
-    height: 800px;
-    margin: 0 0 5px 0;
-
     #map {
       width: 100%;
     }
@@ -46,6 +43,29 @@
     &.expand {
       height: 90%;
       transition: height 0.5s ease-out;
+    }
+  }
+}
+
+.address-form-page {
+  height: 100%;
+
+  .resource-form {
+    height: 100%;
+    display: block;
+
+    // 44px on header + 60px on footer
+    // + 60px some padding for form in bottom
+    padding-bottom: 200px;
+
+    .scroll {
+      height: 100%;
+    }
+
+    maps {
+      position: absolute;
+      height: 100%;
+      width: 100%;
     }
   }
 }
