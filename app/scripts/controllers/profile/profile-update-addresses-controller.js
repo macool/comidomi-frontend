@@ -25,7 +25,6 @@
     }
 
     pfaVm.expandForm = function(){
-      console.log('click');
       pfaVm.expand = !pfaVm.expand;
     }
   }

@@ -3,8 +3,7 @@ form.address-form-page(
   ng-submit="pfaVm.processAddress(pfaVm.addressFormData)"
   novalidate
 )
-  ion-content.addresses-page.resource-form(
-  )
+  ion-content.addresses-page.resource-form
     maps(
       lat="pfaVm.addressFormData.lat"
       lon="pfaVm.addressFormData.lon"
@@ -20,10 +19,6 @@ form.address-form-page(
   .form-address(
     ng-class="{'expand': pfaVm.expand}"
   )
-    button(
-      ng-click="pfaVm.expandForm()"
-    )
-      | expand
     label.item.item-input.item-stacked-label(
       ng-class="{'item-error': pfaVm.messages.direccion_uno}"
     )
@@ -33,6 +28,7 @@ form.address-form-page(
         type='text'
         ng-model='::pfaVm.addressFormData.direccion_uno'
         placeholder='{{ ::("addresses.addressOnePlaceholder" | translate) }}'
+        ng-focus="pfaVm.expand = true"
         required
       )
     .errors-wrapper
@@ -46,6 +42,7 @@ form.address-form-page(
         type='text'
         ng-model='pfaVm.addressFormData.direccion_dos'
         placeholder='{{ ::("addresses.addressTwoPlaceholder" | translate) }}'
+        ng-focus="pfaVm.expand = true"
       )
     .errors-wrapper
       show-error(array-messages='pfaVm.messages.direccion_dos')
@@ -58,6 +55,7 @@ form.address-form-page(
         type='text'
         ng-model='pfaVm.addressFormData.referencia'
         placeholder='Ej: casa amarilla, segundo piso'
+        ng-focus="pfaVm.expand = true"
       )
     .errors-wrapper
       show-error(array-messages='pfaVm.messages.referencia')
@@ -70,6 +68,7 @@ form.address-form-page(
         type='text'
         ng-model='pfaVm.addressFormData.nombre'
         placeholder='{{ ::("addresses.namePlaceholder" | translate) }}'
+        ng-focus="pfaVm.expand = true"
       )
     .errors-wrapper
       show-error(array-messages='pfaVm.messages.nombre')
