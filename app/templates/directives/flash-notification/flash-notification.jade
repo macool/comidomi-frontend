@@ -3,10 +3,9 @@
   ng-click="fnVm.onClick()"
 )
   .wrapper
-    .message {{fnVm.message}}
+    .message.message-title {{fnVm.message}}
+    .message {{fnVm.messageDescription}}
     .btn-close(
       ng-click="fnVm.close()"
     )
       ng-md-icon.icon(icon="close" size="20")
-    
-    

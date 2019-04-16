@@ -10,7 +10,7 @@
     var handlers = {
       'provider_new_order': providerNewOrder,
       'new_shipping_request': newShippingRequest,
-      'shipping_request_updated': shippingRequestUpdated
+      'customer_request_updated': customerRequestUpdated
     };
 
     $rootScope.$on('porttare:notification', function(e, data) {
@@ -32,19 +32,21 @@
       }
     }
 
-    function shippingRequestUpdated(data) {
+    function customerRequestUpdated(data) {
       data = parseRawNotificationData(data);
 
-      if (data.shipping_request && data.wasTapped) {
-        var order = data.shipping_request || {};
+      if (data.customer_resource && data.wasTapped) {
+        var order = data.customer_resource || {};
         goToOrder(order);
       } else {
         var notification_description = data.notification_description || {},
-            title = notification_description.title;
+            title = notification_description.title,
+            subtitle = notification_description.body;
         if (title) {
           $rootScope.$broadcast('shipping_request_updated:show-flash-notification', {
             data: data,
             message: title,
+            messageDescription: subtitle,
             onClick: goToOrder,
           });
         }
@@ -52,8 +54,8 @@
     }
 
     function goToOrder(data) {
-      if (data && data.shipping_request) { // jshint ignore:line
-        var order = data.shipping_request; // jshint ignore:line
+      if (data && data.customer_resource) { // jshint ignore:line
+        var order = data.customer_resource; // jshint ignore:line
         if (order.kind === 'customer_errand') {
           $state.go('app.errands.show', {
             id: order.id,
@@ -71,8 +73,8 @@
 
     function parseRawNotificationData(data) {
       data = data || {};
-      if (data.shipping_request) {
-        data.shipping_request = JSON.parse(data.shipping_request);
+      if (data.customer_resource) {
+        data.customer_resource = JSON.parse(data.customer_resource);
       }
       if (data.notification_description) {
         data.notification_description = JSON.parse(data.notification_description);

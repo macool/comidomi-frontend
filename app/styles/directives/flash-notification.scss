@@ -33,6 +33,10 @@ flash-notification {
         text-align: left;
       }
 
+      .message-title {
+        font-family: $font-semibold;
+      }
+
       .btn-close {
         margin-left: 10px;
       }
