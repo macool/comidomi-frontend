@@ -33,13 +33,14 @@
     }
 
     function shippingRequestUpdated(data) {
-      data = data || {};
+      data = parseRawNotificationData(data);
+
       if (data.shipping_request && data.wasTapped) {
         var order = data.shipping_request || {};
         goToOrder(order);
-      }else{
-        var notification = data.notification || {},
-          title = notification.title;
+      } else {
+        var notification_description = data.notification_description || {},
+            title = notification_description.title;
         if (title) {
           $rootScope.$broadcast('shipping_request_updated:show-flash-notification', {
             data: data,
@@ -66,6 +67,17 @@
           });
         }
       }
+    }
+
+    function parseRawNotificationData(data) {
+      data = data || {};
+      if (data.shipping_request) {
+        data.shipping_request = JSON.parse(data.shipping_request);
+      }
+      if (data.notification_description) {
+        data.notification_description = JSON.parse(data.notification_description);
+      }
+      return data;
     }
   }
 })();
