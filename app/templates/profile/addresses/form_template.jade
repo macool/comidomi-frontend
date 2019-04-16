@@ -1,4 +1,4 @@
-form(
+form.address-form-page(
   name="pfaVm.addressForm"
   ng-submit="pfaVm.processAddress(pfaVm.addressFormData)"
   novalidate
@@ -6,69 +6,75 @@ form(
   ion-content.addresses-page.resource-form(
     locking="false"
   )
-    .row
-      maps(
-        lat="pfaVm.addressFormData.lat"
-        lon="pfaVm.addressFormData.lon"
-        default-in-current-geolocation="pfaVm.defaultInCurrentGeolocation"
-        direccion="pfaVm.addressFormData.direccion_uno"
-        direccion-dos="pfaVm.addressFormData.direccion_dos"
-        referencia="pfaVm.addressFormData.referencia"
-        geolocation-message-key="pfaVm.geolocationMessageKey"
-      )
-      show-error(array-messages='pfaVm.messages.lat || pfaVm.messages.lon')
-      .text-stable {{ pfaVm.geolocationMessageKey | translate }}
+    //- .row
+    //-   maps(
+    //-     lat="pfaVm.addressFormData.lat"
+    //-     lon="pfaVm.addressFormData.lon"
+    //-     default-in-current-geolocation="pfaVm.defaultInCurrentGeolocation"
+    //-     direccion="pfaVm.addressFormData.direccion_uno"
+    //-     direccion-dos="pfaVm.addressFormData.direccion_dos"
+    //-     referencia="pfaVm.addressFormData.referencia"
+    //-     geolocation-message-key="pfaVm.geolocationMessageKey"
+    //-   )
+    //-   show-error(array-messages='pfaVm.messages.lat || pfaVm.messages.lon')
+    //-   .text-stable {{ pfaVm.geolocationMessageKey | translate }}
 
-    .form-address
-      label.item.item-input.item-stacked-label(
-        ng-class="{'item-error': pfaVm.messages.direccion_uno}"
+  .form-address(
+    ng-class="{'expand': pfaVm.expand}"
+  )
+    button(
+      ng-click="pfaVm.expandForm()"
+    )
+      | expand
+    label.item.item-input.item-stacked-label(
+      ng-class="{'item-error': pfaVm.messages.direccion_uno}"
+    )
+      span.input-label
+        | {{::("addresses.addressOne"|translate)}} *
+      input(
+        type='text'
+        ng-model='::pfaVm.addressFormData.direccion_uno'
+        placeholder='{{ ::("addresses.addressOnePlaceholder" | translate) }}'
+        required
       )
-        span.input-label
-          | {{::("addresses.addressOne"|translate)}} *
-        input(
-          type='text'
-          ng-model='::pfaVm.addressFormData.direccion_uno'
-          placeholder='{{ ::("addresses.addressOnePlaceholder" | translate) }}'
-          required
-        )
-      .errors-wrapper
-        show-error(array-messages='pfaVm.messages.direccion_uno')
+    .errors-wrapper
+      show-error(array-messages='pfaVm.messages.direccion_uno')
 
-      label.item.item-input.item-stacked-label(
-        ng-class="{'item-error': pfaVm.messages.direccion_dos}"
+    label.item.item-input.item-stacked-label(
+      ng-class="{'item-error': pfaVm.messages.direccion_dos}"
+    )
+      span.input-label {{::("addresses.addressTwo"|translate)}}
+      input(
+        type='text'
+        ng-model='pfaVm.addressFormData.direccion_dos'
+        placeholder='{{ ::("addresses.addressTwoPlaceholder" | translate) }}'
       )
-        span.input-label {{::("addresses.addressTwo"|translate)}}
-        input(
-          type='text'
-          ng-model='pfaVm.addressFormData.direccion_dos'
-          placeholder='{{ ::("addresses.addressTwoPlaceholder" | translate) }}'
-        )
-      .errors-wrapper
-        show-error(array-messages='pfaVm.messages.direccion_dos')
+    .errors-wrapper
+      show-error(array-messages='pfaVm.messages.direccion_dos')
 
-      label.item.item-input.item-stacked-label(
-        ng-class="{'item-error': pfaVm.messages.referencia}"
+    label.item.item-input.item-stacked-label(
+      ng-class="{'item-error': pfaVm.messages.referencia}"
+    )
+      span.input-label {{::("addresses.reference"|translate)}}
+      input(
+        type='text'
+        ng-model='pfaVm.addressFormData.referencia'
+        placeholder='Ej: casa amarilla, segundo piso'
       )
-        span.input-label {{::("addresses.reference"|translate)}}
-        input(
-          type='text'
-          ng-model='pfaVm.addressFormData.referencia'
-          placeholder='Ej: casa amarilla, segundo piso'
-        )
-      .errors-wrapper
-        show-error(array-messages='pfaVm.messages.referencia')
+    .errors-wrapper
+      show-error(array-messages='pfaVm.messages.referencia')
 
-      label.item.item-input.item-stacked-label(
-        ng-class="{'item-error': pfaVm.messages.nombre}"
+    label.item.item-input.item-stacked-label(
+      ng-class="{'item-error': pfaVm.messages.nombre}"
+    )
+      span.input-label {{::("addresses.name"|translate)}}
+      input(
+        type='text'
+        ng-model='pfaVm.addressFormData.nombre'
+        placeholder='{{ ::("addresses.namePlaceholder" | translate) }}'
       )
-        span.input-label {{::("addresses.name"|translate)}}
-        input(
-          type='text'
-          ng-model='pfaVm.addressFormData.nombre'
-          placeholder='{{ ::("addresses.namePlaceholder" | translate) }}'
-        )
-      .errors-wrapper
-        show-error(array-messages='pfaVm.messages.nombre')
+    .errors-wrapper
+      show-error(array-messages='pfaVm.messages.nombre')
 
   ion-footer-bar.bar-stable.bar-footer--tall
     button.button-full.button-main(

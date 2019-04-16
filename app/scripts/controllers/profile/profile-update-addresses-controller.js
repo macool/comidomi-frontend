@@ -12,6 +12,7 @@
     pfaVm.inUpdateMode = true;
     pfaVm.processAddress = processAddress;
     pfaVm.addressFormData = data;
+    pfaVm.expand = false;
 
     function processAddress() {
       var options = {
@@ -21,6 +22,11 @@
       ProfileAddressesService.runAction(options).catch(function (response){
         pfaVm.messages = response.errors;
       });
+    }
+
+    pfaVm.expandForm = function(){
+      console.log('click');
+      pfaVm.expand = !pfaVm.expand;
     }
   }
 })();

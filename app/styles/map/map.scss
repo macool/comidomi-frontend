@@ -23,7 +23,7 @@
   }
 }
 
-.addresses-page {
+.address-form-page {
   .map-view {
     height: 800px;
     margin: 0 0 5px 0;
@@ -35,8 +35,13 @@
 
   .form-address {
     position: absolute;
+    bottom: -170px;
     width: 100%;
-    top: 0;
-    background: white
+    background: aqua;
+
+    &.expand {
+      height: 100%;
+      top: 80px;
+    }
   }
 }
