@@ -31,6 +31,7 @@
 
     fnVm.options = fnVm.options || {};
     fnVm.message = fnVm.options.message;
+    fnVm.messageDescription = fnVm.options.messageDescription;
     fnVm.cleanOptions = fnVm.options.cleanOptions || emptyFunction;
     fnVm.animate = false;
     fnVm.isHide = false;
