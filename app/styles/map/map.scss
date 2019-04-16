@@ -35,13 +35,15 @@
 
   .form-address {
     position: absolute;
-    bottom: -170px;
+    bottom: 0;
     width: 100%;
     background: aqua;
+    height: 180px;
+    transition: height 0.5s ease-out;
 
     &.expand {
-      height: 100%;
-      top: 80px;
+      height: 90%;
+      transition: height 0.5s ease-out;
     }
   }
 }
