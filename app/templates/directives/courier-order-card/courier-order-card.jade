@@ -65,6 +65,12 @@
       span.status
         | &nbsp;
         | {{ ("shippingRequest.status." + coCardVm.courierOrder.status | translate) }}
+
+  .row.user.information
+    .order-info
+      span.order-kind
+        | {{ coCardVm.courierOrder.translation_order_kind | translate }} {{ coCardVm.courierOrder.id}}
+        
   .row.user.information
     .order-info
       .details
