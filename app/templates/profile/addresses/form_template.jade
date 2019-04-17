@@ -81,5 +81,5 @@ form.address-form-page(
   ion-footer-bar.bar-stable.bar-footer--tall
     button.button-full.button-main(
       type="submit"
-      ng-disabled="pfaVm.addressFormData.$invalid"
+      ng-disabled="pfaVm.addressFormData.direccion_uno === undefined"
     ) {{ ::pfaVm.inUpdateMode ? ("addresses.updateBtnText"|translate) : ("addresses.saveBtnText"|translate) }}

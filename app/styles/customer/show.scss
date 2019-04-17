@@ -4,8 +4,7 @@
   .profile-header {
     .img-profile {
       display: block;
-      margin: auto;
-      margin-top: 15px;
+      margin: 15px auto auto;
       max-width: 140px;
       max-height: 140px;
       border-radius: 50%;
@@ -15,7 +14,7 @@
       text-align: center;
       font-size: 16px;
       line-height: 30px;
-      margin: 0 0 15px 0;
+      margin: 0 0 15px;
       font-family: $font-light;
     }
   }
@@ -82,7 +81,7 @@
         width: 100%;
         align-items: center;
         justify-content: space-around;
-        padding: 20px 0 10px 0;
+        padding: 20px 0 10px;
 
         .wrapper {
           padding: 10px;
@@ -134,37 +133,12 @@
           color: $error-red;
 
           .icon {
-            color: $error-red
+            color: $error-red;
           }
         }
       }
     }
   }
-
-
-  // .information {
-  //   margin: 0 20px;
-  //   font-family: $font-light;
-  //   color: $base-grey;
-  //
-  //   .wrapper {
-  //     display: flex;
-  //     justify-content: space-between;
-  //     border-bottom: 1px solid $medium-grey;;
-  //     padding: 10px 0;
-  //     margin: 10px 0;
-  //     font-size: $font-m;
-  //
-  //     .label {
-  //       font-family: $font-base;
-  //       color: $base-black;
-  //     }
-  //
-  //     .value {
-  //       color: $base-black;
-  //     }
-  //   }
-  // }
 }
 
 .addresses-page {
@@ -198,12 +172,13 @@
         background: $white;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
-        .label, .value {
+        .label,
+        .value {
           font-family: $font-base;
           font-size: $font-s;
 
           &.muted {
-            color:$base-grey;
+            color: $base-grey;
           }
         }
 
@@ -216,7 +191,7 @@
 
         .static-map-preview {
           max-width: 100%;
-          padding: 0 10px 10px 10px;
+          padding: 0 10px 10px;
         }
       }
     }
