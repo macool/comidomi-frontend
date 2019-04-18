@@ -7,6 +7,7 @@
 
   function SiteController($auth,
                           $scope,
+                          $window,
                           $rootScope,
                           $ionicLoading,
                           ProfileService) {
@@ -16,6 +17,7 @@
     siteVm.userName = null;
     siteVm.userImageURL = null;
     siteVm.providerImageURL = null;
+    siteVm.keyboardShow = false;
 
     $rootScope.$on('auth:login-success', userLoggedIn);
     $rootScope.$on('auth:validation-success', userLoggedIn);
@@ -48,6 +50,14 @@
     function cleanflashMessageOptions() {
       siteVm.flashMessageOptions = null;
     }
+
+    $window.addEventListener('keyboardWillShow', function() {
+      siteVm.keyboardShow = true;
+    });
+
+    $window.addEventListener('keyboardDidHide', function() {
+      siteVm.keyboardShow = false;
+    });
 
     function finishedLoading(){
       return $ionicLoading.hide();

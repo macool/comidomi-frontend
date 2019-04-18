@@ -1,0 +1,11 @@
+body.open-keyboard {
+  background: red;
+
+  .hide-on-keyboard-open {
+    display: none;
+  }
+
+  .set-to-bottom-on-keyboard-open {
+    bottom: 0;
+  }
+}

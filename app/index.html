@@ -212,7 +212,9 @@
     <!-- endbuild -->
   </head>
 
-  <body ng-app="porttare" ng-controller="SiteController as siteVm">
+  <body ng-app="porttare"
+    ng-controller="SiteController as siteVm"
+    ng-class="{'open-keyboard' : siteVm.keyboardShow}">
     <ion-nav-view></ion-nav-view>
     <flash-notification
       ng-if="siteVm.flashMessageOptions"
