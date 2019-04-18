@@ -55,7 +55,7 @@
       siteVm.keyboardShow = true;
     });
 
-    $window.addEventListener('keyboardDidHide', function() {
+    $window.addEventListener('keyboardWillHide', function() {
       siteVm.keyboardShow = false;
     });
 
