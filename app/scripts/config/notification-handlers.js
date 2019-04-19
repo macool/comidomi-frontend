@@ -3,7 +3,7 @@
 
   /* jshint validthis:true */
   /* jshint camelcase:false */
-  
+
   angular
     .module('porttare')
     .run(notificationHandlersConfig);
@@ -65,7 +65,7 @@
           });
         }
         if (order.kind === 'customer_order') {
-          $state.go('provider.orders.show', {
+          $state.go('app.customerorders.show', {
             id: order.id,
             customerOrder: order
           });
