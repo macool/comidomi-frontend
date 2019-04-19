@@ -47,16 +47,21 @@
         siteVm.flashMessageOptions.cleanOptions = cleanflashMessageOptions;
       });
     });
+
     function cleanflashMessageOptions() {
       siteVm.flashMessageOptions = null;
     }
 
     $window.addEventListener('keyboardWillShow', function() {
-      siteVm.keyboardShow = true;
+      $scope.$apply(function(){
+        siteVm.keyboardShow = true;
+      });
     });
 
     $window.addEventListener('keyboardWillHide', function() {
-      siteVm.keyboardShow = false;
+      $scope.$apply(function(){
+        siteVm.keyboardShow = false;
+      });
     });
 
     function finishedLoading(){
