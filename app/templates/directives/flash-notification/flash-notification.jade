@@ -1,9 +1,10 @@
 .flash-container(
   ng-class="{'animate-out': fnVm.animate, 'hidden': fnVm.isHide}"
-  ng-click="fnVm.onClick()"
 )
   .wrapper
-    .message-wrapper
+    .message-wrapper(
+      ng-click="fnVm.onClick()"
+    )
       .message-title {{fnVm.message}}
       .message-description {{fnVm.messageDescription}}
     .btn-close(
