@@ -22,3 +22,67 @@
     box-shadow: 0 0 10px $base-blue;
   }
 }
+
+.address-form-page {
+  .map-view {
+    #map {
+      width: 100%;
+    }
+  }
+
+  .form-address {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: $white;
+    height: 180px;
+    border-radius: 20px;
+    transition: height 0.5s ease-out;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 0 10px;
+
+    &.expand {
+      height: 85%;
+      transition: height 0.5s ease-out;
+    }
+
+    .icon {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    label {
+      margin: 0;
+      padding: 0 0px 5px 0px;
+
+      span {
+        font-size: $font-m;
+        font-family: $font-semibold;
+      }
+    }
+  }
+}
+
+.address-form-page {
+  height: 100%;
+
+  .resource-form {
+    height: 100%;
+    display: block;
+
+    // 44px on header + 60px on footer
+    // + 60px some padding for form in bottom
+    padding-bottom: 200px;
+
+    .scroll {
+      height: 100%;
+    }
+
+    maps {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

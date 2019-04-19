@@ -1,6 +1,9 @@
 (function() {
   'use strict';
 
+  /* jshint validthis:true */
+  /* jshint camelcase:false */
+  
   angular
     .module('porttare')
     .run(notificationHandlersConfig);

@@ -12,6 +12,7 @@
     pfaVm.inUpdateMode = true;
     pfaVm.processAddress = processAddress;
     pfaVm.addressFormData = data;
+    pfaVm.expand = false;
 
     function processAddress() {
       var options = {
@@ -22,5 +23,9 @@
         pfaVm.messages = response.errors;
       });
     }
+
+    pfaVm.expandForm = function(){
+      pfaVm.expand = !pfaVm.expand;
+    };
   }
 })();

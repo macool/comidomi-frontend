@@ -62,7 +62,9 @@
             shipping_price: 0,
             kind: order.kind,
             theme: THEMES[order.kind],
-            status: ''
+            status: order.status,
+            assigned_at: order.assigned_at,
+            id: order.id
           };
 
       if (order.kind === 'customer_order_delivery') {
@@ -74,7 +76,7 @@
           subtotal: order.customer_order.subtotal_items_cents,
           currency: order.customer_order.subtotal_items_currency,
           shipping_price: order.customer_order_delivery.shipping_fare_price_cents,
-          status: order.status
+          translation_order_kind: 'shippingRequest.orderNumber'
         };
         order = angular.merge(defaultOrder, customer_order);
       }
@@ -85,8 +87,8 @@
           address_two: order.address_attributes.direccion_dos,
           currency: order.customer_errand.shipping_fare_price_currency,
           shipping_price: order.customer_errand.shipping_fare_price_cents,
-          status: order.status,
-          provider_name: 'Encomienda'
+          provider_name: 'Encomienda',
+          translation_order_kind: 'shippingRequest.errandNumber'
         };
         order = angular.merge(defaultOrder, customer_errand);
       }

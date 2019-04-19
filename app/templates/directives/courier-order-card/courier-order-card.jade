@@ -65,6 +65,12 @@
       span.status
         | &nbsp;
         | {{ ("shippingRequest.status." + coCardVm.courierOrder.status | translate) }}
+
+  .row.user.information
+    .order-info
+      span.order-kind
+        | {{ coCardVm.courierOrder.translation_order_kind | translate }} {{ coCardVm.courierOrder.id}}
+        
   .row.user.information
     .order-info
       .details
@@ -101,5 +107,5 @@
   .row
     .order-info.time
       shipping-request-dispatch-at(
-        dispatch-at="order.estimated_dispatch_at"
+        dispatch-at="coCardVm.courierOrder.assigned_at"
       )

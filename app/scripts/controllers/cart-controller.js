@@ -485,6 +485,7 @@
 
     function chooseAnonBillingAddress(){
       cartVm.checkoutForm.anon_billing_address = true;
+      cartVm.checkoutForm.customer_billing_address_id = null;
       assignBillingAddress(null);
     }
 
