@@ -10,7 +10,6 @@ form.address-form-page(
       default-in-current-geolocation="pfaVm.defaultInCurrentGeolocation"
       direccion="pfaVm.addressFormData.direccion_uno"
       direccion-dos="pfaVm.addressFormData.direccion_dos"
-      referencia="pfaVm.addressFormData.referencia"
       geolocation-message-key="pfaVm.geolocationMessageKey"
     )
     show-error(array-messages='pfaVm.messages.lat || pfaVm.messages.lon')
@@ -21,7 +20,7 @@ form.address-form-page(
   )
     ng-md-icon.icon(
       icon="{{pfaVm.expand ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}"
-      size="20"
+      size="30"
       ng-click="pfaVm.expandForm()"
     )
     label.item.item-input.item-stacked-label(
