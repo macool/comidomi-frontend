@@ -25,9 +25,5 @@
           }
       });
     }
-
-    pfaVm.expandForm = function(){
-      pfaVm.expand = !pfaVm.expand;
-    };
   }
 })();
