@@ -13,54 +13,20 @@
                                     ErrandsService,
                                     $ionicLoading,
                                     $ionicPopup,
-                                    CommonService,
-                                    ProfileAddressesService,
                                     $ionicScrollDelegate,
                                     ProfileService) {
 
     var errVm = this;
 
-    errVm.addresses = customerAddresses || [];
-    errVm.selectAddress = selectAddressesModal;
+    errVm.addresses = customerAddresses;
     errVm.user = $auth.user;
-    errVm.indexSelected = null;
     errVm.errand = {};
+    errVm.address = null;
     errVm.submitProcess = submitProcess;
-    errVm.newAddress = newAddress;
+    errVm.onSelectedAddress = onSelectedAddress;
 
-    var inputSelectOptions = {
-      0: {
-        onClick: newAddress,
-        text: 'Agregar Dirección',
-        address: null
-      },
-      1: {
-        onClick: function(){},
-        address: errVm.addresses[0]
-      },
-      default: {
-        onClick: selectAddressesModal,
-        text: 'Seleccionar Dirección',
-        address: null
-      }
-    };
-
-    errVm.inputOptions = inputSelectOptions[errVm.addresses.length] || inputSelectOptions.default;
-
-    function selectAddressesModal() {
-      $scope.vm = {
-        addresses: errVm.addresses,
-        clickAddress: clickAddress,
-        addressSelected: errVm.inputOptions.address,
-        addAddress: addAddress,
-        closeModal: closeModal
-      };
-
-      ModalService.showModal({
-        parentScope: $scope,
-        backdropClickToClose: true,
-        fromTemplateUrl: 'templates/customer/errands/choose-address.html',
-      });
+    function onSelectedAddress(address) {
+      errVm.address = address;
     }
 
     function closeModal() {
@@ -69,41 +35,6 @@
 
     function resetValues() {
       errVm.errand = {};
-      errVm.indexSelected = null;
-    }
-
-    function clickAddress(address) {
-      $scope.vm.addressSelected = address;
-    }
-
-    function addAddress(address) {
-      errVm.inputOptions.address = address;
-      closeModal();
-    }
-
-    function newAddress(){
-      closeModal().then(function(){
-        $scope.pfaVm = {
-          closeModal: closeModal,
-          processAddress: saveNewAddress,
-          defaultInCurrentGeolocation: true
-        };
-        ModalService.showModal({
-          parentScope: $scope,
-          fromTemplateUrl: 'templates/profile/addresses/modal-form.html'
-        });
-      });
-    }
-
-    function saveNewAddress(data){
-      ProfileAddressesService.createAddresses(data).then(function(response){
-        var newCustomerAddress = response.customer_address; //jshint ignore:line
-        errVm.addresses.push(newCustomerAddress);
-        errVm.inputOptions.address = newCustomerAddress;
-        closeModal();
-      }, function(error){
-        $scope.pfaVm.messages = error.errors;
-      });
     }
 
     function submitProcess() {
@@ -152,7 +83,7 @@
 
     function sendErrand() {
       var errandParams = {
-        customer_address_id: errVm.inputOptions.address.id,  //jshint ignore:line
+        customer_address_id: errVm.address.id,  //jshint ignore:line
         description: errVm.errand.description
       };
       $ionicLoading.show({
