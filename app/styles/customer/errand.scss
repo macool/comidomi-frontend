@@ -112,17 +112,23 @@
   .content-address {
     display: flex;
 
-    .icon {
-      color: $base-teal;
-      margin: 0 10px 0 0;
-    }
-
     .address {
+      margin-left: 10px;
+      font-family: $font-base;
+      color: $base-grey;
+      font-size: $font-s;
 
-      .title {
-        font-family: $font-base;
+      .place {
+        font-family: $font-semibold;
+        color: $base-black;
+        font-size: $font-m;
       }
     }
+  }
+
+  .icon {
+    color: $base-teal;
+    margin: 0 10px 0 0;
   }
 
   .map {
