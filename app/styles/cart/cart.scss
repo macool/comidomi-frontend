@@ -1,5 +1,5 @@
 .cart-page-footer {
-  
+
   price {
     position: absolute;
     right: 20px;
@@ -88,7 +88,7 @@
       .order-row {
         display: flex;
         justify-content: space-between;
-        padding: 3px 35px;
+        padding: 3px 15px;
       }
 
       .order-total {
@@ -188,7 +188,7 @@
   position: relative;
   font-family: $font-light;
   font-size: $font-m;
-  
+
   .edit-list-item {
     position: absolute;
     right: 0;
