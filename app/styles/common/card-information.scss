@@ -177,6 +177,11 @@
 		border-bottom: 1px solid $medium-grey;
 		text-transform: uppercase;
 
+		.category {
+			font-size: $font-xs;
+			font-family: $font-semibold;
+		}
+
 		.customer-order-item-observations {
 			font-family: $font-base;
 			font-size: $font-s;
