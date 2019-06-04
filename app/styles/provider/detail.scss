@@ -248,6 +248,11 @@ $providerShowPageCoverHeight: 180px;
           font-family: $font-base;
         }
 
+        .provider-item--promotion {
+          color: $base-orange;
+          font-family: $font-base;
+        }
+
         /* mixin for multiline */
         .provider-item--description {
           overflow: hidden;
