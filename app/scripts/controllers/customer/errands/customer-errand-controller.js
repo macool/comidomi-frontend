@@ -21,7 +21,7 @@
     errVm.addresses = customerAddresses;
     errVm.user = $auth.user;
     errVm.errand = {};
-    errVm.address = null;
+    errVm.address = customerAddresses.length === 1 ? customerAddresses[0] : null;
     errVm.submitProcess = submitProcess;
     errVm.onSelectedAddress = onSelectedAddress;
 
