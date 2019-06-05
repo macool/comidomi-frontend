@@ -1,6 +1,6 @@
 .order-item.row
   .col.col-60 
-    .category {{ ::item.provider_item.category_name}}
+    .category {{ ::item.provider_item.nombre_de_categoria}}
     .title {{ ::item.provider_item.titulo}}
     .customer-order-item-observations(ng-if="item.observaciones")
       | obs: {{ ::item.observaciones }}
