@@ -1,6 +1,7 @@
 .order-item.row
   .col.col-60 
-    span {{ ::item.provider_item.titulo}}
+    .category {{ ::item.provider_item.nombre_de_categoria}}
+    .title {{ ::item.provider_item.titulo}}
     .customer-order-item-observations(ng-if="item.observaciones")
       | obs: {{ ::item.observaciones }}
   .col.col-20 {{ ::( ("order.providerProfile.item.cantidadPrefix" |translate) + item.cantidad) }}

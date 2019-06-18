@@ -39,9 +39,9 @@ ion-view(
           span.fb-copytext {{::("login.continueWithFacebook"|translate)}}
 
   .bottom-button.hide-on-keyboard-open
-    a.text(ui-sref='register')
-      | Crear una cuenta
     a(ui-sref='send')
       | {{::("login.forgotPassword"|translate)}}
+    a.text(ui-sref='register')
+      | Crear una cuenta
 
 .bar.bar-footer.bar-footer-yellow-stripe

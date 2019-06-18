@@ -1,5 +1,13 @@
 $originalBoxShadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 
+ion-footer-bar {
+
+  &.bar-footer--tall{
+    padding: 0;
+    height: 50px;
+  }
+}
+
 .button {
   margin: auto;
   min-height: 40px;

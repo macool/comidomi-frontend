@@ -14,25 +14,10 @@ ion-view.errands-page(
         p.main ¿Cómo te podemos servir?
       .place.input-form
         span.label Lugar de Entrega
-        .select-address-container(
-          ng-click="errVm.inputOptions.onClick()"
+        select-address(
+          addresses="errVm.addresses"
+          on-selected="errVm.onSelectedAddress"
         )
-          .select-address(
-            ng-if="!errVm.inputOptions.address"
-          )
-            ng-md-icon.icon(icon="directions" size="20")
-            | {{errVm.inputOptions.text}}
-          .select-addresss(
-            ng-if="errVm.inputOptions.address"
-          )
-            .selected-address-row-wrapper
-              .content-address.selected-address
-                ng-md-icon.icon(icon="directions" size="20")
-                .address
-                  span {{ errVm.inputOptions.address.direccion_uno }}
-                  span(
-                    ng-if="errVm.inputOptions.address.direccion_dos"
-                  ) , {{ errVm.inputOptions.address.direccion_dos }}
       .description.input-form
         span.label Mensaje
         textarea(
@@ -49,7 +34,7 @@ ion-view.errands-page(
     ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open
       button.button-full.button-main.button-primary(
         type="submit"
-        ng-disabled='errVm.errandForm.$invalid || errVm.inputOptions.address == null'
+        ng-disabled='errVm.errandForm.$invalid || errVm.address == null'
       ) {{::("globals.send"|translate)}}
 
     tabs-nav
