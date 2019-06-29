@@ -5,7 +5,7 @@ ion-view(
     .alt-logo
 
   ion-nav-buttons(side="right")
-    provider-notifications
+    //- provider-notifications
 
   ion-content.item-index-page.resource-collection
     .row
@@ -16,12 +16,6 @@ ion-view(
           type="text"
           placeholder='{{::("item.itemSearch"|translate)}}'
         )
-
-    .row
-      .list.list--centered
-        button.button.button-outline.button-energized(
-          ng-click="itemsVm.newItemModal()"
-        ) {{::("globals.new"|translate)}} {{::("item.item"|translate)}}
 
     .list.list-inset.list--no-borders.resource-collection-table
       .row.table-headers
@@ -50,3 +44,12 @@ ion-view(
           a.button.button-clear.button-positive.button-small(
             ui-sref="provider.items.show({id: item.id})"
           ) {{ ::("globals.seeMore" | translate) }}
+  
+  ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open.with-tab
+    button.button-full.button-main.button-primary(
+      ng-click="itemsVm.newItemModal()"
+    ) {{::("globals.new"|translate)}} {{::("item.item"|translate)}}
+    
+  tabs-nav.hide-on-keyboard-open(
+    type="provider"
+  )

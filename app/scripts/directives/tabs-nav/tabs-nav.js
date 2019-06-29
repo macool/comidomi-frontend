@@ -63,6 +63,14 @@
             validate: function(){
               return $auth.user.courier_profile;
             }
+          },
+          {
+            sref: 'provider.items.index',
+            icon: 'swap_horiz',
+            title: 'Proveedor',
+            validate: function(){
+              return $auth.user.provider_profile;
+            }
           }
         ],
         courieTabs = [
@@ -91,9 +99,30 @@
             validate: isValid
           }
         ],
+        providerTabs = [
+          {
+            sref: 'provider.items.index',
+            icon: 'restaurant',
+            title: 'Tu Menu',
+            validate: isValid
+          },
+          {
+            sref: 'provider.profile-provider.info',
+            icon: 'store_mall_directory',
+            title: 'Mi Negocio',
+            validate: isValid
+          },
+          {
+            sref: 'app.services.providers',
+            icon: 'swap_horiz',
+            title: 'Cliente',
+            validate: isValid
+          }
+        ],
         tabs = {
           customer: customerTabs,
-          courier: courieTabs
+          courier: courieTabs,
+          provider: providerTabs
         };
 
     tbVm.options = tbVm.options || {};
