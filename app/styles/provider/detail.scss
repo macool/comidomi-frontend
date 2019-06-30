@@ -313,3 +313,15 @@ $providerShowPageCoverHeight: 180px;
     border-right: 0;
   }
 }
+
+.provider-items {
+
+  .provider-item-title {
+    display: flex;
+
+    .descripcion {
+      margin-left: 10px;
+      font-family: "Roboto-Regular";
+    }
+  }
+}
