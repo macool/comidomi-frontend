@@ -58,3 +58,89 @@
     vertical-align: middle;
   }
 }
+
+
+.item-form-lunch {
+
+  .content-lunch {
+
+    .label-with-button {
+      display: flex;
+      justify-content: space-between;
+      font-family: $font-semibold;
+      color: $base-black;
+
+      .icon {
+        color: $base-teal;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      .form-label {
+        abbr {
+          margin: 0 0 0 5px;
+        }
+      }
+    }
+
+    label {
+
+      input {
+        padding: 0 !important;
+      }
+    }
+  }
+
+  .images-previews {
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+
+    .img-wrapper {
+      display: flex;
+      padding: 5px;
+    }
+
+    img {
+      margin: auto;
+      max-width: 100%;
+      max-height: 130px;
+    }
+
+    .add-image-placeholder {
+      cursor: pointer;
+      color: $white;
+      height: 90px;
+      max-width: 90px;
+      margin: 10px auto;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      align-self: center;
+      background-color: $button-stable-active-bg;
+
+      &:active {
+        background-color: $button-stable-active-border;
+      }
+
+      i {
+        margin: auto;
+      }
+    }
+  }
+
+  .price-wrapper {
+    .item-select, .input-wrapper {
+      display: inline-block;
+    }
+
+    .item-select {
+      select {
+        position: relative;
+        min-width: 65px;
+        padding-right: 30px;
+        padding-left: 10px;
+        direction: ltr;
+      }
+    }
+  }
+}

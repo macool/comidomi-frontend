@@ -84,7 +84,7 @@
       modalScope.modalVm.imagesUrls = modalScope.modalVm.item.imagenes;
       ModalService.showModal({
         parentScope: modalScope,
-        fromTemplateUrl: 'templates/item/new-edit.html'
+        fromTemplateUrl: 'templates/item/new-edit-lunch.html'
       });
     }
 

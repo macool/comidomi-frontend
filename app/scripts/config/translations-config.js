@@ -253,6 +253,14 @@
         currency: {
           USD: '$',
           PEN: 'S/.'
+        },
+        lunch: {
+          mainplate: 'Plato Principal',
+          soup: 'Sopa',
+          drink: 'Bebida',
+          dessert: 'Postre',
+          quantity: 'Cantidad',
+          price: 'Precio'
         }
       },
       actions: {
