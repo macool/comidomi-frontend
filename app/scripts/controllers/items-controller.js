@@ -14,7 +14,8 @@
                            ItemsService,
                            ModalService,
                            ItemCategoriesService,
-                           ErrorHandlerService) {
+                           ErrorHandlerService,
+                           APP) {
     var itemsVm = this,
         modalScope;
     itemsVm.newItemModal = launchModal;
@@ -115,12 +116,12 @@
       // jshint ignore:end
       modalScope.modalVm.closeModal = closeModal;
       modalScope.modalVm.submitProcess = function(){
-        console.log('items: ', modalScope.modalVm.menu);
+        launchPreview(modalScope.modalVm.menu);
       };
       modalScope.modalVm.concatImages = function concatImages(files){
         modalScope.modalVm.menu.imagenes = modalScope.modalVm.menu.imagenes.concat(files);
         modalScope.modalVm.imagesUrls = modalScope.modalVm.menu.imagenes;
-      }
+      };
       modalScope.modalVm.imagesUrls = modalScope.modalVm.menu.imagenes;
       ModalService.showModal({
         parentScope: modalScope,
@@ -140,6 +141,40 @@
         providerAllowedCodes = [$auth.user.current_place.currency_iso_code]; // jshint ignore:line
       }
       return providerAllowedCodes;
+    }
+
+
+    function launchPreview(menu){
+      var lunch = angular.copy(menu);
+      modalScope = $scope.$new(true); // isolated
+      modalScope.modalVm = itemsVm;
+
+      lunch.mainplates = removeBlanks(lunch.mainplates);
+      lunch.soups = removeBlanks(lunch.soups);
+      lunch.drinks = removeBlanks(lunch.drinks);
+      lunch.desserts = removeBlanks(lunch.desserts);
+
+      modalScope.modalVm.closeModal = closeModal;
+      modalScope.modalVm.lunch = lunch;
+      modalScope.modalVm.defaultImage = {
+        imagen_url: APP.defaultImage //jshint ignore:line
+      };
+      console.log(lunch);
+      ModalService.showModal({
+        parentScope: modalScope,
+        fromTemplateUrl: 'templates/item/preview-lunch.html'
+      });
+    }
+
+    function removeBlanks(items) {
+      var result = [];
+      angular.forEach(items, function(item){
+        if (item.name && !(/^\s*$/.test(item.name))) {
+          console.log(item);
+          result.push(item);
+        }
+      });
+      return result;
     }
   }
 })();

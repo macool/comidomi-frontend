@@ -1,0 +1,59 @@
+ion-modal-view.item-page
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="modalVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  ion-content.item-show-page
+    .item-image
+      .img(
+        ng-style="{'background-image':'url({{modalVm.defaultImage.imagen_url}})'}"
+      )
+    .resource-detail-summary
+      h3 Almuerzo
+      p Esto es un preview de como se mostrara a tus clientes
+
+    .subproducts
+      .group-option(ng-if="modalVm.lunch.mainplates.length")
+        label Plato Principal
+        .subproduct-container.disabled-events(
+          ng-repeat="product in ::modalVm.lunch.mainplates track by $index"
+        )
+          subproduct-row(
+            product="product"
+          )
+        
+      .group-option(ng-if="modalVm.lunch.soups.length")
+        label Sopa
+        .subproduct-container.disabled-events(
+          ng-repeat="soup in ::modalVm.lunch.soups track by $index"
+        )
+          subproduct-row(
+            product="soup"
+          )
+        
+      .group-option(ng-if="modalVm.lunch.drinks.length")
+        label Bebida
+        .subproduct-container.disabled-events(
+          ng-repeat="drink in ::modalVm.lunch.drinks track by $index"
+        )
+          subproduct-row(
+            product="drink"
+          )
+
+      .group-option(ng-if="modalVm.lunch.desserts.length")
+        label Postre
+        .subproduct-container.disabled-events(
+          ng-repeat="dessert in ::modalVm.lunch.desserts track by $index"
+        )
+          subproduct-row(
+            product="dessert"
+          )
+        
+  ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open
+    button.button-full.button-main.button-primary(
+      type="submit"
+    ) {{::("item.publishItem"|translate)}}

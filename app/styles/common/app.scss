@@ -20,3 +20,7 @@ body.open-keyboard {
     background-image: url('../images/placeholder-menu.png');
   }
 }
+
+.disabled-events {
+  pointer-events: none;
+}

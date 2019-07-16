@@ -51,12 +51,11 @@ ion-modal-view.item-form-lunch
               ng-click="modalVm.menu.soups.push({})"
             )
           .nested-input(
-            ng-repeat="mainplate in modalVm.menu.soups | orderBy:'$index':true"
+            ng-repeat="soup in modalVm.menu.soups | orderBy:'$index':true"
           )
             input(
               type='text'
               ng-model='soup.name'
-              required
             )
             ng-md-icon.icon(
               icon="remove_circle"
@@ -76,12 +75,11 @@ ion-modal-view.item-form-lunch
               ng-click="modalVm.menu.drinks.push({})"
             )
           .nested-input(
-            ng-repeat="mainplate in modalVm.menu.drinks | orderBy:'$index':true"
+            ng-repeat="drink in modalVm.menu.drinks | orderBy:'$index':true"
           )
             input(
               type='text'
               ng-model='drink.name'
-              required
             )
             ng-md-icon.icon(
               icon="remove_circle"
@@ -101,12 +99,11 @@ ion-modal-view.item-form-lunch
               ng-click="modalVm.menu.desserts.push({})"
             )
           .nested-input(
-            ng-repeat="mainplate in modalVm.menu.desserts | orderBy:'$index':true"
+            ng-repeat="dessert in modalVm.menu.desserts | orderBy:'$index':true"
           )
             input(
               type='text'
               ng-model='dessert.name'
-              required
             )
             ng-md-icon.icon(
               icon="remove_circle"
