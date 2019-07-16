@@ -126,7 +126,7 @@ ion-modal-view.item-form-lunch
           .price-wrapper
             .item-select
               select(
-                ng-model='modalVm.item.precio_currency'
+                ng-model='modalVm.menu.precio_currency'
                 ng-options="'item.currency.'+currency|translate for currency in modalVm.availableCurrencies"
                 name='precio_currency'
                 required
@@ -137,7 +137,7 @@ ion-modal-view.item-form-lunch
                 name='precio'
                 step='any'
                 type='number'
-                ng-model='modalVm.item.precio'
+                ng-model='modalVm.menu.precio'
                 required
               )
         .errors-wrapper
@@ -153,7 +153,7 @@ ion-modal-view.item-form-lunch
           input(
             min='0'
             type='number'
-            ng-model='modalVm.item.cantidad'
+            ng-model='modalVm.menu.cantidad'
           )
         .errors-wrapper
           show-error(array-messages='modalVm.messages.cantidad')
@@ -162,7 +162,7 @@ ion-modal-view.item-form-lunch
           .label-with-button
             span.form-label {{::("item.imagen"|translate)}}
         .picture-uploader(
-          ng-if="modalVm.item.imagenes.length === 0"
+          ng-if="modalVm.menu.imagenes.length === 0"
           ngf-select="modalVm.concatImages($files)"
           ngf-capture="'camera'"
           accept="image/*"
@@ -178,7 +178,7 @@ ion-modal-view.item-form-lunch
           )
             img(ngf-src="image")
 
-          .img-wrapper.col-33(ng-if="modalVm.item.imagenes.length > 0")
+          .img-wrapper.col-33(ng-if="modalVm.menu.imagenes.length > 0")
             .add-image-placeholder(
               ngf-select="modalVm.concatImages($files)"
               ngf-capture="'camera'"

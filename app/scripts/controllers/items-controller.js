@@ -94,30 +94,34 @@
       // unfortunately item is the providerItem we'll edit
       modalScope.modalVm.availableCurrencies = getProviderCurrencies();
       // jshint ignore:start
-      modalScope.modalVm.item = {
-        imagenes: [],
-        en_stock: true,
-        unidad_medida: 'unidades',
-        precio_currency: getProviderCurrencies()[0]
-      };
+      // modalScope.modalVm.item = {
+      //   imagenes: [],
+      //   en_stock: true,
+      //   unidad_medida: 'unidades',
+      //   precio_currency: getProviderCurrencies()[0]
+      // };
       modalScope.modalVm.menu = {
         mainplates: [{}],
         soups: [{}],
         drinks:[{}],
         desserts:[{}],
-        price: 0,
-        quantity: 1,
-        images: [],
+        precio: 0,
+        cantidad: 1,
+        imagenes: [],
         en_stock: true,
         unidad_medida: 'unidades',
         precio_currency: getProviderCurrencies()[0]
       };
       // jshint ignore:end
-
       modalScope.modalVm.closeModal = closeModal;
-      modalScope.modalVm.submitProcess = newItem;
-      modalScope.modalVm.concatImages = concatImages;
-      modalScope.modalVm.imagesUrls = modalScope.modalVm.item.imagenes;
+      modalScope.modalVm.submitProcess = function(){
+        console.log('items: ', modalScope.modalVm.menu);
+      };
+      modalScope.modalVm.concatImages = function concatImages(files){
+        modalScope.modalVm.menu.imagenes = modalScope.modalVm.menu.imagenes.concat(files);
+        modalScope.modalVm.imagesUrls = modalScope.modalVm.menu.imagenes;
+      }
+      modalScope.modalVm.imagesUrls = modalScope.modalVm.menu.imagenes;
       ModalService.showModal({
         parentScope: modalScope,
         fromTemplateUrl: 'templates/item/new-edit-lunch.html'
