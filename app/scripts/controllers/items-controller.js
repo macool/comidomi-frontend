@@ -65,6 +65,29 @@
       }, error);
     }
 
+    // function launchModal() {
+    //   modalScope = $scope.$new(true); // isolated
+    //   modalScope.modalVm = itemsVm;
+    //   // unfortunately item is the providerItem we'll edit
+    //   modalScope.modalVm.availableCurrencies = getProviderCurrencies();
+    //   // jshint ignore:start
+    //   modalScope.modalVm.item = {
+    //     imagenes: [],
+    //     en_stock: true,
+    //     unidad_medida: 'unidades',
+    //     precio_currency: getProviderCurrencies()[0]
+    //   };
+    //   // jshint ignore:end
+    //   modalScope.modalVm.closeModal = closeModal;
+    //   modalScope.modalVm.submitProcess = newItem;
+    //   modalScope.modalVm.concatImages = concatImages;
+    //   modalScope.modalVm.imagesUrls = modalScope.modalVm.item.imagenes;
+    //   ModalService.showModal({
+    //     parentScope: modalScope,
+    //     fromTemplateUrl: 'templates/item/new-edit-lunch.html'
+    //   });
+    // }
+
     function launchModal() {
       modalScope = $scope.$new(true); // isolated
       modalScope.modalVm = itemsVm;
@@ -77,7 +100,20 @@
         unidad_medida: 'unidades',
         precio_currency: getProviderCurrencies()[0]
       };
+      modalScope.modalVm.menu = {
+        mainplates: [{}],
+        soups: [{}],
+        drinks:[{}],
+        desserts:[{}],
+        price: 0,
+        quantity: 1,
+        images: [],
+        en_stock: true,
+        unidad_medida: 'unidades',
+        precio_currency: getProviderCurrencies()[0]
+      };
       // jshint ignore:end
+
       modalScope.modalVm.closeModal = closeModal;
       modalScope.modalVm.submitProcess = newItem;
       modalScope.modalVm.concatImages = concatImages;

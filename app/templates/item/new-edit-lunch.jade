@@ -15,9 +15,7 @@ ion-modal-view.item-form-lunch
     ion-content.resource-form.content-lunch
       .list.list-inset
 
-        label.item.item-input.item-stacked-label(
-          ng-class="{'item-error': modalVm.itemForm.titulo.$touched && modalVm.itemForm.titulo.$invalid}"
-        )
+        .nested-input-wrapper
           .label-with-button
             span.form-label
               | {{::("item.lunch.mainplate"|translate)}}
@@ -25,62 +23,99 @@ ion-modal-view.item-form-lunch
             ng-md-icon.icon(
               icon="add_box"
               size="25"
+              ng-click="modalVm.menu.mainplates.push({})"
             )
-          input(
-            name='titulo'
-            type='text'
-            ng-model='modalVm.item.titulo'
-            ng-class='input-error'
-            required
+          .nested-input(
+            ng-repeat="mainplate in modalVm.menu.mainplates | orderBy:'$index':true"
           )
-        .errors-wrapper
-          .show-errors(ng-messages="modalVm.itemForm.titulo.$error" ng-if="modalVm.itemForm.titulo.$touched")
-            span.message-error(ng-message="required")
-              | {{::("globals.isRequired"|translate)}}
-          show-error(array-messages='modalVm.messages.titulo')
-
-        label.item.item-input.item-stacked-label
-          .label-with-button
-            span.form-label {{::("item.lunch.soup"|translate)}}
+            input(
+              type='text'
+              ng-model='mainplate.name'
+              required
+            )
             ng-md-icon.icon(
-              icon="add_box"
+              icon="remove_circle"
               size="25"
+              ng-if="modalVm.menu.mainplates.length > 1"
+              ng-init="indexRemove = modalVm.menu.mainplates.length - 1 - $index"
+              ng-click="modalVm.menu.mainplates.splice(indexRemove, 1);"
             )
-          input(
-            type='text'
-            ng-model="modalVm.item.observaciones"
-          )
-        .errors-wrapper
-          show-error(array-messages='modalVm.messages.observaciones')
-
-        label.item.item-input.item-stacked-label
-          .label-with-button
-            span.form-label {{::("item.lunch.drink"|translate)}}
-            ng-md-icon.icon(
-              icon="add_box"
-              size="25"
-            )
-          input(
-            type='text'
-            ng-model="modalVm.item.observaciones"
-          )
-        .errors-wrapper
-          show-error(array-messages='modalVm.messages.observaciones')
         
-        label.item.item-input.item-stacked-label
+        .nested-input-wrapper
           .label-with-button
-            span.form-label {{::("item.lunch.dessert"|translate)}}
+            span.form-label
+              | {{::("item.lunch.soup"|translate)}}
             ng-md-icon.icon(
               icon="add_box"
               size="25"
+              ng-click="modalVm.menu.soups.push({})"
             )
-          input(
-            type='text'
-            ng-model="modalVm.item.observaciones"
+          .nested-input(
+            ng-repeat="mainplate in modalVm.menu.soups | orderBy:'$index':true"
           )
-        .errors-wrapper
-          show-error(array-messages='modalVm.messages.observaciones')
-
+            input(
+              type='text'
+              ng-model='soup.name'
+              required
+            )
+            ng-md-icon.icon(
+              icon="remove_circle"
+              size="25"
+              ng-if="modalVm.menu.soups.length > 1"
+              ng-init="indexRemove = modalVm.menu.soups.length - 1 - $index"
+              ng-click="modalVm.menu.soups.splice(indexRemove, 1);"
+            )
+            
+        .nested-input-wrapper
+          .label-with-button
+            span.form-label
+              | {{::("item.lunch.drink"|translate)}}
+            ng-md-icon.icon(
+              icon="add_box"
+              size="25"
+              ng-click="modalVm.menu.drinks.push({})"
+            )
+          .nested-input(
+            ng-repeat="mainplate in modalVm.menu.drinks | orderBy:'$index':true"
+          )
+            input(
+              type='text'
+              ng-model='drink.name'
+              required
+            )
+            ng-md-icon.icon(
+              icon="remove_circle"
+              size="25"
+              ng-if="modalVm.menu.drinks.length > 1"
+              ng-init="indexRemove = modalVm.menu.drinks.length - 1 - $index"
+              ng-click="modalVm.menu.drinks.splice(indexRemove, 1);"
+            )
+            
+        .nested-input-wrapper
+          .label-with-button
+            span.form-label
+              | {{::("item.lunch.dessert"|translate)}}
+            ng-md-icon.icon(
+              icon="add_box"
+              size="25"
+              ng-click="modalVm.menu.desserts.push({})"
+            )
+          .nested-input(
+            ng-repeat="mainplate in modalVm.menu.desserts | orderBy:'$index':true"
+          )
+            input(
+              type='text'
+              ng-model='dessert.name'
+              required
+            )
+            ng-md-icon.icon(
+              icon="remove_circle"
+              size="25"
+              ng-if="modalVm.menu.desserts.length > 1"
+              ng-init="indexRemove = modalVm.menu.desserts.length - 1 - $index"
+              ng-click="modalVm.menu.desserts.splice(indexRemove, 1);"
+            )
+                          
         label.item.item-input.item-stacked-label(
           ng-class="{'item-error': modalVm.itemForm.precio.$touched && modalVm.itemForm.precio.$invalid}"
         )

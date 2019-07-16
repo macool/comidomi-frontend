@@ -64,29 +64,47 @@
 
   .content-lunch {
 
-    .label-with-button {
-      display: flex;
-      justify-content: space-between;
-      font-family: $font-semibold;
-      color: $base-black;
+    .nested-input-wrapper {
+      margin-bottom: 20px;
 
-      .icon {
-        color: $base-teal;
-        margin: 0;
-        cursor: pointer;
-      }
+      .label-with-button {
+        display: flex;
+        justify-content: space-between;
+        font-family: $font-semibold;
+        color: $base-black;
 
-      .form-label {
-        abbr {
-          margin: 0 0 0 5px;
+        .icon {
+          color: $base-teal;
+          margin: 0;
+          cursor: pointer;
+        }
+
+        .form-label {
+          abbr {
+            margin: 0 0 0 5px;
+          }
         }
       }
-    }
 
-    label {
+      .nested-input {
+        margin: 5px 0 10px 0;
+        position: relative;
 
-      input {
-        padding: 0 !important;
+        input {
+          padding: 0 30px 0 0;
+          border-bottom: 1px solid #c7c7c7;
+          align-items: center;
+          width: 100%;
+        }
+
+        .icon {
+          position: absolute;
+          bottom: 5px;
+          right: 0;
+          color: red;
+          margin: 0;
+          cursor: pointer;
+        }
       }
     }
   }
