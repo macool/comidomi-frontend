@@ -3,30 +3,31 @@
   src: URL("../fonts/GochiHand-Regular.ttf");
 }
 
+//San Francisco
 @font-face {
-  font-family: Roboto-Medium;
-  src: URL("../fonts/Roboto-Medium.ttf");
+  font-family: SFProDisplay-Medium;
+  src: URL("../fonts/SFProDisplay-Medium.ttf");
 }
 
 @font-face {
-  font-family: Roboto-Light;
-  src: URL("../fonts/Roboto-Light.ttf");
+  font-family: SFProDisplay-Light;
+  src: URL("../fonts/SFProDisplay-Light.ttf");
 }
 
 @font-face {
-  font-family: Roboto-Regular;
-  src: URL("../fonts/Roboto-Regular.ttf");
+  font-family: SFProDisplay-Regular;
+  src: URL("../fonts/SFProDisplay-Regular.ttf");
 }
 
 @font-face {
-  font-family: Roboto-Bold;
-  src: URL("../fonts/Roboto-Bold.ttf");
+  font-family: SFProDisplay-Bold;
+  src: URL("../fonts/SFProDisplay-Bold.ttf");
 }
 
-$font-base: 'Roboto-Regular';
-$font-semibold: 'Roboto-Medium';
-$font-bold: 'Roboto-Bold';
-$font-light: 'Roboto-Light';
+$font-base: 'SFProDisplay-Regular';
+$font-semibold: 'SFProDisplay-Medium';
+$font-bold: 'SFProDisplay-Bold';
+$font-light: 'SFProDisplay-Light';
 
 $font-xl: 18px;
 $font-l: 16px;
