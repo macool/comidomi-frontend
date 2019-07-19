@@ -561,7 +561,7 @@
         statusShipping: 'Estado',
         courier: 'Mensajero',
         requestTime: 'Hora de envío',
-        estimatedTime: 'Hora de entrega est',
+        estimatedTime: 'Hora de entrega',
         orderNumber: 'Pedido #',
         errandNumber: 'Encomienda #',
         delivery: 'Envío',

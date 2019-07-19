@@ -138,6 +138,10 @@
 						white-space: pre-wrap;
 						text-transform: none;
 					}
+
+					&.uppercase {
+						text-transform: uppercase;
+					}
 				}
 
 				.cost {
