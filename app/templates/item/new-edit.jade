@@ -44,27 +44,27 @@ ion-modal-view.item-form
         .errors-wrapper
           show-error(array-messages='modalVm.messages.descripcion')
 
-        label.item.item-input.item-stacked-label
-          span.input-label {{::("item.observaciones"|translate)}}
-          textarea(
-            msd-elastic
-            ng-model="modalVm.item.observaciones"
-          )
-        .errors-wrapper
-          show-error(array-messages='modalVm.messages.observaciones')
+        //- label.item.item-input.item-stacked-label
+        //-   span.input-label {{::("item.observaciones"|translate)}}
+        //-   textarea(
+        //-     msd-elastic
+        //-     ng-model="modalVm.item.observaciones"
+        //-   )
+        //- .errors-wrapper
+        //-   show-error(array-messages='modalVm.messages.observaciones')
 
-        label.item.item-input.item-select(
-          ng-class="{'item-error': modalVm.itemForm.unidad_medida.$touched && modalVm.itemForm.unidad_medida.$invalid}"
-        )
-          span.input-label
-            | {{::("item.unidadMedida"|translate)}}
-            abbr *
-          select(ng-model='modalVm.item.unidad_medida' name='unidad_medida' required)
-            option(value='unidades') Unidades
-        .errors-wrapper
-          span.show-errors(ng-messages="modalVm.itemForm.unidad_medida.$error" ng-if="modalVm.itemForm.unidad_medida.$touched")
-            span(ng-message="required" class="message-error") {{::("globals.isRequired"|translate)}}
-          show-error(array-messages='modalVm.messages.unidad_medida')
+        //- label.item.item-input.item-select(
+        //-   ng-class="{'item-error': modalVm.itemForm.unidad_medida.$touched && modalVm.itemForm.unidad_medida.$invalid}"
+        //- )
+        //-   span.input-label
+        //-     | {{::("item.unidadMedida"|translate)}}
+        //-     abbr *
+        //-   select(ng-model='modalVm.item.unidad_medida' name='unidad_medida' required)
+        //-     option(value='unidades') Unidades
+        //- .errors-wrapper
+        //-   span.show-errors(ng-messages="modalVm.itemForm.unidad_medida.$error" ng-if="modalVm.itemForm.unidad_medida.$touched")
+        //-     span(ng-message="required" class="message-error") {{::("globals.isRequired"|translate)}}
+        //-   show-error(array-messages='modalVm.messages.unidad_medida')
 
         .label.item.item-input.item-stacked-label(
           ng-class="{'item-error': modalVm.itemForm.precio.$touched && modalVm.itemForm.precio.$invalid}"
@@ -107,7 +107,7 @@ ion-modal-view.item-form
           show-error(array-messages='modalVm.messages.cantidad')
 
         label.item.item-input.item-input--no-borders.item-stacked-label
-          span.input-label {{::("item.providerItemCategory"|translate|uppercase)}}
+          span.input-label {{::("item.providerItemCategory"|translate)}}
         .item-selectize
           input(selectizeprovideritemcategory
             config ="modalVm.selectize"
@@ -153,9 +153,9 @@ ion-modal-view.item-form
             )
               i.ion-plus
         show-error(array-messages='modalVm.messages.imagen')
-
-    .bar.bar-footer.bar-stable
-      button.button.button-small.button-outline.button-energized(
+      
+    ion-footer-bar.bar-stable.bar-footer--tall
+      button.button-full.button-main.button-primary(
         type="submit"
         ng-disabled="modalVm.itemForm.$invalid"
-      ) {{::("item.publishItem"|translate)}}
+      ) {{::("item.updateItem"|translate)}}

@@ -17,28 +17,23 @@ ion-view.item-page(
         ng-style="{'background-image':'url({{::providerItemVm.providerItem.imagenes[0].imagen_url | defaultImage}})'}"
       )
       
-    .resource-detail-summary
-      h3 {{providerItemVm.providerItem.titulo}}
-      p {{providerItemVm.providerItem.descripcion}}
-
-    .row.stretched-row
-      .col.col-70
-        ion-toggle(
-          ng-change="providerItemVm.updateStock()"
-          ng-model="providerItemVm.providerItem.en_stock"
-          toggle-class="toggle-energized"
-        ) {{::("item.stockLabel"|translate)}}
-
-    .list.list-inset.list--no-borders.resource-details-table
-      p {{::("item.productDetails"|translate)}}
-      .row
-        .col.col-50.label {{"item.price"|translate}}
-        .col.col-50.value
+    .resource-detail-summar
+      .row.wrapper
+        .descripcion.col.col-70
+          h3 {{providerItemVm.providerItem.titulo}}
+          p {{providerItemVm.providerItem.descripcion}}
           price(amount="{{providerItemVm.providerItem.precio_cents}}"
                 currency="{{providerItemVm.providerItem.precio_currency}}")
-      .row
-        .col.col-50.label {{::("item.unidadMedida"|translate)}}
-        .col.col-50.value {{providerItemVm.providerItem.unidad_medida}}
+        .switch.col.col-30
+          label En Stock
+          ion-toggle(
+            ng-change="providerItemVm.updateStock()"
+            ng-model="providerItemVm.providerItem.en_stock"
+            toggle-class="toggle-energized"
+          )
+      
+    .list.list-inset.list--no-borders.resource-details-table
+      p {{::("item.productDetails"|translate)}}
       .row
         .col.col-50.label {{::("item.cantidad"|translate)}}
         .col.col-50.value
@@ -46,9 +41,6 @@ ion-view.item-page(
       .row
         .col.col-50.label {{::("item.providerItemCategory"|translate)}}
         .col.col-50.value {{providerItemVm.providerItemCategoryName}}
-      .row
-        .col.col-50.label {{::("item.observaciones"|translate)}}
-        .col.col-50.value {{providerItemVm.providerItem.observaciones}}
 
     .list.list-inset.list--no-borders.text-center
       .button.button-clear.button-assertive(

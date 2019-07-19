@@ -255,7 +255,7 @@ $providerShowPageCoverHeight: 180px;
     }
 
     .provider-item--title {
-      text-transform: uppercase;
+      text-transform: capitalize;
       color: $base-black;
       max-height: 40px;
       overflow: hidden;
