@@ -216,6 +216,7 @@
         item: 'Producto',
         items: 'Productos',
         formLegend: 'Información del producto',
+        preview: 'Previsualizar producto',
         publishItem: 'Publicar producto',
         updateItem: 'Actualizar producto',
         successItemSave: 'Producto publicado éxitosamente',
