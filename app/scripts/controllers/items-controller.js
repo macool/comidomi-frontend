@@ -19,6 +19,7 @@
     var itemsVm = this,
         modalScope;
     itemsVm.newItemModal = launchModal;
+    itemsVm.newLunchModal = lunchModal;
     itemsVm.sortingOptions = [
       { tkey: 'item.sortBy.titulo', filterField: 'titulo' },
       { tkey: 'item.sortBy.createdAt', filterField: 'created_at' },
@@ -66,41 +67,34 @@
       }, error);
     }
 
-    // function launchModal() {
-    //   modalScope = $scope.$new(true); // isolated
-    //   modalScope.modalVm = itemsVm;
-    //   // unfortunately item is the providerItem we'll edit
-    //   modalScope.modalVm.availableCurrencies = getProviderCurrencies();
-    //   // jshint ignore:start
-    //   modalScope.modalVm.item = {
-    //     imagenes: [],
-    //     en_stock: true,
-    //     unidad_medida: 'unidades',
-    //     precio_currency: getProviderCurrencies()[0]
-    //   };
-    //   // jshint ignore:end
-    //   modalScope.modalVm.closeModal = closeModal;
-    //   modalScope.modalVm.submitProcess = newItem;
-    //   modalScope.modalVm.concatImages = concatImages;
-    //   modalScope.modalVm.imagesUrls = modalScope.modalVm.item.imagenes;
-    //   ModalService.showModal({
-    //     parentScope: modalScope,
-    //     fromTemplateUrl: 'templates/item/new-edit-lunch.html'
-    //   });
-    // }
-
     function launchModal() {
       modalScope = $scope.$new(true); // isolated
       modalScope.modalVm = itemsVm;
       // unfortunately item is the providerItem we'll edit
       modalScope.modalVm.availableCurrencies = getProviderCurrencies();
       // jshint ignore:start
-      // modalScope.modalVm.item = {
-      //   imagenes: [],
-      //   en_stock: true,
-      //   unidad_medida: 'unidades',
-      //   precio_currency: getProviderCurrencies()[0]
-      // };
+      modalScope.modalVm.item = {
+        imagenes: [],
+        en_stock: true,
+        unidad_medida: 'unidades',
+        precio_currency: getProviderCurrencies()[0]
+      };
+      // jshint ignore:end
+      modalScope.modalVm.closeModal = closeModal;
+      modalScope.modalVm.submitProcess = newItem;
+      modalScope.modalVm.concatImages = concatImages;
+      modalScope.modalVm.imagesUrls = modalScope.modalVm.item.imagenes;
+      ModalService.showModal({
+        parentScope: modalScope,
+        fromTemplateUrl: 'templates/item/new-edit.html'
+      });
+    }
+
+    function lunchModal() {
+      modalScope = $scope.$new(true); // isolated
+      modalScope.modalVm = itemsVm;
+      modalScope.modalVm.availableCurrencies = getProviderCurrencies();
+      // jshint ignore:start
       modalScope.modalVm.menu = {
         mainplates: [{}],
         soups: [{}],
@@ -116,7 +110,7 @@
       // jshint ignore:end
       modalScope.modalVm.closeModal = closeModal;
       modalScope.modalVm.submitProcess = function(){
-        launchPreview(modalScope.modalVm.menu);
+        lunchModalPreview(modalScope.modalVm.menu);
       };
       modalScope.modalVm.concatImages = function concatImages(files){
         modalScope.modalVm.menu.imagenes = modalScope.modalVm.menu.imagenes.concat(files);
@@ -144,24 +138,26 @@
     }
 
 
-    function launchPreview(menu){
+    function lunchModalPreview(menu){
       var lunch = angular.copy(menu);
-      modalScope = $scope.$new(true); // isolated
-      modalScope.modalVm = itemsVm;
+      var modalScopeLunch = $scope.$new(true); // isolated
+      modalScopeLunch.modalVm = itemsVm;
 
       lunch.mainplates = removeBlanks(lunch.mainplates);
       lunch.soups = removeBlanks(lunch.soups);
       lunch.drinks = removeBlanks(lunch.drinks);
       lunch.desserts = removeBlanks(lunch.desserts);
 
-      modalScope.modalVm.closeModal = closeModal;
-      modalScope.modalVm.lunch = lunch;
-      modalScope.modalVm.defaultImage = {
+      modalScopeLunch.modalVm.closeModal = function(){
+        ModalService.closeModal();
+      };
+      modalScopeLunch.modalVm.lunch = lunch;
+      modalScopeLunch.modalVm.defaultImage = {
         imagen_url: APP.defaultImage //jshint ignore:line
       };
-      console.log(lunch);
+
       ModalService.showModal({
-        parentScope: modalScope,
+        parentScope: modalScopeLunch,
         fromTemplateUrl: 'templates/item/preview-lunch.html'
       });
     }

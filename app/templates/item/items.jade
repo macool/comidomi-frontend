@@ -48,10 +48,18 @@ ion-view.provider-items(
         //-     ui-sref="provider.items.show({id: item.id})"
         //-   ) {{ ::("globals.seeMore" | translate) }}
   
-  ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open.with-tab
-    button.button-full.button-main.button-primary(
-      ng-click="itemsVm.newItemModal()"
-    ) {{::("globals.new"|translate)}} {{::("item.item"|translate)}}
+  //- ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open.with-tab
+  //-   button.button-full.button-main.button-primary(
+  //-     ng-click="itemsVm.newItemModal()"
+  //-   ) {{::("globals.new"|translate)}} {{::("item.item"|translate)}}
+    
+  .bottom-circle-button.set-to-bottom-on-keyboard-open(
+    ng-click="itemsVm.newLunchModal()"
+  )
+    ng-md-icon.icon(
+      icon="add"
+      size="20"
+    )
     
   tabs-nav.hide-on-keyboard-open(
     type="provider"
