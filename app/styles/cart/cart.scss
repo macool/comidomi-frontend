@@ -98,8 +98,21 @@
   }
 
   .provider-items-in-cart {
-    border-top: 2px solid $light-grey;
-    border-bottom: 2px solid $light-grey;
+    // border-top: 2px solid $light-grey;
+    // border-bottom: 2px solid $light-grey;
+
+    .items-delivery-container {
+
+      .item-container {
+        .provider-item--price {
+          padding: 0;
+        }
+
+        .img-wrapper {
+          min-height: initial;
+        }
+      }
+    }
 
     .slick-container:not(:last-child) {
       // TODO fix border not reaching top
