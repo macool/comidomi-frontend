@@ -32,20 +32,21 @@ ion-view.provider-items(
         p {{::("item.titleWithoutItems"|translate)}}
         p {{::("item.subtitleWithoutItems"|translate)}}
 
-      .item.row(
+      a.item.row(
         ng-repeat="item in itemsVm.items | filter:itemsVm.query | orderBy:sortingOption.filterField"
+        ui-sref="provider.items.show({id: item.id})"
       )
-        .col.col-75.provider-item-title
+        .col.provider-item-title
           .img-wrapper-thumbnail_url
             .img(ng-if="item.imagenes[0]" ng-style="{'background-image':'url({{::(item.imagenes[0].thumbnail_url)}})'}")
             .img(ng-if="!item.imagenes[0]")
           .descripcion
             p {{ ::item.titulo }}
             price(amount="{{item.precio_cents}}" currency="{{item.precio_currency}}")
-        .col.col-25.text-right
-          a.button.button-clear.button-positive.button-small(
-            ui-sref="provider.items.show({id: item.id})"
-          ) {{ ::("globals.seeMore" | translate) }}
+        //- .col.col-25.text-right
+        //-   a.button.button-clear.button-positive.button-small(
+        //-     ui-sref="provider.items.show({id: item.id})"
+        //-   ) {{ ::("globals.seeMore" | translate) }}
   
   ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open.with-tab
     button.button-full.button-main.button-primary(

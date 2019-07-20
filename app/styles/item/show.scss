@@ -190,7 +190,40 @@
         }
       }
     }
+
+    &.provider-view {
+      .item-detail {
+        padding: 0 15px;
+
+        .double-row {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .info-group {
+          padding: 5px 0;
+
+          &.end {
+            text-align: end;
+          }
+
+          .label {
+            color: $base-black;
+            font-size: $font-m;
+            font-family: $font-semibold;
+          }
+
+          .value {
+            color: $base-grey;
+            font-family: $font-base;
+            line-height: 20px;
+            padding-top: 5px;
+          }
+        }
+      }
+    }
   }
+
   .counter {
     .product-counter {
       border: none;

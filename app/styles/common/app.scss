@@ -24,3 +24,28 @@ body.open-keyboard {
 .disabled-events {
   pointer-events: none;
 }
+
+
+.switch-cmd {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid #c7c7c7;
+  border-radius: 5px;
+  width: 80px;
+
+  .section {
+    width: 50%;
+    text-align: center;
+    padding: 3px;
+
+    &.active {
+      background: $base-teal;
+      color: white;
+    }
+
+    &.inactive {
+      background: $base-grey;
+      color: white;
+    }
+  }
+}

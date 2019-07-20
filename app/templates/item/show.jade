@@ -3,7 +3,7 @@ ion-view.item-page(
 )
   ion-nav-title
     .alt-logo
-  ion-content.item-show-page
+  ion-content.item-show-page.provider-view
     slick-wrapper(settings="providerItemVm.slickSettings" ng-if="providerItemVm.imagesLoaded")
       .slick-container(
         ng-repeat="image in ::providerItemVm.providerItem.imagenes track by $index"
@@ -17,36 +17,42 @@ ion-view.item-page(
         ng-style="{'background-image':'url({{::providerItemVm.providerItem.imagenes[0].imagen_url | defaultImage}})'}"
       )
       
-    .resource-detail-summar
-      .row.wrapper
-        .descripcion.col.col-70
-          h3 {{providerItemVm.providerItem.titulo}}
-          p {{providerItemVm.providerItem.descripcion}}
-          price(amount="{{providerItemVm.providerItem.precio_cents}}"
-                currency="{{providerItemVm.providerItem.precio_currency}}")
-        .switch.col.col-30
-          label En Stock
-          ion-toggle(
-            ng-change="providerItemVm.updateStock()"
-            ng-model="providerItemVm.providerItem.en_stock"
-            toggle-class="toggle-energized"
-          )
-      
-    .list.list-inset.list--no-borders.resource-details-table
-      p {{::("item.productDetails"|translate)}}
-      .row
-        .col.col-50.label {{::("item.cantidad"|translate)}}
-        .col.col-50.value
-          | {{::("item.cantidadPrefix"|translate)}}{{providerItemVm.providerItem.cantidad}}
-      .row
-        .col.col-50.label {{::("item.providerItemCategory"|translate)}}
-        .col.col-50.value {{providerItemVm.providerItemCategoryName}}
-
-    .list.list-inset.list--no-borders.text-center
-      .button.button-clear.button-assertive(
-        ng-click="providerItemVm.unregisterItem()"
-      ) {{::("item.unregisterItem"|translate)}}
-
+    .item-detail
+      h4 {{providerItemVm.providerItem.titulo}}
+      .double-row
+        .info-group
+          .label {{::("item.price"|translate)}}
+          .value 
+            price(amount="{{providerItemVm.providerItem.precio_cents}}"
+                  currency="{{providerItemVm.providerItem.precio_currency}}")
+        .info-group.end
+          .label En Stock
+          .value 
+            .switch-cmd
+              .section(
+                ng-class="{'inactive': !providerItemVm.providerItem.en_stock}"
+                ng-click="providerItemVm.updateStock(false)"
+              ) NO
+              .section(
+                ng-class="{'active': providerItemVm.providerItem.en_stock}"
+                ng-click="providerItemVm.updateStock(true)"
+              ) SI
+      .info-group
+        .label {{::("item.descripcion"|translate)}}
+        .value {{providerItemVm.providerItem.descripcion || ("globals.noInformation" | translate) }}
+      .info-group
+        .label {{::("item.cantidad"|translate)}}
+        .value {{::("item.cantidadPrefix"|translate)}} {{providerItemVm.providerItem.cantidad}}
+      .info-group
+        .label {{::("item.providerItemCategory"|translate)}}
+        .value {{providerItemVm.providerItemCategoryName}}
+          
+      .list.list-inset.list--no-borders.text-center
+        .button.button-clear.button-assertive(
+          ng-click="providerItemVm.unregisterItem()"
+        ) {{::("item.unregisterItem"|translate)}}
+           
+           
   ion-footer-bar.bar-stable.bar-footer--tall
     button.button-full.button-main.button-primary(
       ng-click="providerItemVm.showEditModal()"
