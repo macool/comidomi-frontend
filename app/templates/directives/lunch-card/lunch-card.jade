@@ -1,0 +1,15 @@
+.lunch-card.col(
+  ui-sref="app.categories.provider({ categoryId: lcVm.lunch.provider_category_id, providerId: lcVm.lunch.id })"
+)
+  .provider-cover-img(
+    style="background-image: url('{{ ::lcVm.lunch.cover_provider_url }}')"
+  )
+  .provider-logo-wrapper
+    .provider-logo-img(
+      style="background-image: url('{{ ::lcVm.lunch.logotipo_thumbnail_url }}')"
+    )
+  .provider-info-wrapper
+    .provider-information
+      .provider-title {{ ::lcVm.lunch.nombre_establecimiento }}
+      .provider-schedule
+        | Desde $3 - $5.40

@@ -5,6 +5,30 @@
 }
 
 .service-provider-index {
+
+  .lunchs {
+    padding-left: 15px;
+
+    ion-scroll {
+      white-space: nowrap;
+      height: 180px
+    }
+
+    .title {
+      font-size: $font-xl;
+      font-family: $font-bold;
+      padding: 10px 0;
+    }
+
+    .section {
+      display: inline-flex;
+      white-space: nowrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      width: 200px;
+    }
+  }
+
   .item.search-input {
     margin-bottom: 0;
   }
