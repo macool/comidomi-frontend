@@ -7,17 +7,17 @@ ion-modal-view.success-checkout
       )
       .content-background
         .text
-          .main-text Tu Pedido ha sido enviado
+          .main-text {{::(checkout.feedbackText | translate)}}
           .ticket-number {{'#' + checkout.order.id}}
           .tip-text
-            | Total: ${{checkout.order.subtotal_items_cents}} 
+            | {{::(checkout.total.text | translate)}} ${{checkout.total.value}} 
       .actions
         .button-link(
-            ng-click='checkout.goToProviders()'
+            ng-click='checkout.goToProviders.onClick()'
           )
-            | Seguir Comprando
+            | {{::(checkout.goToProviders.text | translate)}}
         .link(
-            ng-click='checkout.goToOrder(checkout.order)'
+            ng-click='checkout.goToOrder.onClick(checkout.order)'
           )
-            | Ir a mi pedido
+            | {{::(checkout.goToOrder.text | translate)}}
   

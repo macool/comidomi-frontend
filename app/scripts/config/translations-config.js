@@ -596,6 +596,20 @@
             'leg0': 'A la tienda'
           }
         }
+      },
+      modals: {
+        order_checkout: { // jshint ignore:line
+          goToOrder: 'Ver Mi Pedido',
+          goToProviders: 'Seguir Comprando',
+          total: 'Total a pagar: ',
+          feedback: 'Tu pedido ha sido enviado'
+        },
+        errand_checkout: { // jshint ignore:line
+          goToOrder: 'Ver Mi Encomienda',
+          goToProviders: 'Seguir Comprando',
+          total: 'Total de envio: ',
+          feedback: 'Tu encomienda ha sido enviada'
+        }
       }
     });
 

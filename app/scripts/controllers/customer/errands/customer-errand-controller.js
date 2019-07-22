@@ -1,5 +1,6 @@
 (function() {
   'use strict';
+  /*jshint camelcase:false */
 
   angular
     .module('porttare.controllers')
@@ -13,6 +14,7 @@
                                     ErrandsService,
                                     $ionicLoading,
                                     $ionicPopup,
+                                    $ionicHistory,
                                     $ionicScrollDelegate,
                                     ProfileService) {
 
@@ -86,16 +88,30 @@
         customer_address_id: errVm.address.id,  //jshint ignore:line
         description: errVm.errand.description
       };
-      $ionicLoading.show({
-        template: '{{::("globals.loading"|translate)}}'
-      });
       ErrandsService.sendErrand(errandParams)
         .then(function success(resp) {
-          $state.go('app.errands.show', {
-            id: resp.customer_errand.id //jshint ignore:line
-          }).then(function() {
-            closeModal();
-            resetValues();
+          console.log(resp);
+          closeModal();
+          $scope.checkout = {
+            closeModal: closeModal,
+            order: resp.customer_errand,
+            feedbackText: 'modals.errand_checkout.feedback',
+            goToProviders: {
+              onClick: goToProviders,
+              text: 'modals.errand_checkout.goToProviders',
+            },
+            goToOrder:{
+              onClick: goToOrder,
+              text: 'modals.errand_checkout.goToOrder',
+            },
+            total: {
+              text: 'modals.errand_checkout.total',
+              value: resp.customer_errand.shipping_fare_price_cents
+            }
+          };
+          ModalService.showModal({
+            parentScope: $scope,
+            fromTemplateUrl: 'templates/modal-actions/checkout.html',
           });
         }, function error() {
           $ionicLoading.hide();
@@ -105,6 +121,33 @@
             template: message
           });
         });
+    }
+
+    function goToOrder(order) {
+      nextViewIsRoot();
+      $state.go('app.errands.show', {
+        id: order.id,
+        customerOrder: order
+      }).then(function () {
+          $auth.user.customer_order = null;
+          resetValues();
+          closeModal();
+        });
+    }
+
+    function goToProviders() {
+      nextViewIsRoot();
+      $state.go('app.services.providers', {}).then(function () {
+        $auth.user.customer_order = null;
+        resetValues();
+        closeModal();
+      });
+    }
+
+    function nextViewIsRoot(){
+      $ionicHistory.nextViewOptions({
+        historyRoot: true
+      });
     }
   }
 })();

@@ -27,12 +27,6 @@
 
   function lunchCardController() {
     var lcVm = this;
-    console.log('lcVm: ', lcVm);
     lcVm.lunch = lcVm.lunch || {};
-    lcVm.getTime = getTime;
-
-    function getTime(date){
-      return date ? moment(date).format('h:mm a') : 'N/A';
-    }
   }
 })();

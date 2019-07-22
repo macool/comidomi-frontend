@@ -240,13 +240,23 @@
     function runCheckout() {
       CartService.checkout(cartVm.checkoutForm)
         .then(function success(response) {
-          console.log('response: ', response);
           closeModal();
           $scope.checkout = {
             closeModal: closeModal,
             order: response.customer_order,
-            goToProviders: goToProviders,
-            goToOrder: goToOrder,
+            feedbackText: 'modals.order_checkout.feedback',
+            goToProviders: {
+              onClick: goToProviders,
+              text: 'modals.order_checkout.goToProviders',
+            },
+            goToOrder:{
+              onClick: goToOrder,
+              text: 'modals.order_checkout.goToOrder',
+            },
+            total: {
+              text: 'modals.order_checkout.total',
+              value: response.customer_order.subtotal_items_cents
+            }
           };
           ModalService.showModal({
             parentScope: $scope,
