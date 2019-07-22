@@ -1,0 +1,15 @@
+ion-modal-view.success-action
+  ion-content.content(scroll="false")
+    .text
+      .main-text {{::(action.mainText | translate)}}
+      .secondary-text {{::(action.secondaryText | translate)}}
+    .wrapper
+      ng-md-icon.icon(
+        icon="{{action.icon || 'check_circle'}}"
+        size="100"
+      )
+    .actions
+      .button-link(
+          ng-click='action.continue.onClick()'
+        )
+          | {{::(action.continue.text | translate)}}

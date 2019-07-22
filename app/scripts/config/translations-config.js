@@ -609,6 +609,32 @@
           goToProviders: 'Seguir Comprando',
           total: 'Total de envio: ',
           feedback: 'Tu encomienda ha sido enviada'
+        },
+        success: {
+          address: {
+            updated: {
+              mainText: 'Dirección Actualizada',
+              secondaryText: 'Tu dirección se ha actualizado correctamente',
+              btnContinue: 'Continuar'
+            },
+            created: {
+              mainText: 'Dirección Agregada',
+              secondaryText: 'Tu nueva dirección se ha agregado correctamente',
+              btnContinue: 'Continuar'
+            }
+          },
+          billing: {
+            updated: {
+              mainText: 'Datos Actualizados',
+              secondaryText: 'Tus datos se ha actualizado correctamente',
+              btnContinue: 'Continuar'
+            },
+            created: {
+              mainText: 'Datos Agregados',
+              secondaryText: 'Tu informacion ha sido agregada, ahora puedes seleccionarlos',
+              btnContinue: 'Continuar'
+            }
+          }
         }
       }
     });
