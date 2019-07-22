@@ -45,40 +45,24 @@
 
 	.provider-info-wrapper {
 		display: flex;
-		padding: 10px 0;
-		// background-color: $light-grey;
 		width: 100%;
-		// justify-content: space-between;
 
 		.provider-information {
-			padding-left: 10px;
 			width: 100%;
+			padding-top: 5px;
 
 			.provider-title {
 				font-size: $font-m;
+				font-family: $font-semibold;
 				color: $base-black;
 			}
 
-			.provider-activity {
-				color: $base-black;
-				font-family: $font-light;
-				font-size: 13px;
-			}
-
-			.provider-schedule {
+			.provider-price-range {
 				display: flex;
 				justify-content: space-between;
+				font-size: $font-m;
+				font-family: $font-light;
 				width: 100%;
-
-				.icon {
-					margin-left: 2px;
-					margin-right: 3px;
-				}
-
-				.office-schedule {
-					font-family: $font-light;
-					font-size: 13px;
-				}
 			}
 		}
 	}

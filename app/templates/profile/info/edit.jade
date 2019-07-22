@@ -14,10 +14,6 @@ ion-modal-view
   )
     ion-content.resource-form.customer-profile-form
       .list.list-inset
-        legend {{::("client.formLegend"|translate)}}
-
-        label.item.item-input.item-input--no-borders.item-stacked-label
-          span.input-label {{::("user.image"|translate)}}
         .row.image-preview
           .img-wrapper
             img( ng-if="piVm.hasImageFile(piVm.userEdit)"
@@ -56,23 +52,6 @@ ion-modal-view
             span.message-error(ng-message="email") {{::("form.wrongEmail"|translate)}}
           show-error(array-messages="piVm.messages.email")
 
-        label.item.item-input.item-input--no-borders.item-stacked-label(
-          ng-class="{'item-error': piVm.messages.fecha_de_nacimiento}"
-        )
-          span.input-label {{::("user.birthdate"|translate)}}
-        ion-datetime-picker.item.item-icon-left.datetime-picker(
-          date
-          ng-model='piVm.userEdit.fecha_nacimiento'
-        )
-          i.icon.ion-ios-calendar-outline
-          span(
-            ng-if="piVm.userEdit.fecha_nacimiento"
-          ) {{ piVm.userEdit.fecha_nacimiento| date: "yyyy-MM-dd" }}
-          span(
-            ng-if="!piVm.userEdit.fecha_nacimiento"
-          ) {{ "user.selectDatePlaceholder"|translate }}
-        show-error(array-messages="piVm.messages.fecha_nacimiento")
-
         label.item.item-input.item-stacked-label(
           ng-class="{'item-error': piVm.messages.name}"
         )
@@ -105,7 +84,24 @@ ion-modal-view
           )
         .errors-wrapper
           show-error(array-messages="piVm.messages.ciudad")
-
+          
+        label.item.item-input.item-input--no-borders.item-stacked-label(
+          ng-class="{'item-error': piVm.messages.fecha_de_nacimiento}"
+        )
+          span.input-label {{::("user.birthdate"|translate)}}
+        ion-datetime-picker.item.item-icon-left.datetime-picker(
+          date
+          ng-model='piVm.userEdit.fecha_nacimiento'
+        )
+          i.icon.ion-ios-calendar-outline
+          span(
+            ng-if="piVm.userEdit.fecha_nacimiento"
+          ) {{ piVm.userEdit.fecha_nacimiento| date: "yyyy-MM-dd" }}
+          span(
+            ng-if="!piVm.userEdit.fecha_nacimiento"
+          ) {{ "user.selectDatePlaceholder"|translate }}
+        show-error(array-messages="piVm.messages.fecha_nacimiento")
+        
         span(ng-if="::piVm.canChangePassword")
           label.item.item-input.item-stacked-label(
             ng-class="{'item-error': piVm.messages.password}"

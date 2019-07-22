@@ -14,13 +14,13 @@ ion-modal-view
   )
     ion-content.resource-form
       .list.list-inset
-        legend(ng-if="!billingAddressesVm.billingAddress.id").title {{::("billingAddress.newBillingAddress"|translate|uppercase)}}
-        legend(ng-if="billingAddressesVm.billingAddress.id").title {{::("globals.edit"|translate|uppercase)}} {{::("billingAddress.legendForm"|translate|uppercase)}}
+        legend(ng-if="!billingAddressesVm.billingAddress.id").title {{::("billingAddress.newBillingAddress" | translate)}}
+        legend(ng-if="billingAddressesVm.billingAddress.id").title {{::("globals.edit" | translate)}} {{::("billingAddress.legendForm" | translate)}}
 
         label.item.item-input.item-stacked-label(
           ng-class="{'item-error': billingAddressesVm.form.ruc.$touched && billingAddressesVm.form.ruc.$invalid}"
           )
-          span.input-label {{::("client.ruc"|translate|uppercase)}} *
+          span.input-label {{::("client.ruc" | translate)}} *
           input(
             type="text"
             name="ruc"
@@ -32,11 +32,11 @@ ion-modal-view
           span.show-errors(ng-messages="billingAddressesVm.form.ruc.$error" ng-if="billingAddressesVm.form.ruc.$touched")
             span.message-error(ng-message="required") {{::("form.requiredField"|translate)}}
           show-error(array-messages="billingAddressesVm.messages.ruc")
-
+  
         label.item.item-input.item-stacked-label(
           ng-class="{'item-error': billingAddressesVm.form.razon_social.$touched && billingAddressesVm.form.razon_social.$invalid}"
         )
-          span.input-label {{::("provider.businessName"|translate|uppercase)}} *
+          span.input-label {{::("provider.businessName" | translate)}} *
           input(
             type='text'
             name="razon_social"
@@ -50,9 +50,24 @@ ion-modal-view
           show-error(array-messages="billingAddressesVm.messages.razon_social")
 
         label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': billingAddressesVm.form.email.$touched && billingAddressesVm.form.email.$invalid}"
+        )
+          span.input-label {{::("client.email" | translate)}}
+          input(
+            type='email'
+            name="email"
+            ng-model='billingAddressesVm.billingAddress.email'
+            ng-class="input-error"
+          )
+        .errors-wrapper
+          .show-errors(ng-messages="billingAddressesVm.form.email.$error" ng-if="billingAddressesVm.form.email.$touched")
+            span.message-error(ng-message="email") {{::("form.wrongEmail"|translate)}}
+          show-error(array-messages="billingAddressesVm.messages.email")
+
+        label.item.item-input.item-stacked-label(
           ng-class="{'item-error': billingAddressesVm.form.direccion.$touched && billingAddressesVm.form.direccion.$invalid}"
         )
-          span.input-label {{::("client.direccion"|translate|uppercase)}} *
+          span.input-label {{::("client.direccion" | translate)}} *
           input(
             type='text'
             name="direccion"
@@ -66,7 +81,7 @@ ion-modal-view
           show-error(array-messages="billingAddressesVm.messages.direccion")
 
         label.item.item-input.item-stacked-label
-          span.input-label {{::("user.country"|translate|uppercase)}}
+          span.input-label {{::("user.country" | translate)}}
           input(
             type='text'
             ng-model='billingAddressesVm.billingAddress.ciudad '
@@ -74,23 +89,8 @@ ion-modal-view
           )
         show-error(array-messages="billingAddressesVm.messages.ciudad")
 
-        label.item.item-input.item-stacked-label(
-          ng-class="{'item-error': billingAddressesVm.form.email.$touched && billingAddressesVm.form.email.$invalid}"
-        )
-          span.input-label {{::("client.email"|translate|uppercase)}}
-          input(
-            type='email'
-            name="email"
-            ng-model='billingAddressesVm.billingAddress.email'
-            ng-class="input-error"
-          )
-        .errors-wrapper
-          .show-errors(ng-messages="billingAddressesVm.form.email.$error" ng-if="billingAddressesVm.form.email.$touched")
-            span.message-error(ng-message="email") {{::("form.wrongEmail"|translate)}}
-          show-error(array-messages="billingAddressesVm.messages.email")
-
         label.item.item-input.item-stacked-label
-          span.input-label {{::("client.telefono"|translate|uppercase)}}
+          span.input-label {{::("client.telefono" | translate)}}
           input(
             type='text'
             ng-model='billingAddressesVm.billingAddress.telefono '
