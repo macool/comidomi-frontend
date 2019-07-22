@@ -21,11 +21,6 @@ ion-view.billing-addresses-page(
         .row.information
           .row-info.no-border
             .details.start
-              .label {{ "client.razonSocial" | translate }}
-              .name {{ ::(item.razon_social) }}
-        .row.information
-          .row-info.no-border
-            .details.start
               .label {{ "client.ruc" | translate }}
               .name {{ ::(item.ruc) }}
             .details.end(
@@ -33,6 +28,11 @@ ion-view.billing-addresses-page(
             )
               .label {{ "client.telefono" | translate }}
               .name {{ ::(item.telefono) }}
+        .row.information
+          .row-info.no-border
+            .details.start
+              .label {{ "client.razonSocial" | translate }}
+              .name {{ ::(item.razon_social) }}
         .row.information
           .row-info.no-border
             .details.start

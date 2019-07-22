@@ -1,0 +1,23 @@
+ion-modal-view.success-checkout
+  ion-content.content(scroll="false")
+    .wrapper
+      ng-md-icon.icon(
+        icon="check_circle"
+        size="100"
+      )
+      .content-background
+        .text
+          .main-text Tu Pedido ha sido enviado
+          .ticket-number {{'#' + checkout.order.id}}
+          .tip-text
+            | Total: ${{checkout.order.subtotal_items_cents}} 
+      .actions
+        .button-link(
+            ng-click='checkout.goToProviders()'
+          )
+            | Seguir Comprando
+        .link(
+            ng-click='checkout.goToOrder(checkout.order)'
+          )
+            | Ir a mi pedido
+  

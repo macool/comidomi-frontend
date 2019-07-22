@@ -1,0 +1,86 @@
+.success-checkout {
+  background-color: #4a9866;
+  height: 100%;
+  width: 100%;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    // align-items: center;
+
+    .wrapper {
+      text-align: center;
+      position: relative;
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        color: white;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+
+        svg {
+          background: #4a9866;
+          border-radius: 50%;
+        }
+      }
+
+      .content-background {
+        background: #9ec5aba8;
+        padding: 50px 0;
+        // opacity: 0.5;
+        margin: 50px 20px 0 20px;
+        z-index: 1;
+
+        .ticket-number {
+          font-size: 40px;
+          padding: 25px 0;
+          font-family: $font-bold;
+        }
+      }
+
+      .text {
+        text-align: center;
+        color: white;
+
+        .main-text {
+          font-family: $font-base;
+          font-size: $font-l;
+        }
+
+        .tip-text {
+          margin-top: 10px;
+          padding: 10px 16%;
+          font-family: $font-base;
+          font-size: $font-l;
+          border-top: 1px dashed $white;
+          margin: 0 60px;
+        }
+      }
+    }
+
+    .actions {
+      margin: 0 20px;
+
+      .button-link {
+        background: #407b55;
+        padding: 15px 80px;
+        color: white;
+        margin-top: 30px;
+        font-family: $font-semibold;
+        font-size: $font-m;
+      }
+
+      .link {
+        color: white;
+        margin: 15px;
+        font-family: $font-base;
+      }
+    }
+  }
+}
