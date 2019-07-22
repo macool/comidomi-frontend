@@ -27,10 +27,13 @@
         svg {
           background: #4a9866;
           border-radius: 50%;
+          animation: bounceInDown 0.8s ease-in-out;
         }
       }
 
       .content-background {
+        animation: tada 0.8s ease-in-out;
+        animation-delay: 1s;
         background: #9ec5aba8;
         padding: 50px 0;
         // opacity: 0.5;
