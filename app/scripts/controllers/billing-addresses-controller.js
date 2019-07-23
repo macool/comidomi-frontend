@@ -66,7 +66,6 @@
 
     function saveBillingAddress(){
       BillingAddressesService.createBillingAddress(billingAddressesVm.billingAddress).then(function success(resp){
-        console.log(resp);
         billingAddressesVm.billingAddresses.push(resp.customer_billing_address); //jshint ignore:line
         var options = {
           mainText: 'modals.success.billing.created.mainText',
@@ -85,7 +84,6 @@
 
     function  updateBillingAddress(){
       BillingAddressesService.updateBillingAddress(billingAddressesVm.billingAddress).then(function success(resp){
-        console.log(resp);
         billingAddressesVm.billingAddresses[billingAddressesIndex] = resp.customer_billing_address; //jshint ignore:line
         var options = {
           mainText: 'modals.success.billing.updated.mainText',
