@@ -2,6 +2,10 @@
   font-family: $font-light;
   color: $base-grey;
 
+  &.empty {
+    background-color: $light-grey;
+  }
+
   .page-title {
     font-family: $font-base;
 
@@ -22,6 +26,25 @@
       span {
          padding: 5px
       }
+    }
+  }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50%;
+
+    img {
+      width: 110px;
+      // filter: grayscale(1);
+    }
+
+    .text {
+      font-family: $font-base;
+      color: $base-grey;
+      font-size: $font-l;
+      padding-top: 10px;
     }
   }
 }

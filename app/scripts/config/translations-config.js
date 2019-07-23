@@ -461,7 +461,7 @@
         new: 'Nuevos',
         have: 'Tienes',
         ordersPendings: 'Pedidos pendientes',
-        ordersEmpty: 'No hay pedidos',
+        ordersEmpty: 'No hay pedidos pendientes',
         orderDetails: 'Detalles de la orden'
       },
       order: {

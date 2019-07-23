@@ -11,7 +11,8 @@
                                     $scope) {
     var poVm = this;
     poVm.tab = status;
-
+    poVm.emptyState = 'images/delivery-guy-bag.png',
+    
     $scope.$on('$ionicView.enter', function() {
       if (status === 'submitted') {
         $scope.$emit('update-submitted-provider-orders');

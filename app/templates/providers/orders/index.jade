@@ -5,30 +5,28 @@ ion-view(
     .alt-logo
 
   ion-nav-buttons(side="right")
-    provider-notifications
+    //- provider-notifications
 
-  ion-content.provider-orders-index-page
-    .list.list-inset.page-title
-      h2 {{::("provider.orders" | translate)}}
-      p {{::("orders.titleFormOrders"|translate)}}
-
+  ion-content.provider-orders-index-page(
+    ng-class="{'empty': poVm.customerOrders.length === 0}"
+  )
     .tab-container
       .tab-item(
         menu-close
         ng-class="{'tab-item-active': poVm.tab==='submitted'}"
         ui-sref="provider.orders.index({status: 'submitted'})"
-      ) {{::("orders.inProcess"|translate)}}
+      ) {{::("orders.inProcess"|translate)}}  {{poVm.customerOrders.length}}
       .tab-item(
         menu-close
         ng-class="{'tab-item-active': poVm.tab==='completed'}"
         ui-sref="provider.orders.index({status: 'completed'})"
       ) {{::("orders.completed"|translate)}}
 
-    .list.list-inset
-      p(ng-if="poVm.tab==='submitted'")
-        | {{::("orders.have"|translate)}}
-        | {{poVm.customerOrders.length}}
-        | {{::("orders.ordersPendings"|translate)}}
+    .list.list-inset(ng-if="poVm.customerOrders.length")
+      //- p(ng-if="poVm.tab==='submitted'")
+      //-   | {{::("orders.have"|translate)}}
+      //-   | {{poVm.customerOrders.length}}
+      //-   | {{::("orders.ordersPendings"|translate)}}
 
       .order-container.resource-rounded-container(
         ng-repeat="order in poVm.customerOrders"
@@ -53,5 +51,11 @@ ion-view(
           .col {{ order.submitted_at | toDate |formatDate: 'DD/MM/YYYY' }}
           .col.text-right Asignado a: -
 
-      row(ng-if="!poVm.customerOrders.length")
-        .col.text-center {{::("orders.ordersEmpty"| translate)}}
+    .empty-state(ng-if="!poVm.customerOrders.length")
+      .image-wrapper
+        img(ng-src="{{ ::poVm.emptyState }}")
+      .text {{::("orders.ordersEmpty"| translate)}}
+
+  tabs-nav.hide-on-keyboard-open(
+    type="provider"
+  )
