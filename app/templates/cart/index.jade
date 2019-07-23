@@ -2,18 +2,21 @@ ion-view(
   view-title='{{::("menu.client.cart"|translate)}}'
 )
   ion-nav-title {{ ::('cart.title' | translate) }}
-  ion-content
-    .customer-order-preview.customer-order-preview--fix-scroll
+  ion-content.customer-order(
+    ng-class="{'empty': !cartVm.cart.provider_profiles.length}"
+  )
+    .empty-state(ng-if="!cartVm.cart.provider_profiles.length")
+      .image-wrapper
+        img(ng-src="images/bag-comidomi.png")
+      .text {{::("cart.titleWithoutItems"|translate)}}
+      p {{::("cart.subtitleWithoutItems"|translate)}}
+      
+    .customer-order-preview.customer-order-preview--fix-scroll(
+      ng-if="cartVm.cart.provider_profiles.length"
+    )
       ng-include(
         src="'templates/cart/customer-order.html'"
       )
-
-      .resource-collection
-        .without-items(
-          ng-if="!cartVm.cart.provider_profiles.length"
-        )
-          p {{::("cart.titleWithoutItems"|translate)}}
-          p {{::("cart.subtitleWithoutItems"|translate)}}
 
   ion-footer-bar.bar-stable.item-show-footer.bar-footer--tall.cart-page-footer(
     ng-if="cartVm.cart.provider_profiles.length"

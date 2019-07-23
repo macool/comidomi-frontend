@@ -9,114 +9,139 @@
     position: relative;
   }
 }
+.customer-order {
 
-.customer-order-preview {
-  background-color: $white;
+  &.empty {
+    background-color: $light-grey;
 
-  &--fix-scroll {
-    height: auto;
-    bottom: initial;
-    padding-bottom: 60px;
-  }
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50%;
 
-  .scroll {
-    padding-bottom: 30px;
-  }
+      img {
+        width: 110px;
+        // filter: grayscale(1);
+      }
 
-  .cart-delivery-address {
-    color: $base-grey;
-    padding: 20px;
-    font-family: $font-base;
-    letter-spacing: -0.5px;
-    position: relative;
-    padding-right: 70px; // room for btn
-    letter-spacing: -0.5px;
-
-    span:not(:last-child) {
-      margin-right: 3px;
-    }
-
-    .placeholder-title {
-      font-family: $font-light;
-    }
-
-    .button-clear {
-      position: absolute;
-      top: 5px;
-      right: 0;
-      text-transform: uppercase;
-      font-size: $font-m;
-      color: $base-yellow;
+      .text {
+        font-family: $font-base;
+        color: $base-grey;
+        font-size: $font-l;
+        padding-top: 10px;
+      }
     }
   }
 
-  .provider-profile-section {
-    &--clear {
-      clear: both;
-      margin-bottom: 20px;
+  .customer-order-preview {
+    background-color: $white;
+
+    &--fix-scroll {
+      height: auto;
+      bottom: initial;
+      padding-bottom: 60px;
     }
 
-    .provider-profile--title-wrapper {
-      padding: 15px;
-      background-color: $white;
+    .scroll {
+      padding-bottom: 30px;
+    }
+
+    .cart-delivery-address {
+      color: $base-grey;
+      padding: 20px;
+      font-family: $font-base;
       letter-spacing: -0.5px;
-      line-height: 20px;
-    }
-
-    .provider-profile--title {
-      color: $base-black;
-      text-transform: uppercase;
-      font-size: 16px;
-      font-family: $font-base;
-    }
-
-    .provider-profile--subtitle {
-      float: right;
-      color: $positive;
-      font-family: $font-base;
-      font-size: 13px;
+      position: relative;
+      padding-right: 70px; // room for btn
+      letter-spacing: -0.5px;
 
       span:not(:last-child) {
         margin-right: 3px;
       }
-    }
 
-    .order-total-summary {
-      font-family: $font-light;
-      margin: 10px 0 0 0;
-
-      .order-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 3px 15px;
+      .placeholder-title {
+        font-family: $font-light;
       }
 
-      .order-total {
+      .button-clear {
+        position: absolute;
+        top: 5px;
+        right: 0;
+        text-transform: uppercase;
+        font-size: $font-m;
+        color: $base-yellow;
+      }
+    }
+
+    .provider-profile-section {
+      &--clear {
+        clear: both;
+        margin-bottom: 20px;
+      }
+
+      .provider-profile--title-wrapper {
+        padding: 15px;
+        background-color: $white;
+        letter-spacing: -0.5px;
+        line-height: 20px;
+      }
+
+      .provider-profile--title {
+        color: $base-black;
+        text-transform: uppercase;
+        font-size: 16px;
         font-family: $font-base;
       }
-    }
-  }
 
-  .provider-items-in-cart {
-    // border-top: 2px solid $light-grey;
-    // border-bottom: 2px solid $light-grey;
+      .provider-profile--subtitle {
+        float: right;
+        color: $positive;
+        font-family: $font-base;
+        font-size: 13px;
 
-    .items-delivery-container {
+        span:not(:last-child) {
+          margin-right: 3px;
+        }
+      }
 
-      .item-container {
-        .provider-item--price {
-          padding: 0;
+      .order-total-summary {
+        font-family: $font-light;
+        margin: 10px 0 0 0;
+
+        .order-row {
+          display: flex;
+          justify-content: space-between;
+          padding: 3px 15px;
         }
 
-        .img-wrapper {
-          min-height: initial;
+        .order-total {
+          font-family: $font-base;
         }
       }
     }
 
-    .slick-container:not(:last-child) {
-      // TODO fix border not reaching top
-      border-right: 1px solid $light-grey;
+    .provider-items-in-cart {
+      // border-top: 2px solid $light-grey;
+      // border-bottom: 2px solid $light-grey;
+
+      .items-delivery-container {
+
+        .item-container {
+          .provider-item--price {
+            padding: 0;
+          }
+
+          .img-wrapper {
+            min-height: initial;
+          }
+        }
+      }
+
+      .slick-container:not(:last-child) {
+        // TODO fix border not reaching top
+        border-right: 1px solid $light-grey;
+      }
     }
   }
 }
