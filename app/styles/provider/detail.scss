@@ -316,21 +316,29 @@ $providerShowPageCoverHeight: 180px;
 
 .provider-items {
 
-  .provider-item-title {
-    display: flex;
+  .item {
+    padding-bottom: 15px;
 
-    .descripcion {
-      margin-left: 10px;
-      font-family: $font-base;
+    .provider-item-title {
+      display: flex;
 
-      p {
-        color: $base-black;
+      .descripcion {
+        margin-left: 10px;
+        font-family: $font-base;
+
+        p {
+          color: $base-black;
+
+          &.subtitle {
+            color: $base-grey;
+          }
+        }
       }
+    }
 
-      price {
-        color: $base-grey;
-        font-size: $font-m;
-      }
+    .text-right price {
+      color: $base-grey;
+      font-size: $font-m;
     }
   }
 }

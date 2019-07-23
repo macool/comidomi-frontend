@@ -42,11 +42,10 @@ ion-view.provider-items(
             .img(ng-if="!item.imagenes[0]")
           .descripcion
             p {{ ::item.titulo }}
-            price(amount="{{item.precio_cents}}" currency="{{item.precio_currency}}")
-        //- .col.col-25.text-right
-        //-   a.button.button-clear.button-positive.button-small(
-        //-     ui-sref="provider.items.show({id: item.id})"
-        //-   ) {{ ::("globals.seeMore" | translate) }}
+            p.subtitle {{ ::item.nombre_de_categoria }}
+        .col.col-25.text-right
+          price(amount="{{item.precio_cents}}" currency="{{item.precio_currency}}")
+
   
   //- ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open.with-tab
   //-   button.button-full.button-main.button-primary(

@@ -11,8 +11,9 @@
                                     $scope) {
     var poVm = this;
     poVm.tab = status;
-    poVm.emptyState = 'images/delivery-guy-bag.png',
-    
+    poVm.emptyState = 'images/delivery-guy-bag.png';
+    poVm.loaded = false;
+
     $scope.$on('$ionicView.enter', function() {
       if (status === 'submitted') {
         $scope.$emit('update-submitted-provider-orders');
@@ -32,6 +33,8 @@
     function init(){
       if (status !== 'submitted') {
         getProviderCustomerOrdersStatus(poVm.tab);
+      } else {
+        poVm.loaded = true;
       }
     }
 
@@ -40,6 +43,7 @@
         .getProviderCustomerOrdersByStatus(status)
         .then(function success(customerOrders){
           poVm.customerOrders = customerOrders;
+          poVm.loaded = true;
         }, ErrorHandlerService.handleCommonErrorGET);
     }
   }
