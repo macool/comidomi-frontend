@@ -10,13 +10,13 @@ ion-view(
   ion-content.provider-orders-index-page(
     ng-class="{'empty': poVm.customerOrders.length === 0}"
   )
-    .tab-container
-      .tab-item(
+    .filter-tabs
+      .filter-tab(
         menu-close
         ng-class="{'tab-item-active': poVm.tab==='submitted'}"
         ui-sref="provider.orders.index({status: 'submitted'})"
       ) {{::("orders.inProcess"|translate)}}
-      .tab-item(
+      .filter-tab(
         menu-close
         ng-class="{'tab-item-active': poVm.tab==='completed'}"
         ui-sref="provider.orders.index({status: 'completed'})"
