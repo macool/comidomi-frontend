@@ -103,13 +103,13 @@
           {
             sref: 'provider.items.index',
             icon: 'restaurant',
-            title: 'Tu Menu',
+            title: 'Mi Menu',
             validate: isValid
           },
           {
-            sref: 'provider.profile-provider.info',
-            icon: 'store_mall_directory',
-            title: 'Mi Negocio',
+            sref: 'provider.orders.index',
+            icon: 'receipt',
+            title: 'Pedidos',
             validate: isValid
           },
           {

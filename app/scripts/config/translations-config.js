@@ -634,6 +634,13 @@
               secondaryText: 'Tu informacion ha sido agregada, ahora puedes seleccionarlos',
               btnContinue: 'Continuar'
             }
+          },
+          profile: {
+            updated: {
+              mainText: 'Perfil Actualizado',
+              secondaryText: 'Tus datos se ha actualizado correctamente',
+              btnContinue: 'Continuar'
+            }
           }
         }
       }
