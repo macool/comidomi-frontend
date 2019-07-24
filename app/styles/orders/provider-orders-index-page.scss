@@ -1,9 +1,17 @@
 .provider-orders-index-page{
   font-family: $font-light;
   color: $base-grey;
+  background-color: $light-grey;
 
-  &.empty {
-    background-color: $light-grey;
+  .tabs-header {
+    position: absolute;
+    width: 100%;
+    top: 44px;
+    z-index: 10;
+  }
+
+  ion-content {
+    z-index: 0;
   }
 
   .page-title {
@@ -30,7 +38,7 @@
   }
 
   .skeletons {
-    padding: 20px 15px 0 15px;
+    padding: 60px 15px 0 15px;
   }
 
   .empty-state {
@@ -49,6 +57,61 @@
       color: $base-grey;
       font-size: $font-l;
       padding-top: 10px;
+    }
+  }
+
+  .orders {
+    margin: 60px 15px 0 15px;
+
+    .order-container {
+      background-color: $white;
+      border-radius: 5px;
+
+      .order {
+        display: flex;
+        padding: 20px 15px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+        .image-wrapper {
+          display: flex;
+          background: $light-grey;
+          border-radius: 50%;
+
+          img {
+            width: 50px;
+            border-radius: 50%;
+          }
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          padding:  0 0 0 15px;
+
+          .row-cmd {
+            display: flex;
+            justify-content: space-between;
+
+            .text {
+
+              &.accent {
+                font-family: $font-semibold;
+              }
+
+              &.secondary {
+                color: $base-grey;
+              }
+            }
+
+            .date {
+              text-transform: capitalize;
+              font-size: $font-s;
+            }
+          }
+        }
+      }
     }
   }
 }
