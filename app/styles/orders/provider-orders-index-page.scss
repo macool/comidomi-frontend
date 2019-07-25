@@ -3,17 +3,6 @@
   color: $base-grey;
   background-color: $light-grey;
 
-  .tabs-header {
-    position: absolute;
-    width: 100%;
-    top: 44px;
-    z-index: 10;
-  }
-
-  ion-content {
-    z-index: 0;
-  }
-
   .page-title {
     font-family: $font-base;
 

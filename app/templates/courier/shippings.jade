@@ -3,17 +3,16 @@ ion-view(
 )
   ion-nav-title
     .alt-logo
-  ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common.has-footer
-    .filter-tabs(
-      ng-if="!shVm.showFilterTab"
+  .filter-tabs.tabs-header(
+    ng-if="!shVm.showFilterTab"
+  )
+    .filter-tab(
+      ng-repeat="tab in ::shVm.tabs"
+      ng-click="shVm.switchTab(tab.key)"
+      ng-class="{'selected': shVm.currentOrderType === tab.key}"
     )
-      .filter-tab(
-        ng-repeat="tab in ::shVm.tabs"
-        ng-click="shVm.switchTab(tab.key)"
-        ng-class="{'selected': shVm.currentOrderType === tab.key}"
-      )
-        | {{ ("orders." + tab.key | translate) }}
-        
+      | {{ ("orders." + tab.key | translate) }}
+  ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common.has-footer.has-tabs-header
     .card-orders
       .card-order(ng-if="shVm.loaded")
         courier-order-card(

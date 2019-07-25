@@ -49,3 +49,19 @@ body.open-keyboard {
     }
   }
 }
+
+
+.tabs-header {
+  position: absolute;
+  width: 100%;
+  top: 44px;
+  z-index: 10;
+}
+
+ion-content {
+  z-index: 0;
+
+  &.has-tabs-header {
+    padding-top: 44px;
+  }
+}

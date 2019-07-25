@@ -3,14 +3,14 @@ ion-view(
 )
   ion-nav-title
     .alt-logo
-  ion-content.customer-my-orders.has-footer
-    .filter-tabs
-      .filter-tab(
-        ng-repeat="tab in ::customerOrdersVm.tabs"
-        ng-click="::tab.onClick(tab.key)"
-        ng-class="{'selected': customerOrdersVm.currentTab === tab.key}"
-      )
-        | {{ ("orders." + tab.key | translate) }}
+  .filter-tabs.tabs-header
+    .filter-tab(
+      ng-repeat="tab in ::customerOrdersVm.tabs"
+      ng-click="::tab.onClick(tab.key)"
+      ng-class="{'selected': customerOrdersVm.currentTab === tab.key}"
+    )
+      | {{ ("orders." + tab.key | translate) }}
+  ion-content.customer-my-orders.has-footer.has-tabs-header
     .orders(ng-if="customerOrdersVm.loaded")
       order-card(
         ng-repeat="customerOrder in customerOrdersVm.orders track by $index"
