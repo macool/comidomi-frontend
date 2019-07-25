@@ -643,6 +643,12 @@
             }
           }
         }
+      },
+      emptyStates: {
+        inProgressOrderCourier: {
+          main: 'No Tienes Ordenes Pendiente',
+          tip: 'En la sección "Nuevos" puedes encontrar mas pedidos'
+        }
       }
     });
 

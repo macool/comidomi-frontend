@@ -65,3 +65,22 @@ ion-content {
     padding-top: 44px;
   }
 }
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50%;
+
+  img {
+    width: 110px;
+    // filter: grayscale(1);
+  }
+
+  .text {
+    font-family: $font-base;
+    color: $base-grey;
+    font-size: $font-l;
+    padding-top: 10px;
+  }
+}

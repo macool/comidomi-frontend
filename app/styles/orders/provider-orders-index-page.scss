@@ -30,25 +30,6 @@
     padding: 60px 15px 0 15px;
   }
 
-  .empty-state {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50%;
-
-    img {
-      width: 110px;
-      // filter: grayscale(1);
-    }
-
-    .text {
-      font-family: $font-base;
-      color: $base-grey;
-      font-size: $font-l;
-      padding-top: 10px;
-    }
-  }
-
   .orders {
     margin: 60px 15px 0 15px;
 
