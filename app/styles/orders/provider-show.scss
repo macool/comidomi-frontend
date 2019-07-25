@@ -1,5 +1,98 @@
 .provider-show-customer-order {
   font-family: $font-light;
+  background-color: $light-grey;
+
+  .secondary {
+    color: $base-grey;
+  }
+
+  .header-order {
+    text-align: center;
+    padding: 20px 0;
+
+    .date {
+      text-transform: capitalize;
+      font-size: $font-s;
+    }
+
+    img {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      background: $light-grey;
+    }
+  }
+
+  .content-order {
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #d6d3d3;
+    border-top: 1px solid #d6d3d3;
+
+    .table-order {
+      padding: 20px 15px;
+
+      .order-item {
+
+        .title {
+          font-family: $font-base;
+          display: flex;
+
+          .amount {
+            // font-size: $font-s;
+            // padding-right: 5px;
+            padding: 0px 6px;
+            /* background: red; */
+            border: 1px solid #00b79d;
+            margin-right: 5px;
+          }
+        }
+
+        .end {
+          text-align: right;
+        }
+
+        .amount-items {
+          display: flex;
+
+          .amount {
+            font-size: $font-s;
+            font-family: $font-semibold;
+            padding-right: 5px;
+            color: $base-teal;
+          }
+        }
+      }
+
+      .order-costs {
+        color: $base-teal;
+      }
+    }
+  }
+
+  .footer-order {
+    display: flex;
+    padding: 20px 25px;
+
+    .delivery-address {
+      label {
+        font-family: $font-semibold;
+      }
+
+      .address-wrapper {
+        display: flex;
+        padding: 10px 0 0 0;
+
+        .icon {
+          color: $base-teal;
+          margin: 0;
+        }
+
+        .address {
+          padding: 0 0 0 10px;
+        }
+      }
+    }
+  }
 
   h1, h2, h3, h4 {
     font-family: $font-base;
