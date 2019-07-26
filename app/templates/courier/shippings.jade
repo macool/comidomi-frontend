@@ -3,16 +3,7 @@ ion-view(
 )
   ion-nav-title
     .alt-logo
-  .filter-tabs.tabs-header(
-    ng-if="!shVm.showFilterTab"
-  )
-    .filter-tab(
-      ng-repeat="tab in ::shVm.tabs"
-      ng-click="shVm.switchTab(tab.key)"
-      ng-class="{'selected': shVm.currentOrderType === tab.key}"
-    )
-      | {{ ("orders." + tab.key | translate) }}
-  ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common.has-footer.has-tabs-header
+  ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common.has-footer
     .card-orders
       .card-order(ng-if="shVm.loaded")
         courier-order-card(

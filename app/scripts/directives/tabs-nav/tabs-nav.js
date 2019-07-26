@@ -89,7 +89,7 @@
           {
             sref: 'courier.orders.all',
             icon: 'view_list',
-            title: 'Míos',
+            title: 'Entregados',
             validate: isValid
           },
           {
