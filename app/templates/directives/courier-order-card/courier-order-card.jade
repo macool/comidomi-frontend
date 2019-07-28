@@ -1,6 +1,6 @@
 .card-information(
   ng-class='coCardVm.courierOrder.theme'
-  ng-if="coCardVm.type !== 'status'"
+  ng-if="coCardVm.type === 'new'"
 )
   .rows(
     ng-if="coCardVm.type !== 'status'"
@@ -104,8 +104,22 @@
         ng-src="{{ ::coCardVm.courierOrder.provider_image }}"
         ng-if="coCardVm.courierOrder.provider_image"
       )
-  .row
-    .order-info.time
-      shipping-request-dispatch-at(
-        dispatch-at="coCardVm.courierOrder.assigned_at"
-      )
+
+.order-container.order-row(
+  ng-if="coCardVm.type === 'row'"
+)
+  .order
+    .image-wrapper
+      img(ng-src="{{ ::coCardVm.courierOrder.customer_image }}")
+    .content
+      .row-cmd
+        .text.accent
+          | {{ ::coCardVm.courierOrder.customer_name }}
+        .text.accent
+          | # {{ ::coCardVm.courierOrder.id }}
+      .row-cmd
+        .text.secondary
+          | Envio: 
+          price(amount="{{coCardVm.courierOrder.shipping_price}}" currency="{{coCardVm.courierOrder.currency}}")
+        .text.secondary
+          span.date {{ coCardVm.courierOrder.submitted_at | formatDate:'MMMM DD - H:mm A' }}

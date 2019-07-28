@@ -10,7 +10,7 @@ ion-view(
           ng-repeat="order in shVm.orders" 
           order="order"
           ui-sref='courier.order({ id: order.id, order: order})'
-          type='status'
+          type='row'
         )
 
       .card-order(ng-if="!shVm.loaded")
