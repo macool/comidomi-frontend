@@ -210,7 +210,9 @@
         somethingWentWrong: 'Algo salió mal',
         noInformation: 'N/A',
         providerClose: 'Podrás hacer pedidos cuando {{providerName}} esté disponible',
-        seeDetails: 'Ver detalles'
+        seeDetails: 'Ver detalles',
+        call: 'Llamar',
+        map: 'Ver mapa'
       },
       item: {
         item: 'Producto',

@@ -52,13 +52,13 @@ ion-view.shipping-request-show-page(
             .row-info.no-border
               .details.start
                 .label {{ "client.nombres" | translate }}
-                .user
+                .name.user
                   img.img-provider(
                     ng-src="{{ coVm.orderCustomer.customer_profile.image_url }}"
                   )
                   .name {{ ::(coVm.orderCustomer.customer_profile.name) || "N/A"}}
               .details.end
-                .label LLAMAR
+                .label {{ "globals.call" | translate }}
                 .name
                   .phone-number
                     a(
@@ -72,11 +72,12 @@ ion-view.shipping-request-show-page(
             .row-info.no-border
               .details.start
                 .label {{ ::("courier.deliveryAddresses" |translate) }}
-                .name {{ ::(coVm.orderCustomer.customer_address_attributes.direccion_uno) }}
-                .name {{ ::(coVm.orderCustomer.customer_address_attributes.direccion_dos) }}
+                .name 
+                  | {{ ::(coVm.orderCustomer.customer_address_attributes.direccion_uno) }}
+                  | {{ ::(coVm.orderCustomer.customer_address_attributes.direccion_dos) }}
               .details.end
-                .label VER MAPA
-                .map
+                .label {{ "globals.map" | translate }}
+                .name.map
                   .btn-map(
                     ng-click="coVm.openMap()"
                   )
@@ -101,7 +102,7 @@ ion-view.shipping-request-show-page(
               .details.end(
                 ng-if="coVm.orderCustomer.provider.telefono"
               )
-                .label LLAMAR
+                .label {{ "globals.call" | translate }}
                 .name
                   .phone-number
                     a(
