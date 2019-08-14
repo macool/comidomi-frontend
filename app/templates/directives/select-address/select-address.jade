@@ -1,0 +1,19 @@
+.select-address-container(
+  ng-click="slAddressVm.inputOptions.onClick()"
+)
+  .select-address(
+    ng-if="!slAddressVm.inputOptions.address"
+  )
+    ng-md-icon.icon(icon="directions" size="20")
+    | {{slAddressVm.inputOptions.text}}
+  .select-addresss(
+    ng-if="slAddressVm.inputOptions.address"
+  )
+    .selected-address-row-wrapper
+      .content-address.selected-address
+        ng-md-icon.icon(icon="directions" size="20")
+        .address
+          span {{ slAddressVm.inputOptions.address.direccion_uno }}
+          span(
+            ng-if="slAddressVm.inputOptions.address.direccion_dos"
+          ) , {{ slAddressVm.inputOptions.address.direccion_dos }}

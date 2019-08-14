@@ -21,7 +21,7 @@ form.address-form-page(
     ng-md-icon.icon(
       icon="{{pfaVm.expand ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}"
       size="30"
-      ng-click="pfaVm.expandForm()"
+      ng-click="pfaVm.expand = !pfaVm.expand"
     )
     label.item.item-input.item-stacked-label(
       ng-class="{'item-error': pfaVm.messages.direccion_uno}"
@@ -54,12 +54,13 @@ form.address-form-page(
     label.item.item-input.item-stacked-label(
       ng-class="{'item-error': pfaVm.messages.referencia}"
     )
-      span.input-label {{::("addresses.reference"|translate)}}
+      span.input-label {{::("addresses.reference"|translate)}} *
       input(
         type='text'
         ng-model='pfaVm.addressFormData.referencia'
         placeholder='Ej: casa amarilla, segundo piso'
         ng-focus="pfaVm.expand = true"
+        required
       )
     .errors-wrapper
       show-error(array-messages='pfaVm.messages.referencia')
@@ -80,5 +81,5 @@ form.address-form-page(
   ion-footer-bar.bar-stable.bar-footer--tall
     button.button-full.button-main(
       type="submit"
-      ng-disabled="pfaVm.addressFormData.direccion_uno === undefined"
+      ng-disabled="pfaVm.addressFormData.direccion_uno === undefined || pfaVm.addressFormData.referencia === undefined"
     ) {{ ::pfaVm.inUpdateMode ? ("addresses.updateBtnText"|translate) : ("addresses.saveBtnText"|translate) }}

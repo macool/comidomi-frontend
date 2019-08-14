@@ -1,8 +1,23 @@
 .provider-items-in-cart {
+  .items-delivery-container {
+
+    .img-wrapper {
+      height: 60px;
+      width: 60px;
+      flex-basis: 20%;
+
+      .img {
+        height: 60px;
+        width: 60px;
+      }
+    }
+
+    .info-wrapper {
+      flex-basis: 80%;
+    }
+  }
 
   .item-container {
-    padding: 0 20px;
-
     .customer-item-description {
       display: flex;
       align-items: baseline;

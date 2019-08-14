@@ -1,14 +1,22 @@
-.item-container(
-  ng-repeat="providerItem in liVm.data.customer_order_items track by $index"
-  ng-if="liVm.slickFlag"
-)
-  .item-content(ng-click="liVm.onClick()(providerItem)" class="clickeable")
-    .customer-item-description
-      .customer-item--quantity
-        | {{ ::providerItem.cantidad }}
-      .customer-item--title.text-ellipsis
-        | {{ ::providerItem.provider_item.titulo }}
-      .customer-item--value
-        span
-          price(amount="{{providerItem.provider_item_precio_cents * providerItem.cantidad}}"
-                currency="{{providerItem.provider_item_precio_currency}}")
+.items-delivery-container
+  .provider-item.col(
+    ng-repeat="item in liVm.data.customer_order_items track by $index"
+    ng-if="liVm.slickFlag"
+    ng-init="image = item.provider_item.imagenes[0]"
+  )
+    .item-container(ng-click="liVm.onClick()(item)" class="clickeable")
+      .img-wrapper
+        .img(ng-style="{'background-image':'url({{::(image.thumbnail_url | defaultImage)}})'}")
+        
+      .info-wrapper.inverse
+        .provider-item--title {{ ::item.provider_item.titulo }}
+        .provider-item--description {{ ::item.provider_item.descripcion }}
+        .provider-item--price
+          .customer-item--quantity
+            span.quantity {{ ::item.cantidad }} x 
+            price(amount="{{item.provider_item_precio_cents}}"
+                  currency="{{item.provider_item_precio_currency}}")
+          .customer-item--total
+            price(amount="{{item.provider_item_precio_cents * item.cantidad}}"
+                  currency="{{item.provider_item_precio_currency}}")
+      

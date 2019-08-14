@@ -23,9 +23,5 @@
         pfaVm.messages = response.errors;
       });
     }
-
-    pfaVm.expandForm = function(){
-      pfaVm.expand = !pfaVm.expand;
-    };
   }
 })();

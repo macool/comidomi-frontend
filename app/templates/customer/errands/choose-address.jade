@@ -14,17 +14,19 @@ ion-modal-view.addresses-choose-page
         ng-click="vm.clickAddress(address, $index)"
       )
         .content-address
-          ng-md-icon.icon(
-            icon="{{vm.addressSelected.id == address.id ? 'check_box' : 'check_box_outline_blank' }}"
-          )
+          .map
+            .image(
+              style="background-image: url('{{address.static_map_image}}')"
+            )
+
           .address
-            .zero {{ ::address.nombre }}
+            .zero.place {{ ::address.nombre }}
             .one {{ ::address.direccion_uno }}
             .two {{ ::address.direccion_dos }}
-        .map
-          .image(
-            style="background-image: url('{{address.static_map_image}}')"
-          )
+            
+        ng-md-icon.icon(
+          icon="{{vm.addressSelected.id == address.id ? 'check_box' : 'check_box_outline_blank' }}"
+        )
 
   ion-footer-bar.bar-stable.bar-footer--tall
     button.button-full.button-main(
