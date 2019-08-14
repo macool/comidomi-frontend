@@ -42,6 +42,10 @@ ion-view(
             .item-container
               .info-wrapper
                 .provider-item--title {{ ::providerItem.titulo }}
+                .provider-item--promotion(
+                  ng-if="providerItem.promocion"
+                ) 
+                  | {{ ::providerItem.promocion }}
                 .provider-item--description {{ ::providerItem.descripcion }}
                 .provider-item--subtitle(
                   ng-if="providerItem.is_group"

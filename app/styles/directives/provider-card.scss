@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 10px;
+	position: relative;
 
 	&.closed {
 		pointer-events: none;
@@ -9,9 +10,20 @@
 		.provider-cover-img {
 
 			&:before {
+				z-index: 2;
 				opacity: 0.75;
 			}
 		}
+	}
+
+	.provider-promotion {
+		position: absolute;
+    z-index: 1;
+    right: 5px;
+    background: $base-teal;
+    color: white;
+    padding: 3px 10px;
+    top: 5px;
 	}
 
 	.provider-cover-img {
