@@ -1,6 +1,7 @@
 (function () {
   'use strict';
-
+  /* jshint validthis:true */
+  /* jshint camelcase:false */
   angular
     .module('porttare.controllers')
     .controller('ProviderDetailController', ProviderDetailController);
@@ -10,7 +11,7 @@
                                     data,
                                     CommonService) {
     var providerDetVm = this;
-    providerDetVm.provider = angular.copy(data.provider_profile); //jshint ignore:line
+    providerDetVm.provider = angular.copy(data.provider_profile);
     var promotions = getPromotions(providerDetVm.provider.provider_item_categories);
     if (promotions.length) {
       providerDetVm.provider.provider_item_categories.unshift(
@@ -19,13 +20,13 @@
           provider_items: promotions,
           promotion: true
         }
-      )
+      );
     }
 
-    var office = providerDetVm.provider.provider_offices[0]; //jshint ignore:line
+    var office = providerDetVm.provider.provider_offices[0];
     providerDetVm.isOpen = CommonService.officeScheduleDay(office).isOpen;
     providerDetVm.closedMsgTranslation = {
-      providerName: providerDetVm.provider.nombre_establecimiento //jshint ignore:line
+      providerName: providerDetVm.provider.nombre_establecimiento
     };
 
     // HACK:
@@ -51,11 +52,11 @@
     }
 
     function isPromoAvailable(weekdays) {
-      moment.locale('en')
+      moment.locale('en');
       var today = moment().format('ddd');
       return weekdays.find(function(day){
-        return day.available && day.wkday == today.toLocaleLowerCase();
-      })
+        return day.available && day.wkday === today.toLocaleLowerCase();
+      });
     }
   }
 })();
