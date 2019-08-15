@@ -2,6 +2,10 @@
   ui-sref="app.categories.provider({ categoryId: pcVm.provider.provider_category_id, providerId: pcVm.provider.id })"
   class="{{ ::pcVm.provider.officeIsOpen.isOpen ? 'open' : 'closed'}}"
 )
+  .provider-promotion(
+    ng-if="!pcVm.provider.has_promotion && pcVm.provider.officeIsOpen.isOpen"
+  )
+    | {{ ::("globals.promotion" | translate) }}
   .provider-cover-img(
     style="background-image: url('{{ ::pcVm.provider.cover_provider_url }}')"
   )

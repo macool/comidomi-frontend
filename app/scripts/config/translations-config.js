@@ -212,7 +212,8 @@
         providerClose: 'Podrás hacer pedidos cuando {{providerName}} esté disponible',
         seeDetails: 'Ver detalles',
         call: 'Llamar',
-        map: 'Ver mapa'
+        map: 'Ver mapa',
+        promotion: 'Tiene promoción'
       },
       item: {
         item: 'Producto',
