@@ -154,6 +154,10 @@ $providerShowPageCoverHeight: 180px;
       font-family: $font-semibold;
       font-size: 15px;
       border-bottom: 1px solid $base-grey;
+
+      &.is-promo {
+        color: $base-orange;
+      }
     }
   }
 
@@ -260,11 +264,6 @@ $providerShowPageCoverHeight: 180px;
       max-height: 40px;
       overflow: hidden;
       padding: 0 0 5px 0;
-      font-family: $font-base;
-    }
-
-    .provider-item--promotion {
-      color: $base-orange;
       font-family: $font-base;
     }
 

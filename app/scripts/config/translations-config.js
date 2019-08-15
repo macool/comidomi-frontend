@@ -211,7 +211,7 @@
         noInformation: 'N/A',
         providerClose: 'Podrás hacer pedidos cuando {{providerName}} esté disponible',
         seeDetails: 'Ver detalles',
-        promotion: 'Promoción'
+        promotion: 'Tiene promoción'
       },
       item: {
         item: 'Producto',

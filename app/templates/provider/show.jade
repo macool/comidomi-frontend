@@ -33,19 +33,19 @@ ion-view(
       .provider-categories(
         ng-repeat="providerItemCategory in ::providerDetVm.provider.provider_item_categories"
       )
-        .provider-category--title {{ ::providerItemCategory.nombre }}
+        .provider-category--title(
+          ng-class="{'is-promo' : providerItemCategory.promotion}"
+        ) {{ ::providerItemCategory.nombre }}
         .grid-items
           .provider-item.col(
             ng-repeat="providerItem in ::providerItemCategory.provider_items"
             ui-sref='app.categories.provider.product({id:providerItem.id, product:providerItem})'
           )
-            .item-container
+            .item-container(
+              ng-if="!providerItem.hide"
+            )
               .info-wrapper
                 .provider-item--title {{ ::providerItem.titulo }}
-                .provider-item--promotion(
-                  ng-if="providerItem.promocion"
-                ) 
-                  | {{ ::providerItem.promocion }}
                 .provider-item--description {{ ::providerItem.descripcion }}
                 .provider-item--subtitle(
                   ng-if="providerItem.is_group"

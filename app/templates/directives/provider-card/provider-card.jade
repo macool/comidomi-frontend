@@ -3,7 +3,7 @@
   class="{{ ::pcVm.provider.officeIsOpen.isOpen ? 'open' : 'closed'}}"
 )
   .provider-promotion(
-    ng-if="!pcVm.provider.has_promotion"
+    ng-if="!pcVm.provider.has_promotion && pcVm.provider.officeIsOpen.isOpen"
   )
     | {{ ::("globals.promotion" | translate) }}
   .provider-cover-img(
