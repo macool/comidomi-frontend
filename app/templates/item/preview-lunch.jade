@@ -56,4 +56,5 @@ ion-modal-view.item-page
   ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open
     button.button-full.button-main.button-primary(
       type="submit"
+      ng-click="modalVm.submitLunch(modalVm.lunch)"
     ) {{::("item.publishItem"|translate)}}

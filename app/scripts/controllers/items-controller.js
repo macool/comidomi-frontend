@@ -155,18 +155,47 @@
       modalScopeLunch.modalVm.defaultImage = {
         imagen_url: APP.defaultImage //jshint ignore:line
       };
-
+      modalScopeLunch.modalVm.submitLunch = function(lunch){
+        var data = {
+          precio: lunch.precio,
+          lunch_items_attributes: buildLuchItemsAttributes(lunch) //jshint ignore:line
+        };
+        ItemsService.newLunch(data).then(function success(response){
+          closeModal(response);
+        }, error);
+      };
       ModalService.showModal({
         parentScope: modalScopeLunch,
         fromTemplateUrl: 'templates/item/preview-lunch.html'
       });
     }
 
+    function buildLuchItemsAttributes(lunch) {
+      var attributesLunch = [
+        { prop: 'desserts', key: 'dessert' },
+        { prop: 'drinks', key: 'drink' },
+        { prop: 'mainplates', key: 'mainplate' },
+        { prop: 'soups', key: 'soup' }
+      ],
+      attributes = [];
+      attributesLunch.forEach(function(attr){
+        var values = lunch[attr.prop] || [];
+        if (values.length) {
+          values.forEach(function(val){
+            attributes.push({
+              kind: attr.key,
+              name: val.name
+            });
+          });
+        }
+      });
+      return attributes;
+    }
+
     function removeBlanks(items) {
       var result = [];
       angular.forEach(items, function(item){
         if (item.name && !(/^\s*$/.test(item.name))) {
-          console.log(item);
           result.push(item);
         }
       });

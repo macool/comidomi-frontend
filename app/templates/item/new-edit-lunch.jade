@@ -151,39 +151,40 @@ ion-modal-view.item-form-lunch
             min='0'
             type='number'
             ng-model='modalVm.menu.cantidad'
+            required
           )
         .errors-wrapper
           show-error(array-messages='modalVm.messages.cantidad')
 
-        label.item.item-input.item-input--no-borders.item-stacked-label
-          .label-with-button
-            span.form-label {{::("item.imagen"|translate)}}
-        .picture-uploader(
-          ng-if="modalVm.menu.imagenes.length === 0"
-          ngf-select="modalVm.concatImages($files)"
-          ngf-capture="'camera'"
-          accept="image/*"
-          multiple
-        )
-          .icon-placeholder-wrapper
-            i.icon.ion-camera
-          .img-placeholder--legend {{::("item.addImages"|translate)}}
-
-        .row.images-previews
-          .img-wrapper.col-33(
-            ng-repeat="image in modalVm.imagesUrls"
-          )
-            img(ngf-src="image")
-
-          .img-wrapper.col-33(ng-if="modalVm.menu.imagenes.length > 0")
-            .add-image-placeholder(
-              ngf-select="modalVm.concatImages($files)"
-              ngf-capture="'camera'"
-              accept="image/*"
-              multiple
-            )
-              i.ion-plus
-        show-error(array-messages='modalVm.messages.imagen')
+        //- label.item.item-input.item-input--no-borders.item-stacked-label
+        //-   .label-with-button
+        //-     span.form-label {{::("item.imagen"|translate)}}
+        //- .picture-uploader(
+        //-   ng-if="modalVm.menu.imagenes.length === 0"
+        //-   ngf-select="modalVm.concatImages($files)"
+        //-   ngf-capture="'camera'"
+        //-   accept="image/*"
+        //-   multiple
+        //- )
+        //-   .icon-placeholder-wrapper
+        //-     i.icon.ion-camera
+        //-   .img-placeholder--legend {{::("item.addImages"|translate)}}
+        //- 
+        //- .row.images-previews
+        //-   .img-wrapper.col-33(
+        //-     ng-repeat="image in modalVm.imagesUrls"
+        //-   )
+        //-     img(ngf-src="image")
+        //- 
+        //-   .img-wrapper.col-33(ng-if="modalVm.menu.imagenes.length > 0")
+        //-     .add-image-placeholder(
+        //-       ngf-select="modalVm.concatImages($files)"
+        //-       ngf-capture="'camera'"
+        //-       accept="image/*"
+        //-       multiple
+        //-     )
+        //-       i.ion-plus
+        //- show-error(array-messages='modalVm.messages.imagen')
       
     ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open
       button.button-full.button-main.button-primary(
