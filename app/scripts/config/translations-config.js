@@ -213,7 +213,9 @@
         seeDetails: 'Ver detalles',
         call: 'Llamar',
         map: 'Ver mapa',
-        promotion: 'Tiene promoción'
+        promotion: 'Tiene promoción',
+        lunches: 'Almuerzos',
+        products: 'Productos'
       },
       item: {
         item: 'Producto',

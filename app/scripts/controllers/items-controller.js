@@ -27,6 +27,17 @@
     ];
     itemsVm.submitProcess = newItem; // NB currently here only to honour specs. wipe me?
     itemsVm.query = '';
+    itemsVm.currentTab = 'products';
+    itemsVm.tabs = [
+      {
+        key: 'products',
+        onClick: switchTab
+      },
+      {
+        key: 'lunches',
+        onClick: switchTab
+      },
+    ];
     init();
     getProviderItemCategories();
 
@@ -200,6 +211,11 @@
         }
       });
       return result;
+    }
+
+    function switchTab (key){
+      itemsVm.orders = [];
+      itemsVm.currentTab = key;
     }
   }
 })();

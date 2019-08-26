@@ -3,19 +3,26 @@ ion-view.provider-items(
 )
   ion-nav-title
     .alt-logo
+  .filter-tabs.tabs-header
+    .filter-tab(
+      ng-repeat="tab in ::itemsVm.tabs"
+      ng-click="::tab.onClick(tab.key)"
+      ng-class="{'selected': itemsVm.currentTab === tab.key}"
+    )
+      | {{ ("globals." + tab.key | translate) }}
 
-  ion-nav-buttons(side="right")
+  //- ion-nav-buttons(side="right")
     //- provider-notifications
 
-  ion-content.item-index-page.resource-collection
-    .row
-      label.item.search-input
-        i.icon.ion-search.placeholder-icon
-        input(
-          ng-model="itemsVm.query"
-          type="text"
-          placeholder='{{::("item.itemSearch"|translate)}}'
-        )
+  ion-content.item-index-page.resource-collection.has-footer.has-tabs-header
+    //- .row
+    //-   label.item.search-input
+    //-     i.icon.ion-search.placeholder-icon
+    //-     input(
+    //-       ng-model="itemsVm.query"
+    //-       type="text"
+    //-       placeholder='{{::("item.itemSearch"|translate)}}'
+    //-     )
 
     .list.list-inset.list--no-borders.resource-collection-table
       .row.table-headers
