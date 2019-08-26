@@ -24,7 +24,9 @@ ion-view.provider-items(
     //-       placeholder='{{::("item.itemSearch"|translate)}}'
     //-     )
 
-    .list.list-inset.list--no-borders.resource-collection-table
+    .list.list-inset.list--no-borders.resource-collection-table(
+      ng-if="itemsVm.loaded"
+    )
       .row.table-headers
         .col.col-75 {{::("item.productName"|translate)}}
         .col.col-25
@@ -53,7 +55,8 @@ ion-view.provider-items(
         .col.col-25.text-right
           price(amount="{{item.precio_cents}}" currency="{{item.precio_currency}}")
 
-  
+    .products(ng-if="!itemsVm.loaded")
+      skeleton(number=5)
   //- ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open.with-tab
   //-   button.button-full.button-main.button-primary(
   //-     ng-click="itemsVm.newItemModal()"

@@ -10,7 +10,6 @@
                            $ionicLoading,
                            $ionicPopup,
                            $scope,
-                           apiResources,
                            ItemsService,
                            ModalService,
                            ItemCategoriesService,
@@ -18,6 +17,7 @@
                            APP) {
     var itemsVm = this,
         modalScope;
+    itemsVm.loaded = false;
     itemsVm.newItemModal = launchModal;
     itemsVm.newLunchModal = lunchModal;
     itemsVm.sortingOptions = [
@@ -42,7 +42,11 @@
     getProviderItemCategories();
 
     function init() {
-      itemsVm.items = apiResources.provider_items; //jshint ignore:line
+      ItemsService.getItems()
+        .then(function success(response) {
+          itemsVm.items = response.provider_items; //jshint ignore:line
+          itemsVm.loaded = true;
+        }, ErrorHandlerService.handleCommonErrorGET);
     }
 
     function getProviderItemCategories(){
