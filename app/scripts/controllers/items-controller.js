@@ -18,8 +18,8 @@
     var itemsVm = this,
         modalScope;
     itemsVm.loaded = false;
-    itemsVm.newItemModal = launchModal;
-    itemsVm.newLunchModal = lunchModal;
+    itemsVm.productsView = [];
+    itemsVm.newItemModal = newItemModal;
     itemsVm.sortingOptions = [
       { tkey: 'item.sortBy.titulo', filterField: 'titulo' },
       { tkey: 'item.sortBy.createdAt', filterField: 'created_at' },
@@ -44,7 +44,8 @@
     function init() {
       ItemsService.getItems()
         .then(function success(response) {
-          itemsVm.items = response.provider_items; //jshint ignore:line
+          itemsVm.items = classifyProducts(response.provider_items); //jshint ignore:line
+          itemsVm.productsView = itemsVm.items[itemsVm.currentTab];
           itemsVm.loaded = true;
         }, ErrorHandlerService.handleCommonErrorGET);
     }
@@ -72,7 +73,7 @@
       });
       ItemsService.newItem(modalScope.modalVm.item).then(function success(response){
         $ionicLoading.hide().then(function(){
-          itemsVm.items.push(response.provider_item); //jshint ignore:line
+          itemsVm.productsView.push(response.provider_item); //jshint ignore:line
           getProviderItemCategories();
           $ionicPopup.alert({
             title: 'Éxito',
@@ -82,7 +83,7 @@
       }, error);
     }
 
-    function launchModal() {
+    function productModal() {
       modalScope = $scope.$new(true); // isolated
       modalScope.modalVm = itemsVm;
       // unfortunately item is the providerItem we'll edit
@@ -217,8 +218,32 @@
       return result;
     }
 
+    function classifyProducts(items) {
+      var lunches = [],
+          products = [];
+      items.forEach(function(item){
+        if (item.isLunch) { //TODO: classify lunches
+          lunches.push(item);
+        }else{
+          products.push(item);
+        }
+      });
+      return {
+        lunches: lunches,
+        products: products
+      };
+    }
+
+    function newItemModal() {
+      if (itemsVm.currentTab === 'lunches') {
+        lunchModal();
+      }else{
+        productModal();
+      }
+    }
+
     function switchTab (key){
-      itemsVm.orders = [];
+      itemsVm.productsView = itemsVm.items[key];
       itemsVm.currentTab = key;
     }
   }
