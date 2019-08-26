@@ -41,10 +41,14 @@
       var promos = [];
       categories.forEach(function(category){
         category.provider_items.forEach(function(item){
-          if (item.is_promo && isPromoAvailable(item.weekdays)){
-            var newItem = angular.copy(item);
-            promos.push(newItem);
-            item.hide = true;
+          if (item.is_promo && item.weekdays) {
+            if (isPromoAvailable(item.weekdays)){
+              var newItem = angular.copy(item);
+              promos.push(newItem);
+              item.hide = true;
+            }else{
+              item.hide = true;
+            }
           }
         });
       });
