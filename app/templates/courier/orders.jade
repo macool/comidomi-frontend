@@ -9,6 +9,7 @@ ion-view(
         ng-repeat="order in orVm.orders track by $index" 
         order="order"
         on-click="orVm.takeRequest"
+        type="new"
       )
     .cards-order(ng-if="!orVm.loaded")
       skeleton(number=5)

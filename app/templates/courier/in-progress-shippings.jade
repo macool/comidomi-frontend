@@ -15,10 +15,12 @@ ion-view(
 
       .card-order(ng-if="!shVm.loaded")
         skeleton(number=5)
-      
-    .list--top-narrow
-      p.text-center
-        | {{ ::("shippingRequest.noMoreItems" | translate) }}
+    
+    .empty-state(ng-if="!shVm.orders.length")
+      .image-wrapper
+        img(ng-src="images/order-motorcycle.png")
+      .text {{::("emptyStates.inProgressOrderCourier.main" | translate)}}
+      p {{::("emptyStates.inProgressOrderCourier.tip" | translate)}}
   
   tabs-nav(
     type="courier"

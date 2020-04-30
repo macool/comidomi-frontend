@@ -7,3 +7,80 @@ body.open-keyboard {
     bottom: 0;
   }
 }
+
+//images
+.img-wrapper-thumbnail_url {
+  .img {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/placeholder-menu.png');
+  }
+}
+
+.disabled-events {
+  pointer-events: none;
+}
+
+
+.switch-cmd {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid #c7c7c7;
+  border-radius: 5px;
+  width: 80px;
+
+  .section {
+    width: 50%;
+    text-align: center;
+    padding: 3px;
+
+    &.active {
+      background: $base-teal;
+      color: white;
+    }
+
+    &.inactive {
+      background: $base-grey;
+      color: white;
+    }
+  }
+}
+
+
+.tabs-header {
+  position: absolute;
+  width: 100%;
+  top: 44px;
+  z-index: 10;
+}
+
+ion-content {
+  z-index: 0;
+
+  &.has-tabs-header {
+    padding-top: 44px;
+  }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50%;
+
+  img {
+    width: 110px;
+    // filter: grayscale(1);
+  }
+
+  .text {
+    font-family: $font-base;
+    color: $base-grey;
+    font-size: $font-l;
+    padding-top: 10px;
+  }
+}

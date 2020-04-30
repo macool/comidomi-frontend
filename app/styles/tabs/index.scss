@@ -10,6 +10,7 @@
   border-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: $base-teal;
+  background-color: white;
 
   .tab-item{
     cursor: pointer;
@@ -48,6 +49,11 @@
     color: $base-grey;
 
     &.selected {
+      color: $base-orange;
+      border-bottom: 2.5px solid $base-orange;
+    }
+
+    &.tab-item-active  {
       color: $base-orange;
       border-bottom: 2.5px solid $base-orange;
     }

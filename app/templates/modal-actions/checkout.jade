@@ -1,0 +1,23 @@
+ion-modal-view.success-checkout
+  ion-content.content(scroll="false")
+    .wrapper
+      ng-md-icon.icon(
+        icon="check_circle"
+        size="100"
+      )
+      .content-background
+        .text
+          .main-text {{::(checkout.feedbackText | translate)}}
+          .ticket-number {{'#' + checkout.order.id}}
+          .tip-text
+            | {{::(checkout.total.text | translate)}} ${{checkout.total.value}} 
+      .actions
+        .button-link(
+            ng-click='checkout.goToProviders.onClick()'
+          )
+            | {{::(checkout.goToProviders.text | translate)}}
+        .link(
+            ng-click='checkout.goToOrder.onClick(checkout.order)'
+          )
+            | {{::(checkout.goToOrder.text | translate)}}
+  

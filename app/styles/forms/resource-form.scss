@@ -25,7 +25,7 @@
     line-height: 30px;
     text-transform: uppercase;
     font-family: $font-bold;
-    color: $base-darkteal;
+    color: $base-black;
   }
 
   p {
@@ -61,9 +61,9 @@
 
     .input-label {
       font-size: 16px;
-      text-transform: uppercase;
+      // text-transform: uppercase;
       font-family: $font-base;
-      color: $base-darkteal;
+      color: $base-black;
     }
 
     input {
@@ -73,7 +73,7 @@
       &[type=number],
       &[type=password],
       select {
-        padding-left: 15px;
+        // padding-left: 15px;
         padding-bottom: 0;
         padding-top: 0;
         font-size: 16px;
@@ -172,11 +172,11 @@
   }
 
   .datetime-picker {
-    color: $base-darkteal;
+    color: $base-black;
     font-family: $font-light;
 
     .icon::before {
-      color: $base-darkteal;
+      color: $base-black;
     }
 
     .input-label {

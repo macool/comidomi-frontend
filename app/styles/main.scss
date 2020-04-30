@@ -50,6 +50,7 @@
 @import "directives/sidebar-header-current-user";
 @import "directives/order-card";
 @import "directives/provider-card";
+@import "directives/lunch-card";
 @import "directives/tabs-nav";
 @import "directives/cart-button";
 @import "directives/flash-notification";
@@ -86,3 +87,5 @@
 @import "tos/show";
 @import "service_provider/index";
 @import "billing-address/billing-address";
+@import "modal-actions/checkout";
+@import "modal-actions/success";

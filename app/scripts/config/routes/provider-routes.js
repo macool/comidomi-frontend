@@ -70,12 +70,7 @@ function providerRoutes($stateProvider) {
       'menuContent@provider': {
         templateUrl: 'templates/item/items.html',
         controller: 'ItemsController',
-        controllerAs: 'itemsVm',
-        resolve: {
-          apiResources: function (ItemsService) {
-            return ItemsService.getItems();
-          }
-        }
+        controllerAs: 'itemsVm'
       }
     }
   })

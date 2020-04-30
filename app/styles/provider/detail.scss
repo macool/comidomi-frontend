@@ -259,7 +259,7 @@ $providerShowPageCoverHeight: 180px;
     }
 
     .provider-item--title {
-      text-transform: uppercase;
+      text-transform: capitalize;
       color: $base-black;
       max-height: 40px;
       overflow: hidden;
@@ -315,5 +315,34 @@ $providerShowPageCoverHeight: 180px;
 
   &:nth-child(3n+0) {
     border-right: 0;
+  }
+}
+
+.provider-items {
+
+  .item {
+    padding-bottom: 15px;
+
+    .provider-item-title {
+      display: flex;
+
+      .descripcion {
+        margin-left: 10px;
+        font-family: $font-base;
+
+        p {
+          color: $base-black;
+
+          &.subtitle {
+            color: $base-grey;
+          }
+        }
+      }
+    }
+
+    .text-right price {
+      color: $base-grey;
+      font-size: $font-m;
+    }
   }
 }

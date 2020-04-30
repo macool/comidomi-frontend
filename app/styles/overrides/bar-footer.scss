@@ -32,3 +32,11 @@
     outline: 0;
   }
 }
+
+ion-footer-bar {
+
+  &.with-tab {
+    bottom: 49px;
+    padding: 0;
+  }
+}

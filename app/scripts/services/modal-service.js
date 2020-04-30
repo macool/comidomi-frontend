@@ -12,9 +12,7 @@
       closeModal: closeModal
     };
 
-    var modalInstance = {
-      scope: null
-    };
+    var arrayModalInstance = [];
 
     return service;
 
@@ -25,6 +23,9 @@
         animation: 'slide-in-up',
         backdropClickToClose: true,
         hardwareBackButtonClose: true
+      };
+      var modalInstance = {
+        scope: null
       };
 
       angular.extend(myOptions, options);
@@ -38,15 +39,17 @@
         backdropClickToClose: myOptions.backdropClickToClose
       }).then(function(modal){
         modalInstance.scope.modal = modal;
+        arrayModalInstance.push(modalInstance);
         modalInstance.scope.modal.show();
         return modal;
       });
     }
 
     function closeModal(){
-      if (modalInstance.scope && modalInstance.scope.modal) {
-        return modalInstance.scope.modal.remove().then(function () {
-          modalInstance.scope = null;
+      var currentModalInstance = arrayModalInstance.pop() || {};
+      if (currentModalInstance.scope && currentModalInstance.scope.modal) {
+        return currentModalInstance.scope.modal.remove().then(function () {
+          currentModalInstance.scope = null;
         });
       } else {
         return $q.resolve();

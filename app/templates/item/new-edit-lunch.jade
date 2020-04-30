@@ -1,0 +1,193 @@
+ion-modal-view.item-form-lunch
+  ion-header-bar.bar-stable.bar.bar-header
+    .title.alt-logo
+
+    .ion-nav-buttons.buttons(side="primary")
+      button.button.button-clear.button-positive(
+        ng-click="modalVm.closeModal()"
+      ) {{::('globals.cancel'|translate)}}
+
+  form(
+    name='modalVm.itemForm'
+    ng-submit='modalVm.submitProcess()'
+    novalidate
+  )
+    ion-content.resource-form.content-lunch
+      .list.list-inset
+
+        .nested-input-wrapper
+          .label-with-button
+            span.form-label
+              | {{::("item.lunch.mainplate"|translate)}}
+              abbr *
+            ng-md-icon.icon(
+              icon="add_box"
+              size="25"
+              ng-click="modalVm.menu.mainplates.push({})"
+            )
+          .nested-input(
+            ng-repeat="mainplate in modalVm.menu.mainplates | orderBy:'$index':true"
+          )
+            input(
+              type='text'
+              ng-model='mainplate.name'
+              required
+            )
+            ng-md-icon.icon(
+              icon="remove_circle"
+              size="25"
+              ng-if="modalVm.menu.mainplates.length > 1"
+              ng-init="indexRemove = modalVm.menu.mainplates.length - 1 - $index"
+              ng-click="modalVm.menu.mainplates.splice(indexRemove, 1);"
+            )
+        
+        .nested-input-wrapper
+          .label-with-button
+            span.form-label
+              | {{::("item.lunch.soup"|translate)}}
+            ng-md-icon.icon(
+              icon="add_box"
+              size="25"
+              ng-click="modalVm.menu.soups.push({})"
+            )
+          .nested-input(
+            ng-repeat="soup in modalVm.menu.soups | orderBy:'$index':true"
+          )
+            input(
+              type='text'
+              ng-model='soup.name'
+            )
+            ng-md-icon.icon(
+              icon="remove_circle"
+              size="25"
+              ng-if="modalVm.menu.soups.length > 1"
+              ng-init="indexRemove = modalVm.menu.soups.length - 1 - $index"
+              ng-click="modalVm.menu.soups.splice(indexRemove, 1);"
+            )
+            
+        .nested-input-wrapper
+          .label-with-button
+            span.form-label
+              | {{::("item.lunch.drink"|translate)}}
+            ng-md-icon.icon(
+              icon="add_box"
+              size="25"
+              ng-click="modalVm.menu.drinks.push({})"
+            )
+          .nested-input(
+            ng-repeat="drink in modalVm.menu.drinks | orderBy:'$index':true"
+          )
+            input(
+              type='text'
+              ng-model='drink.name'
+            )
+            ng-md-icon.icon(
+              icon="remove_circle"
+              size="25"
+              ng-if="modalVm.menu.drinks.length > 1"
+              ng-init="indexRemove = modalVm.menu.drinks.length - 1 - $index"
+              ng-click="modalVm.menu.drinks.splice(indexRemove, 1);"
+            )
+            
+        .nested-input-wrapper
+          .label-with-button
+            span.form-label
+              | {{::("item.lunch.dessert"|translate)}}
+            ng-md-icon.icon(
+              icon="add_box"
+              size="25"
+              ng-click="modalVm.menu.desserts.push({})"
+            )
+          .nested-input(
+            ng-repeat="dessert in modalVm.menu.desserts | orderBy:'$index':true"
+          )
+            input(
+              type='text'
+              ng-model='dessert.name'
+            )
+            ng-md-icon.icon(
+              icon="remove_circle"
+              size="25"
+              ng-if="modalVm.menu.desserts.length > 1"
+              ng-init="indexRemove = modalVm.menu.desserts.length - 1 - $index"
+              ng-click="modalVm.menu.desserts.splice(indexRemove, 1);"
+            )
+                          
+        label.item.item-input.item-stacked-label(
+          ng-class="{'item-error': modalVm.itemForm.precio.$touched && modalVm.itemForm.precio.$invalid}"
+        )
+          .label-with-button
+            span.form-label
+              | {{::("item.lunch.price"|translate)}}
+              abbr *
+          .price-wrapper
+            .item-select
+              select(
+                ng-model='modalVm.menu.precio_currency'
+                ng-options="'item.currency.'+currency|translate for currency in modalVm.availableCurrencies"
+                name='precio_currency'
+                required
+              )
+            .input-wrapper
+              input(
+                min='0'
+                name='precio'
+                step='any'
+                type='number'
+                ng-model='modalVm.menu.precio'
+                required
+              )
+        .errors-wrapper
+          span.show-errors(ng-messages="modalVm.itemForm.precio.$error" ng-if="modalVm.itemForm.precio.$touched")
+            span.message-error(ng-message="required")
+              | {{::("globals.isRequired"|translate)}}
+          show-error(array-messages='modalVm.messages.precio')
+          show-error(array-messages='modalVm.messages.precio_currency')
+
+        label.item.item-input.item-stacked-label
+          .label-with-button
+            span.form-label {{::("item.lunch.quantity"|translate)}}
+          input(
+            min='0'
+            type='number'
+            ng-model='modalVm.menu.cantidad'
+            required
+          )
+        .errors-wrapper
+          show-error(array-messages='modalVm.messages.cantidad')
+
+        //- label.item.item-input.item-input--no-borders.item-stacked-label
+        //-   .label-with-button
+        //-     span.form-label {{::("item.imagen"|translate)}}
+        //- .picture-uploader(
+        //-   ng-if="modalVm.menu.imagenes.length === 0"
+        //-   ngf-select="modalVm.concatImages($files)"
+        //-   ngf-capture="'camera'"
+        //-   accept="image/*"
+        //-   multiple
+        //- )
+        //-   .icon-placeholder-wrapper
+        //-     i.icon.ion-camera
+        //-   .img-placeholder--legend {{::("item.addImages"|translate)}}
+        //- 
+        //- .row.images-previews
+        //-   .img-wrapper.col-33(
+        //-     ng-repeat="image in modalVm.imagesUrls"
+        //-   )
+        //-     img(ngf-src="image")
+        //- 
+        //-   .img-wrapper.col-33(ng-if="modalVm.menu.imagenes.length > 0")
+        //-     .add-image-placeholder(
+        //-       ngf-select="modalVm.concatImages($files)"
+        //-       ngf-capture="'camera'"
+        //-       accept="image/*"
+        //-       multiple
+        //-     )
+        //-       i.ion-plus
+        //- show-error(array-messages='modalVm.messages.imagen')
+      
+    ion-footer-bar.bar-stable.bar-footer--tall.set-to-bottom-on-keyboard-open
+      button.button-full.button-main.button-primary(
+        type="submit"
+        ng-disabled="modalVm.itemForm.$invalid"
+      ) {{::("item.preview"|translate)}}

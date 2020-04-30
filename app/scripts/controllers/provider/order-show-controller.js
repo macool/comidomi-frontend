@@ -23,6 +23,8 @@
       providerOrderShowVM.customerBillingAddress = getCustomerBillingAddress();
       providerOrderShowVM.dateDelivery = getDateDelivery();
       providerOrderShowVM.shouldDisplayProviderAnswerForm = getShouldDisplayProviderAnswerForm();
+      providerOrderShowVM.client = providerOrderShowVM.customerOrder.customer_profile; // jshint ignore:line
+      providerOrderShowVM.addressDelivery = providerOrderShowVM.customerOrderDelivery.customer_address_attributes; // jshint ignore:line
     }
 
     function getCustomerProfileName() {

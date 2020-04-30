@@ -6,7 +6,7 @@
       icon="{{spcVm.active ? 'check_box' : 'check_box_outline_blank' }}"
     )
     div
-      .title {{ ::spcVm.product.titulo }}
+      .title {{ ::(spcVm.product.titulo || spcVm.product.name)}}
       .descripcion {{ ::spcVm.product.descripcion }}
   .price
     price(amount="{{ ::spcVm.product.precio_cents }}"

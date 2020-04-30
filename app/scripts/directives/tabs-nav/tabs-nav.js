@@ -63,6 +63,14 @@
             validate: function(){
               return $auth.user.courier_profile;
             }
+          },
+          {
+            sref: 'provider.items.index',
+            icon: 'swap_horiz',
+            title: 'Proveedor',
+            validate: function(){
+              return $auth.user.provider_profile;
+            }
           }
         ],
         courieTabs = [
@@ -81,7 +89,27 @@
           {
             sref: 'courier.orders.all',
             icon: 'view_list',
-            title: 'Míos',
+            title: 'Entregados',
+            validate: isValid
+          },
+          {
+            sref: 'app.services.providers',
+            icon: 'swap_horiz',
+            title: 'Cliente',
+            validate: isValid
+          }
+        ],
+        providerTabs = [
+          {
+            sref: 'provider.items.index',
+            icon: 'restaurant',
+            title: 'Mi Menu',
+            validate: isValid
+          },
+          {
+            sref: 'provider.orders.index',
+            icon: 'receipt',
+            title: 'Pedidos',
             validate: isValid
           },
           {
@@ -93,7 +121,8 @@
         ],
         tabs = {
           customer: customerTabs,
-          courier: courieTabs
+          courier: courieTabs,
+          provider: providerTabs
         };
 
     tbVm.options = tbVm.options || {};

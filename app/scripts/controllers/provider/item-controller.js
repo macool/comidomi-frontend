@@ -45,10 +45,10 @@
       },ErrorHandlerService.handleCommonErrorGET);
     }
 
-    function updateStock() {
+    function updateStock(status) {
       ItemsService.editItem({
         id: providerItemVm.providerItem.id,
-        en_stock: providerItemVm.providerItem.en_stock // jshint ignore:line
+        en_stock: status // jshint ignore:line
       }).then(function (response) {
         providerItemVm.providerItem = response.provider_item; // jshint ignore:line
         init();

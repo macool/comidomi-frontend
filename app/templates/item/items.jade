@@ -1,33 +1,34 @@
-ion-view(
+ion-view.provider-items(
   view-title='{{::("item.items"|translate)}}'
 )
   ion-nav-title
     .alt-logo
+  .filter-tabs.tabs-header
+    .filter-tab(
+      ng-repeat="tab in ::itemsVm.tabs"
+      ng-click="::tab.onClick(tab.key)"
+      ng-class="{'selected': itemsVm.currentTab === tab.key}"
+    )
+      | {{ ("globals." + tab.key | translate) }}
 
-  ion-nav-buttons(side="right")
-    provider-notifications
+  //- ion-nav-buttons(side="right")
+    //- provider-notifications
 
-  ion-content.item-index-page.resource-collection
-    .row
-      label.item.search-input
-        i.icon.ion-search.placeholder-icon
-        input(
-          ng-model="itemsVm.query"
-          type="text"
-          placeholder='{{::("item.itemSearch"|translate)}}'
-        )
+  ion-content.item-index-page.resource-collection.has-footer.has-tabs-header
+    //- .row
+    //-   label.item.search-input
+    //-     i.icon.ion-search.placeholder-icon
+    //-     input(
+    //-       ng-model="itemsVm.query"
+    //-       type="text"
+    //-       placeholder='{{::("item.itemSearch"|translate)}}'
+    //-     )
 
-    .row
-      .list.list--centered
-        button.button.button-outline.button-energized(
-          ng-click="itemsVm.newItemModal()"
-        ) {{::("globals.new"|translate)}} {{::("item.item"|translate)}}
-
-    .list.list-inset.list--no-borders.resource-collection-table
+    .list.list-inset.list--no-borders.resource-collection-table(
+      ng-if="itemsVm.loaded"
+    )
       .row.table-headers
-        .col.col-50 {{::("item.productName"|translate)}}
-        .col.col-25.text-right
-          | {{::("item.price"|translate)}}
+        .col.col-75 {{ ("globals." + itemsVm.currentTab | translate) }}
         .col.col-25
           .item.item-input.item-select.filter-select
             select(
@@ -36,17 +37,35 @@ ion-view(
             )
               option(value="") Ordenar por
 
-      .col.without-items(ng-if="!itemsVm.items.length")
+      .col.without-items(ng-if="!itemsVm.productsView.length")
         p {{::("item.titleWithoutItems"|translate)}}
         p {{::("item.subtitleWithoutItems"|translate)}}
 
-      .item.row(
-        ng-repeat="item in itemsVm.items | filter:itemsVm.query | orderBy:sortingOption.filterField"
+      a.item.row(
+        ng-repeat="item in itemsVm.productsView | filter:itemsVm.query | orderBy:sortingOption.filterField"
+        ui-sref="provider.items.show({id: item.id})"
       )
-        .col.col-50.provider-item-title {{ ::item.titulo }}
+        .col.provider-item-title
+          .img-wrapper-thumbnail_url
+            .img(ng-if="item.imagenes[0]" ng-style="{'background-image':'url({{::(item.imagenes[0].thumbnail_url)}})'}")
+            .img(ng-if="!item.imagenes[0]")
+          .descripcion
+            p {{ ::item.titulo }}
+            p.subtitle {{ ::item.nombre_de_categoria }}
         .col.col-25.text-right
           price(amount="{{item.precio_cents}}" currency="{{item.precio_currency}}")
-        .col.col-25.text-right
-          a.button.button-clear.button-positive.button-small(
-            ui-sref="provider.items.show({id: item.id})"
-          ) {{ ::("globals.seeMore" | translate) }}
+
+    .products(ng-if="!itemsVm.loaded")
+      skeleton(number=5)
+    
+  .bottom-circle-button.set-to-bottom-on-keyboard-open(
+    ng-click="itemsVm.newItemModal()"
+  )
+    ng-md-icon.icon(
+      icon="add"
+      size="20"
+    )
+    
+  tabs-nav.hide-on-keyboard-open(
+    type="provider"
+  )

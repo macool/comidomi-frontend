@@ -1,57 +1,53 @@
-ion-view(
+ion-view.provider-orders-index-page(
   view-title="{{::('menu.provider.orders'|translate)}}"
 )
   ion-nav-title
     .alt-logo
+  .filter-tabs.tabs-header
+    .filter-tab(
+      menu-close
+      ng-class="{'tab-item-active': poVm.tab==='submitted'}"
+      ui-sref="provider.orders.index({status: 'submitted'})"
+    ) {{::("orders.inProcess"|translate)}}
+    .filter-tab(
+      menu-close
+      ng-class="{'tab-item-active': poVm.tab==='completed'}"
+      ui-sref="provider.orders.index({status: 'completed'})"
+    ) {{::("orders.completed"|translate)}}
+  //- ion-nav-buttons(side="right")
+    //- provider-notifications
 
-  ion-nav-buttons(side="right")
-    provider-notifications
+  ion-content
+    .skeletons(
+      ng-if="!poVm.loaded"
+    )
+      skeleton(number=5)
 
-  ion-content.provider-orders-index-page
-    .list.list-inset.page-title
-      h2 {{::("provider.orders" | translate)}}
-      p {{::("orders.titleFormOrders"|translate)}}
-
-    .tab-container
-      .tab-item(
-        menu-close
-        ng-class="{'tab-item-active': poVm.tab==='submitted'}"
-        ui-sref="provider.orders.index({status: 'submitted'})"
-      ) {{::("orders.inProcess"|translate)}}
-      .tab-item(
-        menu-close
-        ng-class="{'tab-item-active': poVm.tab==='completed'}"
-        ui-sref="provider.orders.index({status: 'completed'})"
-      ) {{::("orders.completed"|translate)}}
-
-    .list.list-inset
-      p(ng-if="poVm.tab==='submitted'")
-        | {{::("orders.have"|translate)}}
-        | {{poVm.customerOrders.length}}
-        | {{::("orders.ordersPendings"|translate)}}
-
-      .order-container.resource-rounded-container(
+    .orders(ng-if="poVm.customerOrders.length")
+      .order-container(
         ng-repeat="order in poVm.customerOrders"
         ui-sref="provider.orders.show({customerOrder: order, id: order.id})"
       )
-        .row
-          .col
-            .container-title
-              | {{ ::("orders.collectionTitle"| translate)}}{{:: order.id }}
-          .col.text-right
-            i.icon.ion-ios-clock-outline
-              span {{ order.submitted_at | toDate | formatDate: 'HH:mm' }}
-        .row
-          .col
-            span(
-              ng-if="order.anon_billing_address"
-            ) {{ ::("cart.anonBillingAddress" | translate) }}
-            span(
-              ng-if="!order.anon_billing_address"
-            ) {{ order.customer_billing_address.razon_social }}
-        .row
-          .col {{ order.submitted_at | toDate |formatDate: 'DD/MM/YYYY' }}
-          .col.text-right Asignado a: -
+        .order
+          .image-wrapper
+            img(ng-src="{{ ::order.customer_profile.image_url }}")
+          .content
+            .row-cmd
+              .text.accent
+                | {{ ::order.customer_profile.name }}
+              .text.accent
+                | # {{ ::order.id }}
+            .row-cmd
+              .text.secondary
+                price(amount="{{order.subtotal_items_cents}}" currency="{{order.subtotal_items_currency}}")
+              .text.secondary
+                span.date {{ order.submitted_at | formatDate:'MMMM DD - H:mm A' }}
+                
+    .empty-state(ng-if="!poVm.customerOrders.length && poVm.loaded")
+      .image-wrapper
+        img(ng-src="{{ ::poVm.emptyState }}")
+      .text {{::("orders.ordersEmpty"| translate)}}
 
-      row(ng-if="!poVm.customerOrders.length")
-        .col.text-center {{::("orders.ordersEmpty"| translate)}}
+  tabs-nav.hide-on-keyboard-open(
+    type="provider"
+  )

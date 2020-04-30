@@ -57,18 +57,22 @@
     }
 
     function submitProcess(user){
-      $ionicLoading.show({
-        template: '{{::("globals.updating"|translate)}}'
-      });
       ProfileService.editProfile(user)
         .then(function(resp) {
           piVm.user = resp.data.data;
           $scope.$emit('currentUserUpdated', piVm.user);
 
-          $ionicPopup.alert({
-            title: 'Éxito',
-            template: '{{::("user.successUpdateProfile"|translate)}}'
-          }).then(closeModal);
+          var options = {
+            mainText: 'modals.success.billing.updated.mainText',
+            secondaryText: 'modals.success.billing.updated.secondaryText',
+            continue: {
+              onClick: function(){
+                closeModal();
+              },
+              text: 'modals.success.billing.updated.btnContinue',
+            }
+          };
+          showSuccessModal(options);
         })
         .finally(function () {
           $ionicLoading.hide();
@@ -87,6 +91,15 @@
 
     function hasImageFile(user){
       return ProfileService.hasImageFile(user);
+    }
+
+    function showSuccessModal(options) {
+      closeModal();
+      $scope.action = options;
+      ModalService.showModal({
+        parentScope: $scope,
+        fromTemplateUrl: 'templates/modal-actions/success.html',
+      });
     }
   }
 })();

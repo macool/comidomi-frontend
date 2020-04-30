@@ -211,13 +211,19 @@
         noInformation: 'N/A',
         providerClose: 'Podrás hacer pedidos cuando {{providerName}} esté disponible',
         seeDetails: 'Ver detalles',
-        promotion: 'Tiene promoción'
+        call: 'Llamar',
+        map: 'Ver mapa',
+        promotion: 'Tiene promoción',
+        lunches: 'Almuerzos',
+        products: 'Productos'
       },
       item: {
         item: 'Producto',
         items: 'Productos',
         formLegend: 'Información del producto',
+        preview: 'Previsualizar producto',
         publishItem: 'Publicar producto',
+        updateItem: 'Actualizar producto',
         successItemSave: 'Producto publicado éxitosamente',
         successUpdateItem: 'Producto actualizado éxitosamente',
         successDeleteItem: 'Producto eliminado éxitosamente',
@@ -228,7 +234,7 @@
         titleWithoutItems: 'No tienes ningún producto que mostrar todavía.',
         subtitleWithoutItems: 'Presiona Nuevo Producto para empezar a vender.',
         titulo: 'Nombre del producto',
-        descripcion: 'Descripción corta',
+        descripcion: 'Descripción',
         stock:'Producto en Stock',
         precio: 'Precio',
         volumen: 'Volumen',
@@ -254,6 +260,14 @@
         currency: {
           USD: '$',
           PEN: 'S/.'
+        },
+        lunch: {
+          mainplate: 'Plato Principal',
+          soup: 'Sopa',
+          drink: 'Bebida',
+          dessert: 'Postre',
+          quantity: 'Cantidad',
+          price: 'Precio'
         }
       },
       actions: {
@@ -445,14 +459,14 @@
         collectionTitle: 'Orden #',
         total: 'Total',
         titleFormOrders: 'Revisa todos los pedidos que los clientes hacen sobre tus productos.',
-        inProcess: 'En gestión',
+        inProcess: 'En Gestión',
         completed: 'Completados',
-        inProgress: 'En progreso',
+        inProgress: 'En Progreso',
         delivered: 'Entregados',
         new: 'Nuevos',
         have: 'Tienes',
         ordersPendings: 'Pedidos pendientes',
-        ordersEmpty: 'No hay pedidos',
+        ordersEmpty: 'No hay pedidos pendientes',
         orderDetails: 'Detalles de la orden'
       },
       order: {
@@ -553,7 +567,7 @@
         statusShipping: 'Estado',
         courier: 'Mensajero',
         requestTime: 'Hora de envío',
-        estimatedTime: 'Hora de entrega est',
+        estimatedTime: 'Hora de entrega',
         orderNumber: 'Pedido #',
         errandNumber: 'Encomienda #',
         delivery: 'Envío',
@@ -586,6 +600,59 @@
           ask_to_validate: { // jshint ignore:line
             'leg0': 'A la tienda'
           }
+        }
+      },
+      modals: {
+        order_checkout: { // jshint ignore:line
+          goToOrder: 'Ver Mi Pedido',
+          goToProviders: 'Seguir Comprando',
+          total: 'Total a pagar: ',
+          feedback: 'Tu pedido ha sido enviado'
+        },
+        errand_checkout: { // jshint ignore:line
+          goToOrder: 'Ver Mi Encomienda',
+          goToProviders: 'Seguir Comprando',
+          total: 'Total de envio: ',
+          feedback: 'Tu encomienda ha sido enviada'
+        },
+        success: {
+          address: {
+            updated: {
+              mainText: 'Dirección Actualizada',
+              secondaryText: 'Tu dirección se ha actualizado correctamente',
+              btnContinue: 'Continuar'
+            },
+            created: {
+              mainText: 'Dirección Agregada',
+              secondaryText: 'Tu nueva dirección se ha agregado correctamente',
+              btnContinue: 'Continuar'
+            }
+          },
+          billing: {
+            updated: {
+              mainText: 'Datos Actualizados',
+              secondaryText: 'Tus datos se ha actualizado correctamente',
+              btnContinue: 'Continuar'
+            },
+            created: {
+              mainText: 'Datos Agregados',
+              secondaryText: 'Tu informacion ha sido agregada, ahora puedes seleccionarlos',
+              btnContinue: 'Continuar'
+            }
+          },
+          profile: {
+            updated: {
+              mainText: 'Perfil Actualizado',
+              secondaryText: 'Tus datos se ha actualizado correctamente',
+              btnContinue: 'Continuar'
+            }
+          }
+        }
+      },
+      emptyStates: {
+        inProgressOrderCourier: {
+          main: 'No Tienes Ordenes Pendiente',
+          tip: 'En la sección "Nuevos" puedes encontrar mas pedidos'
         }
       }
     });

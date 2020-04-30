@@ -4,23 +4,13 @@ ion-view(
   ion-nav-title
     .alt-logo
   ion-content.courier-shipping-request-my-shippings.courier-shipping-request-common.has-footer
-    .filter-tabs(
-      ng-if="!shVm.showFilterTab"
-    )
-      .filter-tab(
-        ng-repeat="tab in ::shVm.tabs"
-        ng-click="shVm.switchTab(tab.key)"
-        ng-class="{'selected': shVm.currentOrderType === tab.key}"
-      )
-        | {{ ("orders." + tab.key | translate) }}
-        
     .card-orders
       .card-order(ng-if="shVm.loaded")
         courier-order-card(
           ng-repeat="order in shVm.orders" 
           order="order"
           ui-sref='courier.order({ id: order.id, order: order})'
-          type='status'
+          type='row'
         )
 
       .card-order(ng-if="!shVm.loaded")

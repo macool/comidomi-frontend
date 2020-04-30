@@ -238,19 +238,30 @@
     }
 
     function runCheckout() {
-      $ionicLoading.show({
-        template: '{{::("globals.loading"|translate)}}'
-      });
       CartService.checkout(cartVm.checkoutForm)
         .then(function success(response) {
-          nextViewIsRoot();
-          $state.go('app.customerorders.show', {
-            id: response.customer_order.id,
-            customerOrder: response.customer_order
-          }).then(function () {
-              $auth.user.customer_order = null;
-              closeModal();
-            });
+          closeModal();
+          $scope.checkout = {
+            closeModal: closeModal,
+            order: response.customer_order,
+            feedbackText: 'modals.order_checkout.feedback',
+            goToProviders: {
+              onClick: goToProviders,
+              text: 'modals.order_checkout.goToProviders',
+            },
+            goToOrder:{
+              onClick: goToOrder,
+              text: 'modals.order_checkout.goToOrder',
+            },
+            total: {
+              text: 'modals.order_checkout.total',
+              value: response.customer_order.subtotal_items_cents
+            }
+          };
+          ModalService.showModal({
+            parentScope: $scope,
+            fromTemplateUrl: 'templates/modal-actions/checkout.html',
+          });
         }, function error(res) {
           $ionicLoading.hide();
           if (res && res.errors) {
@@ -263,6 +274,25 @@
             });
           }
         });
+    }
+
+    function goToOrder(order) {
+      nextViewIsRoot();
+      $state.go('app.customerorders.show', {
+        id: order.id,
+        customerOrder: order
+      }).then(function () {
+          $auth.user.customer_order = null;
+          closeModal();
+        });
+    }
+
+    function goToProviders() {
+      nextViewIsRoot();
+      $state.go('app.services.providers', {}).then(function () {
+        $auth.user.customer_order = null;
+        closeModal();
+      });
     }
 
     function assignBillingAddress(billingAddress) {

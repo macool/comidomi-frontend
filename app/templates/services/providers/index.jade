@@ -11,6 +11,13 @@ ion-view
           placeholder="Buscar"
           ng-model="searchName"
         )
+    .lunchs
+      .title Almuerzos
+      ion-scroll(direction="x" class="wide-as-needed lunch-wrapper")
+        lunch-card.section(
+          ng-repeat="lunch in servicesProvidersVM.providers"
+          lunch="lunch"
+        )
 
     .provider-cards(
       ng-if="servicesProvidersVM.loaded"

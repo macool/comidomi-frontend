@@ -65,43 +65,53 @@
     }
 
     function saveBillingAddress(){
-      $ionicLoading.show({
-        template: '{{::("globals.saving"|translate)}}'
-      });
       BillingAddressesService.createBillingAddress(billingAddressesVm.billingAddress).then(function success(resp){
-        $ionicLoading.hide().then(function(){
-          billingAddressesVm.billingAddresses.push(resp.customer_billing_address); //jshint ignore:line
-          $ionicPopup.alert({
-            title: 'Éxito',
-            template: '{{::("billingAddress.successSave"|translate)}}'
-          }).then(function(){
-            closeModal();
-          });
-        });
+        billingAddressesVm.billingAddresses.push(resp.customer_billing_address); //jshint ignore:line
+        var options = {
+          mainText: 'modals.success.billing.created.mainText',
+          secondaryText: 'modals.success.billing.created.secondaryText',
+          continue: {
+            onClick: function(){
+              closeModal();
+            },
+            text: 'modals.success.billing.created.btnContinue',
+          },
+          icon: 'sentiment_satisfied'
+        };
+        showSuccessModal(options);
       }, error);
     }
 
     function  updateBillingAddress(){
-      $ionicLoading.show({
-        template: '{{::("globals.updating"|translate)}}'
-      });
       BillingAddressesService.updateBillingAddress(billingAddressesVm.billingAddress).then(function success(resp){
-        $ionicLoading.hide().then(function(){
-          billingAddressesVm.billingAddresses[billingAddressesIndex] = resp.customer_billing_address; //jshint ignore:line
-          $ionicPopup.alert({
-            title: 'Éxito',
-            template: '{{::("billingAddress.successUpdate"|translate)}}'
-          }).then(function(){
-            closeModal();
-          });
-        });
-
+        billingAddressesVm.billingAddresses[billingAddressesIndex] = resp.customer_billing_address; //jshint ignore:line
+        var options = {
+          mainText: 'modals.success.billing.updated.mainText',
+          secondaryText: 'modals.success.billing.updated.secondaryText',
+          continue: {
+            onClick: function(){
+              closeModal();
+            },
+            text: 'modals.success.billing.updated.btnContinue',
+          }
+        };
+        showSuccessModal(options);
       }, error);
     }
 
     function error(res){
       billingAddressesVm.messages = res.status===422 ? res.data.errors:undefined;
       $ionicLoading.hide();
+    }
+
+
+    function showSuccessModal(options) {
+      closeModal();
+      $scope.action = options;
+      ModalService.showModal({
+        parentScope: $scope,
+        fromTemplateUrl: 'templates/modal-actions/success.html',
+      });
     }
 
   }

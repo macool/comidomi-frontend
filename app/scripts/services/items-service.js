@@ -8,14 +8,16 @@
   function ItemsService($http,
                         Upload,
                         ENV,
-                        CommonService) {
+                        CommonService,
+                        $q) {
 
     var service = {
       newItem: newItem,
       getItem: getItem,
       getItems: getItems,
       editItem: editItem,
-      deleteItem: deleteItem
+      deleteItem: deleteItem,
+      newLunch: newLunch
     };
 
     return service;
@@ -67,6 +69,19 @@
       return item && item.imagenes && item.imagenes.some(function (instance) {
         return instance.constructor === File;
       });
+    }
+
+    function newLunch(lunch) {
+      return $http({
+        method: 'POST',
+        url: ENV.apiHost + '/api/provider/lunches',
+        data: lunch
+      })
+        .then(function success(response){
+          return response.data;
+        }, function error(response){
+          return $q.reject(response.data);
+        });
     }
 
     function saveWithNestedImages(options){
